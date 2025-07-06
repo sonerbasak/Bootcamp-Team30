@@ -95,24 +95,14 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
   <details>
     <summary>🎯Sprint Review</summary>
-  </details>
-
-  <details>
-    <summary>🎯Sprint Reerospective</summary>
-  </details> 
-  
-  <details>
-    <summary>✅ Tamamlanan İşler</summary>
     - Leaflet.js kütüphanesi ile Türkiye ve Dünya haritası entegre edildi  
     - Harita üzerinde bazı şehirler (örneğin İstanbul, Ankara, İzmir) seçilebilir hale getirildi  
     - Bu şehirler için kısa bilgi kartları (nüfus, tarih, kültür, coğrafi konum) eklendi  
     - Şehir seçimi sonrası bilgi kutucuğu popup olarak kullanıcıya gösteriliyor  
-  </details>
 
-  <details>
-    <summary>👥 Takım Üyeleri ve 2 Haftalık Katkı Raporu</summary>
-
-    **Sprint Dönemi:** 24 Haziran – 6 Temmuz 2025  
+    ---
+    
+      **Sprint Dönemi:** 24 Haziran – 6 Temmuz 2025  
     **Proje:** GeoAI  
 
     👩‍💼 **Amine Demirbaş – Scrum Master**  
@@ -134,6 +124,10 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
     - Şehir seçimi ve popup bilgi kutuları  
     - Responsive UI ve bilgi kartı komponentleri  
   </details>
+
+  <details>
+    <summary>🎯Sprint Retrospective</summary>
+  </details> 
 </details>
 ---
 <details>
