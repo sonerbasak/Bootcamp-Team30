@@ -221,13 +221,16 @@ Ekran görüntüleri:
 <h2>🛠️ Kullanılan Teknolojiler</h2>
 
 <details>
-- **Frontend:** HTML,CSS,JS  
-- **Backend:** FastAPI  
-- **Veri Tabanı:** SQLite / Firebase  
-- **Yapay Zeka:** GEMİNİ  
-- **Tasarım:** Figma  
-
+  <summary>Teknoloji Detayları</summary>
+  <ul>
+    <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+    <li><strong>Backend:</strong> FastAPI</li>
+    <li><strong>Veri Tabanı:</strong> SQLite / Firebase</li>
+    <li><strong>Yapay Zeka:</strong> GEMİNİ</li>
+    <li><strong>Tasarım:</strong> Figma</li>
+  </ul>
 </details>
+
 
 ---
 
