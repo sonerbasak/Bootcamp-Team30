@@ -61,7 +61,7 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 <details>
   <summary>🏃 Sprint 1 - Temel Yapının Kurulumu</summary>
    <details>
-    <summary>🎯 📌 Sprint1 Notları</summary>
+    <summary>🎯 Sprint 1 Notları</summary>
    Sprint süreci boyunca ekip uyumlu bir şekilde çalışmış, görev dağılımı ve iletişim verimli bir şekilde yürütülmüştür. Sprint başında yapılan planlama toplantısında proje hedefleri netleştirilmiş, kullanıcı hikayeleri oluşturularak geliştirilecek özellikler belirlenmiştir. Arayüz tasarımları kullanıcı senaryolarına uygun şekilde planlanmış ve uygulamaya geçirilmiştir.Harita entegrasyonu başarıyla gerçekleştirilmiş, seçilebilir şehirler için bilgi kutucukları oluşturulmuştur
   </details>
 
@@ -74,11 +74,17 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
   </details>
   
   <details>
-    <summary>🎯Tahmin Edilecek Tamamlana Puan</summary>
+    <summary>🎯Tahmin Edilecen Tamamlanacak Puan</summary>
+    - Sprint 1 için belirlenen hedef puan: **100 puan**
+    - Gerçekleşen puan: **90 puan**
+    - Tamamlanma oranı: **%90**
   </details>
   
   <details>
     <summary>🎯Tahmin Mantığı</summary>
+    Proje süresince toplam 3 sprint planlanmış ve her sprint için değerlendirme **100 puan üzerinden** yapılacak şekilde yapılandırılmıştır.  
+    Görevler zorluk ve tahmini eforlarına göre puanlanmış, sprint sonunda bu görevlerin tamamlanma durumu puan bazlı olarak ölçülmüştür.  
+    Sprint 1, hedeflenen 100 puanın **%90’ine** ulaşılarak yüksek başarı oranıyla tamamlanmıştır.
   </details>
 
   <details>
@@ -102,7 +108,7 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
     ---
     
-      **Sprint Dönemi:** 24 Haziran – 6 Temmuz 2025  
+    **Sprint Dönemi:** 24 Haziran – 6 Temmuz 2025  
     **Proje:** GeoAI  
 
     👩‍💼 **Amine Demirbaş – Scrum Master**  
