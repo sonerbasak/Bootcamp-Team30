@@ -89,8 +89,6 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
  
 </details>
 
-</details>
-
 ---
 
 <details>
