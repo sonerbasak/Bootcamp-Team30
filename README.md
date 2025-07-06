@@ -3,10 +3,9 @@
 | İsim | Görev | GitHub | LinkedIn | Instagram |
 |------|-------|--------|----------|-----------|
 | Amine Demirbaş | Scrum Master | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)]((https://github.com/aminelisa)) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aminedemirbas/) | [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/a_minelisa)
-| Erva Alp | Product Owner | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kullaniciadi) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/kullaniciadi) | [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/kullaniciadi)
-| Melike Nur Köseoğlu | Frontend Developer | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MelikeNurKoseoglu) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]([https://linkedin.com/in/kullaniciadi](https://www.linkedin.com/in/melike-nur-k%C3%B6seo%C4%9Flu-2aaa27209?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bj1L3OI8BQmavp2t5YZaLrw%3D%3D)) | [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/melikenurkoseoglu)
-| Soner Başak | Backend Developer | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sonerbasak/) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sonerbasak/) | [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/sonerbasaak/)
-| Canberk | AI Developer | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kullaniciadi) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/kullaniciadi) | [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/kullaniciadi)
+| Melike Nur Köseoğlu | Product Owner | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MelikeNurKoseoglu) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)]([https://linkedin.com/in/kullaniciadi](https://www.linkedin.com/in/melike-nur-k%C3%B6seo%C4%9Flu-2aaa27209?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bj1L3OI8BQmavp2t5YZaLrw%3D%3D)) | [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/melikenurkoseoglu)
+| Soner Başak | Backend,AI Developer | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sonerbasak/) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sonerbasak/) | [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/sonerbasaak/)
+| Canberk | Frontend Developer | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kullaniciadi) | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/kullaniciadi) | [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/kullaniciadi)
 
 ---
 
@@ -23,10 +22,10 @@
 <details>
   <summary>📄 Proje Açıklaması</summary>
 
-Proje açıklamamız
+GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgeler, ülkeler veya iller seçerek, seçilen coğrafi alan ile ilgili yapay zeka destekli sorular oluşturmasını ve cevaplarını girmesini sağlayan etkileşimli bir web uygulamasıdır. Proje, harita tabanlı veri görselleştirme ve yapay zeka entegrasyonuyla bilgi keşfini kolaylaştırmayı amaçlamaktadır.
 </details>
 
-GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgeler, ülkeler veya iller seçerek, seçilen coğrafi alan ile ilgili yapay zeka destekli sorular oluşturmasını ve cevaplarını girmesini sağlayan etkileşimli bir web uygulamasıdır. Proje, harita tabanlı veri görselleştirme ve yapay zeka entegrasyonuyla bilgi keşfini kolaylaştırmayı amaçlamaktadır.
+
 
 <details>
   <summary>🌟 Proje Özellikleri</summary>
@@ -104,15 +103,10 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 - Trello panosu takibi ve günlük toplantı organizasyonu  
 - Sprint Review & Retrospective dokümantasyonu  
 
- 👩‍💼 Erva Alp – Product Owner
-- Proje vizyonu ve kullanıcı hikayelerinin oluşturulması  
-- Backlog yönetimi ve kullanıcı test senaryoları  
-- Tasarım yönlendirmeleri ve içerik planlama  
-
  👩‍💻 Melike Nur Köseoğlu – Frontend Developer
 - Leaflet.js ile harita görselleştirme  
-- Şehir seçimi ve popup bilgi kutuları  
-- Responsive UI ve bilgi kartı komponentleri  
+- Backlog yönetimi ve kullanıcı test senaryoları  
+- Tasarım yönlendirmeleri ve içerik planlama  
 
  👨‍💻 Soner Başak – Backend Developer
 - Şehir verileri için API ve JSON veri yapısı  
@@ -120,9 +114,8 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 - Gelecekteki veritabanı yapısı planlaması  
 
  👨‍💻 Canberk – AI Developer
-- LLM tabanlı soru üretim algoritması  
-- Prompt tasarımı ve Python demo scripti  
-- AI panel gereksinimlerinin belirlenmesi
+- Şehir seçimi ve popup bilgi kutuları  
+- Responsive UI ve bilgi kartı komponentleri  
 
 </details>
 <details>
