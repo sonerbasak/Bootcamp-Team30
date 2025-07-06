@@ -78,7 +78,7 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
   </details>
   
   <details>
-    <summary>🎯 Tahmin Edilecek Tamamlanacak Puan</summary>
+    <summary>🎯 Tahmin Edilen Tamamlanacak Puan</summary>
     <ul>
       <li>Sprint 1 için belirlenen hedef puan: <strong>100 puan</strong></li>
       <li>Gerçekleşen puan: <strong>90 puan</strong></li>
@@ -221,13 +221,16 @@ Ekran görüntüleri:
 <h2>🛠️ Kullanılan Teknolojiler</h2>
 
 <details>
-- **Frontend:** HTML,CSS,JS  
-- **Backend:** FastAPI  
-- **Veri Tabanı:** SQLite / Firebase  
-- **Yapay Zeka:** GEMİNİ  
-- **Tasarım:** Figma  
-
+  <summary>Teknoloji Detayları</summary>
+  <ul>
+    <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+    <li><strong>Backend:</strong> FastAPI</li>
+    <li><strong>Veri Tabanı:</strong> SQLite / Firebase</li>
+    <li><strong>Yapay Zeka:</strong> GEMİNİ</li>
+    <li><strong>Tasarım:</strong> Figma</li>
+  </ul>
 </details>
+
 
 ---
 
