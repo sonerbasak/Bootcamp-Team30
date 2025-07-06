@@ -202,8 +202,9 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
 ---
 
+<h2>🎥 Demo</h2>
+
 <details>
-  <summary>🎥 Demo</summary>
 
 > Demo videosu: [YouTube Linki (varsa)](https://youtube.com/...)
 
@@ -217,9 +218,9 @@ Ekran görüntüleri:
 
 ---
 
-<details>
-  <summary>🛠️ Kullanılan Teknolojiler</summary>
+<h2>🛠️ Kullanılan Teknolojiler</h2>
 
+<details>
 - **Frontend:** HTML,CSS,JS  
 - **Backend:** FastAPI  
 - **Veri Tabanı:** SQLite / Firebase  
