@@ -185,18 +185,23 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
 
 ---
+
 <details>
   <summary>⚙️ Sprint 2 - Gelişmiş Özellikler</summary>
 
   
 </details>
+
 ---
+
 <details>
   <summary>📈 Sprint 3 - Test ve Yayın Süreci</summary>
 
   
 </details>
+
 ---
+
 <details>
   <summary>🎥 Demo</summary>
 
