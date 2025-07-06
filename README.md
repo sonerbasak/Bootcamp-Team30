@@ -60,94 +60,114 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
 <details>
   <summary>🏃 Sprint 1 - Temel Yapının Kurulumu</summary>
-   <details>
+  
+  <details>
     <summary>🎯 Sprint 1 Notları</summary>
-   Sprint süreci boyunca ekip uyumlu bir şekilde çalışmış, görev dağılımı ve iletişim verimli bir şekilde yürütülmüştür. Sprint başında yapılan planlama toplantısında proje hedefleri netleştirilmiş, kullanıcı hikayeleri oluşturularak geliştirilecek özellikler belirlenmiştir. Arayüz tasarımları kullanıcı senaryolarına uygun şekilde planlanmış ve uygulamaya geçirilmiştir.Harita entegrasyonu başarıyla gerçekleştirilmiş, seçilebilir şehirler için bilgi kutucukları oluşturulmuştur
+    Sprint süreci boyunca ekip uyumlu bir şekilde çalışmış, görev dağılımı ve iletişim verimli bir şekilde yürütülmüştür. Sprint başında yapılan planlama toplantısında proje hedefleri netleştirilmiş, kullanıcı hikayeleri oluşturularak geliştirilecek özellikler belirlenmiştir. Arayüz tasarımları kullanıcı senaryolarına uygun şekilde planlanmış ve uygulamaya geçirilmiştir. Harita entegrasyonu başarıyla gerçekleştirilmiş, seçilebilir şehirler için bilgi kutucukları oluşturulmuştur.
   </details>
 
   <details>
     <summary>🎯 Sprint 1 Hedefleri</summary>
-    - Türkiye ve dünya haritalarının temel görselleştirmesini oluşturmak  
-    - Harita üzerinde şehir/bölge tıklanabilirliğini sağlamak  
-    - Belirli şehirler için bilgi veri girişlerini gerçekleştirmek  
-    - Basit ve işlevsel bir kullanıcı arayüzü oluşturmak  
+    <ul>
+      <li>Türkiye ve dünya haritalarının temel görselleştirmesini oluşturmak</li>
+      <li>Harita üzerinde şehir/bölge tıklanabilirliğini sağlamak</li>
+      <li>Belirli şehirler için bilgi veri girişlerini gerçekleştirmek</li>
+      <li>Basit ve işlevsel bir kullanıcı arayüzü oluşturmak</li>
+    </ul>
   </details>
   
   <details>
-    <summary>🎯Tahmin Edilecen Tamamlanacak Puan</summary>
-    - Sprint 1 için belirlenen hedef puan: **100 puan**
-    - Gerçekleşen puan: **90 puan**
-    - Tamamlanma oranı: **%90**
+    <summary>🎯 Tahmin Edilecek Tamamlanacak Puan</summary>
+    <ul>
+      <li>Sprint 1 için belirlenen hedef puan: <strong>100 puan</strong></li>
+      <li>Gerçekleşen puan: <strong>90 puan</strong></li>
+      <li>Tamamlanma oranı: <strong>%90</strong></li>
+    </ul>
   </details>
   
   <details>
-    <summary>🎯Tahmin Mantığı</summary>
-    Proje süresince toplam 3 sprint planlanmış ve her sprint için değerlendirme **100 puan üzerinden** yapılacak şekilde yapılandırılmıştır.  
-    Görevler zorluk ve tahmini eforlarına göre puanlanmış, sprint sonunda bu görevlerin tamamlanma durumu puan bazlı olarak ölçülmüştür.  
-    Sprint 1, hedeflenen 100 puanın **%90’ine** ulaşılarak yüksek başarı oranıyla tamamlanmıştır.
+    <summary>🎯 Tahmin Mantığı</summary>
+    <p>
+      Proje süresince toplam 3 sprint planlanmış ve her sprint için değerlendirme <strong>100 puan üzerinden</strong> yapılacak şekilde yapılandırılmıştır.<br>
+      Görevler zorluk ve tahmini eforlarına göre puanlanmış, sprint sonunda bu görevlerin tamamlanma durumu puan bazlı olarak ölçülmüştür.<br>
+      Sprint 1, hedeflenen 100 puanın <strong>%90’ına</strong> ulaşılarak yüksek başarı oranıyla tamamlanmıştır.
+    </p>
   </details>
 
   <details>
-    <summary>🎯Daily Scrum</summary>
+    <summary>🎯 Daily Scrum</summary>
     <p>Günlük toplantılarımızdan örnek ekran görüntüleri:</p>
-    <img src="images/görsel1.jpg" alt="Daily Scrum Görseli" width="600" />
-    <img src="images/görsel2.jpg" alt="Daily Scrum Görseli" width="600" />
+    <img src="images/görsel1.jpg" alt="Daily Scrum Görseli 1" width="600" style="margin-bottom: 10px;" />
+    <img src="images/görsel2.jpg" alt="Daily Scrum Görseli 2" width="600" />
   </details>
 
   <details>
-    <summary>🎯Sprint Board Updates</summary>
+    <summary>🎯 Sprint Board Updates</summary>
+    <!-- İstersen buraya içerik ekleyebilirsin -->
   </details>
 
   <details>
-    <summary>🎯Ekran Görüntüleri</summary>
+    <summary>🎯 Ekran Görüntüleri</summary>
     <p>Projeye ait 4 farklı ekran görüntüsü:</p>
-
-  <p>
-    <img src="images/ekran1.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px;" />
-    <img src="images/ekran2.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px;" />
-  </p>
-  <p>
-    <img src="images/ekran3.png" alt="Ekran Görüntüsü 3" width="300" style="margin-right: 10px;" />
-    <img src="images/ekran4.png" alt="Ekran Görüntüsü 4" width="300" style="margin-right: 10px;" />
-  </p>
+    <p>
+      <img src="images/ekran1.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ekran2.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+    </p>
+    <p>
+      <img src="images/ekran3.png" alt="Ekran Görüntüsü 3" width="300" style="margin-right: 10px;" />
+      <img src="images/ekran4.png" alt="Ekran Görüntüsü 4" width="300" />
+    </p>
   </details>
 
   <details>
-    <summary>🎯Sprint Review</summary>
-    - Leaflet.js kütüphanesi ile Türkiye ve Dünya haritası entegre edildi  
-    - Harita üzerinde bazı şehirler (örneğin İstanbul, Ankara, İzmir) seçilebilir hale getirildi  
-    - Bu şehirler için kısa bilgi kartları (nüfus, tarih, kültür, coğrafi konum) eklendi  
-    - Şehir seçimi sonrası bilgi kutucuğu popup olarak kullanıcıya gösteriliyor  
+    <summary>🎯 Sprint Review</summary>
+    <ul>
+      <li>Leaflet.js kütüphanesi ile Türkiye ve Dünya haritası entegre edildi</li>
+      <li>Harita üzerinde bazı şehirler (örneğin İstanbul, Ankara, İzmir) seçilebilir hale getirildi</li>
+      <li>Bu şehirler için kısa bilgi kartları (nüfus, tarih, kültür, coğrafi konum) eklendi</li>
+      <li>Şehir seçimi sonrası bilgi kutucuğu popup olarak kullanıcıya gösteriliyor</li>
+    </ul>
 
-    ---
-    
-    **Sprint Dönemi:** 24 Haziran – 6 Temmuz 2025  
-    **Proje:** GeoAI  
+    <hr />
 
-    👩‍💼 **Amine Demirbaş – Scrum Master**  
-    - Takım içi iletişim ve görev koordinasyonu  
-    - Trello panosu takibi ve günlük toplantı organizasyonu  
-    - Sprint Review & Retrospective dokümantasyonu  
+    <p><strong>Sprint Dönemi:</strong> 24 Haziran – 6 Temmuz 2025<br>
+    <strong>Proje:</strong> GeoAI</p>
 
-    👩‍💻 **Melike Nur Köseoğlu – Product Owner**  
-    - Leaflet.js ile harita görselleştirme  
-    - Backlog yönetimi ve kullanıcı test senaryoları  
-    - Tasarım yönlendirmeleri ve içerik planlama  
+    <p>👩‍💼 <strong>Amine Demirbaş – Scrum Master</strong></p>
+    <ul>
+      <li>Takım içi iletişim ve görev koordinasyonu</li>
+      <li>Trello panosu takibi ve günlük toplantı organizasyonu</li>
+      <li>Sprint Review & Retrospective dokümantasyonu</li>
+    </ul>
 
-    👨‍💻 **Soner Başak – Backend,AI Developer**  
-    - Şehir verileri için API ve JSON veri yapısı  
-    - Backend test ortamı ve veri servisleri  
-    - Gelecekteki veritabanı yapısı planlaması  
+    <p>👩‍💻 <strong>Melike Nur Köseoğlu – Product Owner</strong></p>
+    <ul>
+      <li>Leaflet.js ile harita görselleştirme</li>
+      <li>Backlog yönetimi ve kullanıcı test senaryoları</li>
+      <li>Tasarım yönlendirmeleri ve içerik planlama</li>
+    </ul>
 
-    👨‍💻 **Canberk – Frontend Developer**  
-    - Şehir seçimi ve popup bilgi kutuları  
-    - Responsive UI ve bilgi kartı komponentleri  
+    <p>👨‍💻 <strong>Soner Başak – Backend, AI Developer</strong></p>
+    <ul>
+      <li>Şehir verileri için API ve JSON veri yapısı</li>
+      <li>Backend test ortamı ve veri servisleri</li>
+      <li>Gelecekteki veritabanı yapısı planlaması</li>
+    </ul>
+
+    <p>👨‍💻 <strong>Canberk – Frontend Developer</strong></p>
+    <ul>
+      <li>Şehir seçimi ve popup bilgi kutuları</li>
+      <li>Responsive UI ve bilgi kartı komponentleri</li>
+    </ul>
   </details>
 
   <details>
-    <summary>🎯Sprint Retrospective</summary>
+    <summary>🎯 Sprint Retrospective</summary>
+    <!-- İstersen retrospektif notlarını buraya ekleyebilirsin -->
   </details> 
+
 </details>
+
 ---
 <details>
   <summary>⚙️ Sprint 2 - Gelişmiş Özellikler</summary>
