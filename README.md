@@ -62,30 +62,20 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
   <details>
     <summary>🏃 Sprint 1 - Temel Yapının Kurulumu</summary>
 
-    - Proje fikrinin belirlenmesi  
-    - Proje gereksinimlerinin ve kapsamının belirlenmesi  
-    - Dünya ve Türkiye harita veri kaynaklarının araştırılması  
-    - Teknoloji seçimleri ve dosya yapısının oluşturulması  
-    - Türkiye ve dünya haritasının projeye entegrasyonu  
-    - Genel frontend görünümün ayarlanması
-
     <details>
       <summary>🎯 Sprint 1 Hedefleri</summary>
-
       - Türkiye ve dünya haritalarının temel görselleştirmesini oluşturmak  
       - Harita üzerinde şehir/bölge tıklanabilirliğini sağlamak  
       - Belirli şehirler için bilgi veri girişlerini gerçekleştirmek  
       - Basit ve işlevsel bir kullanıcı arayüzü oluşturmak  
+    </details>
 
-      <details>
-        <summary>🚀 Tamamlanan İşler</summary>
-
-        - Leaflet.js kütüphanesi ile Türkiye ve Dünya haritası entegre edildi  
-        - Harita üzerinde bazı şehirler (örneğin İstanbul, Ankara, İzmir) seçilebilir hale getirildi  
-        - Bu şehirler için kısa bilgi kartları (nüfus, tarih, kültür, coğrafi konum) eklendi  
-        - Şehir seçimi sonrası bilgi kutucuğu popup olarak kullanıcıya gösteriliyor  
-
-      </details>
+    <details>
+      <summary>✅ Tamamlanan İşler</summary>
+      - Leaflet.js kütüphanesi ile Türkiye ve Dünya haritası entegre edildi  
+      - Harita üzerinde bazı şehirler (örneğin İstanbul, Ankara, İzmir) seçilebilir hale getirildi  
+      - Bu şehirler için kısa bilgi kartları (nüfus, tarih, kültür, coğrafi konum) eklendi  
+      - Şehir seçimi sonrası bilgi kutucuğu popup olarak kullanıcıya gösteriliyor  
     </details>
 
     <details>
@@ -112,19 +102,18 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
       👨‍💻 **Canberk – AI Developer**  
       - Şehir seçimi ve popup bilgi kutuları  
       - Responsive UI ve bilgi kartı komponentleri  
-
     </details>
 
   </details>
 
   <details>
     <summary>⚙️ Sprint 2 - Gelişmiş Özellikler</summary>
-    - (Sprint 2 içeriği buraya eklenecek)
+    <!-- Sprint 2 içeriği buraya gelecek -->
   </details>
 
   <details>
     <summary>📈 Sprint 3 - Test ve Yayın Süreci</summary>
-    - (Sprint 3 içeriği buraya eklenecek)
+    <!-- Sprint 3 içeriği buraya gelecek -->
   </details>
 
 </details>
