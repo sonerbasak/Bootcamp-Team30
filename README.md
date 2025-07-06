@@ -116,17 +116,17 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
     - Trello panosu takibi ve günlük toplantı organizasyonu  
     - Sprint Review & Retrospective dokümantasyonu  
 
-    👩‍💻 **Melike Nur Köseoğlu – Frontend Developer**  
+    👩‍💻 **Melike Nur Köseoğlu – Product Owner**  
     - Leaflet.js ile harita görselleştirme  
     - Backlog yönetimi ve kullanıcı test senaryoları  
     - Tasarım yönlendirmeleri ve içerik planlama  
 
-    👨‍💻 **Soner Başak – Backend Developer**  
+    👨‍💻 **Soner Başak – Backend,AI Developer**  
     - Şehir verileri için API ve JSON veri yapısı  
     - Backend test ortamı ve veri servisleri  
     - Gelecekteki veritabanı yapısı planlaması  
 
-    👨‍💻 **Canberk – AI Developer**  
+    👨‍💻 **Canberk – Frontend Developer**  
     - Şehir seçimi ve popup bilgi kutuları  
     - Responsive UI ve bilgi kartı komponentleri  
   </details>
