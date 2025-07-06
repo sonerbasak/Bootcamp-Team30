@@ -70,6 +70,23 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 - Türkiye ve dünya haritasının projeye entegrasyonu
 - Genel frontend görünümün ayarlanması
 
+<details>
+  <summary>🎯 Sprint 1 Hedefleri</summary>
+
+- Türkiye ve dünya haritalarının temel görselleştirmesini oluşturmak  
+- Harita üzerinde şehir/bölge tıklanabilirliğini sağlamak  
+- Belirli şehirler için bilgi veri girişlerini gerçekleştirmek  
+- Basit ve işlevsel bir kullanıcı arayüzü oluşturmak  
+
+<details>
+  <summary>🚀 Tamamlanan İşler</summary>
+
+- Leaflet.js kütüphanesi ile Türkiye ve Dünya haritası entegre edildi  
+- Harita üzerinde bazı şehirler (örneğin İstanbul, Ankara, İzmir) seçilebilir hale getirildi  
+- Bu şehirler için kısa bilgi kartları (nüfus, tarih, kültür, coğrafi konum) eklendi  
+- Şehir seçimi sonrası bilgi kutucuğu popup olarak kullanıcıya gösteriliyor 
+
+ 
 </details>
 
 </details>
