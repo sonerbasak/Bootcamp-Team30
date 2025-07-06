@@ -56,66 +56,90 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
 ---
 
+<h2>🚀 Sprint Süreci</h2>
+
 <details>
-  <summary>🚀 Sprint Süreci</summary>
+  <summary>🏃 Sprint 1 - Temel Yapının Kurulumu</summary>
 
   <details>
-    <summary>🏃 Sprint 1 - Temel Yapının Kurulumu</summary>
-
-    <details>
-      <summary>🎯 Sprint 1 Hedefleri</summary>
-      - Türkiye ve dünya haritalarının temel görselleştirmesini oluşturmak  
-      - Harita üzerinde şehir/bölge tıklanabilirliğini sağlamak  
-      - Belirli şehirler için bilgi veri girişlerini gerçekleştirmek  
-      - Basit ve işlevsel bir kullanıcı arayüzü oluşturmak  
-    </details>
-
-    <details>
-      <summary>✅ Tamamlanan İşler</summary>
-      - Leaflet.js kütüphanesi ile Türkiye ve Dünya haritası entegre edildi  
-      - Harita üzerinde bazı şehirler (örneğin İstanbul, Ankara, İzmir) seçilebilir hale getirildi  
-      - Bu şehirler için kısa bilgi kartları (nüfus, tarih, kültür, coğrafi konum) eklendi  
-      - Şehir seçimi sonrası bilgi kutucuğu popup olarak kullanıcıya gösteriliyor  
-    </details>
-
-    <details>
-      <summary>👥 Takım Üyeleri ve 2 Haftalık Katkı Raporu</summary>
-
-      **Sprint Dönemi:** 24 Haziran – 6 Temmuz 2025  
-      **Proje:** GeoAI  
-
-      👩‍💼 **Amine Demirbaş – Scrum Master**  
-      - Takım içi iletişim ve görev koordinasyonu  
-      - Trello panosu takibi ve günlük toplantı organizasyonu  
-      - Sprint Review & Retrospective dokümantasyonu  
-
-      👩‍💻 **Melike Nur Köseoğlu – Frontend Developer**  
-      - Leaflet.js ile harita görselleştirme  
-      - Backlog yönetimi ve kullanıcı test senaryoları  
-      - Tasarım yönlendirmeleri ve içerik planlama  
-
-      👨‍💻 **Soner Başak – Backend Developer**  
-      - Şehir verileri için API ve JSON veri yapısı  
-      - Backend test ortamı ve veri servisleri  
-      - Gelecekteki veritabanı yapısı planlaması  
-
-      👨‍💻 **Canberk – AI Developer**  
-      - Şehir seçimi ve popup bilgi kutuları  
-      - Responsive UI ve bilgi kartı komponentleri  
-    </details>
-
+    <summary>🎯 Sprint 1 Hedefleri</summary>
+    - Türkiye ve dünya haritalarının temel görselleştirmesini oluşturmak  
+    - Harita üzerinde şehir/bölge tıklanabilirliğini sağlamak  
+    - Belirli şehirler için bilgi veri girişlerini gerçekleştirmek  
+    - Basit ve işlevsel bir kullanıcı arayüzü oluşturmak  
   </details>
 
   <details>
-    <summary>⚙️ Sprint 2 - Gelişmiş Özellikler</summary>
-    <!-- Sprint 2 içeriği buraya gelecek -->
+    <summary>✅ Tamamlanan İşler</summary>
+    - Leaflet.js kütüphanesi ile Türkiye ve Dünya haritası entegre edildi  
+    - Harita üzerinde bazı şehirler (örneğin İstanbul, Ankara, İzmir) seçilebilir hale getirildi  
+    - Bu şehirler için kısa bilgi kartları (nüfus, tarih, kültür, coğrafi konum) eklendi  
+    - Şehir seçimi sonrası bilgi kutucuğu popup olarak kullanıcıya gösteriliyor  
   </details>
 
   <details>
-    <summary>📈 Sprint 3 - Test ve Yayın Süreci</summary>
-    <!-- Sprint 3 içeriği buraya gelecek -->
+    <summary>👥 Takım Üyeleri ve 2 Haftalık Katkı Raporu</summary>
+
+    **Sprint Dönemi:** 24 Haziran – 6 Temmuz 2025  
+    **Proje:** GeoAI  
+
+    👩‍💼 **Amine Demirbaş – Scrum Master**  
+    - Takım içi iletişim ve görev koordinasyonu  
+    - Trello panosu takibi ve günlük toplantı organizasyonu  
+    - Sprint Review & Retrospective dokümantasyonu  
+
+    👩‍💻 **Melike Nur Köseoğlu – Frontend Developer**  
+    - Leaflet.js ile harita görselleştirme  
+    - Backlog yönetimi ve kullanıcı test senaryoları  
+    - Tasarım yönlendirmeleri ve içerik planlama  
+
+    👨‍💻 **Soner Başak – Backend Developer**  
+    - Şehir verileri için API ve JSON veri yapısı  
+    - Backend test ortamı ve veri servisleri  
+    - Gelecekteki veritabanı yapısı planlaması  
+
+    👨‍💻 **Canberk – AI Developer**  
+    - Şehir seçimi ve popup bilgi kutuları  
+    - Responsive UI ve bilgi kartı komponentleri  
+  </details>
+</details>
+
+<details>
+  <summary>⚙️ Sprint 2 - Gelişmiş Özellikler</summary>
+
+  <details>
+    <summary>🎯 Sprint 2 Hedefleri</summary>
+    <!-- Hedefler buraya -->
   </details>
 
+  <details>
+    <summary>✅ Tamamlanan İşler</summary>
+    <!-- Tamamlanan işler buraya -->
+  </details>
+
+  <details>
+    <summary>👥 Takım Üyeleri ve 2 Haftalık Katkı Raporu</summary>
+    <!-- Katkı raporu buraya -->
+  </details>
+</details>
+
+<details>
+  <summary>📈 Sprint 3 - Test ve Yayın Süreci</summary>
+
+  <details>
+    <summary>🎯 Sprint 3 Hedefleri</summary>
+    <!-- Hedefler buraya -->
+  </details>
+
+  <details>
+    <summary>✅ Tamamlanan İşler</summary>
+    <!-- Tamamlanan işler buraya -->
+  </details>
+
+  <details>
+    <summary>👥 Takım Üyeleri ve 2 Haftalık Katkı Raporu</summary>
+    <!-- Katkı raporu buraya -->
+  </details>
 </details>
 
 <details>
