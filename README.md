@@ -78,7 +78,7 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
   </details>
   
   <details>
-    <summary>🎯 Tahmin Edilecek Tamamlanacak Puan</summary>
+    <summary>🎯 Tahmin Edilen Tamamlanacak Puan</summary>
     <ul>
       <li>Sprint 1 için belirlenen hedef puan: <strong>100 puan</strong></li>
       <li>Gerçekleşen puan: <strong>90 puan</strong></li>
