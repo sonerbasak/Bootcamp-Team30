@@ -9,7 +9,7 @@
 
 ---
 
-# 📌 Proje Adı
+# 📌 GeoAI
 
 **GeoAI** – Dünya ve Türkiye haritaları üzerinden AI destekli etkileşimli soru oluşturma ve bilgi keşfi platformu.
 
