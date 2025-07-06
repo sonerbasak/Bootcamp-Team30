@@ -61,40 +61,6 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 <details>
   <summary>🏃 Sprint 1 - Temel Yapının Kurulumu</summary>
 
-  <details>
-    <summary>👥 Takım Üyeleri ve 2 Haftalık Katkı Raporu</summary>
-
-    <p><strong>Sprint Dönemi:</strong> 24 Haziran – 6 Temmuz 2025<br>
-    <strong>Proje:</strong> GeoAI</p>
-
-    <p>👩‍💼 <strong>Amine Demirbaş – Scrum Master</strong></p>
-    <ul>
-      <li>Takım içi iletişim ve görev koordinasyonu</li>
-      <li>Trello panosu takibi ve günlük toplantı organizasyonu</li>
-      <li>Sprint Review & Retrospective dokümantasyonu</li>
-    </ul>
-
-    <p>👩‍💻 <strong>Melike Nur Köseoğlu – Product Owner</strong></p>
-    <ul>
-      <li>Leaflet.js ile harita görselleştirme</li>
-      <li>Backlog yönetimi ve kullanıcı test senaryoları</li>
-      <li>Tasarım yönlendirmeleri ve içerik planlama</li>
-    </ul>
-
-    <p>👨‍💻 <strong>Soner Başak – Backend, AI Developer</strong></p>
-    <ul>
-      <li>Şehir verileri için API ve JSON veri yapısı</li>
-      <li>Backend test ortamı ve veri servisleri</li>
-      <li>Gelecekteki veritabanı yapısı planlaması</li>
-    </ul>
-
-    <p>👨‍💻 <strong>Canberk – Frontend Developer</strong></p>
-    <ul>
-      <li>Şehir seçimi ve popup bilgi kutuları</li>
-      <li>Responsive UI ve bilgi kartı komponentleri</li>
-    </ul>
-
-  </details>
 
   <details>
     <summary>🎯 Sprint 1 Notları</summary>
@@ -154,14 +120,47 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
   </details>
 
   <details>
-    <summary>🎯 Sprint Review</summary>
-    <ul>
-      <li>Leaflet.js kütüphanesi ile Türkiye ve Dünya haritası entegre edildi</li>
-      <li>Harita üzerinde bazı şehirler (örneğin İstanbul, Ankara, İzmir) seçilebilir hale getirildi</li>
-      <li>Bu şehirler için kısa bilgi kartları (nüfus, tarih, kültür, coğrafi konum) eklendi</li>
-      <li>Şehir seçimi sonrası bilgi kutucuğu popup olarak kullanıcıya gösteriliyor</li>
-    </ul>
-  </details>
+  <summary>🎯 Sprint Review</summary>
+  <ul>
+    <li>Leaflet.js kütüphanesi ile Türkiye ve Dünya haritası entegre edildi</li>
+    <li>Harita üzerinde bazı şehirler (örneğin İstanbul, Ankara, İzmir) seçilebilir hale getirildi</li>
+    <li>Bu şehirler için kısa bilgi kartları (nüfus, tarih, kültür, coğrafi konum) eklendi</li>
+    <li>Şehir seçimi sonrası bilgi kutucuğu popup olarak kullanıcıya gösteriliyor</li>
+  </ul>
+
+  <hr />
+
+  <p><strong>Sprint Dönemi:</strong> 24 Haziran – 6 Temmuz 2025<br>
+  <strong>Proje:</strong> GeoAI</p>
+
+  <p>👩‍💼 <strong>Amine Demirbaş – Scrum Master</strong></p>
+  <ul>
+    <li>Takım içi iletişim ve görev koordinasyonu</li>
+    <li>Trello panosu takibi ve günlük toplantı organizasyonu</li>
+    <li>Sprint Review & Retrospective dokümantasyonu</li>
+  </ul>
+
+  <p>👩‍💻 <strong>Melike Nur Köseoğlu – Product Owner</strong></p>
+  <ul>
+    <li>Leaflet.js ile harita görselleştirme</li>
+    <li>Backlog yönetimi ve kullanıcı test senaryoları</li>
+    <li>Tasarım yönlendirmeleri ve içerik planlama</li>
+  </ul>
+
+  <p>👨‍💻 <strong>Soner Başak – Backend, AI Developer</strong></p>
+  <ul>
+    <li>Şehir verileri için API ve JSON veri yapısı</li>
+    <li>Backend test ortamı ve veri servisleri</li>
+    <li>Gelecekteki veritabanı yapısı planlaması</li>
+  </ul>
+
+  <p>👨‍💻 <strong>Canberk – Frontend Developer</strong></p>
+  <ul>
+    <li>Şehir seçimi ve popup bilgi kutuları</li>
+    <li>Responsive UI ve bilgi kartı komponentleri</li>
+  </ul>
+</details>
+
 
   <details>
     <summary>🎯 Sprint Retrospective</summary>
