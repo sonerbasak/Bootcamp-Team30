@@ -103,8 +103,11 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
   </details>
 
   <details>
-    <summary>🎯 Sprint Board Updates</summary>
-  </details>
+  <summary>🎯 Sprint Board Updates</summary>
+  <p>Sprint board'dan iki örnek ekran görüntüsü:</p>
+  <img src="images/görsel3.jpg" alt="Sprint Board Görüntüsü 1" width="600" style="margin-bottom: 10px;" />
+  <img src="images/görsel4.jpg" alt="Sprint Board Görüntüsü 2" width="600" />
+</details>
 
   <details>
     <summary>🎯 Ekran Görüntüleri</summary>
