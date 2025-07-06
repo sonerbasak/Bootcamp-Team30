@@ -70,6 +70,8 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 - Türkiye ve dünya haritasının projeye entegrasyonu
 - Genel frontend görünümün ayarlanması
 
+</details>
+
 <details>
   <summary>🎯 Sprint 1 Hedefleri</summary>
 
@@ -86,11 +88,11 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 - Bu şehirler için kısa bilgi kartları (nüfus, tarih, kültür, coğrafi konum) eklendi  
 - Şehir seçimi sonrası bilgi kutucuğu popup olarak kullanıcıya gösteriliyor 
 
- 
 </details>
-
----
-
+</details>
+</details>
+</details>
+ 
 <details>
   <summary>🎥 Demo</summary>
 
