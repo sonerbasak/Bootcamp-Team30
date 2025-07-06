@@ -166,9 +166,20 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
 
   <details>
-    <summary>🎯 Sprint Retrospective</summary>
-    <!-- İstersen retrospektif notlarını buraya ekleyebilirsin -->
-  </details>
+  <summary>🎯 Sprint Retrospective</summary>
+  <p>
+    Sprint sonunda ekip bir araya gelerek süreçte nelerin iyi gittiğini, hangi konularda zorlanıldığını ve iyileştirme alanlarını değerlendirmiştir.
+  </p>
+  <ul>
+    <li><strong>Başarılı Yönler:</strong> Ekip içi iletişim güçlüydü, görev dağılımı ve iş takibi etkiliydi.</li>
+    <li><strong>Geliştirilmesi Gerekenler:</strong> Bazı teknik entegrasyonlarda zamanlama sorunları yaşandı, test süreçleri daha erken başlamalı.</li>
+    <li><strong>İleriye Dönük Adımlar:</strong> Günlük toplantılar daha kısa ve odaklı yapılacak, dokümantasyon düzenli olarak güncellenecek.</li>
+  </ul>
+  <p>
+    Genel olarak sprint, belirlenen hedeflere büyük oranda ulaşılarak tamamlanmıştır ve sonraki sprintlerde verimliliği artırmak için gerekli adımlar planlanmıştır.
+  </p>
+</details>
+
 
 </details>
 
