@@ -92,7 +92,39 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 </details>
 </details>
 </details>
- 
+
+ <details>
+  <summary>👥 Takım Üyeleri ve 2 Haftalık Katkı Raporu</summary>
+
+**Sprint Dönemi:** 24 Haziran – 6 Temmuz 2025  
+**Proje:** GeoAI  
+
+👩‍💼 Amine Demirbaş – Scrum Master
+- Takım içi iletişim ve görev koordinasyonu  
+- Trello panosu takibi ve günlük toplantı organizasyonu  
+- Sprint Review & Retrospective dokümantasyonu  
+
+ 👩‍💼 Erva Alp – Product Owner
+- Proje vizyonu ve kullanıcı hikayelerinin oluşturulması  
+- Backlog yönetimi ve kullanıcı test senaryoları  
+- Tasarım yönlendirmeleri ve içerik planlama  
+
+ 👩‍💻 Melike Nur Köseoğlu – Frontend Developer
+- Leaflet.js ile harita görselleştirme  
+- Şehir seçimi ve popup bilgi kutuları  
+- Responsive UI ve bilgi kartı komponentleri  
+
+ 👨‍💻 Soner Başak – Backend Developer
+- Şehir verileri için API ve JSON veri yapısı  
+- Backend test ortamı ve veri servisleri  
+- Gelecekteki veritabanı yapısı planlaması  
+
+ 👨‍💻 Canberk – AI Developer
+- LLM tabanlı soru üretim algoritması  
+- Prompt tasarımı ve Python demo scripti  
+- AI panel gereksinimlerinin belirlenmesi
+
+</details>
 <details>
   <summary>🎥 Demo</summary>
 
