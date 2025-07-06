@@ -89,7 +89,7 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
   <details>
     <summary>🎯Daily Scrum</summary>
-    <p>Günlük toplantılarımızdan bir örnek ekran görüntüsü:</p>
+    <p>Günlük toplantılarımızdan örnek ekran görüntüleri:</p>
     <img src="images/görsel1.jpg" alt="Daily Scrum Görseli" width="600" />
     <img src="images/görsel2.jpg" alt="Daily Scrum Görseli" width="600" />
   </details>
@@ -100,6 +100,16 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
   <details>
     <summary>🎯Ekran Görüntüleri</summary>
+    <p>Projeye ait 4 farklı ekran görüntüsü:</p>
+
+  <p>
+    <img src="images/ekran1.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px;" />
+    <img src="images/ekran2.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px;" />
+  </p>
+  <p>
+    <img src="images/ekran3.png" alt="Ekran Görüntüsü 3" width="300" style="margin-right: 10px;" />
+    <img src="images/ekran4.png" alt="Ekran Görüntüsü 4" width="300" style="margin-right: 10px;" />
+  </p>
   </details>
 
   <details>
