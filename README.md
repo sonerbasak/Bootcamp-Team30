@@ -25,7 +25,7 @@
 GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgeler, ülkeler veya iller seçerek, seçilen coğrafi alan ile ilgili yapay zeka destekli sorular oluşturmasını ve cevaplarını girmesini sağlayan etkileşimli bir web uygulamasıdır. Proje, harita tabanlı veri görselleştirme ve yapay zeka entegrasyonuyla bilgi keşfini kolaylaştırmayı amaçlamaktadır.
 </details>
 
-
+---
 
 <details>
   <summary>🌟 Proje Özellikleri</summary>
@@ -103,45 +103,19 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
     - Responsive UI ve bilgi kartı komponentleri  
   </details>
 </details>
-
+---
 <details>
   <summary>⚙️ Sprint 2 - Gelişmiş Özellikler</summary>
 
-  <details>
-    <summary>🎯 Sprint 2 Hedefleri</summary>
-    <!-- Hedefler buraya -->
-  </details>
-
-  <details>
-    <summary>✅ Tamamlanan İşler</summary>
-    <!-- Tamamlanan işler buraya -->
-  </details>
-
-  <details>
-    <summary>👥 Takım Üyeleri ve 2 Haftalık Katkı Raporu</summary>
-    <!-- Katkı raporu buraya -->
-  </details>
+  
 </details>
-
+---
 <details>
   <summary>📈 Sprint 3 - Test ve Yayın Süreci</summary>
 
-  <details>
-    <summary>🎯 Sprint 3 Hedefleri</summary>
-    <!-- Hedefler buraya -->
-  </details>
-
-  <details>
-    <summary>✅ Tamamlanan İşler</summary>
-    <!-- Tamamlanan işler buraya -->
-  </details>
-
-  <details>
-    <summary>👥 Takım Üyeleri ve 2 Haftalık Katkı Raporu</summary>
-    <!-- Katkı raporu buraya -->
-  </details>
+  
 </details>
-
+---
 <details>
   <summary>🎥 Demo</summary>
 
