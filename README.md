@@ -60,6 +60,10 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
 <details>
   <summary>🏃 Sprint 1 - Temel Yapının Kurulumu</summary>
+   <details>
+    <summary>🎯 📌 Sprint1 Notları</summary>
+   Sprint süreci boyunca ekip uyumlu bir şekilde çalışmış, görev dağılımı ve iletişim verimli bir şekilde yürütülmüştür. Sprint başında yapılan planlama toplantısında proje hedefleri netleştirilmiş, kullanıcı hikayeleri oluşturularak geliştirilecek özellikler belirlenmiştir. Arayüz tasarımları kullanıcı senaryolarına uygun şekilde planlanmış ve uygulamaya geçirilmiştir.Harita entegrasyonu başarıyla gerçekleştirilmiş, seçilebilir şehirler için bilgi kutucukları oluşturulmuştur
+  </details>
 
   <details>
     <summary>🎯 Sprint 1 Hedefleri</summary>
@@ -68,7 +72,35 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
     - Belirli şehirler için bilgi veri girişlerini gerçekleştirmek  
     - Basit ve işlevsel bir kullanıcı arayüzü oluşturmak  
   </details>
+  
+  <details>
+    <summary>🎯Tahmin Edilecek Tamamlana Puan</summary>
+  </details>
+  
+  <details>
+    <summary>🎯Tahmin Mantığı</summary>
+  </details>
 
+  <details>
+    <summary>🎯Daily Scrum</summary>
+  </details>
+
+  <details>
+    <summary>🎯Sprint Board Updates</summary>
+  </details>
+
+  <details>
+    <summary>🎯Ekran Görüntüleri</summary>
+  </details>
+
+  <details>
+    <summary>🎯Sprint Review</summary>
+  </details>
+
+  <details>
+    <summary>🎯Sprint Reerospective</summary>
+  </details> 
+  
   <details>
     <summary>✅ Tamamlanan İşler</summary>
     - Leaflet.js kütüphanesi ile Türkiye ve Dünya haritası entegre edildi  
