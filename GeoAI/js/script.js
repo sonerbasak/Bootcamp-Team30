@@ -37,6 +37,8 @@ if (window.location.pathname.includes("ai.html")) {
 
     // Global erişim için fonksiyonu dışa aktar
     window.generateQuestion = generateQuestion;
+    window.slidePrev = slidePrev;
+    window.slideNext = slideNext;
 }
 
 // ==========================
@@ -169,6 +171,20 @@ if (document.getElementById("map")) {
         if (swiperInstance) {
             swiperInstance.destroy(true, true);
             swiperInstance = null;
+        }
+    }
+
+    // Swiper önceki slayta git
+    function slidePrev() {
+        if (swiperInstance) {
+            swiperInstance.slidePrev();
+        }
+    }
+
+    // Swiper sonraki slayta git
+    function slideNext() {
+        if (swiperInstance) {
+            swiperInstance.slideNext();
         }
     }
 

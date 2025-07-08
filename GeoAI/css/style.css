@@ -337,3 +337,219 @@ body,
     background-color: #00796b;
     color: white;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+    background-color: transparent; /* Arka planı şeffaf yapar */
+    color: #004d40 !important;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all 0.3s ease; /* Daha yumuşak geçişler için */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Quiz Sayfası Genel Stilleri */
+.quiz-page {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.quiz-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 750px; /* Daha geniş quiz için */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 121, 107, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center; /* Başlık ve zamanlayıcı ortalamak için */
+}
+
+.quiz-title {
+    font-size: 2rem;
+    color: #004d40;
+    margin-bottom: 15px;
+}
+
+.timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+/* Swiper Quiz Stilleri */
+.mySwiperQuiz {
+    width: 100%;
+    height: 350px; /* Quiz slaytları için yükseklik */
+    margin: 0 auto;
+    position: relative; /* Navigasyon butonlarını konumlandırmak için */
+}
+
+.quiz-slide {
+    background-color: #f1fdfc; /* Açık yeşilimsi arka plan */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 121, 107, 0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* İçeriği dikeyde dağıtmak için */
+    align-items: flex-start; /* İçeriği sola hizalamak için */
+    text-align: left; /* Metni sola hizalamak için */
+    color: #333;
+}
+
+.quiz-slide .question-number {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #004d40;
+    margin-bottom: 10px;
+}
+
+.quiz-slide .question-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+.quiz-slide .options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%; /* Seçeneklerin tam genişlikte olması için */
+}
+
+.quiz-slide .options label {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background-color: #e0f2f1; /* Seçenek arka planı */
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quiz-slide .options label:hover {
+    background-color: #c8e6c9; /* Seçenek hover rengi */
+    box-shadow: 0 2px 8px rgba(0, 121, 107, 0.15);
+}
+
+.quiz-slide .options input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #00796b; /* Radyo buton rengi */
+    transform: scale(1.2); /* Radyo butonunu biraz büyüt */
+}
+
+/* Quiz Navigasyon Butonları (swiper-button-prev, swiper-button-next) */
+.quiz-nav-btn {
+    color: #004d40; /* Koyu yeşil oklar */
+    background-color: transparent; /* Arka plan yok */
+    font-size: 2.5rem; /* Ok boyutunu büyüt */
+    top: 50%; /* Dikeyde ortala */
+    transform: translateY(-50%); /* Kendi yüksekliğinin yarısı kadar yukarı kaydır */
+    width: 50px; /* Buton alanını büyüt */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* Diğer öğelerin önüne gelsin */
+    transition: all 0.3s ease;
+}
+
+.quiz-nav-btn::after { /* Swiper'ın varsayılan ok içeriğini gizle */
+    content: '' !important;
+}
+
+.swiper-button-prev.quiz-nav-btn {
+    left: -60px; /* Sol tarafa biraz dışarıya taşı */
+}
+
+.swiper-button-next.quiz-nav-btn {
+    right: -60px; /* Sağ tarafa biraz dışarıya taşı */
+}
+
+.swiper-button-prev.quiz-nav-btn::before {
+    content: '❮'; /* Özel sol ok karakteri */
+}
+
+.swiper-button-next.quiz-nav-btn::before {
+    content: '❯'; /* Özel sağ ok karakteri */
+}
+
+.quiz-nav-btn:hover {
+    color: #00796b; /* Hover'da ok rengini biraz açar */
+    /* background-color: rgba(0, 77, 64, 0.05); /* İsterseniz hafif bir arka plan verebilirsiniz */
+}
+
+
+/* Swiper Pagination (aynı kalabilir veya quiz özelinde düzenlenebilir) */
+.mySwiperQuiz .swiper-pagination {
+    bottom: -10px !important; /* Sayfalama butonlarını alta taşı */
+}
+
+.mySwiperQuiz .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #00bfa5;
+    opacity: 0.6;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.mySwiperQuiz .swiper-pagination-bullet-active {
+    background: #00796b;
+    opacity: 1;
+}
+
+/* Quiz Aksiyon Butonları */
+.quiz-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.quiz-actions .btn {
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.quiz-actions .btn-success {
+    background: linear-gradient(to right, #00796b, #004d40);
+    border: none;
+    color: #e0f2f1;
+}
+
+.quiz-actions .btn-success:hover {
+    background: linear-gradient(to right, #004d40, #00796b);
+    box-shadow: 0 5px 15px rgba(0, 77, 64, 0.4);
+}
+
+.quiz-actions .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: white;
+}
+
+.quiz-actions .btn-secondary:hover {
+    background-color: #5a6268;
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+}
