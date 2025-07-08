@@ -1,187 +1,202 @@
-// Harita oluşturuluyor
-const map = L.map("map").setView([39, 35], 6);
-
-L.tileLayer("https://{s}.basemaps.cartocdn.com/watercolor/{z}/{x}/{y}{r}.png", {
-    attribution: "&copy; OpenStreetMap contributors",
-    maxZoom: 18,
-}).addTo(map);
-
-// Değişkenler
-let illerBilgi = [];
-let swiperInstance = null;
-let secilenIl = "";
-
-// AI Panel öğeleri
-const modal = document.getElementById("modal");
-const openAiFromModalBtn = document.getElementById("openAiFromModalBtn");
-const closeAiBtn = document.getElementById("closeAiBtn");
-const aiPanel = document.getElementById("aiPanel");
-const mapCol = document.getElementById("mapCol");
-const generateBtn = document.getElementById("generateQuestionBtn");
-const aiOutput = document.getElementById("aiOutput");
-const aiQuestionInput = document.getElementById("aiQuestionInput");
-const aiPanelTitle = document.getElementById("aiPanelTitle");
-
-// Harita ve iller verileri
-Promise.all([
-    fetch("iller.json").then((res) => res.json()),
-    fetch("tr-provinces.json").then((res) => res.json()),
-])
-    .then(([illerData, geoJsonData]) => {
-        illerBilgi = illerData;
-
-        const illerLayer = L.geoJSON(geoJsonData, {
-            style: {
-                color: "#00695C",
-                weight: 1,
-                fillColor: "#4DB6AC",
-                fillOpacity: 0.6,
-            },
-            onEachFeature: handleProvinceFeature,
-        }).addTo(map);
-
-        map.fitBounds(illerLayer.getBounds(), { padding: [20, 20] });
-    })
-    .catch((err) => console.error("Veriler yüklenirken hata:", err));
-
-// Her il için olay tanımlayıcı
-function handleProvinceFeature(feature, layer) {
-    const ilAdi = feature.properties.name || "İl";
-
-    layer.on("mouseover", (e) => {
-        e.target.setStyle({ fillColor: "#00796B", weight: 2 });
-        layer
-            .bindTooltip(ilAdi, {
-                direction: "top",
-                className: "leaflet-tooltip",
-                offset: [0, -10],
-            })
-            .openTooltip(e.latlng);
-    });
-
-    layer.on("mouseout", (e) => {
-        e.target.setStyle({ fillColor: "#4DB6AC", weight: 1 });
-        layer.closeTooltip();
-    });
-
-    layer.on("click", () => openIlModal(ilAdi));
+// Ortak Fonksiyon: URL parametresi al
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
 }
 
-// İl modalı aç
-function openIlModal(ilAdi) {
-    const ilVerisi = illerBilgi.find(
-        (i) => i.name.trim().toLowerCase() === ilAdi.trim().toLowerCase()
-    );
+// ==========================
+// AI SAYFASI KODLARI (ai.html)
+// ==========================
+if (window.location.pathname.includes("ai.html")) {
+    document.addEventListener("DOMContentLoaded", () => {
+        const city = getQueryParam("city");
+        const title = document.getElementById("pageTitle");
 
-    let icerik = ilVerisi
-        ? `
-    <div class="swiper mySwiper" style="width:100%; height: 300px;">
+        if (city && title) {
+            title.textContent = `🤖 ${city} hakkında AI ile Soru Oluştur`;
+        }
+    });
+
+    function generateQuestion() {
+        const city = getQueryParam("city") || "Belirtilmemiş şehir";
+        const userInput = document.getElementById("userInput").value.trim();
+        const outputBox = document.getElementById("outputBox");
+
+        if (!userInput) {
+            outputBox.innerHTML = "<strong>Lütfen bir konu giriniz.</strong>";
+            outputBox.style.display = "block";
+            return;
+        }
+
+        outputBox.innerText =
+            `"${city}" ile ilgili AI tarafından oluşturulan örnek soru:\n\n` +
+            `➤ ${userInput} konusunda ne düşünüyorsunuz?\n\n(AI cevabı burada gösterilecek...)`;
+
+        outputBox.style.display = "block";
+    }
+
+    // Global erişim için fonksiyonu dışa aktar
+    window.generateQuestion = generateQuestion;
+}
+
+// ==========================
+// HARİTA SAYFASI KODLARI (index.html)
+// ==========================
+if (document.getElementById("map")) {
+    // Harita oluşturuluyor
+    const map = L.map("map").setView([39, 35], 6);
+
+    L.tileLayer(
+        "https://{s}.basemaps.cartocdn.com/watercolor/{z}/{x}/{y}{r}.png",
+        {
+            attribution: "&copy; OpenStreetMap contributors",
+            maxZoom: 18,
+        }
+    ).addTo(map);
+
+    // Değişkenler
+    let illerBilgi = [];
+    let swiperInstance = null;
+    const modal = document.getElementById("modal");
+
+    // Veriler yükleniyor
+    Promise.all([
+        fetch("iller.json").then((res) => res.json()),
+        fetch("tr-provinces.json").then((res) => res.json()),
+    ])
+        .then(([illerData, geoJsonData]) => {
+            illerBilgi = illerData;
+
+            const illerLayer = L.geoJSON(geoJsonData, {
+                style: {
+                    color: "#00695C",
+                    weight: 1,
+                    fillColor: "#4DB6AC",
+                    fillOpacity: 0.6,
+                },
+                onEachFeature: (feature, layer) => {
+                    const ilAdi = feature.properties.name || "İl";
+
+                    layer.on("mouseover", (e) => {
+                        e.target.setStyle({ fillColor: "#00796B", weight: 2 });
+                        layer
+                            .bindTooltip(ilAdi, {
+                                direction: "top",
+                                className: "leaflet-tooltip",
+                                offset: [0, -10],
+                            })
+                            .openTooltip(e.latlng);
+                    });
+
+                    layer.on("mouseout", (e) => {
+                        e.target.setStyle({ fillColor: "#4DB6AC", weight: 1 });
+                        layer.closeTooltip();
+                    });
+
+                    layer.on("click", () => openIlModal(ilAdi));
+                },
+            }).addTo(map);
+
+            map.fitBounds(illerLayer.getBounds(), { padding: [20, 20] });
+        })
+        .catch((err) => console.error("Veri yüklenirken hata:", err));
+
+    // İl modalı aç
+    function openIlModal(ilAdi) {
+        const ilVerisi = illerBilgi.find(
+            (i) => i.name.trim().toLowerCase() === ilAdi.trim().toLowerCase()
+        );
+
+        const icerik = ilVerisi
+            ? `
+        <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide"><img src="${ilVerisi.resim
-        }" alt="${ilAdi}" /></div>
+            }" alt="${ilAdi}" /></div>
         <div class="swiper-slide"><h3>Tarihçe</h3><p>${ilVerisi.tarih}</p></div>
         <div class="swiper-slide"><h3>Eserler</h3><p>${ilVerisi.eserler
-        }</p></div>
+            }</p></div>
         <div class="swiper-slide"><h3>Öneriler</h3><p>${ilVerisi.oneriler
-        }</p></div>
-        <div class="swiper-slide"><h3>Bilgiler</h3>
-          <p><strong>Nüfus:</strong> ${ilVerisi.nufus}</p>
-          <p><strong>Plaka Kodu:</strong> ${ilVerisi.plakaKodu}</p>
-          <p><strong>Yemekler:</strong> ${ilVerisi.unluYemekler}</p>
+            }</p></div>
+        <div class="swiper-slide">
+            <h3>Bilgiler</h3>
+            <p><strong>Nüfus:</strong> ${ilVerisi.nufus}</p>
+            <p><strong>Plaka:</strong> ${ilVerisi.plakaKodu}</p>
+            <p><strong>Yemekler:</strong> ${ilVerisi.unluYemekler}</p>
         </div>
-        <div class="swiper-slide"><h3>Üniversiteler</h3><ul>${ilVerisi.universiteler
-            .map((u) => `<li>${u}</li>`)
-            .join("")}</ul></div>
+        <div class="swiper-slide">
+            <h3>Üniversiteler</h3>
+            <ul>${ilVerisi.universiteler
+                .map((u) => `<li>${u}</li>`)
+                .join("")}</ul>
+        </div>
       </div>
-      <div class="swiper-pagination"></div>
     </div>
-  `
-        : "<p>İçerik bulunamadı.</p>";
+      `
+            : "<p>İçerik bulunamadı.</p>";
 
-    document.getElementById("modalTitle").innerText = ilAdi;
-    document.getElementById("modalContent").innerHTML = icerik;
-    // BURAYI KONTROL EDİN:
-    // Daha önce 'block' ise, 'flex' olarak değiştirin.
-    modal.style.display = "flex"; // <-- Önemli değişiklik
+        document.getElementById("modalTitle").innerText = ilAdi;
+        document.getElementById("modalContent").innerHTML = icerik;
 
-    if (swiperInstance) swiperInstance.destroy(true, true);
+        // AI sayfasına bağlantı
+        const aiBtn = document.querySelector(".ai-btn");
+        if (aiBtn) {
+            aiBtn.href = `ai.html?city=${encodeURIComponent(ilAdi)}`;
+        }
 
-    if (ilVerisi) {
-        swiperInstance = new Swiper(".mySwiper", {
-            pagination: { el: ".swiper-pagination", clickable: true },
-            loop: false,
-        });
-    }
-}
+        // Modalı aç
+        modal.style.display = "flex";
 
-// Modal kapat
-function closeModal() {
-    modal.style.display = "none";
-    if (swiperInstance) {
-        swiperInstance.destroy(true, true);
-        swiperInstance = null;
-    }
-}
-
-// AI Panel Aç
-function openAiPanel(ilAdi) {
-    secilenIl = ilAdi;
-    aiPanelTitle.innerText = `${ilAdi} ile ilgili soru oluştur`;
-    aiPanel.classList.remove("d-none");
-    mapCol.classList.replace("col-12", "col-9");
-}
-
-// AI Panel Kapat
-function closeAiPanel() {
-    aiPanel.classList.add("d-none");
-    mapCol.classList.replace("col-9", "col-12");
-    aiOutput.innerText = "";
-    aiQuestionInput.value = "";
-    aiPanelTitle.innerText = "AI ile Soru Oluştur";
-    secilenIl = "";
-}
-
-// Soru oluştur
-function generateQuestion() {
-    const question = aiQuestionInput.value.trim();
-    if (!question) {
-        alert("Lütfen soru yazınız.");
-        return;
+        // Swiper'ı başlat
+        if (swiperInstance) swiperInstance.destroy(true, true);
+        if (ilVerisi) {
+            swiperInstance = new Swiper(".mySwiper", {
+                effect: "cards",
+                grabCursor: true,
+                cardsEffect: {
+                    perSlideOffset: 10,
+                    perSlideRotate: 2,
+                    slideShadows: false,
+                },
+                loop: false,
+            });
+        }
     }
 
-    aiOutput.innerText = `"${secilenIl}" hakkında oluşturulan soru:\n\n${question}\n\n(AI cevabı burada görünecek.)`;
-}
+    // Modal kapatma
+    function closeModal() {
+        modal.style.display = "none";
+        if (swiperInstance) {
+            swiperInstance.destroy(true, true);
+            swiperInstance = null;
+        }
+    }
 
-// Etkinlikler
-openAiFromModalBtn.addEventListener("click", () => {
-    closeModal();
-    openAiPanel(document.getElementById("modalTitle").innerText);
-});
-
-closeAiBtn.addEventListener("click", closeAiPanel);
-generateBtn.addEventListener("click", generateQuestion);
-
-// Modal dışına tıklanınca kapat
-window.onclick = (e) => {
-    if (e.target === modal) closeModal();
-};
-
-// Splash ve intro animasyonları
-window.addEventListener("load", () => {
-    const splash = document.getElementById("splash");
-    const fixedHeader = document.getElementById("fixedHeader");
-
-    splash.addEventListener("animationend", () => {
-        splash.style.display = "none";
-        fixedHeader.style.display = "block";
+    // Modal dışına tıklayınca kapat
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
     });
-});
 
-setTimeout(() => {
-    const intro = document.getElementById("introOverlay");
-    intro.style.transition = "opacity 1s ease";
-    intro.style.opacity = 0;
+    // Splash ve intro overlay geçişleri
+    window.addEventListener("load", () => {
+        const splash = document.getElementById("splash");
+        const fixedHeader = document.getElementById("fixedHeader");
+        if (splash) {
+            splash.addEventListener("animationend", () => {
+                splash.style.display = "none";
+                if (fixedHeader) fixedHeader.style.display = "block";
+            });
+        }
+    });
+
     setTimeout(() => {
-        intro.style.display = "none";
-    }, 1000);
-}, 5000);
+        const intro = document.getElementById("introOverlay");
+        if (intro) {
+            intro.style.transition = "opacity 1s ease";
+            intro.style.opacity = 0;
+            setTimeout(() => {
+                intro.style.display = "none";
+            }, 1000);
+        }
+    }, 5000);
+}
