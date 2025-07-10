@@ -13,6 +13,7 @@ let quizSwiper;
 document.addEventListener('DOMContentLoaded', async () => {
     const city = getQueryParam("city");
     const quizTitle = document.querySelector(".quiz-title");
+
     if (city && quizTitle) {
         quizTitle.textContent = `${city} Hakkında Quiz!`;
     } else {
@@ -35,7 +36,7 @@ function initializeSwiper() {
             el: ".swiper-pagination",
             clickable: true,
         },
-        allowTouchMove: false, // Dokunmatik kaydırmayı devre dışı bırakır
+        allowTouchMove: false,
         on: {
             slideChange: function () {
                 currentQuestionIndex = this.realIndex;
@@ -44,95 +45,103 @@ function initializeSwiper() {
     });
 }
 
-/**
- * Soruları yükleme fonksiyonu (API'den veya sabit bir diziden).
- * @param {string} city - Soruların hangi şehirle ilgili olacağı.
- */
 async function loadQuestions(city) {
-    // Burada dilerseniz AI'dan veya bir veritabanından dinamik olarak
-    // şehre özel quiz soruları çekebilirsiniz.
-    // Şimdilik örnek sorular kullanalım ve şehre göre basit bir filtreleme yapalım.
+    document.getElementById("loading").style.display = "block";
+    let rawQuizText = sessionStorage.getItem(`aiQuizData-${city}`);
+    
+    if (!rawQuizText) {
+        try {
+            const res = await fetch(`/api/gemini-quiz?city=${encodeURIComponent(city)}`);
+            if (!res.ok) throw new Error("API yanıt vermedi");
 
-    const allQuestions = [
-        {
-            question: "Türkiye'nin en yüksek dağı hangisidir?",
-            options: ["Kaçkar Dağı", "Erciyes Dağı", "Ağrı Dağı", "Uludağ"],
-            answer: "Ağrı Dağı",
-            city_keywords: [] // Genel soru
-        },
-        {
-            question: "Türkiye Cumhuriyeti'nin kurucusu kimdir?",
-            options: ["İsmet İnönü", "Fevzi Çakmak", "Mustafa Kemal Atatürk", "Celal Bayar"],
-            answer: "Mustafa Kemal Atatürk",
-            city_keywords: [] // Genel soru
-        },
-        {
-            question: "Akdeniz Bölgesi'nin en büyük ili hangisidir?",
-            options: ["Antalya", "Adana", "Mersin", "Hatay"],
-            answer: "Antalya",
-            city_keywords: ["Antalya"]
-        },
-        {
-            question: "Ayasofya hangi şehirdedir?",
-            options: ["Bursa", "İzmir", "İstanbul", "Edirne"],
-            answer: "İstanbul",
-            city_keywords: ["İstanbul"]
-        },
-        {
-            question: "Galata Kulesi hangi şehirdedir?",
-            options: ["Ankara", "İstanbul", "İzmir", "Trabzon"],
-            answer: "İstanbul",
-            city_keywords: ["İstanbul"]
-        },
-        {
-            question: "Efes Antik Kenti hangi ilimizdedir?",
-            options: ["Denizli", "Muğla", "İzmir", "Aydın"],
-            answer: "İzmir",
-            city_keywords: ["İzmir"]
-        },
-        {
-            question: "Pamukkale Travertenleri hangi şehirdedir?",
-            options: ["Antalya", "Denizli", "Muğla", "Burdur"],
-            answer: "Denizli",
-            city_keywords: ["Denizli"]
-        },
-        {
-            question: "Kapadokya hangi ilimizde yer almaktadır?",
-            options: ["Konya", "Kayseri", "Nevşehir", "Sivas"],
-            answer: "Nevşehir",
-            city_keywords: ["Nevşehir"]
-        },
-        {
-            question: "Anıtkabir hangi şehirdedir?",
-            options: ["İstanbul", "İzmir", "Ankara", "Bursa"],
-            answer: "Ankara",
-            city_keywords: ["Ankara"]
-        },
-        {
-            question: "Boğaz Köprüsü hangi şehirde yer almaktadır?",
-            options: ["İzmir", "İstanbul", "Çanakkale", "Bursa"],
-            answer: "İstanbul",
-            city_keywords: ["İstanbul"]
+            const data = await res.json();
+            rawQuizText = data.quiz_text;
+
+            console.log(`API'den ${city} için gelen ham metin:`, rawQuizText);
+
+            // Her şehir için farklı key ile kaydet
+            sessionStorage.setItem(`aiQuizData-${city}`, rawQuizText);
+        } catch (error) {
+            alert("Sorular alınamadı.");
+            rawQuizText = "";
         }
-    ];
-
-    const filteredQuestions = allQuestions.filter(q =>
-        !city || q.city_keywords.length === 0 || q.city_keywords.some(keyword => city.toLowerCase().includes(keyword.toLowerCase()))
-    );
-
-    if (filteredQuestions.length < 5) { 
-        const generalQuestions = allQuestions.filter(q => q.city_keywords.length === 0);
-        quizQuestions = [...new Set([...filteredQuestions, ...generalQuestions])].slice(0, 10); 
     } else {
-        quizQuestions = filteredQuestions.slice(0, 10);
+        console.log(`${city} için SessionStorage'dan quiz verisi alındı.`);
     }
 
-    quizQuestions.sort(() => Math.random() - 0.5);
+    quizQuestions = rawQuizText ? parseQuizText(rawQuizText) : [];
+    console.log("Parse edilmiş sorular:", quizQuestions);
+    renderQuestions(quizQuestions);
+    document.getElementById("loading").style.display = "none";
 
+    console.log("API raw metin:", rawQuizText);
+quizQuestions = rawQuizText ? parseQuizText(rawQuizText) : [];
+console.log("Parsed sorular:", quizQuestions);
+console.log("Toplam soru sayısı:", quizQuestions.length);
+
+}
+
+
+
+
+// API'den gelen raw metni parse etmek için örnek fonksiyon
+function parseQuizText(text) {
+    const questions = [];
+    
+    // Soru bloklarını 'Soru' kelimesine göre böl
+    // Örnek: "Soru 1" ile başlayan her blok bir soru
+    const splitRegex = /Soru \d+/gi;
+    let parts = text.split(splitRegex).map(p => p.trim()).filter(p => p.length > 0);
+    
+    // "Soru X" ifadelerini ayrıca bulalım ki soru numaraları atlanmasın
+    const questionNumbers = text.match(splitRegex);
+
+    if (!parts.length) return [];
+
+    for(let i=0; i<parts.length; i++) {
+        let block = parts[i];
+        let questionNumber = questionNumbers ? questionNumbers[i] : `Soru ${i+1}`;
+        
+        // Satırları al
+        const lines = block.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+
+        // İlk satır soru metni (çoğunlukla)
+        const questionText = lines[0] || "";
+
+        // Şıkları topla
+        const options = [];
+        let answer = "";
+
+        for(let j=1; j < lines.length; j++) {
+            let line = lines[j];
+            if (/^[A-D]\)/.test(line)) {
+                options.push(line.replace(/^[A-D]\)\s*/, ''));
+            } else if (/doğru cevap/i.test(line)) {
+                answer = line.split(':')[1].trim();
+            }
+        }
+
+        if(questionText && options.length > 0 && answer) {
+            questions.push({
+                question: questionText,
+                options: options,
+                answer: answer
+            });
+        }
+    }
+
+    return questions;
+}
+
+
+
+
+
+function renderQuestions(questions) {
     const questionsContainer = document.getElementById('quiz-questions-container');
     questionsContainer.innerHTML = '';
 
-    quizQuestions.forEach((q, index) => {
+    questions.forEach((q, index) => {
         const slide = document.createElement('div');
         slide.classList.add('swiper-slide', 'quiz-slide');
 
@@ -154,9 +163,16 @@ async function loadQuestions(city) {
                 ${optionsHtml}
             </div>
         `;
+
         questionsContainer.appendChild(slide);
     });
+
+    // Swiper instance'ı güncelle
+    if (quizSwiper) {
+        quizSwiper.update();  // Yeni slaytları algılasın diye
+    }
 }
+
 
 function startTimer() {
     const timerDisplay = document.getElementById('timer');
@@ -197,25 +213,16 @@ function submitQuiz() {
     alert(`Quiz tamamlandı! ${totalQuestions} sorudan ${score} doğru cevap verdiniz.`);
     console.log("Quiz Sonuçları:", userAnswers);
 
-    // İsterseniz burada kullanıcıyı bir sonuç sayfasına yönlendirebilirsiniz.
-    // Örneğin: window.location.href = `quiz-result.html?score=${score}&total=${totalQuestions}`;
-    
-    // Geçici olarak ana sayfaya yönlendiriyoruz
+    // Sonuç sayfası yoksa ana sayfaya dön
     goBackToAI();
 }
 
-/**
- * Swiper'da bir önceki soruya gider.
- */
 function prevQuestion() {
     if (quizSwiper) {
         quizSwiper.slidePrev();
     }
 }
 
-/**
- * Swiper'da bir sonraki soruya gider.
- */
 function nextQuestion() {
     if (quizSwiper) {
         quizSwiper.slideNext();
@@ -229,8 +236,8 @@ function goBackToAI() {
     }
 }
 
-// Global scope'a fonksiyonları ekliyoruz ki HTML'den erişilebilsinler
+// Global scope'a fonksiyonları ekle ki HTML'den erişilsin
 window.submitQuiz = submitQuiz;
 window.goBackToAI = goBackToAI;
-window.prevQuestion = prevQuestion; // Yeni eklenen fonksiyon
-window.nextQuestion = nextQuestion; // Yeni eklenen fonksiyon
+window.prevQuestion = prevQuestion;
+window.nextQuestion = nextQuestion;

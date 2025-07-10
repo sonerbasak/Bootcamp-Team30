@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = document.getElementById("pageTitle");
 
     if (city && title) {
-        title.textContent = `🤖 ${city} hakkında AI ile Soru Oluştur`;
+        title.textContent = `🤖 ${city} hakkında AI ile Quiz Oluştur`;
     }
 });
 

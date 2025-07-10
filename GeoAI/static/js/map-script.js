@@ -25,8 +25,8 @@ const modal = document.getElementById("modal");
 
 // Veriler yükleniyor
 Promise.all([
-    fetch("iller.json").then((res) => res.json()),
-    fetch("tr-provinces.json").then((res) => res.json()),
+    fetch("/data/iller.json").then((res) => res.json()),
+    fetch("/data/tr-provinces.json").then((res) => res.json()),
 ])
     .then(([illerData, geoJsonData]) => {
         illerBilgi = illerData;

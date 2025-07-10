@@ -1,0 +1,619 @@
+html,
+body,
+#map {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    width: 100%;
+}
+
+/* Splash ekran */
+#splash {
+    position: fixed;
+    background: #4db6ac;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 2000;
+    animation: fadeOut 2.5s ease forwards;
+}
+
+/* Intro Overlay */
+#introOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 10px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1050;
+    animation: fadeOut 10s ease forwards;
+    animation-delay: 2s;
+}
+
+/* Ortak fadeOut animasyonu */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
+}
+
+/* Tooltip */
+.leaflet-tooltip {
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    border: 3px solid #00bfa5;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.688);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px 20px;
+    max-width: 700px;
+    text-align: center;
+    border-radius: 10px;
+    color: #4db6ac;
+    font-weight: bolder;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    align-items: center;
+}
+
+/* Modal butonları */
+.modal-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Kapatma butonu */
+.close-btn,
+.ai-btn {
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+}
+
+.close-btn {
+    background-color: #00bfa5;
+    box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4);
+}
+
+.close-btn:hover {
+    background-color: #00796b;
+    box-shadow: 0 6px 15px rgba(0, 121, 107, 0.6);
+}
+
+.ai-btn {
+    background-color: #00796b;
+    box-shadow: 0 4px 12px rgba(0, 121, 107, 0.5);
+}
+
+.ai-btn:hover {
+    background-color: #004d40;
+    box-shadow: 0 6px 15px rgba(0, 77, 64, 0.7);
+}
+
+/* Swiper */
+.mySwiper {
+    width: 90%;
+    max-width: 500px;
+    height: 400px;
+    margin-left: auto;
+    perspective: 1200px;
+    box-sizing: border-box;
+}
+
+.swiper-slide {
+    background-color: #fff;
+    /* Beyaz arka plan */
+    color: #004d40;
+    /* Temanın koyu yeşil rengi */
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 121, 107, 0.825);
+    padding: 20px;
+    width: 250px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.swiper-slide:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 121, 107, 0.4);
+}
+
+.swiper-slide img {
+    max-width: 90%;
+    max-height: 250px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide img:hover {
+    transform: scale(1.05);
+}
+
+.swiper-slide h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #00796b;
+    font-weight: 600;
+}
+
+.swiper-slide p,
+.swiper-slide ul {
+    font-size: 1rem;
+    line-height: 1.4;
+    max-height: 140px;
+    overflow-y: auto;
+    color: #333;
+}
+
+.swiper-slide ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #444;
+}
+
+/* Swiper pagination */
+.modal-content .swiper-pagination {
+    bottom: 10px !important;
+}
+
+.modal-content .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    background: #00bfa5;
+    opacity: 0.6;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.modal-content .swiper-pagination-bullet-active {
+    background: #00796b;
+    opacity: 1;
+}
+
+.modal-content .swiper-pagination-bullet:hover {
+    background-color: #004d40;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.ai-page {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.ai-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 121, 107, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ai-title {
+    font-size: 1.8rem;
+    color: #004d40;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.ai-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ai-textarea {
+    resize: none;
+    border: 2px solid #00796b;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #004d40;
+    min-height: 100px;
+    transition: all 0.3s ease;
+}
+
+.ai-textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00796b44;
+    border-color: #004d40;
+}
+
+.ai-btn {
+    background: linear-gradient(to right, #00796b, #004d40);
+    color: #e0f2f1;
+    border: none;
+    border-radius: 20px;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ai-btn:hover {
+    background: linear-gradient(to right, #004d40, #00796b);
+    box-shadow: 0 5px 15px rgba(0, 77, 64, 0.4);
+}
+
+.ai-output {
+    background-color: #f1fdfc;
+    border-left: 4px solid #00796b;
+    border-radius: 10px;
+    padding: 15px;
+    color: #004d40;
+    font-size: 1rem;
+    white-space: pre-wrap;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.back-button {
+    position: fixed;
+    left: 20px;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #00796b;
+    background-color: white;
+    border: 2px solid #00796b;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 121, 107, 0.2);
+    transition: all 0.3s ease;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #00796b;
+    color: white;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    background-color: transparent;
+    /* Arka planı şeffaf yapar */
+    color: #004d40 !important;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    /* Daha yumuşak geçişler için */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Quiz Sayfası Genel Stilleri */
+.quiz-page {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.quiz-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 750px;
+    /* Daha geniş quiz için */
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 121, 107, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    /* Başlık ve zamanlayıcı ortalamak için */
+}
+
+.quiz-title {
+    font-size: 2rem;
+    color: #004d40;
+    margin-bottom: 15px;
+}
+
+.timer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+/* Swiper Quiz Stilleri */
+.mySwiperQuiz {
+    width: 100%;
+    height: 350px;
+    /* Quiz slaytları için yükseklik */
+    margin: 0 auto;
+    position: relative;
+    /* Navigasyon butonlarını konumlandırmak için */
+}
+
+.quiz-slide {
+    background-color: #f1fdfc;
+    /* Açık yeşilimsi arka plan */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 121, 107, 0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* İçeriği dikeyde dağıtmak için */
+    align-items: flex-start;
+    /* İçeriği sola hizalamak için */
+    text-align: left;
+    /* Metni sola hizalamak için */
+    color: #333;
+}
+
+.quiz-slide .question-number {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #004d40;
+    margin-bottom: 10px;
+}
+
+.quiz-slide .question-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+.quiz-slide .options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    /* Seçeneklerin tam genişlikte olması için */
+}
+
+.quiz-slide .options label {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background-color: #e0f2f1;
+    /* Seçenek arka planı */
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quiz-slide .options label:hover {
+    background-color: #c8e6c9;
+    /* Seçenek hover rengi */
+    box-shadow: 0 2px 8px rgba(0, 121, 107, 0.15);
+}
+
+.quiz-slide .options input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #00796b;
+    /* Radyo buton rengi */
+    transform: scale(1.2);
+    /* Radyo butonunu biraz büyüt */
+}
+
+/* Quiz Navigasyon Butonları (swiper-button-prev, swiper-button-next) */
+.quiz-nav-btn {
+    color: #004d40;
+    /* Koyu yeşil oklar */
+    background-color: transparent;
+    /* Arka plan yok */
+    font-size: 2.5rem;
+    /* Ok boyutunu büyüt */
+    top: 50%;
+    /* Dikeyde ortala */
+    transform: translateY(-50%);
+    /* Kendi yüksekliğinin yarısı kadar yukarı kaydır */
+    width: 50px;
+    /* Buton alanını büyüt */
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    /* Diğer öğelerin önüne gelsin */
+    transition: all 0.3s ease;
+}
+
+.quiz-nav-btn::after {
+    /* Swiper'ın varsayılan ok içeriğini gizle */
+    content: '' !important;
+}
+
+.swiper-button-prev.quiz-nav-btn {
+    left: -60px;
+    /* Sol tarafa biraz dışarıya taşı */
+}
+
+.swiper-button-next.quiz-nav-btn {
+    right: -60px;
+    /* Sağ tarafa biraz dışarıya taşı */
+}
+
+.swiper-button-prev.quiz-nav-btn::before {
+    content: '❮';
+    /* Özel sol ok karakteri */
+}
+
+.swiper-button-next.quiz-nav-btn::before {
+    content: '❯';
+    /* Özel sağ ok karakteri */
+}
+
+.quiz-nav-btn:hover {
+    color: #00796b;
+    /* Hover'da ok rengini biraz açar */
+    /* background-color: rgba(0, 77, 64, 0.05); /* İsterseniz hafif bir arka plan verebilirsiniz */
+}
+
+
+/* Swiper Pagination (aynı kalabilir veya quiz özelinde düzenlenebilir) */
+.mySwiperQuiz .swiper-pagination {
+    bottom: -10px !important;
+    /* Sayfalama butonlarını alta taşı */
+}
+
+.mySwiperQuiz .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #00bfa5;
+    opacity: 0.6;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.mySwiperQuiz .swiper-pagination-bullet-active {
+    background: #00796b;
+    opacity: 1;
+}
+
+/* Quiz Aksiyon Butonları */
+.quiz-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.quiz-actions .btn {
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.quiz-actions .btn-success {
+    background: linear-gradient(to right, #00796b, #004d40);
+    border: none;
+    color: #e0f2f1;
+}
+
+.quiz-actions .btn-success:hover {
+    background: linear-gradient(to right, #004d40, #00796b);
+    box-shadow: 0 5px 15px rgba(0, 77, 64, 0.4);
+}
+
+.quiz-actions .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    color: white;
+}
+
+.quiz-actions .btn-secondary:hover {
+    background-color: #5a6268;
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+}
+
+.icon-hover {
+    width: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.icon-hover:hover {
+    transform: scale(1.2);
+}
+
+/* .quiz-slide yüksekliğini biraz artır */
+.mySwiperQuiz {
+    height: 400px;
+    /* 350 => 400 yaptım */
+}
+
+.quiz-slide {
+    height: 100%;
+    /* Tam konteyner yüksekliği */
+    overflow-y: auto;
+    /* İçerik taşarsa scroll olsun */
+}
+
+/* .options container'ın taşmasını önle */
+.quiz-slide .options {
+    max-height: 180px;
+    /* Sabit yüksekliği sınırla */
+    overflow-y: auto;
+}

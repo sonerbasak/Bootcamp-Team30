@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Kanada",
+    "resim": "../static/images/flags/canada.png",
+    "tarih": "Canada has a rich history of indigenous cultures and European colonization.",
+    "eserler": "CN Tower, Parliament Hill, Banff National Park.",
+    "oneriler": "Visit Niagara Falls, try poutine, explore national parks.",
+    "nufus": "38,000,000",
+    "plakaKodu": "CA",
+    "unluYemekler": "Poutine, Maple Syrup",
+    "universiteler": ["University of Toronto", "McGill University"]
+  },
+  {
+    "name": "Türkiye",
+    "resim": "../static/images/flags/turkey.png",
+    "tarih": "Rich historical heritage with Ottoman Empire legacy.",
+    "eserler": "Hagia Sophia, Topkapi Palace, Cappadocia.",
+    "oneriler": "Visit Istanbul, try Turkish coffee and baklava.",
+    "nufus": "85,000,000",
+    "plakaKodu": "TR",
+    "unluYemekler": "Kebap, Baklava",
+    "universiteler": ["Boğaziçi University", "Middle East Technical University"]
+  }
+]
