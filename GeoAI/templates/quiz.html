@@ -12,31 +12,21 @@
 </head>
 
 <body class="quiz-page">
-    <a href="turkey.html" class="back-button" title="Geri Dön">←</a>
+    <a href="http://127.0.0.1:8000/" class="back-button" title="Geri Dön">←</a>
     <div class="quiz-container">
         <h1 class="quiz-title">Quiz Zamanı!</h1>
         <div class="timer" id="timer">Kalan Süre: 10:00</div>
 
-        <div class="swiper mySwiperQuiz">
-            <div class="swiper-wrapper d-flex justify-content-center align-items-center" id="quiz-questions-container"
-                style="height: 350px;">
-                <div id="loading" class="d-flex justify-content-center align-items-center flex-column"
-                    style="color: #198754; font-size: 1.5rem; font-weight: 700;">
-                    <div class="spinner-border text-success" role="status" aria-hidden="true"
-                        style="width: 3rem; height: 3rem;"></div>
-                    <span class="mt-3">Sorular oluşturuluyor...</span>
+        <div class="swiper mySwiperQuiz"> 
+            <div class="swiper-wrapper" id="quiz-questions-container" style="height: 100%;"> 
                 </div>
-            </div>
-
         </div>
 
         <div class="quiz-actions">
-            <button class="btn btn-danger" onclick="prevQuestion()"> Önceki Soru</button>
-            <button class="btn btn-danger" onclick="nextQuestion()">Sonraki Soru</button>
+            <button class="btn btn-danger prev-button">Önceki Soru</button>
+            <button class="btn btn-danger next-button">Sonraki Soru</button>
             <button class="btn btn-success" onclick="submitQuiz()">Quizi Tamamla</button>
         </div>
-
-
     </div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
