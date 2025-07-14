@@ -22,15 +22,17 @@ async def read_root(request: Request):
     return templates.TemplateResponse("turkey.html", {"request": request})
 
 
-@app.get("/world.html")
+@app.get("/world")
 async def world_page(request: Request):
     return templates.TemplateResponse("world.html", {"request": request})
 
 
 @app.get("/ai.html")
 async def ai_page(request: Request):
-    city = request.query_params.get("city", "")
+    query = request.query_params
+    city = query.get("city") or query.get("country") or ""
     return templates.TemplateResponse("ai.html", {"request": request, "city": city})
+
 
 @app.post("/generate-quiz", response_class=HTMLResponse)
 async def create_quiz(request: Request, topic: str = Form(...), count: int = Form(3)):

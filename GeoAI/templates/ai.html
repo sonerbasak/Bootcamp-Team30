@@ -11,7 +11,7 @@
 </head>
 
 <body class="ai-page">
-    <a href="turkey.html" class="back-button" title="Geri Dön">←</a>
+    <a href="/" class="back-button" title="Geri Dön">←</a>
     <div class="ai-container">
         <h1 class="ai-title" id="pageTitle">🤖 AI ile Quiz Oluştur</h1>
 
@@ -35,6 +35,13 @@
             const params = new URLSearchParams(window.location.search);
             return params.get(param);
         }
+        document.addEventListener("DOMContentLoaded", () => {
+            let city = getQueryParam("city") || getQueryParam("country") || "Genel";
+            const title = document.getElementById("pageTitle");
+            if (title) {
+                title.textContent = `🤖 ${city} hakkında AI ile Quiz Oluştur`;
+            }
+        });
 
         document.getElementById("generate-quiz-btn").addEventListener("click", () => {
             const city = getQueryParam("city") || "Genel";
@@ -44,7 +51,7 @@
     </script>
     <script>
         async function generateQuestion() {
-            const city = getQueryParam("city") || "Genel";
+            const city = getQueryParam("city") || getQueryParam("country") || "Genel";
             try {
                 const res = await fetch(`/api/gemini-quiz?city=${encodeURIComponent(city)}`);
                 const data = await res.json();

@@ -479,7 +479,7 @@ body,
     transform: scale(1.2);
 }
 
-/* Swiper Pagination */
+
 .mySwiperQuiz .swiper-pagination {
     bottom: -10px !important;
 }
@@ -543,4 +543,26 @@ body,
 
 .icon-hover:hover {
     transform: scale(1.2);
+}
+#quiz-results {
+    max-height: 400px; 
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #f1fdfc;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 121, 107, 0.1);
+    color: #004d40;
+    font-size: 1.1rem;
+    text-align: left;
+    margin-top: 20px;
+}
+
+
+#quiz-results::-webkit-scrollbar {
+    width: 8px;
+}
+
+#quiz-results::-webkit-scrollbar-thumb {
+    background-color: #00bfa5;
+    border-radius: 6px;
 }

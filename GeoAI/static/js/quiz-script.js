@@ -13,7 +13,7 @@ let quizSwiper;
 // Kullanıcı cevaplarını tutacak yeni dizi. Artık sadece şık harfini (A, B, C, D) tutacak.
 let userSelections = [];
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const city = getQueryParam("city");
     const quizTitle = document.querySelector(".quiz-title");
 
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     startTimer();
 
-    const swiperWrapper = document.getElementById('quiz-questions-container');
+    const swiperWrapper = document.getElementById("quiz-questions-container");
     if (swiperWrapper) {
     }
 });
@@ -63,7 +63,7 @@ function initializeSwiper() {
         spaceBetween: 20,
 
         autoHeight: true,
-        
+
         observer: true,
         observeParents: true,
         observeSlideChildren: true,
@@ -71,17 +71,17 @@ function initializeSwiper() {
         on: {
             slideChange: function () {
                 currentQuestionIndex = this.realIndex;
-                this.updateAutoHeight(); 
+                this.updateAutoHeight();
             },
-            init: function() {
+            init: function () {
                 this.update();
                 this.updateAutoHeight();
             },
-            resize: function() {
+            resize: function () {
                 this.update();
                 this.updateAutoHeight();
-            }
-        }
+            },
+        },
     });
 }
 
@@ -90,7 +90,9 @@ async function loadQuestions(city) {
 
     if (!rawQuizText) {
         try {
-            const res = await fetch(`/api/gemini-quiz?city=${encodeURIComponent(city)}`);
+            const res = await fetch(
+                `/api/gemini-quiz?city=${encodeURIComponent(city)}`
+            );
             if (!res.ok) {
                 const errorText = await res.text();
                 console.error("API yanıt hatası:", res.status, errorText);
@@ -109,16 +111,19 @@ async function loadQuestions(city) {
     }
 
     quizQuestions = rawQuizText ? parseQuizText(rawQuizText) : [];
-    
+
     // userSelections dizisini quizQuestions uzunluğunda başlat
-    userSelections = new Array(quizQuestions.length).fill(null); 
+    userSelections = new Array(quizQuestions.length).fill(null);
 
     renderQuestions(quizQuestions);
 }
 
 function parseQuizText(text) {
     const questions = [];
-    const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+    const lines = text
+        .split("\n")
+        .map((l) => l.trim())
+        .filter((l) => l.length > 0);
 
     let currentQuestion = null;
     let quizContentStarted = false;
@@ -133,61 +138,87 @@ function parseQuizText(text) {
 
         if (quizContentStarted) {
             if (isQuestionStart) {
-                if (currentQuestion && currentQuestion.question && currentQuestion.options.length === 4 && currentQuestion.answer) {
+                if (
+                    currentQuestion &&
+                    currentQuestion.question &&
+                    currentQuestion.options.length === 4 &&
+                    currentQuestion.answer
+                ) {
                     questions.push(currentQuestion);
                 }
                 currentQuestion = { question: "", options: [], answer: "" };
-                currentQuestion.question = line.replace(/^(?:\*\*Soru\s*\d+:\*\*|Soru:)\s*/i, '').trim();
+                currentQuestion.question = line
+                    .replace(/^(?:\*\*Soru\s*\d+:\*\*|Soru:)\s*/i, "")
+                    .trim();
 
-                if (lines[i + 1] && !/^[A-D]\)/.test(lines[i + 1]) && !/(?:^Doğru Cevap:|^D\))/i.test(lines[i + 1].toLowerCase().replace(/\*\*/g, ''))) {
-                   currentQuestion.question += " " + lines[i + 1].replace(/\*\*/g, '').trim();
-                   i++;
+                if (
+                    lines[i + 1] &&
+                    !/^[A-D]\)/.test(lines[i + 1]) &&
+                    !/(?:^Doğru Cevap:|^D\))/i.test(
+                        lines[i + 1].toLowerCase().replace(/\*\*/g, "")
+                    )
+                ) {
+                    currentQuestion.question +=
+                        " " + lines[i + 1].replace(/\*\*/g, "").trim();
+                    i++;
                 }
-
             } else if (currentQuestion) {
                 if (/^[A-D]\)/i.test(line)) {
-                    currentQuestion.options.push(line.replace(/^[A-D]\)\s*/i, '').trim());
-                }
-                else if (line.toLowerCase().startsWith('doğru cevap:') || line.toLowerCase().startsWith('**doğru cevap:')) {
-                    let rawAnswer = line.replace(/^(?:\*\*doğru cevap:|doğru cevap:)\s*/i, '').replace(/\*\*/g, '').trim();
+                    currentQuestion.options.push(line.replace(/^[A-D]\)\s*/i, "").trim());
+                } else if (
+                    line.toLowerCase().startsWith("doğru cevap:") ||
+                    line.toLowerCase().startsWith("**doğru cevap:")
+                ) {
+                    let rawAnswer = line
+                        .replace(/^(?:\*\*doğru cevap:|doğru cevap:)\s*/i, "")
+                        .replace(/\*\*/g, "")
+                        .trim();
                     // Doğru cevabın sadece şık harfini sakla (örneğin "A", "B", "C", "D")
-                    currentQuestion.answer = rawAnswer; 
+                    currentQuestion.answer = rawAnswer;
                 }
             }
         }
     }
 
-    if (currentQuestion && currentQuestion.question && currentQuestion.options.length === 4 && currentQuestion.answer) {
+    if (
+        currentQuestion &&
+        currentQuestion.question &&
+        currentQuestion.options.length === 4 &&
+        currentQuestion.answer
+    ) {
         questions.push(currentQuestion);
     }
     return questions;
 }
 
 function renderQuestions(questions) {
-    const questionsContainer = document.getElementById('quiz-questions-container');
-    questionsContainer.innerHTML = '';
+    const questionsContainer = document.getElementById(
+        "quiz-questions-container"
+    );
+    questionsContainer.innerHTML = "";
 
     if (questions.length === 0) {
-        questionsContainer.innerHTML = '<p class="text-center text-danger">Sorular yüklenemedi veya bulunamadı.</p>';
+        questionsContainer.innerHTML =
+            '<p class="text-center text-danger">Sorular yüklenemedi veya bulunamadı.</p>';
         return;
     }
 
     questions.forEach((q, index) => {
-        const slide = document.createElement('div');
-        slide.classList.add('swiper-slide', 'quiz-slide');
+        const slide = document.createElement("div");
+        slide.classList.add("swiper-slide", "quiz-slide");
 
-        let optionsHtml = '';
+        let optionsHtml = "";
         // Şıkların yerlerini karıştırmayı kaldırıyoruz.
         // Artık orijinal sırasıyla (A, B, C, D) render edilecekler.
-        const orderedOptions = [...q.options]; 
+        const orderedOptions = [...q.options];
 
         orderedOptions.forEach((option, optionIndex) => {
             // Şık harfini doğrudan indeksten alıyoruz (0=A, 1=B, ...)
-            const optionLetter = String.fromCharCode(65 + optionIndex); 
-            
+            const optionLetter = String.fromCharCode(65 + optionIndex);
+
             // Kullanıcının daha önceki seçimini kontrol et ve işaretle
             // userSelections artık şık harfi tuttuğu için karşılaştırmayı buna göre yapıyoruz.
-            const isChecked = (userSelections[index] === optionLetter) ? 'checked' : ''; 
+            const isChecked = userSelections[index] === optionLetter ? "checked" : "";
             optionsHtml += `
                 <label>
                     <input type="radio" 
@@ -223,19 +254,19 @@ function handleOptionChange(questionIndex, selectedLetter) {
 }
 
 function startTimer() {
-    const timerDisplay = document.getElementById('timer');
+    const timerDisplay = document.getElementById("timer");
     timerInterval = setInterval(() => {
         let minutes = Math.floor(timeLeft / 60);
         let seconds = timeLeft % 60;
 
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
         timerDisplay.textContent = `Kalan Süre: ${minutes}:${seconds}`;
 
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            alert('Süreniz doldu! Quiz otomatik olarak tamamlanıyor.');
+            alert("Süreniz doldu! Quiz otomatik olarak tamamlanıyor.");
             submitQuiz();
         }
         timeLeft--;
@@ -248,53 +279,92 @@ function submitQuiz() {
     const reviewAnswers = [];
 
     quizQuestions.forEach((q, index) => {
-        // userSelections artık doğrudan şık harfini tutuyor
-        const userAnswerLetter = userSelections[index]; 
-        
-        const correctAnswerFromAPI = q.answer; // Bu zaten 'C' gibi şık harfi
+        const userAnswerLetter = userSelections[index];
+        const correctAnswerLetter = q.answer;
 
-        // reviewAnswers'a hem şık harfini hem de metni eklemek için q.options'ı kullanabiliriz
         let userAnswerText = null;
         if (userAnswerLetter) {
-            const optionIndex = userAnswerLetter.charCodeAt(0) - 'A'.charCodeAt(0);
-            if (optionIndex >= 0 && optionIndex < q.options.length) {
-                userAnswerText = q.options[optionIndex];
-            }
+            const optionIndex = userAnswerLetter.charCodeAt(0) - "A".charCodeAt(0);
+            userAnswerText = q.options[optionIndex];
         }
-        // Doğru cevabın metnini de almak için
+
         let correctOptionText = null;
-        if (correctAnswerFromAPI) {
-            const correctOptionIndex = correctAnswerFromAPI.charCodeAt(0) - 'A'.charCodeAt(0);
-            if (correctOptionIndex >= 0 && correctOptionIndex < q.options.length) {
-                correctOptionText = q.options[correctOptionIndex];
-            }
+        if (correctAnswerLetter) {
+            const correctIndex =
+                correctAnswerLetter.charCodeAt(0) - "A".charCodeAt(0);
+            correctOptionText = q.options[correctIndex];
         }
 
+        const isCorrect =
+            userAnswerLetter?.toLowerCase().trim() ===
+            correctAnswerLetter?.toLowerCase().trim();
+        if (isCorrect) score++;
 
-        reviewAnswers.push({ 
-            question: q.question, 
-            userAnswerLetter: userAnswerLetter, 
-            userAnswerText: userAnswerText,
-            correctAnswerLetter: correctAnswerFromAPI, 
-            correctAnswerText: correctOptionText,
-            isCorrect: false
+        reviewAnswers.push({
+            question: q.question,
+            userAnswerLetter,
+            userAnswerText,
+            correctAnswerLetter,
+            correctOptionText,
+            isCorrect,
         });
-
-        if (userAnswerLetter) {
-            // Doğrudan şık harflerini karşılaştırıyoruz (büyük/küçük harf duyarsız)
-            if (userAnswerLetter.toLowerCase().trim() === correctAnswerFromAPI.toLowerCase().trim()) {
-                score++;
-                reviewAnswers[index].isCorrect = true;
-            }
-        }
     });
 
-    const totalQuestions = quizQuestions.length;
-    alert(`Quiz tamamlandı! ${totalQuestions} sorudan ${score} doğru cevap verdiniz.`);
-    
-    console.log("Quiz Detaylı Sonuçları:", reviewAnswers);
+    showResults(score, reviewAnswers);
+}
 
-    goBackToAI();
+function showResults(score, reviewAnswers) {
+    const quizContainer = document.querySelector(".quiz-container");
+    const resultsContainer = document.getElementById("quiz-results");
+
+    // Quiz içeriğini gizle
+    document.querySelector(".mySwiperQuiz").classList.add("d-none");
+    document.querySelector(".quiz-actions").classList.add("d-none");
+
+    // Sonuçları derle
+    let html = `
+        <h2 class="text-success text-center">Quiz Tamamlandı!</h2>
+        <p class="text-center fs-5">Toplam Doğru Sayısı: <strong>${score}</strong> / ${quizQuestions.length}</p>
+        <hr/>
+        <h4 class="text-danger">Yanlış Cevaplar:</h4>
+    `;
+
+    const wrongAnswers = reviewAnswers.filter((r) => !r.isCorrect);
+    if (wrongAnswers.length === 0) {
+        html += `<p class="text-success">Harika! Tüm soruları doğru cevapladınız 🎉</p>`;
+    } else {
+        wrongAnswers.forEach((r, i) => {
+            html += `
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p><strong>Soru ${i + 1}:</strong> ${r.question}</p>
+                        <p class="text-danger mb-1">Senin Cevabın: ${r.userAnswerLetter
+                }) ${r.userAnswerText || "Boş Bırakıldı"}</p>
+                        <p class="text-success">Doğru Cevap: ${r.correctAnswerLetter
+                }) ${r.correctOptionText}</p>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    html += `
+    <div class="text-center mt-4">
+        <button 
+            class="btn btn-success px-4 py-2 fs-5 fw-semibold" 
+            style="border-radius: 25px; box-shadow: 0 5px 15px rgba(0, 77, 64, 0.4);" 
+            onclick="goHome()"
+        >
+            Ana Sayfaya Dön
+        </button>
+    </div>
+`;
+
+    resultsContainer.innerHTML = html;
+    resultsContainer.classList.remove("d-none");
+}
+function goHome() {
+    window.location.href = "/";
 }
 
 function prevQuestion() {
@@ -312,7 +382,7 @@ function nextQuestion() {
 function goBackToAI() {
     if (confirm("Quizi yarıda bırakmak istediğinize emin misiniz?")) {
         clearInterval(timerInterval);
-        window.location.href = 'http://127.0.0.1:8000/';
+        window.location.href = "http://127.0.0.1:8000/";
     }
 }
 
