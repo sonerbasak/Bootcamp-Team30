@@ -10,7 +10,6 @@
     "universiteler": ["Çukurova Üniversitesi", "Adana Alparslan Türkeş Bilim ve Teknoloji Üniversitesi"],
     "resim": "./images/adana.jpeg"
     "müzeler": "Adana Müzesi, Kuruköprü Anıt Müzesi ve Geleneksel Adana Evi"
-    "resim": "./images/01.png"
   },
   {
     "name": "Adıyaman",
@@ -730,6 +729,7 @@
     "universiteler": ["Karadeniz Teknik Üniversitesi", "Trabzon Üniversitesi"],
     "resim": "./images/trabzon.jpeg"
     "müzeler": "Trabzonspor Müzesi, Trabzon Müzesi"
+    "resim": "./images/61.jpeg"
   },
   {
     "name": "Tunceli",
