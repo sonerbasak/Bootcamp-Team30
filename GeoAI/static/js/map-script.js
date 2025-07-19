@@ -104,7 +104,7 @@ function openIlModal(ilAdi) {
     // AI sayfasına bağlantı
     const aiBtn = document.getElementById("aiLink"); // HTML'de id="aiLink" eklediğinizden emin olun
     if (aiBtn) {
-        aiBtn.href = `ai.html?city=${encodeURIComponent(ilAdi)}`;
+        aiBtn.href = `ai?city=${encodeURIComponent(ilAdi)}`;
     }
 
     // Modalı aç

@@ -94,7 +94,7 @@ function openCountryModal(countryName) {
     // AI quiz linkini güncelle
     const aiBtn = document.getElementById("aiLink");
     if (aiBtn) {
-        aiBtn.href = `ai.html?city=${encodeURIComponent(countryName)}`;
+        aiBtn.href = `ai?city=${encodeURIComponent(countryName)}`;
     }
 
     // Modal aç

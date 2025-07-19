@@ -45,7 +45,7 @@
 
         document.getElementById("generate-quiz-btn").addEventListener("click", () => {
             const city = getQueryParam("city") || "Genel";
-            window.location.href = `quiz.html?city=${encodeURIComponent(city)}`;
+            window.location.href = `quiz?city=${encodeURIComponent(city)}`;
         });
 
     </script>

@@ -4,24 +4,24 @@ let reviewQuizQuestions = []; // Bu sayfadaki soruları tutacak
 let currentReviewQuestionIndex = 0;
 let reviewUserSelections = []; // Bu sayfadaki kullanıcı cevaplarını tutacak
 let reviewTimerInterval;
-const reviewQuizDuration = 5 * 60; // 5 dakika olarak ayarlandı
-let reviewTimeLeft = reviewQuizDuration;
+let reviewQuizDuration; // Süre artık dinamik olacak
+let reviewTimeLeft;
 let reviewQuizSwiper;
 
+// Her soru için ayrılacak süre (saniye cinsinden)
+const TIME_PER_QUESTION_SECONDS = 30; // Örneğin, her soru için 30 saniye
+const MAX_QUESTIONS_TO_REVIEW = 10; // Maksimum gösterilecek soru sayısı
 
 document.addEventListener("DOMContentLoaded", async () => {
     // 1. Önce yanlış soruları yükle
     await loadWrongQuestionsForReview();
 
     // 2. Swiper'ı başlat ve diğer işlemleri Swiper başlatıldıktan sonra yap
-    // Swiper'ın DOM üzerinde tamamen render olmasını beklemek için setTimeout
     setTimeout(() => {
         initializeReviewSwiper(); // Swiper başlatılıyor
 
         // Swiper başarılı bir şekilde başlatıldıysa, diğer işlemlere geç
         if (reviewQuizSwiper) {
-            startReviewTimer(); // Zamanlayıcıyı başlat
-
             // Buton event listener'ları
             document.querySelector(".quiz-actions .prev-button").addEventListener("click", () => {
                 if (reviewQuizSwiper) reviewQuizSwiper.slidePrev();
@@ -127,7 +127,7 @@ async function loadWrongQuestionsForReview() {
             throw new Error(`Sorular alınamadı: ${res.status} - ${errorData.message}`);
         }
         const data = await res.json();
-        const wrongQuestions = data.wrong_questions;
+        let wrongQuestions = data.wrong_questions; // let olarak tanımlandı
 
         if (wrongQuestions.length === 0) {
             questionsContainer.innerHTML = `
@@ -143,10 +143,28 @@ async function loadWrongQuestionsForReview() {
             return;
         }
 
-        reviewQuizQuestions = wrongQuestions;
-        reviewUserSelections = new Array(reviewQuizQuestions.length).fill(null); // Cevapları sıfırla
+        // Eğer 10'dan fazla soru varsa, rastgele 10 tanesini seç
+        if (wrongQuestions.length > MAX_QUESTIONS_TO_REVIEW) {
+            console.log(`${wrongQuestions.length} soru bulundu, rastgele ${MAX_QUESTIONS_TO_REVIEW} tanesi seçiliyor.`);
+            // Diziyi karıştır (Fisher-Yates shuffle algoritması)
+            for (let i = wrongQuestions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [wrongQuestions[i], wrongQuestions[j]] = [wrongQuestions[j], wrongQuestions[i]];
+            }
+            // İlk 10 tanesini al
+            reviewQuizQuestions = wrongQuestions.slice(0, MAX_QUESTIONS_TO_REVIEW);
+        } else {
+            reviewQuizQuestions = wrongQuestions;
+        }
+
+        // Soru sayısına göre quiz süresini belirle
+        reviewQuizDuration = reviewQuizQuestions.length * TIME_PER_QUESTION_SECONDS;
+        reviewTimeLeft = reviewQuizDuration; // Zamanlayıcıyı başlat
 
         renderReviewQuestions(reviewQuizQuestions);
+
+        // Sorular yüklendikten ve süre belirlendikten sonra zamanlayıcıyı başlat
+        startReviewTimer();
 
     } catch (error) {
         console.error("Yanlış soruları çekerken hata oluştu:", error);
@@ -194,6 +212,7 @@ function renderReviewQuestions(questions) {
                 ${optionsHtml}
             </div>
             <div class="question-category" style="display: none;">${q.category}</div>
+            <div class="wrong-question-id" style="display: none;">${q.id}</div>
         `;
         questionsContainer.appendChild(slide);
     });
@@ -248,6 +267,7 @@ function submitReviewQuiz() {
     console.log("Quiz değerlendirme başlatılıyor...");
     let correctCount = 0;
     const reviewResultsHtml = [];
+    const correctlyAnsweredWrongQuestionIds = []; // Doğru cevaplanan yanlış soruların DB ID'lerini tutacak
 
     reviewQuizQuestions.forEach((q, index) => {
         const userAnswerLetter = reviewUserSelections[index];
@@ -256,6 +276,10 @@ function submitReviewQuiz() {
         const isCorrect = userAnswerLetter?.toLowerCase().trim() === correctAnswerLetter?.toLowerCase().trim();
         if (isCorrect) {
             correctCount++;
+            // Eğer soru doğru cevaplandıysa, bu yanlış soru kaydının veritabanı ID'sini listeye ekle
+            if (q.id) { // q.id'nin var olduğundan emin ol
+                correctlyAnsweredWrongQuestionIds.push(q.id);
+            }
         }
 
         // Kullanıcının verdiği cevabın metnini al
@@ -313,6 +337,36 @@ function submitReviewQuiz() {
     document.querySelector(".mySwiperReviewQuiz").classList.add("d-none");
     document.querySelector(".quiz-actions").classList.add("d-none");
     console.log("Değerlendirme tamamlandı, sonuçlar gösteriliyor.");
+
+    // Yeni: Doğru cevaplanan yanlış soruları veritabanından kaldırmak için API çağrısı
+    if (correctlyAnsweredWrongQuestionIds.length > 0) {
+        console.log("Doğru cevaplanan yanlış soru ID'leri veritabanından kaldırılıyor:", correctlyAnsweredWrongQuestionIds);
+        fetch('/api/remove-correctly-answered-questions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            // question_ids listesini doğrudan body olarak gönderiyoruz
+            body: JSON.stringify(correctlyAnsweredWrongQuestionIds),
+        })
+        .then(response => {
+            if (!response.ok) {
+                // Hata durumunda JSON'ı parse edip detayı göster
+                return response.json().then(err => { throw new Error(err.detail || 'API yanıt hatası'); });
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('API yanıtı (silme işlemi):', data.message);
+            // İsteğe bağlı: Kullanıcıya soruların kaldırıldığına dair bir mesaj gösterebilirsiniz.
+        })
+        .catch(error => {
+            console.error('Doğru cevaplanan yanlış soruları kaldırırken hata oluştu:', error);
+            alert('Bazı doğru cevaplanan yanlış soruları veritabanından kaldırırken bir sorun oluştu: ' + error.message);
+        });
+    } else {
+        console.log("Hiç doğru cevaplanan yanlış soru yok, veritabanı güncellemesi yapılmadı.");
+    }
 }
 
 // Global olarak erişilebilir hale getir

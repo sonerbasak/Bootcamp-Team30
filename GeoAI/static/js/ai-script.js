@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function generateQuestion() {
     const city = getQueryParam("city") || "Genel";
-    window.location.href = `quiz.html?city=${encodeURIComponent(city)}`;
+    window.location.href = `quiz?city=${encodeURIComponent(city)}`;
 }
 
 window.generateQuestion = generateQuestion;
