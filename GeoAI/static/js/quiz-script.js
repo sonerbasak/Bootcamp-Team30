@@ -259,15 +259,16 @@ function submitQuiz() {
     clearInterval(timerInterval);
     let score = 0;
     const reviewAnswers = [];
+    const wrongAnswersToSend = []; // Yeni dizi: Veritabanına gönderilecek yanlış sorular
 
     quizQuestions.forEach((q, index) => {
         const userAnswerLetter = userSelections[index];
-        const correctAnswerLetter = q.cevap; // q.answer yerine q.cevap
+        const correctAnswerLetter = q.cevap;
 
         let userAnswerText = null;
         if (userAnswerLetter) {
-            const optionKey = userAnswerLetter.toLowerCase(); // 'a', 'b', 'c', 'd'
-            userAnswerText = q[optionKey]; // Doğrudan objenin key'inden şık metnine erişim
+            const optionKey = userAnswerLetter.toLowerCase();
+            userAnswerText = q[optionKey];
         }
 
         let correctOptionText = null;
@@ -279,11 +280,26 @@ function submitQuiz() {
         const isCorrect =
             userAnswerLetter?.toLowerCase().trim() ===
             correctAnswerLetter?.toLowerCase().trim();
-        if (isCorrect) score++;
+        if (isCorrect) {
+            score++;
+        } else {
+            // Yanlış cevaplanan soruyu veritabanına göndermek için hazırla
+            wrongAnswersToSend.push({
+                city: getQueryParam("city") || "Genel Kültür", // Şehir bilgisini al
+                category: q.kategori,
+                question_text: q.soru,
+                option_a: q.a,
+                option_b: q.b,
+                option_c: q.c,
+                option_d: q.d,
+                correct_answer_letter: q.cevap,
+                user_answer_letter: userAnswerLetter || "BOŞ", // Kullanıcı cevabı yoksa "BOŞ"
+            });
+        }
 
         reviewAnswers.push({
-            question: q.soru, // q.question yerine q.soru
-            category: q.kategori, // Yeni: Kategori bilgisini ekliyoruz
+            question: q.soru,
+            category: q.kategori,
             userAnswerLetter,
             userAnswerText,
             correctAnswerLetter,
@@ -292,8 +308,38 @@ function submitQuiz() {
         });
     });
 
+    // Yanlış cevaplanan soruları backend'e gönder
+    if (wrongAnswersToSend.length > 0) {
+        saveWrongQuestionsToDatabase(wrongAnswersToSend);
+    }
+
     showResults(score, reviewAnswers);
 }
+
+// Yeni fonksiyon: Yanlış soruları veritabanına kaydetmek için API çağrısı
+async function saveWrongQuestionsToDatabase(questions) {
+    for (const q of questions) {
+        try {
+            const res = await fetch("/api/save-wrong-question", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(q),
+            });
+
+            if (!res.ok) {
+                const errorData = await res.json();
+                console.error("Yanlış soru kaydedilirken hata:", errorData);
+            } else {
+                console.log("Yanlış soru başarıyla kaydedildi:", q.question_text);
+            }
+        } catch (error) {
+            console.error("Yanlış soru kaydetme API çağrısı sırasında hata:", error);
+        }
+    }
+}
+
 
 function showResults(score, reviewAnswers) {
     const quizContainer = document.querySelector(".quiz-container");
@@ -338,6 +384,13 @@ function showResults(score, reviewAnswers) {
             onclick="goHome()"
         >
             Ana Sayfaya Dön
+        </button>
+        <button
+            class="btn btn-warning px-4 py-2 fs-5 fw-semibold ms-3"
+            style="border-radius: 25px; box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);"
+            onclick="window.location.href='/wrong-questions'"
+        >
+            Yanlış Cevapladıklarım
         </button>
     </div>
 `;
