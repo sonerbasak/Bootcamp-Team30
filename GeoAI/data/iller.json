@@ -542,6 +542,7 @@
     "unluYemekler": "Maraş Dondurması, Tarhana Çorbası, Maraş Paçası",
     "universiteler": ["Kahramanmaraş Sütçü İmam Üniversitesi"],
     "resim": "./images/kahramanmaras.jpeg"
+    "müzeler": "Kahramanmaraş Arkeoloji Müzesi, Kahramanmaraş Kurtuluş Müzesi"
   },
   {
     "name": "Mardin",
@@ -553,6 +554,7 @@
     "unluYemekler": "Kibbe, Sembusek, Mardin Badem Şekeri",
     "universiteler": ["Mardin Artuklu Üniversitesi"],
     "resim": "./images/mardin.jpeg"
+    "müzeler": "Mardin Müzesi, Sakıp Sabancı Mardin Kent Müzesi"
   },
   {
     "name": "Muğla",
@@ -564,6 +566,7 @@
     "unluYemekler": "Milas Köftesi, Kabak Çiçeği Dolması, Çökertme Kebabı",
     "universiteler": ["Muğla Sıtkı Koçman Üniversitesi"],
     "resim": "./images/mugla.jpeg"
+    "müzeler": "Muğla Müzesi, Bodrum Sualti Arkeoloji Müzesi"
   },
   {
     "name": "Muş",
@@ -575,6 +578,7 @@
     "unluYemekler": "Muş Böreği, Hedik, Çorti",
     "universiteler": ["Muş Alparslan Üniversitesi"],
     "resim": "./images/mus.jpeg"
+    "müzeler": "Muş Müzesi"
   },
   {
     "name": "Nevşehir",
@@ -586,6 +590,7 @@
     "unluYemekler": "Testi Kebabı, Nohutlu Yahni, Ayva Çorbası",
     "universiteler": ["Nevşehir Hacı Bektaş Veli Üniversitesi"],
     "resim": "./images/nevsehir.jpeg"
+    "müzeler": "Nevşehir Müzesi, Göreme Açık Hava Müzesi"
   },
   {
     "name": "Niğde",
@@ -597,6 +602,7 @@
     "unluYemekler": "Niğde Tavası, Ditme, Höşmerim",
     "universiteler": ["Niğde Ömer Halisdemir Üniversitesi"],
     "resim": "./images/nigde.jpeg"
+    "müzeler": "Niğde Müzesi "
   },
   {
     "name": "Ordu",
@@ -608,6 +614,7 @@
     "unluYemekler": "Fındıklı Burma, Mısır Ekmeği, Hamsi Tava",
     "universiteler": ["Ordu Üniversitesi"],
     "resim": "./images/ordu.jpeg"
+    "müzeler": "Paşaoğlu Konaği Etnografya Müzesi "
   },
   {
     "name": "Rize",
@@ -619,6 +626,7 @@
     "unluYemekler": "Rize Kavurması, Mıhlama, Laz Böreği, Rize Pidesi",
     "universiteler": ["Recep Tayyip Erdoğan Üniversitesi"],
     "resim": "./images/rize.jpeg"
+    "müzeler": "Rize Müzesi "
   },
   {
     "name": "Sakarya",
@@ -630,6 +638,7 @@
     "unluYemekler": "Islama Köfte, Kabak Tatlısı, Dartılı Keşkek",
     "universiteler": ["Sakarya Üniversitesi", "Sakarya Uygulamalı Bilimler Üniversitesi"],
     "resim": "./images/sakarya.jpeg"
+    "müzeler": "Sakarya Müzesi (Atatürk Evi), Deprem Kültür Müzesi (Sakarya Deprem Müzesi) "
   },
   {
     "name": "Samsun",
@@ -641,6 +650,7 @@
     "unluYemekler": "Bafra Pidesi, Terme Pidesi, Nokul",
     "universiteler": ["Ondokuz Mayıs Üniversitesi", "Samsun Üniversitesi"],
     "resim": "./images/samsun.jpeg"
+    "müzeler": "Samsun Müzesi (Arkeoloji ve Etnografya Müzesi), Samsun Kent Müzesi "
   },
   {
     "name": "Siirt",
@@ -652,6 +662,7 @@
     "unluYemekler": "Büryan Kebabı, Perde Pilavı, Zivzik Narı",
     "universiteler": ["Siirt Üniversitesi"],
     "resim": "./images/siirt.jpeg"
+    "müzeler": "Siirt Arkeoloji Müzesi "
   },
   {
     "name": "Sinop",
@@ -663,6 +674,7 @@
     "unluYemekler": "Sinop Mantısı, Nokul, Hamsi Tava",
     "universiteler": ["Sinop Üniversitesi"],
     "resim": "./images/sinop.jpeg"
+    "müzeler": "Sinop Arkeoloji Müzesi "
   },
   {
     "name": "Sivas",
@@ -674,6 +686,7 @@
     "unluYemekler": "Sivas Köftesi, Madımak Yemeği, Sivas Katmeri",
     "universiteler": ["Sivas Cumhuriyet Üniversitesi", "Sivas Bilim ve Teknoloji Üniversitesi"],
     "resim": "./images/sivas.jpeg"
+    "müzeler": "Sivas Atatürk ve Kongre Müzesi "
   },
   {
     "name": "Tekirdağ",
@@ -685,6 +698,7 @@
     "unluYemekler": "Tekirdağ Köftesi, Hayrabolu Tatlısı, Peynir Helvası",
     "universiteler": ["Tekirdağ Namık Kemal Üniversitesi"],
     "resim": "./images/tekirdag.jpeg"
+    "müzeler": "Tekirdağ Arkeoloji ve Etnografya Müzesi "
   },
   {
     "name": "Tokat",
@@ -696,6 +710,7 @@
     "unluYemekler": "Tokat Kebabı, Bat, Zile Pekmezi",
     "universiteler": ["Tokat Gaziosmanpaşa Üniversitesi"],
     "resim": "./images/tokat.jpeg"
+    "müzeler": "Latifoğlu Konaği Müzesi "
   },
   {
     "name": "Trabzon",
@@ -707,6 +722,7 @@
     "unluYemekler": "Akçaabat Köftesi, Kuymak, Hamsi Tava, Karadeniz Pidesi",
     "universiteler": ["Karadeniz Teknik Üniversitesi", "Trabzon Üniversitesi"],
     "resim": "./images/trabzon.jpeg"
+    "müzeler": "Trabzonspor Müzesi, Trabzon Müzesi"
   },
   {
     "name": "Tunceli",
@@ -718,6 +734,7 @@
     "unluYemekler": "Zerefet, Sire Patatesi, Babuko",
     "universiteler": ["Tunceli Üniversitesi"],
     "resim": "./images/tunceli.jpeg"
+    "müzeler": "Tunceli Müzesi"
   },
   {
     "name": "Şanlıurfa",
@@ -729,6 +746,7 @@
     "unluYemekler": "Urfa Kebabı, Çiğ Köfte, Lahmacun",
     "universiteler": ["Harran Üniversitesi"],
     "resim": "./images/sanliurfa.jpeg"
+    "müzeler": "Şanliurfa Arkeoloji Müzesi"
   },
   {
     "name": "Uşak",
@@ -740,6 +758,7 @@
     "unluYemekler": "Uşak Tarhanası, Höşmerim, Demir Tatlısı",
     "universiteler": ["Uşak Üniversitesi"],
     "resim": "./images/usak.jpeg"
+    "müzeler": "Uşak Arkeoloji Müzesi"
   },
   {
     "name": "Van",
@@ -751,6 +770,7 @@
     "unluYemekler": "Van Kahvaltısı, Otlu Peynir, Van Balığı (inci kefali)",
     "universiteler": ["Van Yüzüncü Yıl Üniversitesi"],
     "resim": "./images/van.jpeg"
+    "müzeler": "Van Müzesi, Van-Akdamar Anıt Müzesi / Kilisesi"
   },
   {
     "name": "Yozgat",
@@ -762,6 +782,7 @@
     "unluYemekler": "Testi Kebabı, Madımak Yemeği, Arabaşı",
     "universiteler": ["Yozgat Bozok Üniversitesi"],
     "resim": "./images/yozgat.jpeg"
+    "müzeler": "Yozgat Müzesi"
   },
   {
     "name": "Zonguldak",
@@ -773,6 +794,7 @@
     "unluYemekler": "Kara Lahana Çorbası, Ereğli Pidesi, Beyaz Baklava",
     "universiteler": ["Zonguldak Bülent Ecevit Üniversitesi"],
     "resim": "./images/zonguldak.jpeg"
+    "müzeler": "Karadeniz Ereğli Müzesi"
   },
   {
     "name": "Aksaray",
@@ -784,6 +806,7 @@
     "unluYemekler": "Aksaray Tava, Dolaz, Höşmerim",
     "universiteler": ["Aksaray Üniversitesi"],
     "resim": "./images/aksaray.jpeg"
+    "müzeler": "Aksaray Müzesi"
   },
   {
     "name": "Bayburt",
@@ -795,6 +818,7 @@
     "unluYemekler": "Bayburt Döneri, Tatlı Çorba, Galaçoş",
     "universiteler": ["Bayburt Üniversitesi"],
     "resim": "./images/bayburt.jpeg"
+    "müzeler": "Baksı Müzesi"
   },
   {
     "name": "Karaman",
@@ -806,6 +830,7 @@
     "unluYemekler": "Arabaşı Çorbası, Batırık, Guymak",
     "universiteler": ["Karamanoğlu Mehmetbey Üniversitesi"],
     "resim": "./images/karaman.jpeg"
+    "müzeler": "Karaman Müzesi"
   },
   {
     "name": "Kırıkkale",
@@ -817,6 +842,7 @@
     "unluYemekler": "Sulu Köfte, Keskin Tava, Tuvalak",
     "universiteler": ["Kırıkkale Üniversitesi"],
     "resim": "./images/kirikkale.jpeg"
+    "müzeler": "Silah Müzesi, Siyer-i Nebi ve Mushaf-ı Şerif Müzesi"
   },
   {
     "name": "Batman",
@@ -828,6 +854,7 @@
     "unluYemekler": "Kaburga Dolması, Perde Pilavı, Mumbar Dolması",
     "universiteler": ["Batman Üniversitesi"],
     "resim": "./images/batman.jpeg"
+    "müzeler": "Hasankeyf Müzesi"
   },
   {
     "name": "Şırnak",
@@ -839,6 +866,7 @@
     "unluYemekler": "Perde Pilavı, Künefe, Siirt Büryanı (yaygın)",
     "universiteler": ["Şırnak Üniversitesi"],
     "resim": "./images/sirnak.jpeg"
+    "müzeler": "İsmail Ebul-İz El Cezeri Müzesi, Uludere Etnografya Müzesi "
   },
   {
     "name": "Bartın",
@@ -850,6 +878,7 @@
     "unluYemekler": "Amasra Salata, Bartın Pidesi, Kabak Tatlısı",
     "universiteler": ["Bartın Üniversitesi"],
     "resim": "./images/bartin.jpeg"
+    "müzeler": "Bartın Kent Müzesi, Kemal Samancıoğlu Etnografya Müzesi "
   },
   {
     "name": "Ardahan",
@@ -861,6 +890,7 @@
     "unluYemekler": "Kaz Eti, Hengel, Ayran Aşı",
     "universiteler": ["Ardahan Üniversitesi"],
     "resim": "./images/ardahan.jpeg"
+    "müzeler": "Ardahan Kent Müzesi, Ardahan Kongre ve Kent Müzesi"
   },
   {
     "name": "Iğdır",
@@ -872,6 +902,7 @@
     "unluYemekler": "Kayısı, Bozbaş, Ekşili Köfte",
     "universiteler": ["Iğdır Üniversitesi"],
     "resim": "./images/igdir.jpeg"
+    "müzeler": "Karakoyunlu Koçbaşlı Açık Hava Müzesi"
   },
   {
     "name": "Yalova",
@@ -883,6 +914,7 @@
     "unluYemekler": "Yalova Sütlüsü, Termal Böreği, Kara Lahana Sarması",
     "universiteler": ["Yalova Üniversitesi"],
     "resim": "./images/yalova.jpeg"
+    "müzeler": "Yalova Kent Müzesi"
   },
   {
     "name": "Karabük",
@@ -894,6 +926,7 @@
     "unluYemekler": "Safranbolu Bükmesi, Peruhi, Çıngıllı Helle",
     "universiteler": ["Karabük Üniversitesi"],
     "resim": "./images/karabuk.jpeg"
+    "müzeler": "Karabük Demir Çelik Sanayi Müzesi"
   },
   {
     "name": "Kilis",
@@ -905,6 +938,7 @@
     "unluYemekler": "Kilis Tavası, Cennet Çamuru, Haytay",
     "universiteler": ["Kilis 7 Aralık Üniversitesi"],
     "resim": "./images/kilis.jpeg"
+    "müzeler": "Kilis Müzesi (Tarihi Sabunhane Binası)"
   },
   {
     "name": "Osmaniye",
@@ -916,6 +950,7 @@
     "unluYemekler": "Fıstık Ezmesi, Mercimek Köftesi, Tirşik",
     "universiteler": ["Osmaniye Korkut Ata Üniversitesi"],
     "resim": "./images/osmaniye.jpeg"
+    "müzeler": "Osmaniye Kent Müzesi"
   },
   {
     "name": "Düzce",
@@ -927,5 +962,6 @@
     "unluYemekler": "Akçakoca Mancarı, Hamsi Tava, Melengüçceği Tatlısı",
     "universiteler": ["Düzce Üniversitesi"],
     "resim": "./images/duzce.jpeg"
+    "müzeler": "Düzce Arkeoloji Müzesi"
   }
 ]
