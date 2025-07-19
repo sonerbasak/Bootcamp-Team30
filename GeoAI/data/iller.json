@@ -45,6 +45,7 @@
     "unluYemekler": "Abdigör Köftesi, Pişi, Hengel",
     "universiteler": ["Ağrı İbrahim Çeçen Üniversitesi"],
     "resim": "./images/agri.jpeg"
+    "müzeler": "Ağrı Müzesi"
   },
   {
     "name": "Amasya",
@@ -92,7 +93,7 @@
     "unluYemekler": "Hinkel, Kuymak, Laz Böreği",
     "universiteler": ["Artvin Çoruh Üniversitesi"],
     "resim": "./images/artvin.jpeg"
-    "müzeler": "AArtvin Gastronomi Müzesi"
+    "müzeler": "Artvin Gastronomi Müzesi"
   },
   {
     "name": "Aydın",
@@ -141,6 +142,8 @@
     "unluYemekler": "Sırın, Güveç, Tutmaç Çorbası",
     "universiteler": ["Bingöl Üniversitesi"],
     "resim": "./images/bingol.jpeg"
+    "müzeler": "İl Eğitim Tarihi Müzesi "
+    
   },
   {
     "name": "Bitlis",
@@ -164,6 +167,7 @@
     "unluYemekler": "Bolu Fındık Şekeri, Mengen Pilavı, Kaldıraç",
     "universiteler": ["Bolu Abant İzzet Baysal Üniversitesi"],
     "resim": "./images/bolu.jpeg"
+    "müzeler": "Bolu Müzesi (Arkeoloji ve Etnografya Müzesi)"
   },
   {
     "name": "Burdur",
@@ -175,6 +179,7 @@
     "unluYemekler": "Testi Kebabı, Burdur Şiş, Ceviz Ezmesi",
     "universiteler": ["Burdur Mehmet Akif Ersoy Üniversitesi"],
     "resim": "./images/burdur.jpeg"
+    "müzeler": "Burdur Arkeoloji Müzesi"
   },
   {
     "name": "Bursa",
@@ -270,7 +275,7 @@
     "unluYemekler": "Harput Köftesi, Çayda Çıra, Orcik",
     "universiteler": ["Fırat Üniversitesi"],
     "resim": "./images/elazig.jpeg"
-    "müzeler": "Elaziğ Arkeoloji ve Etnografya Müzesi"
+    "müzeler": "Elazığ Arkeoloji ve Etnografya Müzesi"
   },
   {
     "name": "Erzincan",
@@ -282,6 +287,7 @@
     "unluYemekler": "Tulum Peyniri, Kemah Çorbası, Erzincan Tava",
     "universiteler": ["Erzincan Binali Yıldırım Üniversitesi"],
     "resim": "./images/erzincan.jpeg"
+    "müzeler": "Erzincan Etnografya Müzesi "
   },
   {
     "name": "Erzurum",
