@@ -68,6 +68,7 @@
     "unluYemekler": "Ankara Tava, Beypazarı Kurusu",
     "universiteler": ["Ankara Üniversitesi", "ODTÜ", "Hacettepe Üniversitesi"],
     "resim": "/static/images/ankara.jpeg"
+    "müzeler": "Anadolu Medeniyetleri Müzesi, Etnografya Müzesi"
   },
   {
     "name": "Antalya",
@@ -91,6 +92,7 @@
     "unluYemekler": "Hinkel, Kuymak, Laz Böreği",
     "universiteler": ["Artvin Çoruh Üniversitesi"],
     "resim": "./images/artvin.jpeg"
+    "müzeler": "AArtvin Gastronomi Müzesi"
   },
   {
     "name": "Aydın",
