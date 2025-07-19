@@ -203,6 +203,7 @@
     "universiteler": ["Uludağ Üniversitesi", "Bursa Teknik Üniversitesi"],
     "resim": "./images/bursa.jpeg"
     "müzeler": "Bursa Kent Müzesi, Türk İslam Eserleri Müzesi"
+    "resim": "/static/images/16.jpg"
   },
   {
     "name": "Çanakkale",
@@ -293,6 +294,7 @@
     "universiteler": ["Fırat Üniversitesi"],
     "resim": "./images/elazig.jpeg"
     "müzeler": "Elazığ Arkeoloji ve Etnografya Müzesi"
+    "resim": "/static/images/23.jpg"
   },
   {
     "name": "Erzincan",
@@ -574,7 +576,7 @@
     "universiteler": ["Manisa Celal Bayar Üniversitesi"],
     "resim": "./images/manisa.jpeg"
     "müzeler": "Akhisar Müzesi, Ayşe Hafsa Sultan Tıp Tarihi Müzesi"
-
+    "resim": "/static/images/45.jpg"
   },
   {
     "name": "Kahramanmaraş",
