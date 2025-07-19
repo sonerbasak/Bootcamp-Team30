@@ -191,7 +191,7 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
 
   <details>
-    <summary>🎯 Sprint 1 Notları</summary>
+    <summary>🎯 Sprint 2 Notları</summary>
     Sprint 2 süreci boyunca ekip koordinasyonu ve görev yönetimi önceki sprinteki gibi başarısını sürdürdü. Hem kullanıcı deneyimi hem de teknik altyapı açısından önemli geliştirmeler yapıldı. Yapay zekâ modülünün aktif hale getirilmesiyle birlikte proje büyük bir işlevsellik kazandı. Bellek ve sistemsel iyileştirmeler ile uygulamanın stabilitesi artırıldı.
   </details>
 
@@ -228,7 +228,8 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
   <li>Görevlerdeki ilerleme, takvimsel gecikmeler ve öncelik değişimleri anlık olarak yönetilmiştir.</li>
 </ul>
     <p>Günlük toplantılarımızdan örnek ekran görüntüleri:</p>
-    <img src="images/ss7.jpg" alt="Daily Scrum Görseli 1" width="600" style="margin-bottom: 10px;" />
+    <img src="images/ss8.jpg" alt="Daily Scrum Görseli 1" width="600" style="margin-bottom: 10px;" />
+   <img src="images/ss10.jpg" alt="Daily Scrum Görseli 2" width="600" />
   </details>
 
   <details>
@@ -241,14 +242,18 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
   <details>
     <summary>🎯 Ekran Görüntüleri</summary>
-    <p>Projeye ait 4 farklı ekran görüntüsü:</p>
+    <p>Projeye ait 6 farklı ekran görüntüsü:</p>
     <p>
-      <img src="images/ss1.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-      <img src="images/ss2.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss1.jpg" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss2.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
     </p>
     <p>
-      <img src="images/ss3.png" alt="Ekran Görüntüsü 3" width="300" style="margin-right: 10px;" />
-      <img src="images/ss4.png" alt="Ekran Görüntüsü 4" width="300" />
+      <img src="images/ss3.jpg" alt="Ekran Görüntüsü 3" width="300" style="margin-right: 10px;" />
+      <img src="images/ss4.jpg" alt="Ekran Görüntüsü 4" width="300" />
+    </p>
+    <p>
+      <img src="images/ss5.jpg" alt="Ekran Görüntüsü 3" width="300" style="margin-right: 10px;" />
+      <img src="images/ss6.jpg" alt="Ekran Görüntüsü 4" width="300" />
     </p>
   </details>
 
