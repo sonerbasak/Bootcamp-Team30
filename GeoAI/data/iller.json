@@ -23,6 +23,7 @@
     "universiteler": ["Adıyaman Üniversitesi"],
     "resim": "./images/adiyaman.jpeg"
     "müzeler": "Adıyaman Müzesi"
+    "resim": "/static/images/02.jpeg"
   },
   {
     "name": "Afyonkarahisar",
@@ -35,6 +36,7 @@
     "universiteler": ["Afyon Kocatepe Üniversitesi", "Afyonkarahisar Sağlık Bilimleri Üniversitesi"],
     "resim": "./images/afyonkarahisar.jpeg"
     "müzeler": "Zafer Müzesi, Afyonkarahisar Müzesi, Bolvadin Müzesi"
+    "resim": "/static/images/03.jpeg"
   },
   {
     "name": "Ağrı",
@@ -47,6 +49,7 @@
     "universiteler": ["Ağrı İbrahim Çeçen Üniversitesi"],
     "resim": "./images/agri.jpeg"
     "müzeler": "Ağrı Müzesi"
+    "resim": "/static/images/04.jpg"
   },
   {
     "name": "Amasya",
@@ -71,6 +74,7 @@
     "universiteler": ["Ankara Üniversitesi", "ODTÜ", "Hacettepe Üniversitesi"],
     "resim": "/static/images/ankara.jpeg"
     "müzeler": "Anadolu Medeniyetleri Müzesi, Etnografya Müzesi"
+    "resim": "/static/images/05.jpg"
   },
   {
     "name": "Antalya",
@@ -83,6 +87,7 @@
     "universiteler": ["Akdeniz Üniversitesi", "Alanya Alaaddin Keykubat Üniversitesi"],
     "resim": "./images/antalya.jpeg"
     "müzeler": "Antalya Müzesi, Aziz Nikolaos Müzesi, Side Arkeoloji Müzesi"
+    "resim": "/static/images/06.png"
   },
   {
     "name": "Artvin",
@@ -95,6 +100,7 @@
     "universiteler": ["Artvin Çoruh Üniversitesi"],
     "resim": "./images/artvin.jpeg"
     "müzeler": "Artvin Gastronomi Müzesi"
+    "resim": "/static/images/08.jpg"
   },
   {
     "name": "Aydın",
@@ -107,6 +113,7 @@
     "universiteler": ["Adnan Menderes Üniversitesi"],
     "resim": "./images/aydin.jpeg"
     "müzeler": "Yörük Ali Efe Evi Müzesi, Afrodisias Müzesi, Aydin Arkeoloji Müzesi, Milet Müzesi"
+    "resim": "/static/images/09.jpeg"
   },
   {
     "name": "Balıkesir",
@@ -119,7 +126,7 @@
     "universiteler": ["Balıkesir Üniversitesi", "Bandırma Onyedi Eylül Üniversitesi"],
     "resim": "./images/balikesir.jpeg"
     "müzeler": "Taksiyarhis Anıt Müzesi, Kuva-yi Milliye Müzesi, Bandirma Müzesi"
-  
+    "resim": "/static/images/10.jpg"
   },
   {
     "name": "Bilecik",
@@ -132,6 +139,7 @@
     "universiteler": ["Bilecik Şeyh Edebali Üniversitesi"],
     "resim": "./images/bilecik.jpeg"
     "müzeler": "Bilecik Müzesi, Söğüt Ertuğrul Gazi Müzesi"
+    "resim": "/static/images/11.jpg"
   },
   {
     "name": "Bingöl",
@@ -156,6 +164,7 @@
     "universiteler": ["Bitlis Eren Üniversitesi"],
     "resim": "./images/bitlis.jpeg"
     "müzeler": "Ahlat Müzesi, Bitlis Etnografya Müzesi"
+    "resim": "/static/images/13.jpg"
   },
   {
     "name": "Bolu",
@@ -168,6 +177,7 @@
     "universiteler": ["Bolu Abant İzzet Baysal Üniversitesi"],
     "resim": "./images/bolu.jpeg"
     "müzeler": "Bolu Müzesi (Arkeoloji ve Etnografya Müzesi)"
+     "resim": "/static/images/14.png"
   },
   {
     "name": "Burdur",
@@ -180,6 +190,7 @@
     "universiteler": ["Burdur Mehmet Akif Ersoy Üniversitesi"],
     "resim": "./images/burdur.jpeg"
     "müzeler": "Burdur Arkeoloji Müzesi"
+    "resim": "/static/images/15.jpg"
   },
   {
     "name": "Bursa",
@@ -204,6 +215,7 @@
     "universiteler": ["Çanakkale Onsekiz Mart Üniversitesi"],
     "resim": "./images/canakkale.jpeg"
     "müzeler": "Çanakkale Savaşları Gelibolu Tarihi Alan Başkanlığı Müzesi, Troya Müzesi"
+    "resim": "/static/images/17.jpg"
   },
   {
     "name": "Çankırı",
@@ -216,6 +228,7 @@
     "universiteler": ["Çankırı Karatekin Üniversitesi"],
     "resim": "./images/cankiri.jpeg" 
     "müzeler": "Çankırı Müzesi, Tarihi Çamaşırhane Müzesi"
+     "resim": "/static/images/18.jpg"
   },
   {
     "name": "Çorum",
@@ -228,6 +241,7 @@
     "universiteler": ["Hitit Üniversitesi"],
     "resim": "./images/corum.jpeg"
     "müzeler": "Çorum Müzesi, Boğazköy Müzesi"
+     "resim": "/static/images/19.jpg"
   },
   {
     "name": "Denizli",
@@ -240,6 +254,7 @@
     "universiteler": ["Pamukkale Üniversitesi"],
     "resim": "./images/denizli.jpeg"
     "müzeler": "Atatürk Evi Etnografya Müzesi, Pamukkale Hierapolis Arkeoloji Müzesi"
+    "resim": "/static/images/20.jpg"
   },
   {
     "name": "Diyarbakır",
@@ -252,6 +267,7 @@
     "universiteler": ["Dicle Üniversitesi", "Diyarbakır Teknik Üniversitesi"],
     "resim": "./images/diyarbakir.jpeg"
     "müzeler": "Diyarbakır Arkeoloji Müzesi, Cahit Sıtkı Tarancı Müzesi"
+    "resim": "/static/images/21.jpeg"
   },
   {
     "name": "Edirne",
@@ -264,6 +280,7 @@
     "universiteler": ["Trakya Üniversitesi"],
     "resim": "./images/edirne.jpeg"
     "müzeler": "Edirne Arkeoloji ve Etnografya Müzesi, Türk-İslam Eserleri Müzesi"
+    "resim": "/static/images/22.png"
   },
   {
     "name": "Elazığ",
@@ -288,6 +305,7 @@
     "universiteler": ["Erzincan Binali Yıldırım Üniversitesi"],
     "resim": "./images/erzincan.jpeg"
     "müzeler": "Erzincan Etnografya Müzesi "
+    "resim": "/static/images/24.png"
   },
   {
     "name": "Erzurum",
@@ -300,6 +318,7 @@
     "universiteler": ["Atatürk Üniversitesi", "Erzurum Teknik Üniversitesi"],
     "resim": "./images/erzurum.jpeg"
     "müzeler": "Erzurum Arkeoloji Müzesi, Türk‑İslam Eserleri ve Etnografya Müzesi"
+    "resim": "/static/images/25.jpg"
   },
   {
     "name": "Eskişehir",
@@ -311,7 +330,8 @@
     "unluYemekler": "Çibörek, Met Helvası, Haşhaşlı Revani",
     "universiteler": ["Anadolu Üniversitesi", "Eskişehir Osmangazi Üniversitesi", "Eskişehir Teknik Üniversitesi"],
     "resim": "./images/eskisehir.jpeg"
-     "müzeler": "Eti Arkeoloji Müzesi, Yılmaz Büyükerşen Balmumu Heykeller Müzesi"
+    "müzeler": "Eti Arkeoloji Müzesi, Yılmaz Büyükerşen Balmumu Heykeller Müzesi"
+    "resim": "/static/images/26.jpg"
   },
   {
     "name": "Gaziantep",
@@ -324,6 +344,7 @@
     "universiteler": ["Gaziantep Üniversitesi", "Hasan Kalyoncu Üniversitesi"],
     "resim": "./images/gaziantep.jpeg"
     "müzeler": "Zeugma Mozaik Müzesi, Gaziantep Arkeoloji Müzesİ"
+    "resim": "/static/images/27.png"
   },
   {
     "name": "Giresun",
@@ -336,6 +357,7 @@
     "universiteler": ["Giresun Üniversitesi"],
     "resim": "./images/giresun.jpeg"
     "müzeler": "Şebinkarahisar Atatürk Evi ve Müzesi, Giresun Müzesİ"
+    "resim": "/static/images/28.jpeg"
   },
   {
     "name": "Gümüşhane",
@@ -348,6 +370,7 @@
     "universiteler": ["Gümüşhane Üniversitesi"],
     "resim": "./images/gumushane.jpeg"
     "müzeler": "Gümüşhane Müzesi, Gümüşhane İkizevler Kent Müzesİ"
+    "resim": "/static/images/29.jpg"
   },
   {
     "name": "Hakkari",
@@ -360,6 +383,7 @@
     "universiteler": ["Hakkari Üniversitesi"],
     "resim": "./images/hakkari.jpeg"
     "müzeler": "Hakkâri Kent Arşiv ve Etnografya Müzesi, Hakkâri Kilim Müzesİ"
+    "resim": "/static/images/30.jpg"
   },
   {
     "name": "Hatay",
@@ -372,6 +396,7 @@
     "universiteler": ["Hatay Mustafa Kemal Üniversitesi"],
     "resim": "./images/hatay.jpeg"
     "müzeler": "Hatay Arkeoloji Müzesi, Necmi Asfuroğlu Arkeoloji Müzesi"
+    "resim": "/static/images/31.jpg"
   },
   {
     "name": "Isparta",
@@ -384,6 +409,7 @@
     "universiteler": ["Süleyman Demirel Üniversitesi", "Isparta Uygulamalı Bilimler Üniversitesi"],
     "resim": "./images/isparta.jpeg"
     "müzeler": "Isparta Müzesi, Kovada Gölü Milli Parkı Müzesi"
+    "resim": "/static/images/32.png"
   },
   {
     "name": "Mersin",
@@ -396,6 +422,7 @@
     "universiteler": ["Mersin Üniversitesi", "Tarsus Üniversitesi"],
     "resim": "./images/mersin.jpeg"
     "müzeler": "Mersin Arkeoloji Müzesi, Mersin Atatürk Evi Müzesi"
+    "resim": "/static/images/33.jpg"
   },
   {
     "name": "Istanbul",
@@ -408,6 +435,7 @@
     "universiteler": ["Boğaziçi Üniversitesi", "İstanbul Üniversitesi", "İTÜ"],
     "resim": "./images/istanbul.jpg"
     "müzeler": "İstanbul Arkeoloji Müzesi, Topkapı Sarayı Müzesi, İstanbul Modern Sanat Müzesi, Rahmi M. Koç Müzesi"
+    "resim": "/static/images/34.jpg"
   },
   {
     "name": "Izmir",
@@ -420,6 +448,7 @@
     "universiteler": ["Ege Üniversitesi", "Dokuz Eylül Üniversitesi", "İzmir Yüksek Teknoloji Enstitüsü"],
     "resim": "./images/izmir.jpg"
     "müzeler": "İzmir Arkeoloji Müzesi, İzmir Etnografya Müzesi"
+     "resim": "/static/images/35.jpg"
   },
   {
     "name": "Kars",
@@ -432,6 +461,7 @@
     "universiteler": ["Kafkas Üniversitesi"],
     "resim": "./images/kars.jpeg"
     "müzeler": "Kars Müzesi, Kars Peynir Müzesi"
+    "resim": "/static/images/36.jpeg"
   },
   {
     "name": "Kastamonu",
@@ -444,6 +474,7 @@
     "universiteler": ["Kastamonu Üniversitesi"],
     "resim": "./images/kastamonu.jpeg"
     "müzeler": "Kastamonu Arkeoloji Müzesi, Kastamonu Kent Tarihi Müzesi"
+    "resim": "/static/images/37.jpg"
   },
   {
     "name": "Kayseri",
@@ -456,6 +487,7 @@
     "universiteler": ["Erciyes Üniversitesi", "Abdullah Gül Üniversitesi", "Nuh Naci Yazgan Üniversitesi"],
     "resim": "./images/kayseri.jpeg"
     "müzeler": "Ahi Evran Zaviyesi Müzesi, Kadir Has Kent ve Mimar Sinan Müzesi"
+    "resim": "/static/images/38.jpeg"
   },
   {
     "name": "Kırklareli",
@@ -490,6 +522,7 @@
     "universiteler": ["Kocaeli Üniversitesi", "Gebze Teknik Üniversitesi"],
     "resim": "./images/kocaeli.jpeg"
     "müzeler": "Osman Hamdi Bey Evi ve Müzesi, Kasri Hümayun Saray Müzesi"
+    "resim": "/static/images/41.jpeg"
   },
   {
     "name": "Konya",
@@ -502,6 +535,7 @@
     "universiteler": ["Selçuk Üniversitesi", "Necmettin Erbakan Üniversitesi", "Konya Teknik Üniversitesi"],
     "resim": "./images/konya.jpeg"
     "müzeler": "Mevlana Müzesi, Konya Etnografya Müzesi"
+    "resim": "/static/images/42.jpg"
   },
   {
     "name": "Kütahya",
@@ -514,6 +548,7 @@
     "universiteler": ["Kütahya Dumlupınar Üniversitesi", "Kütahya Sağlık Bilimleri Üniversitesi"],
     "resim": "./images/kutahya.jpeg"
     "müzeler": "Kütahya Arkeoloji Müzesi, Jeoloji Müzesi"
+    "resim": "/static/images/43.jpeg"
   },
   {
     "name": "Malatya",
@@ -526,6 +561,7 @@
     "universiteler": ["İnönü Üniversitesi", "Malatya Turgut Özal Üniversitesi"],
     "resim": "./images/malatya.jpeg"
     "müzeler": "Malatya Arkeoloji Müzesi, Fotoğraf Makinesi Müzesi"
+    "resim": "/static/images/44.jpg"
   },
   {
     "name": "Manisa",
@@ -538,6 +574,7 @@
     "universiteler": ["Manisa Celal Bayar Üniversitesi"],
     "resim": "./images/manisa.jpeg"
     "müzeler": "Akhisar Müzesi, Ayşe Hafsa Sultan Tıp Tarihi Müzesi"
+
   },
   {
     "name": "Kahramanmaraş",
@@ -550,6 +587,7 @@
     "universiteler": ["Kahramanmaraş Sütçü İmam Üniversitesi"],
     "resim": "./images/kahramanmaras.jpeg"
     "müzeler": "Kahramanmaraş Arkeoloji Müzesi, Kahramanmaraş Kurtuluş Müzesi"
+    "resim": "/static/images/46.jpg"
   },
   {
     "name": "Mardin",
@@ -562,6 +600,7 @@
     "universiteler": ["Mardin Artuklu Üniversitesi"],
     "resim": "./images/mardin.jpeg"
     "müzeler": "Mardin Müzesi, Sakıp Sabancı Mardin Kent Müzesi"
+    "resim": "/static/images/47.jpg"
   },
   {
     "name": "Muğla",
@@ -574,6 +613,7 @@
     "universiteler": ["Muğla Sıtkı Koçman Üniversitesi"],
     "resim": "./images/mugla.jpeg"
     "müzeler": "Muğla Müzesi, Bodrum Sualti Arkeoloji Müzesi"
+    "resim": "/static/images/48.jpg"
   },
   {
     "name": "Muş",
@@ -586,6 +626,7 @@
     "universiteler": ["Muş Alparslan Üniversitesi"],
     "resim": "./images/mus.jpeg"
     "müzeler": "Muş Müzesi"
+    "resim": "/static/images/49.jpeg"
   },
   {
     "name": "Nevşehir",
@@ -598,6 +639,7 @@
     "universiteler": ["Nevşehir Hacı Bektaş Veli Üniversitesi"],
     "resim": "./images/nevsehir.jpeg"
     "müzeler": "Nevşehir Müzesi, Göreme Açık Hava Müzesi"
+
   },
   {
     "name": "Niğde",
@@ -610,6 +652,7 @@
     "universiteler": ["Niğde Ömer Halisdemir Üniversitesi"],
     "resim": "./images/nigde.jpeg"
     "müzeler": "Niğde Müzesi "
+    "resim": "/static/images/51.jpg"
   },
   {
     "name": "Ordu",
@@ -622,6 +665,7 @@
     "universiteler": ["Ordu Üniversitesi"],
     "resim": "./images/ordu.jpeg"
     "müzeler": "Paşaoğlu Konaği Etnografya Müzesi "
+    "resim": "/static/images/52.jpg"
   },
   {
     "name": "Rize",
@@ -634,6 +678,7 @@
     "universiteler": ["Recep Tayyip Erdoğan Üniversitesi"],
     "resim": "./images/rize.jpeg"
     "müzeler": "Rize Müzesi "
+    "resim": "/static/images/53.png"
   },
   {
     "name": "Sakarya",
@@ -646,6 +691,7 @@
     "universiteler": ["Sakarya Üniversitesi", "Sakarya Uygulamalı Bilimler Üniversitesi"],
     "resim": "./images/sakarya.jpeg"
     "müzeler": "Sakarya Müzesi (Atatürk Evi), Deprem Kültür Müzesi (Sakarya Deprem Müzesi) "
+    "resim": "/static/images/54.jpg"
   },
   {
     "name": "Samsun",
@@ -658,6 +704,7 @@
     "universiteler": ["Ondokuz Mayıs Üniversitesi", "Samsun Üniversitesi"],
     "resim": "./images/samsun.jpeg"
     "müzeler": "Samsun Müzesi (Arkeoloji ve Etnografya Müzesi), Samsun Kent Müzesi "
+    "resim": "/static/images/55.jpg"
   },
   {
     "name": "Siirt",
@@ -670,6 +717,7 @@
     "universiteler": ["Siirt Üniversitesi"],
     "resim": "./images/siirt.jpeg"
     "müzeler": "Siirt Arkeoloji Müzesi "
+    "resim": "/static/images/56.jpeg"
   },
   {
     "name": "Sinop",
@@ -682,6 +730,7 @@
     "universiteler": ["Sinop Üniversitesi"],
     "resim": "./images/sinop.jpeg"
     "müzeler": "Sinop Arkeoloji Müzesi "
+    "resim": "/static/images/57.jpeg"
   },
   {
     "name": "Sivas",
@@ -694,6 +743,7 @@
     "universiteler": ["Sivas Cumhuriyet Üniversitesi", "Sivas Bilim ve Teknoloji Üniversitesi"],
     "resim": "./images/sivas.jpeg"
     "müzeler": "Sivas Atatürk ve Kongre Müzesi "
+    "resim": "/static/images/568.jpeg"
   },
   {
     "name": "Tekirdağ",
@@ -706,6 +756,7 @@
     "universiteler": ["Tekirdağ Namık Kemal Üniversitesi"],
     "resim": "./images/tekirdag.jpeg"
     "müzeler": "Tekirdağ Arkeoloji ve Etnografya Müzesi "
+    "resim": "/static/images/59.jpg"
   },
   {
     "name": "Tokat",
@@ -718,6 +769,7 @@
     "universiteler": ["Tokat Gaziosmanpaşa Üniversitesi"],
     "resim": "./images/tokat.jpeg"
     "müzeler": "Latifoğlu Konaği Müzesi "
+    "resim": "/static/images/60.jpg"
   },
   {
     "name": "Trabzon",
@@ -743,6 +795,7 @@
     "universiteler": ["Tunceli Üniversitesi"],
     "resim": "./images/tunceli.jpeg"
     "müzeler": "Tunceli Müzesi"
+    "resim": "/static/images/62.jpg"
   },
   {
     "name": "Şanlıurfa",
@@ -755,6 +808,7 @@
     "universiteler": ["Harran Üniversitesi"],
     "resim": "./images/sanliurfa.jpeg"
     "müzeler": "Şanliurfa Arkeoloji Müzesi"
+    "resim": "/static/images/63.jpg"
   },
   {
     "name": "Uşak",
@@ -767,6 +821,7 @@
     "universiteler": ["Uşak Üniversitesi"],
     "resim": "./images/usak.jpeg"
     "müzeler": "Uşak Arkeoloji Müzesi"
+    "resim": "/static/images/64.jpeg"
   },
   {
     "name": "Van",
@@ -779,6 +834,7 @@
     "universiteler": ["Van Yüzüncü Yıl Üniversitesi"],
     "resim": "./images/van.jpeg"
     "müzeler": "Van Müzesi, Van-Akdamar Anıt Müzesi / Kilisesi"
+    "resim": "/static/images/65.jpg"
   },
   {
     "name": "Yozgat",
@@ -791,6 +847,7 @@
     "universiteler": ["Yozgat Bozok Üniversitesi"],
     "resim": "./images/yozgat.jpeg"
     "müzeler": "Yozgat Müzesi"
+    "resim": "/static/images/66.jpg"
   },
   {
     "name": "Zonguldak",
@@ -803,6 +860,7 @@
     "universiteler": ["Zonguldak Bülent Ecevit Üniversitesi"],
     "resim": "./images/zonguldak.jpeg"
     "müzeler": "Karadeniz Ereğli Müzesi"
+    "resim": "/static/images/67.jpg"
   },
   {
     "name": "Aksaray",
@@ -815,6 +873,7 @@
     "universiteler": ["Aksaray Üniversitesi"],
     "resim": "./images/aksaray.jpeg"
     "müzeler": "Aksaray Müzesi"
+    "resim": "/static/images/68.jpeg"
   },
   {
     "name": "Bayburt",
@@ -827,6 +886,7 @@
     "universiteler": ["Bayburt Üniversitesi"],
     "resim": "./images/bayburt.jpeg"
     "müzeler": "Baksı Müzesi"
+    "resim": "/static/images/69.jpg"
   },
   {
     "name": "Karaman",
@@ -839,6 +899,7 @@
     "universiteler": ["Karamanoğlu Mehmetbey Üniversitesi"],
     "resim": "./images/karaman.jpeg"
     "müzeler": "Karaman Müzesi"
+    "resim": "/static/images/70.jpg"
   },
   {
     "name": "Kırıkkale",
@@ -851,6 +912,7 @@
     "universiteler": ["Kırıkkale Üniversitesi"],
     "resim": "./images/kirikkale.jpeg"
     "müzeler": "Silah Müzesi, Siyer-i Nebi ve Mushaf-ı Şerif Müzesi"
+    "resim": "/static/images/71.jpg"
   },
   {
     "name": "Batman",
@@ -863,6 +925,7 @@
     "universiteler": ["Batman Üniversitesi"],
     "resim": "./images/batman.jpeg"
     "müzeler": "Hasankeyf Müzesi"
+    "resim": "/static/images/72.jpg"
   },
   {
     "name": "Şırnak",
@@ -875,6 +938,7 @@
     "universiteler": ["Şırnak Üniversitesi"],
     "resim": "./images/sirnak.jpeg"
     "müzeler": "İsmail Ebul-İz El Cezeri Müzesi, Uludere Etnografya Müzesi "
+    "resim": "/static/images/73.png"
   },
   {
     "name": "Bartın",
@@ -887,6 +951,7 @@
     "universiteler": ["Bartın Üniversitesi"],
     "resim": "./images/bartin.jpeg"
     "müzeler": "Bartın Kent Müzesi, Kemal Samancıoğlu Etnografya Müzesi "
+    "resim": "/static/images/74.jpg"
   },
   {
     "name": "Ardahan",
@@ -899,6 +964,7 @@
     "universiteler": ["Ardahan Üniversitesi"],
     "resim": "./images/ardahan.jpeg"
     "müzeler": "Ardahan Kent Müzesi, Ardahan Kongre ve Kent Müzesi"
+    "resim": "/static/images/75.jpg"
   },
   {
     "name": "Iğdır",
@@ -911,6 +977,7 @@
     "universiteler": ["Iğdır Üniversitesi"],
     "resim": "./images/igdir.jpeg"
     "müzeler": "Karakoyunlu Koçbaşlı Açık Hava Müzesi"
+    "resim": "/static/images/76.jpeg"
   },
   {
     "name": "Yalova",
@@ -923,6 +990,7 @@
     "universiteler": ["Yalova Üniversitesi"],
     "resim": "./images/yalova.jpeg"
     "müzeler": "Yalova Kent Müzesi"
+    "resim": "/static/images/77.jpeg"
   },
   {
     "name": "Karabük",
@@ -935,6 +1003,7 @@
     "universiteler": ["Karabük Üniversitesi"],
     "resim": "./images/karabuk.jpeg"
     "müzeler": "Karabük Demir Çelik Sanayi Müzesi"
+    "resim": "/static/images/78.jpg"
   },
   {
     "name": "Kilis",
@@ -947,6 +1016,7 @@
     "universiteler": ["Kilis 7 Aralık Üniversitesi"],
     "resim": "./images/kilis.jpeg"
     "müzeler": "Kilis Müzesi (Tarihi Sabunhane Binası)"
+    "resim": "/static/images/79.jpg"
   },
   {
     "name": "Osmaniye",
@@ -959,6 +1029,7 @@
     "universiteler": ["Osmaniye Korkut Ata Üniversitesi"],
     "resim": "./images/osmaniye.jpeg"
     "müzeler": "Osmaniye Kent Müzesi"
+    "resim": "/static/images/80.jpg"
   },
   {
     "name": "Düzce",
@@ -971,5 +1042,6 @@
     "universiteler": ["Düzce Üniversitesi"],
     "resim": "./images/duzce.jpeg"
     "müzeler": "Düzce Arkeoloji Müzesi"
+    "resim": "/static/images/81.jpg"
   }
 ]
