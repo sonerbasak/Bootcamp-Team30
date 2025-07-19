@@ -34,6 +34,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     const swiperWrapper = document.getElementById("quiz-questions-container");
     if (swiperWrapper) {
     }
+
+    // Geri butonu için event listener
+    const backButton = document.querySelector(".back-button");
+    if (backButton) {
+        backButton.addEventListener("click", (event) => {
+            // Varsayılan bağlantı davranışını engelle ki önce temizleme yapılabilsin
+            event.preventDefault(); 
+            
+            const city = getQueryParam("city");
+            if (city) {
+                sessionStorage.removeItem(`aiQuizData-${city}`);
+                console.log(`Geri giderken quiz verisi temizlendi: aiQuizData-${city}`);
+            } else {
+                // Eğer şehir bilgisi yoksa (genel kültür quizi), yine de genel veriyi temizle
+                sessionStorage.removeItem('aiQuizData-null'); // Veya genel bir anahtar kullanıyorsanız onu
+                console.log("Geri giderken genel quiz verisi temizlendi.");
+            }
+            
+            // Ana sayfaya yönlendir
+            window.location.href = backButton.href; 
+        });
+    }
 });
 
 function initializeSwiper() {
@@ -364,7 +386,16 @@ function showResults(score, reviewAnswers) {
     resultsContainer.innerHTML = html;
     resultsContainer.classList.remove("d-none");
 }
+
 function goHome() {
+    const city = getQueryParam("city");
+    if (city) {
+        sessionStorage.removeItem(`aiQuizData-${city}`);
+        console.log(`Quiz verisi temizlendi: aiQuizData-${city}`);
+    } else {
+        sessionStorage.removeItem('aiQuizData-null');
+        console.log("Genel quiz verisi temizlendi.");
+    }
     window.location.href = "/";
 }
 
