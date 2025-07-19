@@ -187,7 +187,7 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 ---
 
 <details>
-   <summary>🏃 Sprint 2 - Temel Yapının Kurulumu</summary>
+   <summary>🏃 Sprint 2 - Yapay Zeka, Veri Girişi ve Stabilizasyon</summary>
 
 
   <details>
