@@ -101,6 +101,7 @@ async function loadQuestions(city) {
 
             const data = await res.json();
             rawQuizText = data.quiz_text;
+            console.log("Gemini API'den Gelen Ham Quiz Metni:", rawQuizText);
 
             sessionStorage.setItem(`aiQuizData-${city}`, rawQuizText);
         } catch (error) {

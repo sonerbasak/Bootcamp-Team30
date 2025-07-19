@@ -6,7 +6,7 @@ import asyncio
 load_dotenv()
 configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-async def generate_quiz(topic: str, count: int = 5) -> str:
+async def generate_quiz(topic: str, count: int = 10) -> str:
     model = GenerativeModel("gemini-pro")
 
     prompt = f"""
