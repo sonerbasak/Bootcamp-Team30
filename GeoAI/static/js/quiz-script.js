@@ -108,110 +108,74 @@ function initializeSwiper() {
 }
 
 async function loadQuestions(city) {
-    let rawQuizText = sessionStorage.getItem(`aiQuizData-${city}`);
+    console.log("loadQuestions başladı. City:", city);
 
-    if (!rawQuizText) {
-        try {
-            const res = await fetch(
-                `/api/gemini-quiz?city=${encodeURIComponent(city)}`
-            );
-            if (!res.ok) {
-                const errorText = await res.text();
-                console.error("API yanıt hatası:", res.status, errorText);
-                throw new Error(`API yanıt vermedi: ${res.status} - ${errorText}`);
+    // sessionStorage kontrolü kaldırıldı, her zaman API çağrılacak.
+    // Ancak hata ayıklama için promptu hala kaydetmek isteyebilirsiniz.
+
+    let quizDataArray = null; // API'den gelen quiz soruları dizisini tutacak
+    let sentPromptText = null; // Gönderilen prompt metnini tutacak
+
+    console.log("Quiz verisi için API çağrılıyor..."); // Her zaman çağrıldığı için bu mesaj
+    try {
+        const res = await fetch(
+            `/api/gemini-quiz?city=${encodeURIComponent(city)}`
+        );
+        
+        console.log("API yanıtının başarı durumu (res.ok):", res.ok); 
+        console.log("API yanıtının Content-Type başlığı:", res.headers.get('Content-Type')); 
+
+        if (!res.ok) {
+            // Hata durumunda JSON olarak detayları almaya çalışın
+            let errorDetails;
+            try {
+                errorDetails = await res.json();
+            } catch (jsonError) {
+                // Eğer yanıt JSON değilse düz metin olarak alın
+                errorDetails = { error: await res.text() };
             }
-
-            const data = await res.json();
-            rawQuizText = data.quiz_text;
-            console.log("Gemini API'den Gelen Ham Quiz Metni:", rawQuizText);
-
-            sessionStorage.setItem(`aiQuizData-${city}`, rawQuizText);
-        } catch (error) {
-            console.error("Sorular alınırken hata oluştu:", error);
-            alert("Sorular alınamadı: " + error.message);
-            rawQuizText = "";
+            
+            console.error("API yanıt hatası:", res.status, errorDetails);
+            throw new Error(`API yanıt vermedi: ${res.status} - ${errorDetails.error || "Bilinmeyen Hata"}`);
         }
+
+        const data = await res.json(); // API'den gelen JSON verisini parse et
+        console.log("API'den gelen RAW data objesi:", data); // <<< BURAYI KESİNLİKLE KONTROL ET!
+        
+        quizDataArray = data.quiz_data; // Artık doğrudan quiz_data dizisini alıyoruz
+        sentPromptText = data.sent_prompt; // Promptu JSON yanıtından alıyoruz!
+
+        console.log("Gemini API'den Gelen Quiz Verisi (JSON Array):", quizDataArray);
+        
+        // Promptu tarayıcı konsoluna yazdırıyoruz:
+        console.log("\n" + "=".repeat(70));
+        console.log("YAPAY ZEKAYA GÖNDERİLEN PROMPT (FRONTEND KONSOLU - API'den geldi):");
+        console.log(sentPromptText); 
+        console.log("=".repeat(70) + "\n");
+
+        // Quiz verisini stringify edip sessionStorage'a kaydet
+        // Her API çağrısında yenisiyle değiştirilecek
+        sessionStorage.setItem(`aiQuizData-${city}`, JSON.stringify(quizDataArray));
+        sessionStorage.setItem(`aiQuizPrompt-${city}`, sentPromptText); 
+        console.log("Yeni quiz ve prompt verileri sessionStorage'a kaydedildi.");
+
+    } catch (error) {
+        console.error("Sorular alınırken hata oluştu:", error);
+        alert("Sorular alınamadı: " + error.message);
+        quizDataArray = []; // Hata durumunda boş dizi
+        // Hata durumunda sessionStorage'ı da temizlemek isteyebilirsiniz,
+        // ancak zaten her çağrıda üstüne yazıldığı için zorunlu değil.
+        sessionStorage.removeItem(`aiQuizData-${city}`);
+        sessionStorage.removeItem(`aiQuizPrompt-${city}`);
     }
 
-    quizQuestions = rawQuizText ? parseQuizText(rawQuizText) : [];
+    // quizQuestions artık API'den gelen direkt JSON dizisi olacak
+    quizQuestions = quizDataArray || []; // Eğer quizDataArray null ise boş bir dizi kullan
 
     // userSelections dizisini quizQuestions uzunluğunda başlat
     userSelections = new Array(quizQuestions.length).fill(null);
 
     renderQuestions(quizQuestions);
-}
-
-function parseQuizText(text) {
-    const questions = [];
-    const lines = text
-        .split("\n")
-        .map((l) => l.trim())
-        .filter((l) => l.length > 0);
-
-    let currentQuestion = null;
-    let quizContentStarted = false;
-
-    for (let i = 0; i < lines.length; i++) {
-        let line = lines[i];
-        const isQuestionStart = /^(?:\*\*Soru\s*\d+:\*\*|Soru:)\s*/i.test(line);
-
-        if (!quizContentStarted && isQuestionStart) {
-            quizContentStarted = true;
-        }
-
-        if (quizContentStarted) {
-            if (isQuestionStart) {
-                if (
-                    currentQuestion &&
-                    currentQuestion.question &&
-                    currentQuestion.options.length === 4 &&
-                    currentQuestion.answer
-                ) {
-                    questions.push(currentQuestion);
-                }
-                currentQuestion = { question: "", options: [], answer: "" };
-                currentQuestion.question = line
-                    .replace(/^(?:\*\*Soru\s*\d+:\*\*|Soru:)\s*/i, "")
-                    .trim();
-
-                if (
-                    lines[i + 1] &&
-                    !/^[A-D]\)/.test(lines[i + 1]) &&
-                    !/(?:^Doğru Cevap:|^D\))/i.test(
-                        lines[i + 1].toLowerCase().replace(/\*\*/g, "")
-                    )
-                ) {
-                    currentQuestion.question +=
-                        " " + lines[i + 1].replace(/\*\*/g, "").trim();
-                    i++;
-                }
-            } else if (currentQuestion) {
-                if (/^[A-D]\)/i.test(line)) {
-                    currentQuestion.options.push(line.replace(/^[A-D]\)\s*/i, "").trim());
-                } else if (
-                    line.toLowerCase().startsWith("doğru cevap:") ||
-                    line.toLowerCase().startsWith("**doğru cevap:")
-                ) {
-                    let rawAnswer = line
-                        .replace(/^(?:\*\*doğru cevap:|doğru cevap:)\s*/i, "")
-                        .replace(/\*\*/g, "")
-                        .trim();
-                    // Doğru cevabın sadece şık harfini sakla (örneğin "A", "B", "C", "D")
-                    currentQuestion.answer = rawAnswer;
-                }
-            }
-        }
-    }
-
-    if (
-        currentQuestion &&
-        currentQuestion.question &&
-        currentQuestion.options.length === 4 &&
-        currentQuestion.answer
-    ) {
-        questions.push(currentQuestion);
-    }
-    return questions;
 }
 
 function renderQuestions(questions) {
@@ -231,16 +195,11 @@ function renderQuestions(questions) {
         slide.classList.add("swiper-slide", "quiz-slide");
 
         let optionsHtml = "";
-        // Şıkların yerlerini karıştırmayı kaldırıyoruz.
-        // Artık orijinal sırasıyla (A, B, C, D) render edilecekler.
-        const orderedOptions = [...q.options];
+        // Şıklar artık direkt q.a, q.b, q.c, q.d olarak erişilebilir
+        const options = [q.a, q.b, q.c, q.d];
 
-        orderedOptions.forEach((option, optionIndex) => {
-            // Şık harfini doğrudan indeksten alıyoruz (0=A, 1=B, ...)
+        options.forEach((option, optionIndex) => {
             const optionLetter = String.fromCharCode(65 + optionIndex);
-
-            // Kullanıcının daha önceki seçimini kontrol et ve işaretle
-            // userSelections artık şık harfi tuttuğu için karşılaştırmayı buna göre yapıyoruz.
             const isChecked = userSelections[index] === optionLetter ? "checked" : "";
             optionsHtml += `
                 <label>
@@ -255,10 +214,10 @@ function renderQuestions(questions) {
 
         slide.innerHTML = `
             <div class="question-number">Soru ${index + 1}</div>
-            <p class="question-text">${q.question}</p>
-            <div class="options">
+            <p class="question-text">${q.soru}</p> <div class="options">
                 ${optionsHtml}
             </div>
+            <div class="question-category" style="display: none;">${q.kategori}</div>
         `;
 
         questionsContainer.appendChild(slide);
@@ -303,19 +262,18 @@ function submitQuiz() {
 
     quizQuestions.forEach((q, index) => {
         const userAnswerLetter = userSelections[index];
-        const correctAnswerLetter = q.answer;
+        const correctAnswerLetter = q.cevap; // q.answer yerine q.cevap
 
         let userAnswerText = null;
         if (userAnswerLetter) {
-            const optionIndex = userAnswerLetter.charCodeAt(0) - "A".charCodeAt(0);
-            userAnswerText = q.options[optionIndex];
+            const optionKey = userAnswerLetter.toLowerCase(); // 'a', 'b', 'c', 'd'
+            userAnswerText = q[optionKey]; // Doğrudan objenin key'inden şık metnine erişim
         }
 
         let correctOptionText = null;
         if (correctAnswerLetter) {
-            const correctIndex =
-                correctAnswerLetter.charCodeAt(0) - "A".charCodeAt(0);
-            correctOptionText = q.options[correctIndex];
+            const correctOptionKey = correctAnswerLetter.toLowerCase();
+            correctOptionText = q[correctOptionKey];
         }
 
         const isCorrect =
@@ -324,7 +282,8 @@ function submitQuiz() {
         if (isCorrect) score++;
 
         reviewAnswers.push({
-            question: q.question,
+            question: q.soru, // q.question yerine q.soru
+            category: q.kategori, // Yeni: Kategori bilgisini ekliyoruz
             userAnswerLetter,
             userAnswerText,
             correctAnswerLetter,
