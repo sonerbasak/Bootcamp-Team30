@@ -277,7 +277,7 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
     <h3>👥 Ekip Görev Dağılımı – Sprint 2</h3>
 
-    <strong>👩‍💼 Amine Demirbaş – Scrum Master</strong>
+    <p><strong>👩‍💼 Amine Demirbaş – Scrum Master</strong></p>
     <ul>
       <li>İletişim ve koordinasyonu sağladı.</li>
       <li>Günlük toplantıları organize etti.</li>
@@ -285,20 +285,21 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
       <li>Veritabanı entegrasyonları gerçekleştirdi.</li>
     </ul>
 
-    <strong>👩‍💻 Melike Nur Köseoğlu – Product Owner</strong>
+    <p><strong>👩‍💻 Melike Nur Köseoğlu – Product Owner</strong></p>
     <ul>
       <li>Yapay zekâ entegrasyonu ve UI geliştirmeleri yaptı.</li>
       <li>Soru oluşturma fonksiyonlarını aktive etti.</li>
+      <li>Ön yüz geliştirmeleri yapıldı</li>
     </ul>
 
-    <strong>👨‍💻 Soner Başak – Backend & AI Developer</strong>
+    <p><strong>👨‍💻 Soner Başak – Backend & AI Developer</strong></p>
     <ul>
       <li>Dünya haritası entegrasyonu sağladı.</li>
       <li>Soru algoritmasını geliştirdi.</li>
       <li>Sistemsel hataları giderdi.</li>
     </ul>
 
-    <strong>👨‍💻 Canberk – Frontend Developer</strong>
+    <p><strong>👨‍💻 Canberk – Frontend Developer</strong></p>
     <ul>
       <li>Veritabanı yapısını planladı.</li>
       <li>Şehir verilerini işleyen API ve JSON yapısını oluşturdu.</li>
