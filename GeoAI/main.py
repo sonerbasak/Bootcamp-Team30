@@ -1,7 +1,8 @@
-from fastapi import FastAPI, Request, Form, Query, HTTPException
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi import FastAPI, Request, Form, Query, HTTPException, status
+from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 import os
 from dotenv import load_dotenv
 from pydantic import BaseModel
@@ -108,9 +109,13 @@ async def create_quiz(request: Request, topic: str = Form(...), count: int = For
     return templates.TemplateResponse("ai.html", {"request": request, "quiz": response.text})
 
 # Quiz oynatma sayfası
-@app.get("/quiz")
-async def quiz_page(request: Request, city: str = ""):
-    return templates.TemplateResponse("quiz.html", {"request": request, "city": city})
+@app.get("/quiz", response_class=HTMLResponse)
+async def quiz_page(request: Request, city: str = None, type: str = None):
+    """
+    Quiz sayfasını render eder. 'city' parametresi şehir quizleri için,
+    'type=wrong-questions' ise yanlış cevaplanan soruları tekrar çözmek için kullanılır.
+    """
+    return templates.TemplateResponse("quiz.html", {"request": request, "city": city, "type": type})
 
 # Gemini API'den quiz soruları üretme endpoint'i
 @app.get("/api/gemini-quiz")
@@ -269,10 +274,14 @@ async def get_wrong_questions():
         if conn:
             conn.close()
 
-# Yanlış soruları gösteren HTML sayfası rotası
+# Yanlış sorular sayfası için yönlendirme rotası
 @app.get("/wrong-questions", response_class=HTMLResponse)
 async def serve_wrong_questions_page(request: Request):
-    return templates.TemplateResponse("wrong_question.html", {"request": request})
+    """
+    Yanlış cevaplanan sorular sayfasını, 'quiz.html'i kullanarak ve type=wrong-questions
+    parametresi ile yönlendirerek render eder.
+    """
+    return RedirectResponse(url="/quiz?type=wrong-questions", status_code=status.HTTP_302_FOUND)
 
 # Yeni: Doğru cevaplanan yanlış soruları veritabanından silme endpoint'i
 @app.post("/api/remove-correctly-answered-questions")
