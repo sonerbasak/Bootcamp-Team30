@@ -294,21 +294,21 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
 <strong>👩‍💻 Melike Nur Köseoğlu – Product Owner</strong>
 <ul>
-  <li>Leaflet.js kullanarak harita görselleştirmesinin yönlendirilmesini sağladı.</li>
-  <li>Backlog yönetimi yaptı ve kullanıcı test senaryolarını oluşturdu.</li>
-  <li>Tasarım sürecine rehberlik ederek içerik planlamasında aktif rol aldı.</li>
+  <li>Yapay zeka projeye entegrasyonu yapıldı.</li>
+  <li>Tasarımda iyileştirmeler yapıldı.</li>
+  <li>Soru oluşturma fonksiyonları aktifleştirildi.</li>
 </ul>
 
 <strong>👨‍💻 Soner Başak – Backend & AI Developer</strong>
 <ul>
-  <li>Şehir verileri için API ve JSON veri yapısını oluşturdu.</li>
-  <li>Backend test ortamını kurarak veri servislerini yapılandırdı.</li>
-  <li>Harita üzerinden şehir seçimi ve popup bilgi kutucuklarını geliştirdi.</li>
-  <li>Responsive kullanıcı arayüzü ve bilgi kartı komponentlerini oluşturdu.</li>
+  <li>Dünya haritası projeye entegre edildi.</li>
+  <li>Soru fonksiyonunda iyileştirmeler yapıldı.</li>
+  <li>Proje hataları giderildi.</li>
 </ul>
 
 <strong>👨‍💻 Canberk – Frontend Developer</strong>
 <li>Projenin ilerleyen aşamaları için veritabanı planlamasını yaptı.</li>
+<li>Şehir verileri için API ve JSON veri yapısını oluşturdu.</li>
 <ul>
   
 </ul>
