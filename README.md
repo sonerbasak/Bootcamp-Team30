@@ -332,8 +332,10 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 </details>
 
 
----
+</details>
 
+
+---
 
 <details>
   <summary>📈 Sprint 3 - Test ve Yayın Süreci</summary>
