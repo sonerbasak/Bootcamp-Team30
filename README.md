@@ -162,8 +162,7 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
     <li>Şehir seçimi ve popup bilgi kutuları</li>
     <li>Responsive UI ve bilgi kartı komponentleri</li>
   </ul>
-</details>
-
+ </details>
 
   <details>
   <summary>🎯 Sprint Retrospective</summary>
