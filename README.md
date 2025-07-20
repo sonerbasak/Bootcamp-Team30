@@ -235,7 +235,8 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
   <details>
   <summary>🎯 Sprint Board Updates</summary>
   <p>Sprint board'dan iki örnek ekran görüntüsü:</p>
-  <img src="images/0.jpg" alt="Sprint Board Görüntüsü 1" width="600" style="margin-bottom: 10px;" />
+  <img src="images/trello01.png" alt="Sprint Board Görüntüsü 1" width="600" style="margin-bottom: 10px;" />
+  <img src="images/trello02.png" alt="Sprint Board Görüntüsü 2" width="600" />
   
  
 </details>
@@ -330,12 +331,6 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 
 ---
 
-<details>
-
-  
-</details>
-
----
 
 <details>
   <summary>📈 Sprint 3 - Test ve Yayın Süreci</summary>
