@@ -271,11 +271,11 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
       <li>Geri bildirimler genel olarak olumluydu; özellikle kullanıcı deneyimindeki gelişmeler dikkat çekti.</li>
       <li>Bazı şehirlerin eksik medya içerikleri Sprint 3 için hedeflendi.</li>
     </ul>
+    
     <hr />
     <p><strong>Sprint Dönemi:</strong> 6 Temmuz – 20 Temmuz 2025<br>
     <strong>Proje:</strong> GeoAI</p>
 
-    <h3>👥 Ekip Görev Dağılımı – Sprint 2</h3>
 
     <p><strong>👩‍💼 Amine Demirbaş – Scrum Master</strong></p>
     <ul>
