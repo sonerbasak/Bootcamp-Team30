@@ -214,13 +214,6 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
   </details>
   
   <details>
-    <summary>🎯 Tahmin Mantığı</summary>
-    <p>
-     Sprint başında her görev karmaşıklık ve efor bazlı puanlanmış, her sprint için 100 puanlık çerçeve belirlenmiştir. Görevlerin tamamlanma durumu bu puanlara göre değerlendirilmiştir. Sprint 2, %100 başarı oranıyla tamamlanarak önemli bir ilerleme kaydetmiştir.
-    </p>
-  </details>
-  
-  <details>
     <summary>🎯 Tahmin Edilen Tamamlanacak Puan</summary>
     <ul>
       <li>Sprint 2 için belirlenen hedef puan: <strong>100 puan</strong></li>
@@ -228,6 +221,15 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
       <li>Tamamlanma oranı: <strong>%100</strong></li>
     </ul>
   </details>
+  
+  <details>
+    <summary>🎯 Tahmin Mantığı</summary>
+    <p>
+     Sprint başında her görev karmaşıklık ve efor bazlı puanlanmış, her sprint için 100 puanlık çerçeve belirlenmiştir. Görevlerin tamamlanma durumu bu puanlara göre değerlendirilmiştir. Sprint 2, %100 başarı oranıyla tamamlanarak önemli bir ilerleme kaydetmiştir.
+    </p>
+  </details>
+  
+  
 
   <details>
     <summary>🎯 Daily Scrum</summary>
