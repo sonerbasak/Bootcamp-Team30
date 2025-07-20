@@ -91,15 +91,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     } else {
         console.warn("Element with class 'back-button' not found.");
     }
-
-    // Buton event listener'ları - sadece bir kez eklenmeli
-    document.querySelector(".quiz-actions .prev-button").addEventListener("click", () => {
-        if (quizSwiper) quizSwiper.slidePrev();
-    });
-    document.querySelector(".quiz-actions .next-button").addEventListener("click", () => {
-        if (quizSwiper) quizSwiper.slideNext();
-    });
-    document.querySelector(".quiz-actions .btn-success").addEventListener("click", submitQuiz);
 });
 
 // --- Swiper Başlatma Fonksiyonu ---
