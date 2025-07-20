@@ -264,47 +264,48 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
   </details>
 
   <details>
-    <summary>🎯 Sprint Review</summary>
-    <ul>
-      <li>Yapay zekâ modülünün entegrasyonu projenin teknik kapasitesini ciddi oranda artırdı.</li>
-      <li>Dünya haritası ile kullanıcı etkileşimi daha kapsamlı hale getirildi.</li>
-      <li>Geri bildirimler genel olarak olumluydu; özellikle kullanıcı deneyimindeki gelişmeler dikkat çekti.</li>
-      <li>Bazı şehirlerin eksik medya içerikleri Sprint 3 için hedeflendi.</li>
-    </ul>
-    
-    <hr />
-    <p><strong>Sprint Dönemi:</strong> 6 Temmuz – 20 Temmuz 2025<br>
-    <strong>Proje:</strong> GeoAI</p>
+  <summary>🎯 Sprint Review</summary>
+  <ul>
+    <li>Yapay zekâ modülünün entegrasyonu projenin teknik kapasitesini ciddi oranda artırdı.</li>
+    <li>Dünya haritası ile kullanıcı etkileşimi daha kapsamlı hale getirildi.</li>
+    <li>Geri bildirimler genel olarak olumluydu; özellikle kullanıcı deneyimindeki gelişmeler dikkat çekti.</li>
+    <li>Bazı şehirlerin eksik medya içerikleri Sprint 3 için hedeflendi.</li>
+  </ul>
+  
+  <hr />
 
+  <p><strong>Sprint Dönemi:</strong> 6 Temmuz – 20 Temmuz 2025<br>
+  <strong>Proje:</strong> GeoAI</p>
 
-    <p><strong>👩‍💼 Amine Demirbaş – Scrum Master</strong></p>
-    <ul>
-      <li>İletişim ve koordinasyonu sağladı.</li>
-      <li>Günlük toplantıları organize etti.</li>
-      <li>Gelişmeleri dokümante etti.</li>
-      <li>Veritabanı entegrasyonları gerçekleştirdi.</li>
-    </ul>
+  <p>👩‍💼 <strong>Amine Demirbaş – Scrum Master</strong></p>
+  <ul>
+    <li>İletişim ve koordinasyonu sağladı.</li>
+    <li>Günlük toplantıları organize etti.</li>
+    <li>Gelişmeleri dokümante etti.</li>
+    <li>Veritabanı entegrasyonları gerçekleştirdi.</li>
+  </ul>
 
-    <p><strong>👩‍💻 Melike Nur Köseoğlu – Product Owner</strong></p>
-    <ul>
-      <li>Yapay zekâ entegrasyonu ve UI geliştirmeleri yaptı.</li>
-      <li>Soru oluşturma fonksiyonlarını aktive etti.</li>
-      <li>Ön yüz geliştirmeleri yapıldı</li>
-    </ul>
+  <p>👩‍💻 <strong>Melike Nur Köseoğlu – Product Owner</strong></p>
+  <ul>
+    <li>Yapay zekâ entegrasyonu ve UI geliştirmeleri yaptı.</li>
+    <li>Soru oluşturma fonksiyonlarını aktive etti.</li>
+    <li>Ön yüz geliştirmeleri yapıldı</li>
+  </ul>
 
-    <p><strong>👨‍💻 Soner Başak – Backend & AI Developer</strong></p>
-    <ul>
-      <li>Dünya haritası entegrasyonu sağladı.</li>
-      <li>Soru algoritmasını geliştirdi.</li>
-      <li>Sistemsel hataları giderdi.</li>
-    </ul>
+  <p>👨‍💻 <strong>Soner Başak – Backend & AI Developer</strong></p>
+  <ul>
+    <li>Dünya haritası entegrasyonu sağladı.</li>
+    <li>Soru algoritmasını geliştirdi.</li>
+    <li>Sistemsel hataları giderdi.</li>
+  </ul>
 
-    <p><strong>👨‍💻 Canberk – Frontend Developer</strong></p>
-    <ul>
-      <li>Veritabanı yapısını planladı.</li>
-      <li>Şehir verilerini işleyen API ve JSON yapısını oluşturdu.</li>
-    </ul>
-  </details>
+  <p>👨‍💻 <strong>Canberk – Frontend Developer</strong></p>
+  <ul>
+    <li>Veritabanı yapısını planladı.</li>
+    <li>Şehir verilerini işleyen API ve JSON yapısını oluşturdu.</li>
+  </ul>
+</details>
+
 
   <details>
     <summary>🎯 Sprint Retrospective</summary>
