@@ -18,8 +18,8 @@ const modal = document.getElementById("modal");
 
 // Veriler yükleniyor
 Promise.all([
-    fetch("/data/countries.json").then((res) => res.json()),
-    fetch("/data/world-provinces.json").then((res) => res.json()),
+    fetch("/data/world-info.json").then((res) => res.json()),
+    fetch("/data/world-geo.json").then((res) => res.json()),
 ])
     .then(([countriesData, geoJsonData]) => {
         countriesInfo = countriesData;
@@ -67,7 +67,7 @@ function openCountryModal(countryName) {
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="${country.resim || ''}" alt="${countryName}" class="img-fluid rounded" />
+                    <img src="${country.flag || ''}" alt="${countryName}" class="img-fluid rounded" />
                 </div>
                 <div class="swiper-slide"><h3>Tarihçe</h3><p>${country.tarih || 'Bilgi yok.'}</p></div>
                 <div class="swiper-slide"><h3>Eserler</h3><p>${country.eserler || 'Bilgi yok.'}</p></div>

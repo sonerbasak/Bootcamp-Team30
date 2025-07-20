@@ -1,0 +1,958 @@
+[
+  {
+    "name": "Afganistan",
+    "flag": "static/images/flags/af.png"
+  },
+  {
+    "name": "Almanya",
+    "flag": "static/images/flags/de.png"
+  },
+  {
+    "name": "Amerika Birleşik Devletleri",
+    "flag": "static/images/flags/us.png"
+  },
+  {
+    "name": "Amerikan Samoa",
+    "flag": "static/images/flags/as.png"
+  },
+  {
+    "name": "Andorra",
+    "flag": "static/images/flags/ad.png"
+  },
+  {
+    "name": "Angola",
+    "flag": "static/images/flags/ao.png"
+  },
+  {
+    "name": "Anguilla, İngiltere",
+    "flag": "static/images/flags/ai.png"
+  },
+  {
+    "name": "Antigua ve Barbuda",
+    "flag": "static/images/flags/ag.png"
+  },
+  {
+    "name": "Arjantin",
+    "flag": "static/images/flags/ar.png"
+  },
+  {
+    "name": "Arnavutluk",
+    "flag": "static/images/flags/al.png"
+  },
+  {
+    "name": "Aruba, Hollanda",
+    "flag": "static/images/flags/aw.png"
+  },
+  {
+    "name": "Avustralya",
+    "flag": "static/images/flags/au.png"
+  },
+  {
+    "name": "Avusturya",
+    "flag": "static/images/flags/at.png"
+  },
+  {
+    "name": "Azerbaycan",
+    "flag": "static/images/flags/az.png"
+  },
+  {
+    "name": "Bahama Adaları",
+    "flag": "static/images/flags/bs.png"
+  },
+  {
+    "name": "Bahreyn",
+    "flag": "static/images/flags/bh.png"
+  },
+  {
+    "name": "Bangladeş",
+    "flag": "static/images/flags/bd.png"
+  },
+  {
+    "name": "Barbados",
+    "flag": "static/images/flags/bb.png"
+  },
+  {
+    "name": "Belçika",
+    "flag": "static/images/flags/be.png"
+  },
+  {
+    "name": "Belize",
+    "flag": "static/images/flags/bz.png"
+  },
+  {
+    "name": "Benin",
+    "flag": "static/images/flags/bj.png"
+  },
+  {
+    "name": "Bermuda, İngiltere",
+    "flag": "static/images/flags/bm.png"
+  },
+  {
+    "name": "Beyaz Rusya",
+    "flag": "static/images/flags/by.png"
+  },
+  {
+    "name": "Bhutan",
+    "flag": "static/images/flags/bt.png"
+  },
+  {
+    "name": "Birleşik Arap Emirlikleri",
+    "flag": "static/images/flags/ae.png"
+  },
+  {
+    "name": "Birmanya (Myanmar)",
+    "flag": "static/images/flags/mm.png"
+  },
+  {
+    "name": "Bolivya",
+    "flag": "static/images/flags/bo.png"
+  },
+  {
+    "name": "Bosna Hersek",
+    "flag": "static/images/flags/ba.png"
+  },
+  {
+    "name": "Botswana",
+    "flag": "static/images/flags/bw.png"
+  },
+  {
+    "name": "Brezilya",
+    "flag": "static/images/flags/br.png"
+  },
+  {
+    "name": "Brunei",
+    "flag": "static/images/flags/bn.png"
+  },
+  {
+    "name": "Bulgaristan",
+    "flag": "static/images/flags/bg.png"
+  },
+  {
+    "name": "Burkina Faso",
+    "flag": "static/images/flags/bf.png"
+  },
+  {
+    "name": "Burundi",
+    "flag": "static/images/flags/bi.png"
+  },
+  {
+    "name": "Cape Verde",
+    "flag": "static/images/flags/cv.png"
+  },
+  {
+    "name": "Cayman Adaları, İngiltere",
+    "flag": "static/images/flags/ky.png"
+  },
+  {
+    "name": "Cezayir",
+    "flag": "static/images/flags/dz.png"
+  },
+  {
+    "name": "Christmas Adası , Avusturalya",
+    "flag": "static/images/flags/cx.png"
+  },
+  {
+    "name": "Cibuti",
+    "flag": "static/images/flags/dj.png"
+  },
+  {
+    "name": "Çad",
+    "flag": "static/images/flags/td.png"
+  },
+  {
+    "name": "Çek Cumhuriyeti",
+    "flag": "static/images/flags/cz.png"
+  },
+  {
+    "name": "Çin",
+    "flag": "static/images/flags/cn.png"
+  },
+  {
+    "name": "Danimarka",
+    "flag": "static/images/flags/dk.png"
+  },
+  {
+    "name": "Doğu Timor",
+    "flag": "static/images/flags/tl.png"
+  },
+  {
+    "name": "Dominik Cumhuriyeti",
+    "flag": "static/images/flags/do.png"
+  },
+  {
+    "name": "Dominika",
+    "flag": "static/images/flags/dm.png"
+  },
+  {
+    "name": "Ekvator",
+    "flag": "static/images/flags/ec.png"
+  },
+  {
+    "name": "Ekvator Ginesi",
+    "flag": "static/images/flags/gq.png"
+  },
+  {
+    "name": "El Salvador",
+    "flag": "static/images/flags/sv.png"
+  },
+  {
+    "name": "Endonezya",
+    "flag": "static/images/flags/id.png"
+  },
+  {
+    "name": "Eritre",
+    "flag": "static/images/flags/er.png"
+  },
+  {
+    "name": "Ermenistan",
+    "flag": "static/images/flags/am.png"
+  },
+  {
+    "name": "Estonya",
+    "flag": "static/images/flags/ee.png"
+  },
+  {
+    "name": "Etiyopya",
+    "flag": "static/images/flags/et.png"
+  },
+  {
+    "name": "Fas",
+    "flag": "static/images/flags/ma.png"
+  },
+  {
+    "name": "Fiji",
+    "flag": "static/images/flags/fj.png"
+  },
+  {
+    "name": "Fildişi Sahili",
+    "flag": "static/images/flags/ci.png"
+  },
+  {
+    "name": "Filipinler",
+    "flag": "static/images/flags/ph.png"
+  },
+  {
+    "name": "Filistin",
+    "flag": "static/images/flags/ps.png"
+  },
+  {
+    "name": "Finlandiya",
+    "flag": "static/images/flags/fi.png"
+  },
+  {
+    "name": "Folkland Adaları, İngiltere",
+    "flag": "static/images/flags/fk.png"
+  },
+  {
+    "name": "Fransa",
+    "flag": "static/images/flags/fr.png"
+  },
+  {
+    "name": "Fransız Guyanası",
+    "flag": "static/images/flags/gf.png"
+  },
+  {
+    "name": "Fransız Güney Eyaletleri (Kerguelen Adaları)",
+    "flag": "static/images/flags/tf.png"
+  },
+  {
+    "name": "Fransız Polinezyası",
+    "flag": "static/images/flags/pf.png"
+  },
+  {
+    "name": "Gabon",
+    "flag": "static/images/flags/ga.png"
+  },
+  {
+    "name": "Galler",
+    "flag": "static/images/flags/gb-wls.png"
+  },
+  {
+    "name": "Gambiya",
+    "flag": "static/images/flags/gm.png"
+  },
+  {
+    "name": "Gana",
+    "flag": "static/images/flags/gh.png"
+  },
+  {
+    "name": "Gaza Strip",
+    "flag": "static/images/flags/ps-gz.png"
+  },
+  {
+    "name": "Gibraltar, İngiltere",
+    "flag": "static/images/flags/gi.png"
+  },
+  {
+    "name": "Gine",
+    "flag": "static/images/flags/gn.png"
+  },
+  {
+    "name": "Gine-Bissau",
+    "flag": "static/images/flags/gw.png"
+  },
+  {
+    "name": "Grenada",
+    "flag": "static/images/flags/gd.png"
+  },
+  {
+    "name": "Grönland",
+    "flag": "static/images/flags/gl.png"
+  },
+  {
+    "name": "Guadalup, Fransa",
+    "flag": "static/images/flags/gp.png"
+  },
+  {
+    "name": "Guam, Amerika",
+    "flag": "static/images/flags/gu.png"
+  },
+  {
+    "name": "Guatemala",
+    "flag": "static/images/flags/gt.png"
+  },
+  {
+    "name": "Guyana",
+    "flag": "static/images/flags/gy.png"
+  },
+  {
+    "name": "Güney Afrika",
+    "flag": "static/images/flags/za.png"
+  },
+  {
+    "name": "Güney Georgia ve Güney Sandviç Adaları, İngiltere",
+    "flag": "static/images/flags/gs.png"
+  },
+  {
+    "name": "Güney Kıbrıs Rum Yönetimi",
+    "flag": "static/images/flags/cy.png"
+  },
+  {
+    "name": "Güney Kore",
+    "flag": "static/images/flags/kr.png"
+  },
+  {
+    "name": "Gürcistan",
+    "flag": "static/images/flags/ge.png"
+  },
+  {
+    "name": "Haiti",
+    "flag": "static/images/flags/ht.png"
+  },
+  {
+    "name": "Havai Adaları",
+    "flag": "static/images/flags/us-hi.png"
+  },
+  {
+    "name": "Hırvatistan",
+    "flag": "static/images/flags/hr.png"
+  },
+  {
+    "name": "Hindistan",
+    "flag": "static/images/flags/in.png"
+  },
+  {
+    "name": "Hollanda",
+    "flag": "static/images/flags/nl.png"
+  },
+  {
+    "name": "Hollanda Antilleri",
+    "flag": "static/images/flags/an.png"
+  },
+  {
+    "name": "Honduras",
+    "flag": "static/images/flags/hn.png"
+  },
+  {
+    "name": "Irak",
+    "flag": "static/images/flags/iq.png"
+  },
+  {
+    "name": "İngiltere",
+    "flag": "static/images/flags/gb-eng.png"
+  },
+  {
+    "name": "İran",
+    "flag": "static/images/flags/ir.png"
+  },
+  {
+    "name": "İrlanda",
+    "flag": "static/images/flags/ie.png"
+  },
+  {
+    "name": "İskoçya",
+    "flag": "static/images/flags/gb-sct.png"
+  },
+  {
+    "name": "İspanya",
+    "flag": "static/images/flags/es.png"
+  },
+  {
+    "name": "İsrail",
+    "flag": "static/images/flags/il.png"
+  },
+  {
+    "name": "İsveç",
+    "flag": "static/images/flags/se.png"
+  },
+  {
+    "name": "İsviçre",
+    "flag": "static/images/flags/ch.png"
+  },
+  {
+    "name": "İtalya",
+    "flag": "static/images/flags/it.png"
+  },
+  {
+    "name": "İzlanda",
+    "flag": "static/images/flags/is.png"
+  },
+  {
+    "name": "Jamaika",
+    "flag": "static/images/flags/jm.png"
+  },
+  {
+    "name": "Japonya",
+    "flag": "static/images/flags/jp.png"
+  },
+  {
+    "name": "Johnston Atoll, Amerika",
+    "flag": "static/images/flags/um-ja.png"
+  },
+  {
+    "name": "K.K.T.C.",
+    "flag": "static/images/flags/cy-nc.png"
+  },
+  {
+    "name": "Kamboçya",
+    "flag": "static/images/flags/kh.png"
+  },
+  {
+    "name": "Kamerun",
+    "flag": "static/images/flags/cm.png"
+  },
+  {
+    "name": "Kanada",
+    "flag": "static/images/flags/ca.png"
+  },
+  {
+    "name": "Kanarya Adaları",
+    "flag": "static/images/flags/ic.png"
+  },
+  {
+    "name": "Karadağ",
+    "flag": "static/images/flags/me.png"
+  },
+  {
+    "name": "Katar",
+    "flag": "static/images/flags/qa.png"
+  },
+  {
+    "name": "Kazakistan",
+    "flag": "static/images/flags/kz.png"
+  },
+  {
+    "name": "Kenya",
+    "flag": "static/images/flags/ke.png"
+  },
+  {
+    "name": "Kırgızistan",
+    "flag": "static/images/flags/kg.png"
+  },
+  {
+    "name": "Kiribati",
+    "flag": "static/images/flags/ki.png"
+  },
+  {
+    "name": "Kolombiya",
+    "flag": "static/images/flags/co.png"
+  },
+  {
+    "name": "Komorlar",
+    "flag": "static/images/flags/km.png"
+  },
+  {
+    "name": "Kongo",
+    "flag": "static/images/flags/cg.png"
+  },
+  {
+    "name": "Demokratik Kongo Cumhuriyeti",
+    "flag": "static/images/flags/cd.png"
+  },
+  {
+    "name": "Kosova",
+    "flag": "static/images/flags/xk.png"
+  },
+  {
+    "name": "Kosta Rika",
+    "flag": "static/images/flags/cr.png"
+  },
+  {
+    "name": "Kuveyt",
+    "flag": "static/images/flags/kw.png"
+  },
+  {
+    "name": "Kuzey İrlanda",
+    "flag": "static/images/flags/gb-nir.png"
+  },
+  {
+    "name": "Kuzey Kore",
+    "flag": "static/images/flags/kp.png"
+  },
+  {
+    "name": "Kuzey Maryana Adaları",
+    "flag": "static/images/flags/mp.png"
+  },
+  {
+    "name": "Küba",
+    "flag": "static/images/flags/cu.png"
+  },
+  {
+    "name": "Laos",
+    "flag": "static/images/flags/la.png"
+  },
+  {
+    "name": "Lesotho",
+    "flag": "static/images/flags/ls.png"
+  },
+  {
+    "name": "Letonya",
+    "flag": "static/images/flags/lv.png"
+  },
+  {
+    "name": "Liberya",
+    "flag": "static/images/flags/lr.png"
+  },
+  {
+    "name": "Libya",
+    "flag": "static/images/flags/ly.png"
+  },
+  {
+    "name": "Liechtenstein",
+    "flag": "static/images/flags/li.png"
+  },
+  {
+    "name": "Litvanya",
+    "flag": "static/images/flags/lt.png"
+  },
+  {
+    "name": "Lübnan",
+    "flag": "static/images/flags/lb.png"
+  },
+  {
+    "name": "Lüksemburg",
+    "flag": "static/images/flags/lu.png"
+  },
+  {
+    "name": "Macaristan",
+    "flag": "static/images/flags/hu.png"
+  },
+  {
+    "name": "Madagaskar",
+    "flag": "static/images/flags/mg.png"
+  },
+  {
+    "name": "Makau (Makao)",
+    "flag": "static/images/flags/mo.png"
+  },
+  {
+    "name": "Makedonya",
+    "flag": "static/images/flags/mk.png"
+  },
+  {
+    "name": "Malavi",
+    "flag": "static/images/flags/mw.png"
+  },
+  {
+    "name": "Maldiv Adaları",
+    "flag": "static/images/flags/mv.png"
+  },
+  {
+    "name": "Malezya",
+    "flag": "static/images/flags/my.png"
+  },
+  {
+    "name": "Mali",
+    "flag": "static/images/flags/ml.png"
+  },
+  {
+    "name": "Malta",
+    "flag": "static/images/flags/mt.png"
+  },
+  {
+    "name": "Marşal Adaları",
+    "flag": "static/images/flags/mh.png"
+  },
+  {
+    "name": "Martinik, Fransa",
+    "flag": "static/images/flags/mq.png"
+  },
+  {
+    "name": "Mauritius",
+    "flag": "static/images/flags/mu.png"
+  },
+  {
+    "name": "Mayotte, Fransa",
+    "flag": "static/images/flags/yt.png"
+  },
+  {
+    "name": "Meksika",
+    "flag": "static/images/flags/mx.png"
+  },
+  {
+    "name": "Mısır",
+    "flag": "static/images/flags/eg.png"
+  },
+  {
+    "name": "Midway Adaları, Amerika",
+    "flag": "static/images/flags/um-mi.png"
+  },
+  {
+    "name": "Mikronezya",
+    "flag": "static/images/flags/fm.png"
+  },
+  {
+    "name": "Moğolistan",
+    "flag": "static/images/flags/mn.png"
+  },
+  {
+    "name": "Moldavya",
+    "flag": "static/images/flags/md.png"
+  },
+  {
+    "name": "Monako",
+    "flag": "static/images/flags/mc.png"
+  },
+  {
+    "name": "Montserrat",
+    "flag": "static/images/flags/ms.png"
+  },
+  {
+    "name": "Moritanya",
+    "flag": "static/images/flags/mr.png"
+  },
+  {
+    "name": "Mozambik",
+    "flag": "static/images/flags/mz.png"
+  },
+  {
+    "name": "Namibia",
+    "flag": "static/images/flags/na.png"
+  },
+  {
+    "name": "Nauru",
+    "flag": "static/images/flags/nr.png"
+  },
+  {
+    "name": "Nepal",
+    "flag": "static/images/flags/np.png"
+  },
+  {
+    "name": "Nijer",
+    "flag": "static/images/flags/ne.png"
+  },
+  {
+    "name": "Nijerya",
+    "flag": "static/images/flags/ng.png"
+  },
+  {
+    "name": "Nikaragua",
+    "flag": "static/images/flags/ni.png"
+  },
+  {
+    "name": "Niue, Yeni Zelanda",
+    "flag": "static/images/flags/nu.png"
+  },
+  {
+    "name": "Norveç",
+    "flag": "static/images/flags/no.png"
+  },
+  {
+    "name": "Orta Afrika Cumhuriyeti",
+    "flag": "static/images/flags/cf.png"
+  },
+  {
+    "name": "Özbekistan",
+    "flag": "static/images/flags/uz.png"
+  },
+  {
+    "name": "Pakistan",
+    "flag": "static/images/flags/pk.png"
+  },
+  {
+    "name": "Palau Adaları",
+    "flag": "static/images/flags/pw.png"
+  },
+  {
+    "name": "Palmyra Atoll, Amerika",
+    "flag": "static/images/flags/um-pa.png"
+  },
+  {
+    "name": "Panama",
+    "flag": "static/images/flags/pa.png"
+  },
+  {
+    "name": "Papua Yeni Gine",
+    "flag": "static/images/flags/pg.png"
+  },
+  {
+    "name": "Paraguay",
+    "flag": "static/images/flags/py.png"
+  },
+  {
+    "name": "Peru",
+    "flag": "static/images/flags/pe.png"
+  },
+  {
+    "name": "Polonya",
+    "flag": "static/images/flags/pl.png"
+  },
+  {
+    "name": "Portekiz",
+    "flag": "static/images/flags/pt.png"
+  },
+  {
+    "name": "Porto Riko, Amerika",
+    "flag": "static/images/flags/pr.png"
+  },
+  {
+    "name": "Reunion, Fransa",
+    "flag": "static/images/flags/re.png"
+  },
+  {
+    "name": "Romanya",
+    "flag": "static/images/flags/ro.png"
+  },
+  {
+    "name": "Ruanda",
+    "flag": "static/images/flags/rw.png"
+  },
+  {
+    "name": "Rusya",
+    "flag": "static/images/flags/ru.png"
+  },
+  {
+    "name": "Saint Helena, İngiltere",
+    "flag": "static/images/flags/sh.png"
+  },
+  {
+    "name": "Saint Martin, Fransa",
+    "flag": "static/images/flags/mf.png"
+  },
+  {
+    "name": "Saint Pierre ve Miquelon, Fransa",
+    "flag": "static/images/flags/pm.png"
+  },
+  {
+    "name": "Samoa",
+    "flag": "static/images/flags/ws.png"
+  },
+  {
+    "name": "San Marino",
+    "flag": "static/images/flags/sm.png"
+  },
+  {
+    "name": "Santa Kitts ve Nevis",
+    "flag": "static/images/flags/kn.png"
+  },
+  {
+    "name": "Santa Lucia",
+    "flag": "static/images/flags/lc.png"
+  },
+  {
+    "name": "Santa Vincent ve Grenadinler",
+    "flag": "static/images/flags/vc.png"
+  },
+  {
+    "name": "Sao Tome ve Principe",
+    "flag": "static/images/flags/st.png"
+  },
+  {
+    "name": "Senegal",
+    "flag": "static/images/flags/sn.png"
+  },
+  {
+    "name": "Seyşeller",
+    "flag": "static/images/flags/sc.png"
+  },
+  {
+    "name": "Sırbistan",
+    "flag": "static/images/flags/rs.png"
+  },
+  {
+    "name": "Sierra Leone",
+    "flag": "static/images/flags/sl.png"
+  },
+  {
+    "name": "Singapur",
+    "flag": "static/images/flags/sg.png"
+  },
+  {
+    "name": "Slovakya",
+    "flag": "static/images/flags/sk.png"
+  },
+  {
+    "name": "Slovenya",
+    "flag": "static/images/flags/si.png"
+  },
+  {
+    "name": "Solomon Adaları",
+    "flag": "static/images/flags/sb.png"
+  },
+  {
+    "name": "Somali",
+    "flag": "static/images/flags/so.png"
+  },
+  {
+    "name": "Sri Lanka",
+    "flag": "static/images/flags/lk.png"
+  },
+  {
+    "name": "Sudan",
+    "flag": "static/images/flags/sd.png"
+  },
+  {
+    "name": "Surinam",
+    "flag": "static/images/flags/sr.png"
+  },
+  {
+    "name": "Suriye",
+    "flag": "static/images/flags/sy.png"
+  },
+  {
+    "name": "Suudi Arabistan",
+    "flag": "static/images/flags/sa.png"
+  },
+  {
+    "name": "Svalbard, Norveç",
+    "flag": "static/images/flags/sj.png"
+  },
+  {
+    "name": "Svaziland",
+    "flag": "static/images/flags/sz.png"
+  },
+  {
+    "name": "Şili",
+    "flag": "static/images/flags/cl.png"
+  },
+  {
+    "name": "Tacikistan",
+    "flag": "static/images/flags/tj.png"
+  },
+  {
+    "name": "Tanzanya",
+    "flag": "static/images/flags/tz.png"
+  },
+  {
+    "name": "Tayland",
+    "flag": "static/images/flags/th.png"
+  },
+  {
+    "name": "Tayvan",
+    "flag": "static/images/flags/tw.png"
+  },
+  {
+    "name": "Togo",
+    "flag": "static/images/flags/tg.png"
+  },
+  {
+    "name": "Tonga",
+    "flag": "static/images/flags/to.png"
+  },
+  {
+    "name": "Trinidad ve Tobago",
+    "flag": "static/images/flags/tt.png"
+  },
+  {
+    "name": "Tunus",
+    "flag": "static/images/flags/tn.png"
+  },
+  {
+    "name": "Turks ve Caicos Adaları, İngiltere",
+    "flag": "static/images/flags/tc.png"
+  },
+  {
+    "name": "Tuvalu",
+    "flag": "static/images/flags/tv.png"
+  },
+  {
+    "name": "Türkiye",
+    "flag": "static/images/flags/tr.png"
+  },
+  {
+    "name": "Türkmenistan",
+    "flag": "static/images/flags/tm.png"
+  },
+  {
+    "name": "Uganda",
+    "flag": "static/images/flags/ug.png"
+  },
+  {
+    "name": "Ukrayna",
+    "flag": "static/images/flags/ua.png"
+  },
+  {
+    "name": "Umman",
+    "flag": "static/images/flags/om.png"
+  },
+  {
+    "name": "Uruguay",
+    "flag": "static/images/flags/uy.png"
+  },
+  {
+    "name": "Ürdün",
+    "flag": "static/images/flags/jo.png"
+  },
+  {
+    "name": "Vallis ve Futuna, Fransa",
+    "flag": "static/images/flags/wf.png"
+  },
+  {
+    "name": "Vanuatu",
+    "flag": "static/images/flags/vu.png"
+  },
+  {
+    "name": "Venezuela",
+    "flag": "static/images/flags/ve.png"
+  },
+  {
+    "name": "Vietnam",
+    "flag": "static/images/flags/vn.png"
+  },
+  {
+    "name": "Virgin Adaları, Amerika",
+    "flag": "static/images/flags/vi.png"
+  },
+  {
+    "name": "Virgin Adaları, İngiltere",
+    "flag": "static/images/flags/vg.png"
+  },
+  {
+    "name": "Wake Adaları, Amerika",
+    "flag": "static/images/flags/um-wk.png"
+  },
+  {
+    "name": "Yemen",
+    "flag": "static/images/flags/ye.png"
+  },
+  {
+    "name": "Yeni Kaledonya, Fransa",
+    "flag": "static/images/flags/nc.png"
+  },
+  {
+    "name": "Yeni Zelanda",
+    "flag": "static/images/flags/nz.png"
+  },
+  {
+    "name": "Yunanistan",
+    "flag": "static/images/flags/gr.png"
+  },
+  {
+    "name": "Zambiya",
+    "flag": "static/images/flags/zm.png"
+  },
+  {
+    "name": "Zimbabve",
+    "flag": "static/images/flags/zw.png"
+  }
+]
