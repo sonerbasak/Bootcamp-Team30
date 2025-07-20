@@ -314,7 +314,7 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 </ul>
 
 
-  <details>
+<details>
   <summary>🎯 Sprint Retrospective</summary>
  <p>Takım içi değerlendirme toplantısında öne çıkan başlıklar şu şekildeydi:</p>
 
