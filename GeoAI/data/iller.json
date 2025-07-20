@@ -8,9 +8,9 @@
     "plakaKodu": "01",
     "unluYemekler": "Adana Kebabı, Şırdan, Bici Bici",
     "universiteler": ["Çukurova Üniversitesi", "Adana Alparslan Türkeş Bilim ve Teknoloji Üniversitesi"],
-    "resim1": "/static/images/Adana.jpg",
+    "il_resim": "/static/images/cities/Adana.jpg",
     "müzeler": "Adana Müzesi, Kuruköprü Anıt Müzesi ve Geleneksel Adana Evi",
-    "resim": "/static/images/01.png"
+    "resim1": "/static/images/01.png"
   },
   {
     "name": "Adıyaman",

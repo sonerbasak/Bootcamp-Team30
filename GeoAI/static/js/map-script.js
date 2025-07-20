@@ -76,7 +76,7 @@ function openIlModal(ilAdi) {
         ? `
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="${ilVerisi.resim}" alt="${ilAdi}" /></div>
+                <div class="swiper-slide"><img src="${ilVerisi['il-resmi']}" alt="${ilAdi}" /></div>
                 <div class="swiper-slide"><h3>Tarihçe</h3><p>${ilVerisi.tarih}</p></div>
                 <div class="swiper-slide"><h3>Eserler</h3><p>${ilVerisi.eserler}</p></div>
                 <div class="swiper-slide"><h3>Öneriler</h3><p>${ilVerisi.oneriler}</p></div>

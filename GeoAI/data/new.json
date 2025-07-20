@@ -8,7 +8,7 @@
     "plakaKodu": "01",
     "unluYemekler": "Adana Kebabı, Şırdan, Bici Bici",
     "universiteler": ["Çukurova Üniversitesi", "Adana Alparslan Türkeş Bilim ve Teknoloji Üniversitesi"],
-    "resim": "./images/adana.jpeg",
+    "il-resmi": "/static/images/cities/Adana.jpg",
     "müzeler": "Adana Müzesi, Kuruköprü Anıt Müzesi ve Geleneksel Adana Evi",
     "ekonomikFaaliyetler": ["Tarım", "Sanayi", "Ticaret"],
     "tarimUrunleri": ["Pamuk", "Mısır", "Soya", "Narenciye"]
@@ -22,7 +22,7 @@
     "plakaKodu": "02",
     "unluYemekler": "Çiğ Köfte, Adıyaman Tava, Basalla",
     "universiteler": ["Adıyaman Üniversitesi"],
-    "resim": "./images/adiyaman.jpeg",
+    "il-resmi": "/static/images/cities/Adiyaman.jpeg",
     "müzeler": "Adıyaman Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ticaret"],
     "tarimUrunleri": ["Mercimek", "Nohut", "Buğday", "Pamuk"]
@@ -36,7 +36,7 @@
     "plakaKodu": "03",
     "unluYemekler": "Afyon Sucuğu, Afyon Kaymağı, Düğün Çorbası",
     "universiteler": ["Afyon Kocatepe Üniversitesi", "Afyonkarahisar Sağlık Bilimleri Üniversitesi"],
-    "resim": "./images/afyonkarahisar.jpeg",
+    "il-resmi": "/static/images/cities/Afyonkarahisar.jpg",
     "müzeler": "Zafer Müzesi, Afyonkarahisar Müzesi, Bolvadin Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Mermercilik", "Termal Turizm"],
     "tarimUrunleri": ["Haşhaş", "Buğday", "Arpa", "Şeker Pancarı"]
@@ -50,7 +50,7 @@
     "plakaKodu": "04",
     "unluYemekler": "Abdigör Köftesi, Pişi, Hengel",
     "universiteler": ["Ağrı İbrahim Çeçen Üniversitesi"],
-    "resim": "./images/agri.jpeg",
+    "il-resmi": "/static/images/cities/Agri.jpg",
     "müzeler": "Ağrı Müzesi",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım"],
     "tarimUrunleri": ["Buğday", "Arpa", "Patates"]
@@ -64,7 +64,7 @@
     "plakaKodu": "05",
     "unluYemekler": "Amasya Çöreği, Keşkek, Mumbar",
     "universiteler": ["Amasya Üniversitesi"],
-    "resim": "./images/amasya.jpeg",
+    "il-resmi": "/static/images/cities/Amasya.png",
     "müzeler": "Şehzadeler Müzesi, Hazeranlar Konağı Etnografya Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Ticaret", "Turizm"],
     "tarimUrunleri": ["Misket Elması", "Kiraz", "Şeker Pancarı", "Buğday"]
@@ -78,7 +78,7 @@
     "plakaKodu": "06",
     "unluYemekler": "Ankara Tava, Beypazarı Kurusu",
     "universiteler": ["Ankara Üniversitesi", "ODTÜ", "Hacettepe Üniversitesi"],
-    "resim": "/static/images/ankara.jpeg",
+    "il-resmi": "/static/images/cities/Ankara.jpg",
     "müzeler": "Anadolu Medeniyetleri Müzesi, Etnografya Müzesi",
     "ekonomikFaaliyetler": ["Kamu Hizmetleri", "Sanayi", "Tarım", "Ticaret"],
     "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Ayçiçeği"]
@@ -92,7 +92,7 @@
     "plakaKodu": "07",
     "unluYemekler": "Piyaz, Tahinli Kabak Tatlısı, Hibeş",
     "universiteler": ["Akdeniz Üniversitesi", "Alanya Alaaddin Keykubat Üniversitesi"],
-    "resim": "./images/antalya.jpeg",
+    "il-resmi": "/static/images/cities/Antalya.jpg",
     "müzeler": "Antalya Müzesi, Aziz Nikolaos Müzesi, Side Arkeoloji Müzesi",
     "ekonomikFaaliyetler": ["Turizm", "Tarım", "Ticaret"],
     "tarimUrunleri": ["Portakal", "Muz", "Domates", "Biber"]
@@ -106,7 +106,7 @@
     "plakaKodu": "08",
     "unluYemekler": "Hinkel, Kuymak, Laz Böreği",
     "universiteler": ["Artvin Çoruh Üniversitesi"],
-    "resim": "./images/artvin.jpeg",
+    "il-resmi": "/static/images/cities/Artvin.jpg",
     "müzeler": "Artvin Gastronomi Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ormancılık", "Turizm"],
     "tarimUrunleri": ["Çay", "Fındık", "Mısır", "Patates"]
@@ -120,7 +120,7 @@
     "plakaKodu": "09",
     "unluYemekler": "İncir, Zeytinyağlı Enginar, Yuvarlama",
     "universiteler": ["Adnan Menderes Üniversitesi"],
-    "resim": "./images/aydin.jpeg",
+    "il-resmi": "/static/images/cities/Aydin.jpg",
     "müzeler": "Yörük Ali Efe Evi Müzesi, Afrodisias Müzesi, Aydin Arkeoloji Müzesi, Milet Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Turizm", "Sanayi"],
     "tarimUrunleri": ["İncir", "Zeytin", "Pamuk", "Kestane"]
@@ -134,7 +134,7 @@
     "plakaKodu": "10",
     "unluYemekler": "Höşmerim, Susurluk Tostu, Balıkesir Kaymaklısı",
     "universiteler": ["Balıkesir Üniversitesi", "Bandırma Onyedi Eylül Üniversitesi"],
-    "resim": "./images/balikesir.jpeg",
+    "il-resmi": "/static/images/cities/Balikesir.jpg",
     "müzeler": "Taksiyarhis Anıt Müzesi, Kuva-yi Milliye Müzesi, Bandirma Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Turizm", "Sanayi"],
     "tarimUrunleri": ["Zeytin", "Buğday", "Arpa", "Domates"]
@@ -148,7 +148,7 @@
     "plakaKodu": "11",
     "unluYemekler": "Bozüyük Mantısı, Büzme, Höşmerim",
     "universiteler": ["Bilecik Şeyh Edebali Üniversitesi"],
-    "resim": "./images/bilecik.jpeg",
+    "il-resmi": "/static/images/cities/Bilecik.jpeg",
     "müzeler": "Bilecik Müzesi, Söğüt Ertuğrul Gazi Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Sanayi", "Maden (Mermer)"],
     "tarimUrunleri": ["Buğday", "Arpa", "Ayçiçeği", "Şeker Pancarı"]
@@ -162,7 +162,7 @@
     "plakaKodu": "12",
     "unluYemekler": "Sırın, Güveç, Tutmaç Çorbası",
     "universiteler": ["Bingöl Üniversitesi"],
-    "resim": "./images/bingol.jpeg",
+    "il-resmi": "/static/images/cities/Bingol.jpeg",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım"],
     "tarimUrunleri": ["Buğday", "Arpa", "Patates", "Şeker Pancarı"]
   },
@@ -175,7 +175,7 @@
     "plakaKodu": "13",
     "unluYemekler": "Büryan Kebabı, Katıklı Dolma, Avşor",
     "universiteler": ["Bitlis Eren Üniversitesi"],
-    "resim": "./images/bitlis.jpeg",
+    "il-resmi": "/static/images/cities/Bitlis.jpg",
     "müzeler": "Ahlat Müzesi, Bitlis Etnografya Müzesi",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım", "Ticaret"],
     "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
@@ -189,7 +189,7 @@
     "plakaKodu": "14",
     "unluYemekler": "Bolu Fındık Şekeri, Mengen Pilavı, Kaldıraç",
     "universiteler": ["Bolu Abant İzzet Baysal Üniversitesi"],
-    "resim": "./images/bolu.jpeg",
+    "il-resmi": "/static/images/cities/Bolu.jpeg",
     "müzeler": "Bolu Müzesi (Arkeoloji ve Etnografya Müzesi)",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ormancılık", "Turizm"],
     "tarimUrunleri": ["Mısır", "Patates", "Fındık", "Buğday"]
@@ -203,7 +203,7 @@
     "plakaKodu": "15",
     "unluYemekler": "Testi Kebabı, Burdur Şiş, Ceviz Ezmesi",
     "universiteler": ["Burdur Mehmet Akif Ersoy Üniversitesi"],
-    "resim": "./images/burdur.jpeg",
+    "il-resmi": "/static/images/cities/Burdur.jpg",
     "müzeler": "Burdur Arkeoloji Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Madencilik", "Turizm"],
     "tarimUrunleri": ["Gül", "Lavanta", "Buğday", "Arpa"]
@@ -217,7 +217,7 @@
     "plakaKodu": "16",
     "unluYemekler": "İskender Kebap, Kemalpaşa Tatlısı, Kestane Şekeri",
     "universiteler": ["Uludağ Üniversitesi", "Bursa Teknik Üniversitesi"],
-    "resim": "./images/bursa.jpeg",
+    "il-resmi": "/static/images/cities/Bursa.jpg",
     "müzeler": "Bursa Kent Müzesi, Türk İslam Eserleri Müzesi",
     "ekonomikFaaliyetler": ["Sanayi", "Tarım", "Otomotiv", "Tekstil", "Turizm"],
     "tarimUrunleri": ["Şeftali", "Armut", "Zeytin", "İncir"]
@@ -231,7 +231,7 @@
     "plakaKodu": "17",
     "unluYemekler": "Ezine Peyniri, Sardalya, Peynir Helvası",
     "universiteler": ["Çanakkale Onsekiz Mart Üniversitesi"],
-    "resim": "./images/canakkale.jpeg",
+    "il-resmi": "/static/images/cities/Canakkale.jpg",
     "müzeler": "Çanakkale Savaşları Gelibolu Tarihi Alan Başkanlığı Müzesi, Troya Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Balıkçılık", "Turizm", "Şarapçılık"],
     "tarimUrunleri": ["Zeytin", "Domates", "Buğday", "Üzüm"]
@@ -245,7 +245,7 @@
     "plakaKodu": "18",
     "unluYemekler": "Çankırı Güveci, Halişka, Kızılcık Şerbeti",
     "universiteler": ["Çankırı Karatekin Üniversitesi"],
-    "resim": "./images/cankiri.jpeg",
+    "il-resmi": "/static/images/cities/Cankiri.jpeg",
     "müzeler": "Çankırı Müzesi, Tarihi Çamaşırhane Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Tuz Madenciliği"],
     "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
@@ -259,7 +259,7 @@
     "plakaKodu": "19",
     "unluYemekler": "Çorum Leblebisi, Çorum Mantısı, Sıkma",
     "universiteler": ["Hitit Üniversitesi"],
-    "resim": "./images/corum.jpeg",
+    "il-resmi": "/static/images/cities/Corum.jpg",
     "müzeler": "Çorum Müzesi, Boğazköy Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Sanayi (Leblebi)", "Ticaret"],
     "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Ayçiçeği"]
@@ -273,7 +273,7 @@
     "plakaKodu": "20",
     "unluYemekler": "Denizli Kebabı, Kale Biberi, Yanık Kokoreç",
     "universiteler": ["Pamukkale Üniversitesi"],
-    "resim": "./images/denizli.jpeg",
+    "il-resmi": "/static/images/cities/Denizli.jpg",
     "müzeler": "Atatürk Evi Etnografya Müzesi, Pamukkale Hierapolis Arkeoloji Müzesi",
     "ekonomikFaaliyetler": ["Tekstil", "Turizm", "Tarım"],
     "tarimUrunleri": ["Pamuk", "Üzüm", "Kiraz", "Biber"]
@@ -287,7 +287,7 @@
     "plakaKodu": "21",
     "unluYemekler": "Kaburga Dolması, Diyarbakır Ciğeri, Örgü Peyniri",
     "universiteler": ["Dicle Üniversitesi", "Diyarbakır Teknik Üniversitesi"],
-    "resim": "./images/diyarbakir.jpeg",
+    "il-resmi": "/static/images/cities/Diyarbakir.jpeg",
     "müzeler": "Diyarbakır Arkeoloji Müzesi, Cahit Sıtkı Tarancı Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ticaret"],
     "tarimUrunleri": ["Karpuz", "Buğday", "Arpa", "Pamuk"]
@@ -301,7 +301,7 @@
     "plakaKodu": "22",
     "unluYemekler": "Edirne Tava Ciğeri, Deva-i Misk Helvası, Badem Ezmesi",
     "universiteler": ["Trakya Üniversitesi"],
-    "resim": "./images/edirne.jpeg",
+    "il-resmi": "/static/images/cities/Edirne.jpg",
     "müzeler": "Edirne Arkeoloji ve Etnografya Müzesi, Türk-İslam Eserleri Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ticaret", "Turizm"],
     "tarimUrunleri": ["Ayçiçeği", "Buğday", "Pirinç", "Mısır"]
@@ -315,7 +315,7 @@
     "plakaKodu": "23",
     "unluYemekler": "Harput Köftesi, Çayda Çıra, Orcik",
     "universiteler": ["Fırat Üniversitesi"],
-    "resim": "./images/elazig.jpeg",
+    "il-resmi": "/static/images/cities/Elazig.jpg",
     "müzeler": "Elazığ Arkeoloji ve Etnografya Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Maden (Elazığ Vişnesi)"],
     "tarimUrunleri": ["Üzüm", "Kayısı", "Buğday", "Arpa"]
@@ -329,7 +329,7 @@
     "plakaKodu": "24",
     "unluYemekler": "Tulum Peyniri, Kemah Çorbası, Erzincan Tava",
     "universiteler": ["Erzincan Binali Yıldırım Üniversitesi"],
-    "resim": "./images/erzincan.jpeg",
+    "il-resmi": "/static/images/cities/Erzincan.jpg",
     "müzeler": "Erzincan Etnografya Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Maden"],
     "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Patates"]
@@ -343,7 +343,7 @@
     "plakaKodu": "25",
     "unluYemekler": "Cağ Kebabı, Kadayıf Dolması, Ayran Aşı",
     "universiteler": ["Atatürk Üniversitesi", "Erzurum Teknik Üniversitesi"],
-    "resim": "./images/erzurum.jpeg",
+    "il-resmi": "/static/images/cities/Erzurum.jpg",
     "müzeler": "Erzurum Arkeoloji Müzesi, Türk‑İslam Eserleri ve Etnografya Müzesi",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım", "Kış Turizmi", "Ticaret"],
     "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Patates"]
@@ -357,7 +357,7 @@
     "plakaKodu": "26",
     "unluYemekler": "Çibörek, Met Helvası, Haşhaşlı Revani",
     "universiteler": ["Anadolu Üniversitesi", "Eskişehir Osmangazi Üniversitesi", "Eskişehir Teknik Üniversitesi"],
-    "resim": "./images/eskisehir.jpeg",
+    "il-resmi": "/static/images/cities/Eskisehir.jpg",
     "müzeler": "Eti Arkeoloji Müzesi, Yılmaz Büyükerşen Balmumu Heykeller Müzesi",
     "ekonomikFaaliyetler": ["Sanayi", "Demiryolu Ulaşımı", "Tarım"],
     "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Haşhaş"]
@@ -371,7 +371,7 @@
     "plakaKodu": "27",
     "unluYemekler": "Gaziantep Baklavası, Yuvalama, Beyran Çorbası",
     "universiteler": ["Gaziantep Üniversitesi", "Hasan Kalyoncu Üniversitesi"],
-    "resim": "./images/gaziantep.jpeg",
+    "il-resmi": "/static/images/cities/Gaziantep.jpg",
     "müzeler": "Zeugma Mozaik Müzesi, Gaziantep Arkeoloji Müzesİ",
     "ekonomikFaaliyetler": ["Sanayi", "Tarım", "Ticaret", "Gastronomi Turizmi"],
     "tarimUrunleri": ["Antep Fıstığı", "Zeytin", "Buğday", "Arpa"]
@@ -385,7 +385,7 @@
     "plakaKodu": "28",
     "unluYemekler": "Fındıklı Kadayıf, Karalahana Çorbası, Hamsiköy Sütlacı (Karadeniz mutfağı)",
     "universiteler": ["Giresun Üniversitesi"],
-    "resim": "./images/giresun.jpeg",
+    "il-resmi": "/static/images/cities/Giresun.jpeg",
     "müzeler": "Şebinkarahisar Atatürk Evi ve Müzesi, Giresun Müzesİ",
     "ekonomikFaaliyetler": ["Fındık Üretimi", "Tarım", "Balıkçılık"],
     "tarimUrunleri": ["Fındık", "Çay", "Mısır", "Patates"]
@@ -399,7 +399,7 @@
     "plakaKodu": "29",
     "unluYemekler": "Pestil, Köme, Gümüşhane Katmeri",
     "universiteler": ["Gümüşhane Üniversitesi"],
-    "resim": "./images/gumushane.jpeg",
+    "il-resmi": "/static/images/cities/Gumushane.jpg",
     "müzeler": "Gümüşhane Müzesi, Gümüşhane İkizevler Kent Müzesİ",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Madencilik (Kurşun, Çinko, Gümüş)"],
     "tarimUrunleri": ["Buğday", "Arpa", "Patates", "Şeker Pancarı"]
@@ -413,7 +413,7 @@
     "plakaKodu": "30",
     "unluYemekler": "Gulul, Kepir, Duvaklı Pilav",
     "universiteler": ["Hakkari Üniversitesi"],
-    "resim": "./images/hakkari.jpeg",
+    "il-resmi": "/static/images/cities/Hakkari.jpg",
     "müzeler": "Hakkâri Kent Arşiv ve Etnografya Müzesi, Hakkâri Kilim Müzesİ",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım"],
     "tarimUrunleri": ["Buğday", "Arpa", "Mercimek", "Nohut"]
@@ -427,7 +427,7 @@
     "plakaKodu": "31",
     "unluYemekler": "Künefe, Oruk, Tepsi Kebabı",
     "universiteler": ["Hatay Mustafa Kemal Üniversitesi"],
-    "resim": "./images/hatay.jpeg",
+    "il-resmi": "/static/images/cities/Hatay.jpg",
     "müzeler": "Hatay Arkeoloji Müzesi, Necmi Asfuroğlu Arkeoloji Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Ticaret", "Sanayi", "Turizm"],
     "tarimUrunleri": ["Zeytin", "Narenciye", "Pamuk", "Buğday"]
@@ -441,7 +441,7 @@
     "plakaKodu": "32",
     "unluYemekler": "Gül Lokumu, Testi Kebabı, Kabune",
     "universiteler": ["Süleyman Demirel Üniversitesi", "Isparta Uygulamalı Bilimler Üniversitesi"],
-    "resim": "./images/isparta.jpeg",
+    "il-resmi": "/static/images/cities/Isparta.jpg",
     "müzeler": "Isparta Müzesi, Kovada Gölü Milli Parkı Müzesi",
     "ekonomikFaaliyetler": ["Tarım (Gül ve Lavanta)", "Mermercilik", "Turizm"],
     "tarimUrunleri": ["Gül", "Lavanta", "Elma", "Kiraz"]
@@ -455,7 +455,7 @@
     "plakaKodu": "33",
     "unluYemekler": "Tantuni, Cezerye, Mamul",
     "universiteler": ["Mersin Üniversitesi", "Tarsus Üniversitesi"],
-    "resim": "./images/mersin.jpeg",
+    "il-resmi": "/static/images/cities/Mersin.jpg",
     "müzeler": "Mersin Arkeoloji Müzesi, Mersin Atatürk Evi Müzesi",
     "ekonomikFaaliyetler": ["Liman İşletmeciliği", "Sanayi", "Tarım", "Turizm"],
     "tarimUrunleri": ["Narenciye", "Muz", "Çilek", "Domates"]
@@ -469,7 +469,7 @@
     "plakaKodu": "34",
     "unluYemekler": "Islak Hamburger, Balık Ekmek, Sultanahmet Köftesi",
     "universiteler": ["Boğaziçi Üniversitesi", "İstanbul Üniversitesi", "İTÜ"],
-    "resim": "./images/istanbul.jpg",
+    "il-resmi": "/static/images/cities/Istanbul.jpg",
     "müzeler": "İstanbul Arkeoloji Müzesi, Topkapı Sarayı Müzesi, İstanbul Modern Sanat Müzesi, Rahmi M. Koç Müzesi",
     "ekonomikFaaliyetler": ["Ticaret", "Finans", "Sanayi", "Turizm", "Hizmet"],
     "tarimUrunleri": ["Az miktarda sebze ve meyve (şehirleşme nedeniyle sınırlı)"]
@@ -483,7 +483,7 @@
     "plakaKodu": "35",
     "unluYemekler": "Boyoz, Kumru, İzmir Köfte",
     "universiteler": ["Ege Üniversitesi", "Dokuz Eylül Üniversitesi", "İzmir Yüksek Teknoloji Enstitüsü"],
-    "resim": "./images/izmir.jpg",
+    "il-resmi": "/static/images/cities/Izmir.jpg",
     "müzeler": "İzmir Arkeoloji Müzesi, İzmir Etnografya Müzesi",
     "ekonomikFaaliyetler": ["Ticaret", "Sanayi", "Turizm", "Tarım"],
     "tarimUrunleri": ["Zeytin", "Üzüm", "İncir", "Pamuk"]
@@ -497,7 +497,7 @@
     "plakaKodu": "36",
     "unluYemekler": "Kaz Eti, Kars Kaşarı, Hangel",
     "universiteler": ["Kafkas Üniversitesi"],
-    "resim": "./images/kars.jpeg",
+    "il-resmi": "/static/images/cities/Kars.jpeg",
     "müzeler": "Kars Müzesi, Kars Peynir Müzesi",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım", "Kış Turizmi"],
     "tarimUrunleri": ["Buğday", "Arpa", "Patates", "Şeker Pancarı"]
@@ -511,7 +511,7 @@
     "plakaKodu": "37",
     "unluYemekler": "Pastırma, Banduma, Kastamonu Çekme Helvası",
     "universiteler": ["Kastamonu Üniversitesi"],
-    "resim": "./images/kastamonu.jpeg",
+    "il-resmi": "/static/images/cities/Kastamonu.jpeg",
     "müzeler": "Kastamonu Arkeoloji Müzesi, Kastamonu Kent Tarihi Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ormancılık", "Turizm"],
     "tarimUrunleri": ["Buğday", "Arpa", "Patates", "Şeker Pancarı"]
@@ -525,7 +525,7 @@
     "plakaKodu": "38",
     "unluYemekler": "Kayseri Mantısı, Pastırma, Sucuk",
     "universiteler": ["Erciyes Üniversitesi", "Abdullah Gül Üniversitesi", "Nuh Naci Yazgan Üniversitesi"],
-    "resim": "./images/kayseri.jpeg",
+    "il-resmi": "/static/images/cities/Kayseri.jpeg",
     "müzeler": "Ahi Evran Zaviyesi Müzesi, Kadir Has Kent ve Mimar Sinan Müzesi",
     "ekonomikFaaliyetler": ["Sanayi", "Ticaret", "Mobilyacılık", "Hayvancılık"],
     "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Patates"]
@@ -539,7 +539,7 @@
     "plakaKodu": "39",
     "unluYemekler": "Hardaliye, Kırklareli Köftesi, Kapama",
     "universiteler": ["Kırklareli Üniversitesi"],
-    "resim": "./images/kirklareli.jpeg",
+    "il-resmi": "/static/images/cities/Kirklareli.jpeg",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ormancılık", "Turizm"],
     "tarimUrunleri": ["Buğday", "Ayçiçeği", "Mısır", "Şeker Pancarı"]
   },
@@ -552,7 +552,7 @@
     "plakaKodu": "40",
     "unluYemekler": "Testi Kebabı (Kırşehir Usulü), Aşlama, Höşmerim",
     "universiteler": ["Kırşehir Ahi Evran Üniversitesi"],
-    "resim": "./images/kirsehir.jpeg",
+    "il-resmi": "/static/images/cities/Kirsehir.jpeg",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Maden (Termal)"],
     "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
   },
@@ -565,7 +565,7 @@
     "plakaKodu": "41",
     "unluYemekler": "Pişmaniye, Değirmendere Fındık Tatlısı, İzmit Simidi",
     "universiteler": ["Kocaeli Üniversitesi", "Gebze Teknik Üniversitesi"],
-    "resim": "./images/kocaeli.jpeg",
+    "il-resmi": "/static/images/cities/Kocaeli.jpeg",
     "müzeler": "Kocaeli Arkeoloji ve Etnografya Müzesi, Gayret Gemi Müzesi",
     "ekonomikFaaliyetler": ["Sanayi", "Ticaret", "Liman İşletmeciliği", "Otomotiv"],
     "tarimUrunleri": ["Fındık", "Mısır", "Şeker Pancarı", "Sebze"]
@@ -578,11 +578,11 @@
     "nufus": "2.3 milyon",
     "plakaKodu": "42",
     "unluYemekler": "Etli Ekmek, Fırın Kebabı, Mevlana Böreği",
-    "universiteler": ["Selçuk Üniversitesi", "Necmettin Erbakan Üniversitesi", "Konya Teknik Üniversitesi"],
-    "resim": "./images/konya.jpeg",
+    "universiteler": "Selçuk Üniversitesi, Necmettin Erbakan Üniversitesi, Konya Teknik Üniversitesi",
     "müzeler": "Mevlana Müzesi, Konya Arkeoloji Müzesi, Karatay Medresesi Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Sanayi", "Ticaret", "Turizm"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Mısır", "Şeker Pancarı"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Mısır", "Şeker Pancarı"],
+    "il-resmi": "/static/images/cities/Konya.jpeg"
   },
   {
     "name": "Kütahya",
@@ -592,11 +592,11 @@
     "nufus": "575 bin",
     "plakaKodu": "43",
     "unluYemekler": "Kütahya Mantısı, Cimcik, Gediz Tarhanası",
-    "universiteler": ["Kütahya Dumlupınar Üniversitesi", "Kütahya Sağlık Bilimleri Üniversitesi"],
-    "resim": "./images/kutahya.jpeg",
+    "universiteler": "Kütahya Dumlupınar Üniversitesi, Kütahya Sağlık Bilimleri Üniversitesi",
     "müzeler": "Kütahya Çini Müzesi, Kütahya Arkeoloji Müzesi",
     "ekonomikFaaliyetler": ["Çini ve Seramik Sanayi", "Tarım", "Madencilik (Kömür)"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Haşhaş"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Haşhaş"],
+    "il-resmi": "/static/images/cities/Kütahya.jpeg"
   },
   {
     "name": "Malatya",
@@ -606,11 +606,11 @@
     "nufus": "800 bin",
     "plakaKodu": "44",
     "unluYemekler": "Kayısı, Kağıt Kebabı, Analı Kızlı",
-    "universiteler": ["İnönü Üniversitesi", "Malatya Turgut Özal Üniversitesi"],
-    "resim": "./images/malatya.jpeg",
+    "universiteler": "İnönü Üniversitesi, Malatya Turgut Özal Üniversitesi",
     "müzeler": "Malatya Müzesi, Beşkonaklar Etnografya Müzesi",
     "ekonomikFaaliyetler": ["Kayısı Üretimi", "Tarım", "Ticaret"],
-    "tarimUrunleri": ["Kayısı", "Buğday", "Arpa", "Nohut"]
+    "tarimUrunleri": ["Kayısı", "Buğday", "Arpa", "Nohut"],
+    "il-resmi": "/static/images/cities/Malatya.jpeg"
   },
   {
     "name": "Manisa",
@@ -620,11 +620,11 @@
     "nufus": "1.4 milyon",
     "plakaKodu": "45",
     "unluYemekler": "Mesir Macunu, Manisa Kebabı, Salihli Odun Köftesi",
-    "universiteler": ["Manisa Celal Bayar Üniversitesi"],
-    "resim": "./images/manisa.jpeg",
+    "universiteler": "Manisa Celal Bayar Üniversitesi",
     "müzeler": "Manisa Müzesi, Sultan Camii ve Külliyesi",
     "ekonomikFaaliyetler": ["Tarım", "Sanayi", "Ticaret"],
-    "tarimUrunleri": ["Üzüm", "Zeytin", "Tütün", "Pamuk"]
+    "tarimUrunleri": ["Üzüm", "Zeytin", "Tütün", "Pamuk"],
+    "il-resmi": "/static/images/cities/Manisa.jpeg"
   },
   {
     "name": "Kahramanmaraş",
@@ -634,11 +634,11 @@
     "nufus": "1.1 milyon",
     "plakaKodu": "46",
     "unluYemekler": "Maraş Dondurması, Maraş Tarhanası, Maraş Paçası",
-    "universiteler": ["Kahramanmaraş Sütçü İmam Üniversitesi"],
-    "resim": "./images/kahramanmaras.jpeg",
+    "universiteler": "Kahramanmaraş Sütçü İmam Üniversitesi",
     "müzeler": "Kahramanmaraş Arkeoloji Müzesi, Kurtuluş Müzesi",
     "ekonomikFaaliyetler": ["Tekstil", "Dondurma Üretimi", "Tarım", "Metal Sanayi"],
-    "tarimUrunleri": ["Kırmızı Biber", "Pamuk", "Buğday", "Arpa"]
+    "tarimUrunleri": ["Kırmızı Biber", "Pamuk", "Buğday", "Arpa"],
+    "il-resmi": "/static/images/cities/Kahramanmaraş.jpeg"
   },
   {
     "name": "Mardin",
@@ -648,11 +648,11 @@
     "nufus": "870 bin",
     "plakaKodu": "47",
     "unluYemekler": "Sembusek, İkbebet, Kaburga Dolması",
-    "universiteler": ["Mardin Artuklu Üniversitesi"],
-    "resim": "./images/mardin.jpeg",
+    "universiteler": "Mardin Artuklu Üniversitesi",
     "müzeler": "Mardin Müzesi, Sakıp Sabancı Mardin Kent Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Ticaret", "Turizm", "Taş İşçiliği"],
-    "tarimUrunleri": ["Mercimek", "Nohut", "Buğday", "Arpa"]
+    "tarimUrunleri": ["Mercimek", "Nohut", "Buğday", "Arpa"],
+    "il-resmi": "/static/images/cities/Mardin.jpeg"
   },
   {
     "name": "Muğla",
@@ -662,11 +662,11 @@
     "nufus": "1 milyon",
     "plakaKodu": "48",
     "unluYemekler": "Bodrum Mandalinası, Milas Zeytinyağı, Muğla Köftesi",
-    "universiteler": ["Muğla Sıtkı Koçman Üniversitesi"],
-    "resim": "./images/mugla.jpeg",
+    "universiteler": "Muğla Sıtkı Koçman Üniversitesi",
     "müzeler": "Bodrum Sualtı Arkeoloji Müzesi, Marmaris Kalesi Müzesi",
     "ekonomikFaaliyetler": ["Turizm", "Tarım", "Balıkçılık", "Arıcılık"],
-    "tarimUrunleri": ["Zeytin", "Narenciye", "Domates", "Mandalina"]
+    "tarimUrunleri": ["Zeytin", "Narenciye", "Domates", "Mandalina"],
+    "il-resmi": "/static/images/cities/Mugla.jpg"
   },
   {
     "name": "Muş",
@@ -676,11 +676,11 @@
     "nufus": "400 bin",
     "plakaKodu": "49",
     "unluYemekler": "Muş Köftesi, Hedik, Çorti",
-    "universiteler": ["Muş Alparslan Üniversitesi"],
-    "resim": "./images/mus.jpeg",
+    "universiteler": "Muş Alparslan Üniversitesi",
     "müzeler": "Muş Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Patates"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Patates"],
+    "il-resmi": "/static/images/cities/Mus.png"
   },
   {
     "name": "Nevşehir",
@@ -690,11 +690,11 @@
     "nufus": "300 bin",
     "plakaKodu": "50",
     "unluYemekler": "Testi Kebabı, Nevşehir Tava, Ayva Dolması",
-    "universiteler": ["Nevşehir Hacı Bektaş Veli Üniversitesi"],
-    "resim": "./images/nevsehir.jpeg",
+    "universiteler": "Nevşehir Hacı Bektaş Veli Üniversitesi",
     "müzeler": "Göreme Açık Hava Müzesi, Nevşehir Müzesi",
     "ekonomikFaaliyetler": ["Turizm", "Tarım", "Çömlekçilik"],
-    "tarimUrunleri": ["Patates", "Üzüm", "Kabak Çekirdeği", "Nohut"]
+    "tarimUrunleri": ["Patates", "Üzüm", "Kabak Çekirdeği", "Nohut"],
+    "il-resmi": "/static/images/cities/Nevsehir.jpg"
   },
   {
     "name": "Niğde",
@@ -704,11 +704,11 @@
     "nufus": "370 bin",
     "plakaKodu": "51",
     "unluYemekler": "Niğde Tavası, Mangır Çorbası, Ditme",
-    "universiteler": ["Niğde Ömer Halisdemir Üniversitesi"],
-    "resim": "./images/nigde.jpeg",
+    "universiteler": "Niğde Ömer Halisdemir Üniversitesi",
     "müzeler": "Niğde Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Maden (Çinko, Kurşun)"],
-    "tarimUrunleri": ["Elma", "Patates", "Buğday", "Arpa"]
+    "tarimUrunleri": ["Elma", "Patates", "Buğday", "Arpa"],
+    "il-resmi": "/static/images/cities/Nigde.jpeg"
   },
   {
     "name": "Ordu",
@@ -718,11 +718,11 @@
     "nufus": "760 bin",
     "plakaKodu": "52",
     "unluYemekler": "Ordu Pidesi, Hamsi Tava, Pancar Çorbası",
-    "universiteler": ["Ordu Üniversitesi"],
-    "resim": "./images/ordu.jpeg",
+    "universiteler": "Ordu Üniversitesi",
     "müzeler": "Paşaoğlu Konağı ve Etnografya Müzesi, Ordu Kent Müzesi",
     "ekonomikFaaliyetler": ["Fındık Üretimi", "Tarım", "Balıkçılık", "Turizm"],
-    "tarimUrunleri": ["Fındık", "Çay", "Mısır", "Patates"]
+    "tarimUrunleri": ["Fındık", "Çay", "Mısır", "Patates"],
+    "il-resmi": "/static/images/cities/Ordu.png"
   },
   {
     "name": "Rize",
@@ -732,11 +732,11 @@
     "nufus": "350 bin",
     "plakaKodu": "53",
     "unluYemekler": "Rize Pidesi, Laz Böreği, Hamsi Kuşu",
-    "universiteler": ["Recep Tayyip Erdoğan Üniversitesi"],
-    "resim": "./images/rize.jpeg",
+    "universiteler": "Recep Tayyip Erdoğan Üniversitesi",
     "müzeler": "Rize Müzesi, Atatürk Çay ve Fabrika Müzesi",
     "ekonomikFaaliyetler": ["Çay Üretimi", "Tarım", "Balıkçılık", "Turizm"],
-    "tarimUrunleri": ["Çay", "Fındık", "Kivi", "Mısır"]
+    "tarimUrunleri": ["Çay", "Fındık", "Kivi", "Mısır"],
+    "il-resmi": "/static/images/cities/Rize.jpg"
   },
   {
     "name": "Sakarya",
@@ -746,11 +746,11 @@
     "nufus": "1 milyon",
     "plakaKodu": "54",
     "unluYemekler": "Islama Köfte, Kabak Tatlısı, Dartılı Keşkek",
-    "universiteler": ["Sakarya Üniversitesi", "Sakarya Uygulamalı Bilimler Üniversitesi"],
-    "resim": "./images/sakarya.jpeg",
+    "universiteler": "Sakarya Üniversitesi, Sakarya Uygulamalı Bilimler Üniversitesi",
     "müzeler": "Sakarya Müzesi, Deprem Müzesi",
     "ekonomikFaaliyetler": ["Sanayi", "Tarım", "Otomotiv", "Ticaret"],
-    "tarimUrunleri": ["Mısır", "Fındık", "Ayçiçeği", "Sebze"]
+    "tarimUrunleri": ["Mısır", "Fındık", "Ayçiçeği", "Sebze"],
+    "il-resmi": "/static/images/cities/Sakarya.jpg"
   },
   {
     "name": "Samsun",
@@ -760,11 +760,11 @@
     "nufus": "1.4 milyon",
     "plakaKodu": "55",
     "unluYemekler": "Bafra Pidesi, Terme Pidesi, Samsun Simidi",
-    "universiteler": ["Ondokuz Mayıs Üniversitesi", "Samsun Üniversitesi"],
-    "resim": "./images/samsun.jpeg",
+    "universiteler": "Ondokuz Mayıs Üniversitesi, Samsun Üniversitesi",
     "müzeler": "Samsun Arkeoloji ve Etnografya Müzesi, Gazi Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Sanayi", "Ticaret", "Liman İşletmeciliği"],
-    "tarimUrunleri": ["Tütün", "Fındık", "Mısır", "Pirinç"]
+    "tarimUrunleri": ["Tütün", "Fındık", "Mısır", "Pirinç"],
+    "il-resmi": "/static/images/cities/Samsun.jpg"
   },
   {
     "name": "Siirt",
@@ -774,11 +774,11 @@
     "nufus": "330 bin",
     "plakaKodu": "56",
     "unluYemekler": "Büryan Kebabı, Perde Pilavı, Siirt Fıstığı",
-    "universiteler": ["Siirt Üniversitesi"],
-    "resim": "./images/siirt.jpeg",
+    "universiteler": "Siirt Üniversitesi",
     "müzeler": "Siirt Müzesi",
     "ekonomikFaaliyetler": ["Tarım (Fıstık)", "Hayvancılık", "Ticaret"],
-    "tarimUrunleri": ["Siirt Fıstığı", "Buğday", "Arpa", "Mercimek"]
+    "tarimUrunleri": ["Siirt Fıstığı", "Buğday", "Arpa", "Mercimek"],
+    "il-resmi": "/static/images/cities/Siirt.jpg"
   },
   {
     "name": "Sinop",
@@ -788,11 +788,11 @@
     "nufus": "220 bin",
     "plakaKodu": "57",
     "unluYemekler": "Sinop Mantısı, Nokul, İçli Tava",
-    "universiteler": ["Sinop Üniversitesi"],
-    "resim": "./images/sinop.jpeg",
+    "universiteler": "Sinop Üniversitesi",
     "müzeler": "Sinop Arkeoloji Müzesi, Sinop Tarihi Cezaevi Müzesi",
     "ekonomikFaaliyetler": ["Balıkçılık", "Tarım", "Ormancılık", "Turizm"],
-    "tarimUrunleri": ["Fındık", "Mısır", "Soya", "Patates"]
+    "tarimUrunleri": ["Fındık", "Mısır", "Soya", "Patates"],
+    "il-resmi": "/static/images/cities/Sinop.jpg"
   },
   {
     "name": "Sivas",
@@ -802,11 +802,11 @@
     "nufus": "635 bin",
     "plakaKodu": "58",
     "unluYemekler": "Sivas Köftesi, Sivas Katmeri, Madımak Yemeği",
-    "universiteler": ["Sivas Cumhuriyet Üniversitesi"],
-    "resim": "./images/sivas.jpeg",
+    "universiteler": "Sivas Cumhuriyet Üniversitesi",
     "müzeler": "Sivas Kongre Binası ve Etnografya Müzesi, Sivas Arkeoloji Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Demir-Çelik Sanayi", "Ticaret"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "il-resmi": "/static/images/cities/Sivas.jpeg"
   },
   {
     "name": "Tekirdağ",
@@ -816,11 +816,11 @@
     "nufus": "1.1 milyon",
     "plakaKodu": "59",
     "unluYemekler": "Tekirdağ Köftesi, Hayrabolu Tatlısı, Peynir Helvası",
-    "universiteler": ["Tekirdağ Namık Kemal Üniversitesi"],
-    "resim": "./images/tekirdag.jpeg",
+    "universiteler": "Tekirdağ Namık Kemal Üniversitesi",
     "müzeler": "Rakoczi Müzesi, Tekirdağ Arkeoloji ve Etnografya Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Sanayi", "Ticaret", "Şarapçılık"],
-    "tarimUrunleri": ["Ayçiçeği", "Buğday", "Üzüm", "Mısır"]
+    "tarimUrunleri": ["Ayçiçeği", "Buğday", "Üzüm", "Mısır"],
+    "il-resmi": "/static/images/cities/Tekirdağ.jpg"
   },
   {
     "name": "Tokat",
@@ -830,11 +830,11 @@
     "nufus": "600 bin",
     "plakaKodu": "60",
     "unluYemekler": "Tokat Kebabı, Tokat Yaprağı (Salamura), Zile Pekmezi",
-    "universiteler": ["Tokat Gaziosmanpaşa Üniversitesi"],
-    "resim": "./images/tokat.jpeg",
+    "universiteler": "Tokat Gaziosmanpaşa Üniversitesi",
     "müzeler": "Tokat Müzesi, Latifoğlu Konağı Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ticaret"],
-    "tarimUrunleri": ["Üzüm", "Kiraz", "Elma", "Buğday"]
+    "tarimUrunleri": ["Üzüm", "Kiraz", "Elma", "Buğday"],
+    "il-resmi": "/static/images/cities/Tokat.jpeg"
   },
   {
     "name": "Trabzon",
@@ -844,11 +844,11 @@
     "nufus": "820 bin",
     "plakaKodu": "61",
     "unluYemekler": "Akçaabat Köftesi, Hamsiköy Sütlacı, Kuymak",
-    "universiteler": ["Karadeniz Teknik Üniversitesi", "Trabzon Üniversitesi"],
-    "resim": "./images/trabzon.jpeg",
+    "universiteler": "Karadeniz Teknik Üniversitesi, Trabzon Üniversitesi",
     "müzeler": "Trabzon Ayasofya Müzesi, Atatürk Köşkü Müzesi",
     "ekonomikFaaliyetler": ["Balıkçılık", "Tarım (Fındık, Çay)", "Ticaret", "Turizm"],
-    "tarimUrunleri": ["Fındık", "Çay", "Mısır", "Kivi"]
+    "tarimUrunleri": ["Fındık", "Çay", "Mısır", "Kivi"],
+    "il-resmi": "/static/images/cities/Trabzon.jpg"
   },
   {
     "name": "Tunceli",
@@ -858,11 +858,11 @@
     "nufus": "85 bin",
     "plakaKodu": "62",
     "unluYemekler": "Dersim Köftesi, Babıko, Zerefet",
-    "universiteler": ["Munzur Üniversitesi"],
-    "resim": "./images/tunceli.jpeg",
+    "universiteler": "Munzur Üniversitesi",
     "müzeler": "Tunceli Müzesi",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "il-resmi": "/static/images/cities/Tunceli.jpeg"
   },
   {
     "name": "Şanlıurfa",
@@ -872,11 +872,11 @@
     "nufus": "2.1 milyon",
     "plakaKodu": "63",
     "unluYemekler": "Urfa Kebabı, Çiğ Köfte, Şanlıurfa Lahmacunu",
-    "universiteler": ["Harran Üniversitesi"],
-    "resim": "./images/sanliurfa.jpeg",
+    "universiteler": "Harran Üniversitesi",
     "müzeler": "Şanlıurfa Arkeoloji Müzesi, Haleplibahçe Mozaik Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ticaret", "Turizm"],
-    "tarimUrunleri": ["Pamuk", "Buğday", "Arpa", "Mercimek"]
+    "tarimUrunleri": ["Pamuk", "Buğday", "Arpa", "Mercimek"],
+    "il-resmi": "/static/images/cities/Sanliurfa.jpg"
   },
   {
     "name": "Uşak",
@@ -886,11 +886,11 @@
     "nufus": "370 bin",
     "plakaKodu": "64",
     "unluYemekler": "Uşak Tarhanası, Höşmerim, Demir Tatlısı",
-    "universiteler": ["Uşak Üniversitesi"],
-    "resim": "./images/usak.jpeg",
+    "universiteler": "Uşak Üniversitesi",
     "müzeler": "Uşak Arkeoloji Müzesi, Atatürk ve Etnografya Müzesi",
     "ekonomikFaaliyetler": ["Tekstil", "Halıcılık", "Tarım", "Hayvancılık"],
-    "tarimUrunleri": ["Haşhaş", "Buğday", "Arpa", "Şeker Pancarı"]
+    "tarimUrunleri": ["Haşhaş", "Buğday", "Arpa", "Şeker Pancarı"],
+    "il-resmi": "/static/images/cities/Usak.jpg"
   },
   {
     "name": "Van",
@@ -900,11 +900,11 @@
     "nufus": "1.1 milyon",
     "plakaKodu": "65",
     "unluYemekler": "Van Kahvaltısı, Otlu Peynir, Murtağa",
-    "universiteler": ["Van Yüzüncü Yıl Üniversitesi"],
-    "resim": "./images/van.jpeg",
+    "universiteler": "Van Yüzüncü Yıl Üniversitesi",
     "müzeler": "Van Müzesi, Urartu Müzesi",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım", "Ticaret", "Turizm"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Patates"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Patates"],
+    "il-resmi": "/static/images/cities/Van.jpg"
   },
   {
     "name": "Yozgat",
@@ -914,11 +914,11 @@
     "nufus": "420 bin",
     "plakaKodu": "66",
     "unluYemekler": "Testi Kebabı, Arabaşı Çorbası, Madımak Yemeği",
-    "universiteler": ["Yozgat Bozok Üniversitesi"],
-    "resim": "./images/yozgat.jpeg",
+    "universiteler": "Yozgat Bozok Üniversitesi",
     "müzeler": "Yozgat Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "il-resmi": "/static/images/cities/Yozgat.jpg"
   },
   {
     "name": "Zonguldak",
@@ -928,11 +928,11 @@
     "nufus": "590 bin",
     "plakaKodu": "67",
     "unluYemekler": "Devrek Baston Kebabı, Ereğli Pidesi, Beyaz Baklava",
-    "universiteler": ["Zonguldak Bülent Ecevit Üniversitesi"],
-    "resim": "./images/zonguldak.jpeg",
+    "universiteler": "Zonguldak Bülent Ecevit Üniversitesi",
     "müzeler": "Zonguldak Maden Müzesi, Ereğli Müzesi",
     "ekonomikFaaliyetler": ["Kömür Madenciliği", "Demir-Çelik Sanayi", "Tarım"],
-    "tarimUrunleri": ["Fındık", "Mısır", "Patates", "Sebze"]
+    "tarimUrunleri": ["Fındık", "Mısır", "Patates", "Sebze"],
+    "il-resmi": "/static/images/cities/Zonguldak.jpg"
   },
   {
     "name": "Aksaray",
@@ -942,11 +942,11 @@
     "nufus": "430 bin",
     "plakaKodu": "68",
     "unluYemekler": "Aksaray Tava, Dolaz, Höşmerim",
-    "universiteler": ["Aksaray Üniversitesi"],
-    "resim": "./images/aksaray.jpeg",
+    "universiteler": "Aksaray Üniversitesi",
     "müzeler": "Aksaray Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ticaret", "Turizm"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "il-resmi": "/static/images/cities/Aksaray.jpeg"
   },
   {
     "name": "Bayburt",
@@ -956,11 +956,11 @@
     "nufus": "85 bin",
     "plakaKodu": "69",
     "unluYemekler": "Bayburt Döneri, Tatlı Çorba, Galacoş",
-    "universiteler": ["Bayburt Üniversitesi"],
-    "resim": "./images/bayburt.jpeg",
+    "universiteler": "Bayburt Üniversitesi",
     "müzeler": "Bayburt Tarih ve Kültür Müzesi",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Patates", "Şeker Pancarı"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Patates", "Şeker Pancarı"],
+    "il-resmi": "/static/images/cities/Bayburt.jpg"
   },
   {
     "name": "Karaman",
@@ -970,11 +970,11 @@
     "nufus": "260 bin",
     "plakaKodu": "70",
     "unluYemekler": "Arabaşı Çorbası, Batırık, Callo",
-    "universiteler": ["Karamanoğlu Mehmetbey Üniversitesi"],
-    "resim": "./images/karaman.jpeg",
+    "universiteler": "Karamanoğlu Mehmetbey Üniversitesi",
     "müzeler": "Karaman Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Gıda Sanayi"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Elma"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Elma"],
+    "il-resmi": "/static/images/cities/Karaman.jpg"
   },
   {
     "name": "Kırıkkale",
@@ -984,11 +984,11 @@
     "nufus": "280 bin",
     "plakaKodu": "71",
     "unluYemekler": "Keskin Tava, Sızgıt, Katma Aşı",
-    "universiteler": ["Kırıkkale Üniversitesi"],
-    "resim": "./images/kirikkale.jpeg",
+    "universiteler": "Kırıkkale Üniversitesi",
     "müzeler": "Kırıkkale Kent Müzesi",
     "ekonomikFaaliyetler": ["Savunma Sanayi", "Metal Sanayi", "Tarım"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "il-resmi": "/static/images/cities/Kırıkkale.jpg"
   },
   {
     "name": "Batman",
@@ -998,11 +998,11 @@
     "nufus": "630 bin",
     "plakaKodu": "72",
     "unluYemekler": "Batman Usulü İçli Köfte, Perde Pilavı, Şam Böreği",
-    "universiteler": ["Batman Üniversitesi"],
-    "resim": "./images/batman.jpeg",
+    "universiteler": "Batman Üniversitesi",
     "müzeler": "Batman Müzesi",
     "ekonomikFaaliyetler": ["Petrol Sanayi", "Tarım", "Ticaret"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Mercimek", "Nohut"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Mercimek", "Nohut"],
+    "il-resmi": "/static/images/cities/Batman.jpeg"
   },
   {
     "name": "Şırnak",
@@ -1012,10 +1012,11 @@
     "nufus": "560 bin",
     "plakaKodu": "73",
     "unluYemekler": "Kipe, Serıdev, Kutlık",
-    "universiteler": ["Şırnak Üniversitesi"],
-    "resim": "./images/sirnak.jpeg",
+    "universiteler": "Şırnak Üniversitesi",
+    "müzeler": "",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım", "Sınır Ticareti"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "il-resmi": "/static/images/cities/Sirnak.jpg"
   },
   {
     "name": "Bartın",
@@ -1025,11 +1026,11 @@
     "nufus": "200 bin",
     "plakaKodu": "74",
     "unluYemekler": "Bartın Pidesi, Amasra Salatası, Pumpum Çorbası",
-    "universiteler": ["Bartın Üniversitesi"],
-    "resim": "./images/bartin.jpeg",
+    "universiteler": "Bartın Üniversitesi",
     "müzeler": "Amasra Müzesi",
     "ekonomikFaaliyetler": ["Turizm", "Balıkçılık", "Ormancılık", "Tekne Yapımı"],
-    "tarimUrunleri": ["Fındık", "Mısır", "Kestane", "Patates"]
+    "tarimUrunleri": ["Fındık", "Mısır", "Kestane", "Patates"],
+    "il-resmi": "/static/images/cities/Bartın.jpg"
   },
   {
     "name": "Ardahan",
@@ -1039,10 +1040,11 @@
     "nufus": "92 bin",
     "plakaKodu": "75",
     "unluYemekler": "Kaz Eti, Ardahan Balı, Kuymak",
-    "universiteler": ["Ardahan Üniversitesi"],
-    "resim": "./images/ardahan.jpeg",
+    "universiteler": "Ardahan Üniversitesi",
+    "müzeler": "",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Patates"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Patates"],
+    "il-resmi": "/static/images/cities/Ardahan.png"
   },
   {
     "name": "Iğdır",
@@ -1052,11 +1054,11 @@
     "nufus": "205 bin",
     "plakaKodu": "76",
     "unluYemekler": "Iğdır Bozbaşı, Taş Köfte, Kayısı Kavurması",
-    "universiteler": ["Iğdır Üniversitesi"],
-    "resim": "./images/igdir.jpeg",
+    "universiteler": "Iğdır Üniversitesi",
     "müzeler": "Iğdır Şehit ve Gazi Anıt Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Sınır Ticareti"],
-    "tarimUrunleri": ["Kayısı", "Pamuk", "Buğday", "Arpa"]
+    "tarimUrunleri": ["Kayısı", "Pamuk", "Buğday", "Arpa"],
+    "il-resmi": "/static/images/cities/Iğdır.jpg"
   },
   {
     "name": "Yalova",
@@ -1066,11 +1068,11 @@
     "nufus": "290 bin",
     "plakaKodu": "77",
     "unluYemekler": "Yalova Sütlüsü, Termal Köftesi, Yaprak Sarma",
-    "universiteler": ["Yalova Üniversitesi"],
-    "resim": "./images/yalova.jpeg",
+    "universiteler": "Yalova Üniversitesi",
     "müzeler": "Yürüyen Köşk, Yalova Kent Müzesi",
     "ekonomikFaaliyetler": ["Termal Turizm", "Tarım", "Sanayi"],
-    "tarimUrunleri": ["Kivi", "Şeftali", "Elma", "Armut"]
+    "tarimUrunleri": ["Kivi", "Şeftali", "Elma", "Armut"],
+    "il-resmi": "/static/images/cities/Yalova.jpeg"
   },
   {
     "name": "Karabük",
@@ -1080,11 +1082,11 @@
     "nufus": "250 bin",
     "plakaKodu": "78",
     "unluYemekler": "Safranbolu Lokumu, Peruhi, Çingene Baklavası",
-    "universiteler": ["Karabük Üniversitesi"],
-    "resim": "./images/karabuk.jpeg",
+    "universiteler": "Karabük Üniversitesi",
     "müzeler": "Safranbolu Kent Tarihi Müzesi",
     "ekonomikFaaliyetler": ["Demir-Çelik Sanayi", "Turizm", "Ormancılık"],
-    "tarimUrunleri": ["Safran", "Fındık", "Mısır", "Patates"]
+    "tarimUrunleri": ["Safran", "Fındık", "Mısır", "Patates"],
+    "il-resmi": "/static/images/cities/Karabük.png"
   },
   {
     "name": "Kilis",
@@ -1094,11 +1096,11 @@
     "nufus": "150 bin",
     "plakaKodu": "79",
     "unluYemekler": "Kilis Tava, Katmer, Cennet Çamuru",
-    "universiteler": ["Kilis 7 Aralık Üniversitesi"],
-    "resim": "./images/kilis.jpeg",
+    "universiteler": "Kilis 7 Aralık Üniversitesi",
     "müzeler": "Kilis Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Ticaret", "Sınır Ticareti"],
-    "tarimUrunleri": ["Zeytin", "Üzüm", "Antep Fıstığı", "Buğday"]
+    "tarimUrunleri": ["Zeytin", "Üzüm", "Antep Fıstığı", "Buğday"],
+    "il-resmi": "/static/images/cities/Kilis.jpg"
   },
   {
     "name": "Osmaniye",
@@ -1108,11 +1110,11 @@
     "nufus": "550 bin",
     "plakaKodu": "80",
     "unluYemekler": "Osmaniye Fıstığı, Tirşik, Kaburga Dolması",
-    "universiteler": ["Osmaniye Korkut Ata Üniversitesi"],
-    "resim": "./images/osmaniye.jpeg",
+    "universiteler": "Osmaniye Korkut Ata Üniversitesi",
     "müzeler": "Karatepe-Aslantaş Açık Hava Müzesi",
     "ekonomikFaaliyetler": ["Tarım (Yer Fıstığı)", "Sanayi", "Ticaret"],
-    "tarimUrunleri": ["Yer Fıstığı", "Mısır", "Pamuk", "Buğday"]
+    "tarimUrunleri": ["Yer Fıstığı", "Mısır", "Pamuk", "Buğday"],
+    "il-resmi": "/static/images/cities/Osmaniye.jpeg"
   },
   {
     "name": "Düzce",
@@ -1122,10 +1124,10 @@
     "nufus": "400 bin",
     "plakaKodu": "81",
     "unluYemekler": "Akçakoca Fındık Ezmesi, Düzce Köftesi, Mamursa",
-    "universiteler": ["Düzce Üniversitesi"],
-    "resim": "./images/duzce.jpeg",
+    "universiteler": "Düzce Üniversitesi",
     "müzeler": "Düzce Konuralp Müzesi",
     "ekonomikFaaliyetler": ["Tarım", "Ormancılık", "Sanayi", "Turizm"],
-    "tarimUrunleri": ["Fındık", "Mısır", "Buğday", "Patates"]
+    "tarimUrunleri": ["Fındık", "Mısır", "Buğday", "Patates"],
+    "il-resmi": "/static/images/cities/Düzce.jpg"
   }
 ]
