@@ -77,21 +77,18 @@ function openIlModal(ilAdi) {
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="${ilVerisi['il-resmi']}" alt="${ilAdi}" /></div>
-                <div class="swiper-slide"><h3>Tarihçe</h3><p>${ilVerisi.tarih}</p></div>
-                <div class="swiper-slide"><h3>Eserler</h3><p>${ilVerisi.eserler}</p></div>
-                <div class="swiper-slide"><h3>Öneriler</h3><p>${ilVerisi.oneriler}</p></div>
                 <div class="swiper-slide">
                     <h3>Bilgiler</h3>
-                    <p><strong>Nüfus:</strong> ${ilVerisi.nufus}</p>
+                    <p><strong>İsim:</strong> ${ilVerisi.name}</p>
                     <p><strong>Plaka:</strong> ${ilVerisi.plakaKodu}</p>
-                    <p><strong>Yemekler:</strong> ${ilVerisi.unluYemekler}</p>
+                    <p><strong>Nüfus:</strong> ${ilVerisi.nufus}</p>
                 </div>
-                <div class="swiper-slide">
-                    <h3>Üniversiteler</h3>
-                    <ul>${ilVerisi.universiteler
-                        .map((u) => `<li>${u}</li>`)
-                        .join("")}</ul>
-                </div>
+                <div class="swiper-slide"><h3>Tarihçe</h3><p>${ilVerisi.tarih}</p></div>
+                <div class="swiper-slide"><h3>Eserler</h3><p>${ilVerisi.eserler}</p></div>
+                <div class="swiper-slide"><h3>Müzeler</h3><p>${ilVerisi.müzeler}</p></div>
+                <div class="swiper-slide"><h3>Öneriler</h3><p>${ilVerisi.oneriler}</p></div>
+                <div class="swiper-slide"><h3>Yemekler</h3><p>${ilVerisi.unluYemekler}</p></div>
+                <div class="swiper-slide"><h3>Üniversiteler</h3><p>${ilVerisi.universiteler}</p></div>
             </div>
             <div class="swiper-pagination"></div>
         </div>

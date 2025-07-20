@@ -7,7 +7,7 @@
     "nufus": "2.2 milyon",
     "plakaKodu": "01",
     "unluYemekler": "Adana Kebabı, Şırdan, Bici Bici",
-    "universiteler": ["Çukurova Üniversitesi", "Adana Alparslan Türkeş Bilim ve Teknoloji Üniversitesi"],
+    "universiteler": "Çukurova Üniversitesi, Adana Alparslan Türkeş Bilim ve Teknoloji Üniversitesi",
     "il_resim": "/static/images/cities/Adana.jpg",
     "müzeler": "Adana Müzesi, Kuruköprü Anıt Müzesi ve Geleneksel Adana Evi",
     "resim1": "/static/images/01.png"
@@ -20,7 +20,7 @@
     "nufus": "632 bin",
     "plakaKodu": "02",
     "unluYemekler": "Çiğ Köfte, Adıyaman Tava, Basalla",
-    "universiteler": ["Adıyaman Üniversitesi"],
+    "universiteler": "Adıyaman Üniversitesi",
     "resim1": "/static/images/Adıyaman.jpeg",
     "müzeler": "Adıyaman Müzesi",
     "resim": "/static/images/02.jpeg"
@@ -33,7 +33,7 @@
     "nufus": "750 bin",
     "plakaKodu": "03",
     "unluYemekler": "Afyon Sucuğu, Afyon Kaymağı, Düğün Çorbası",
-    "universiteler": ["Afyon Kocatepe Üniversitesi", "Afyonkarahisar Sağlık Bilimleri Üniversitesi"],
+    "universiteler": "Afyon Kocatepe Üniversitesi, Afyonkarahisar Sağlık Bilimleri Üniversitesi",
     "resim1": "/static/images/Afyonkarahisar.jpg",
     "müzeler": "Zafer Müzesi, Afyonkarahisar Müzesi, Bolvadin Müzesi",
     "resim": "/static/images/03.jpeg"
@@ -46,7 +46,7 @@
     "nufus": "510 bin",
     "plakaKodu": "04",
     "unluYemekler": "Abdigör Köftesi, Pişi, Hengel",
-    "universiteler": ["Ağrı İbrahim Çeçen Üniversitesi"],
+    "universiteler": "Ağrı İbrahim Çeçen Üniversitesi",
     "resim1": "/static/images/Ağrı.jpg",
     "müzeler": "Ağrı Müzesi",
     "resim": "/static/images/04.jpg"
@@ -59,7 +59,7 @@
     "nufus": "365 bin",
     "plakaKodu": "05",
     "unluYemekler": "Amasya Çöreği, Keşkek, Mumbar",
-    "universiteler": ["Amasya Üniversitesi"],
+    "universiteler": "Amasya Üniversitesi",
     "resim1": "/static/images/Amasya.png",
     "müzeler": "Şehzadeler Müzesi, Hazeranlar Konağı Etnografya Müzesi",
     "resim": "/static/images/05.jpg"
@@ -72,7 +72,7 @@
     "nufus": "5.7 milyon",
     "plakaKodu": "06",
     "unluYemekler": "Ankara Tava, Beypazarı Kurusu",
-    "universiteler": ["Ankara Üniversitesi", "ODTÜ", "Hacettepe Üniversitesi"],
+    "universiteler": "Ankara Üniversitesi, ODTÜ, Hacettepe Üniversitesi",
     "resim1": "/static/images/Ankara.jpg",
     "müzeler": "Anadolu Medeniyetleri Müzesi, Etnografya Müzesi",
     "resim": "/static/images/06.jpg"
@@ -85,7 +85,7 @@
     "nufus": "2.7 milyon",
     "plakaKodu": "07",
     "unluYemekler": "Piyaz, Tahinli Kabak Tatlısı, Hibeş",
-    "universiteler": ["Akdeniz Üniversitesi", "Alanya Alaaddin Keykubat Üniversitesi"],
+    "universiteler": "Akdeniz Üniversitesi, Alanya Alaaddin Keykubat Üniversitesi",
     "resim1": "/static/images/Antalya.jpg",
     "müzeler": "Antalya Müzesi, Aziz Nikolaos Müzesi, Side Arkeoloji Müzesi",
     "resim": "/static/images/07.png"
@@ -98,7 +98,7 @@
     "nufus": "172 bin",
     "plakaKodu": "08",
     "unluYemekler": "Hinkel, Kuymak, Laz Böreği",
-    "universiteler": ["Artvin Çoruh Üniversitesi"],
+    "universiteler": "Artvin Çoruh Üniversitesi",
     "resim1": "/static/images/Artvin.jpg",
     "müzeler": "Artvin Gastronomi Müzesi",
     "resim": "/static/images/08.jpg"
@@ -111,7 +111,7 @@
     "nufus": "1.1 milyon",
     "plakaKodu": "09",
     "unluYemekler": "İncir, Zeytinyağlı Enginar, Yuvarlama",
-    "universiteler": ["Adnan Menderes Üniversitesi"],
+    "universiteler": "Adnan Menderes Üniversitesi",
     "resim1": "/static/images/Aydın.jpg",
     "müzeler": "Yörük Ali Efe Evi Müzesi, Afrodisias Müzesi, Aydin Arkeoloji Müzesi, Milet Müzesi",
     "resim": "/static/images/09.jpeg"
@@ -124,7 +124,7 @@
     "nufus": "1.2 milyon",
     "plakaKodu": "10",
     "unluYemekler": "Höşmerim, Susurluk Tostu, Balıkesir Kaymaklısı",
-    "universiteler": ["Balıkesir Üniversitesi", "Bandırma Onyedi Eylül Üniversitesi"],
+    "universiteler": "Balıkesir Üniversitesi, Bandırma Onyedi Eylül Üniversitesi",
     "resim1": "/static/images/Balıkesir.jpg",
     "müzeler": "Taksiyarhis Anıt Müzesi, Kuva-yi Milliye Müzesi, Bandirma Müzesi",
     "resim": "/static/images/10.jpg"
@@ -137,7 +137,7 @@
     "nufus": "228 bin",
     "plakaKodu": "11",
     "unluYemekler": "Bozüyük Mantısı, Büzme, Höşmerim",
-    "universiteler": ["Bilecik Şeyh Edebali Üniversitesi"],
+    "universiteler": "Bilecik Şeyh Edebali Üniversitesi",
     "resim1": "/static/images/Bilecik.jpeg",
     "müzeler": "Bilecik Müzesi, Söğüt Ertuğrul Gazi Müzesi",
     "resim": "/static/images/11.jpg"
@@ -150,7 +150,7 @@
     "nufus": "282 bin",
     "plakaKodu": "12",
     "unluYemekler": "Sırın, Güveç, Tutmaç Çorbası",
-    "universiteler": ["Bingöl Üniversitesi"],
+    "universiteler": "Bingöl Üniversitesi",
     "resim1": "/static/images/Bingöl.jpeg"
     
   },
@@ -162,7 +162,7 @@
     "nufus": "353 bin",
     "plakaKodu": "13",
     "unluYemekler": "Büryan Kebabı, Katıklı Dolma, Avşor",
-    "universiteler": ["Bitlis Eren Üniversitesi"],
+    "universiteler": "Bitlis Eren Üniversitesi",
     "resim1": "/static/images/Bitlis.jpg",
     "müzeler": "Ahlat Müzesi, Bitlis Etnografya Müzesi",
     "resim": "/static/images/13.jpg"
@@ -175,7 +175,7 @@
     "nufus": "320 bin",
     "plakaKodu": "14",
     "unluYemekler": "Bolu Fındık Şekeri, Mengen Pilavı, Kaldıraç",
-    "universiteler": ["Bolu Abant İzzet Baysal Üniversitesi"],
+    "universiteler": "Bolu Abant İzzet Baysal Üniversitesi",
     "resim1": "/static/images/Bolu.jpeg",
     "müzeler": "Bolu Müzesi (Arkeoloji ve Etnografya Müzesi)",
      "resim": "/static/images/14.png"
@@ -188,7 +188,7 @@
     "nufus": "281 bin",
     "plakaKodu": "15",
     "unluYemekler": "Testi Kebabı, Burdur Şiş, Ceviz Ezmesi",
-    "universiteler": ["Burdur Mehmet Akif Ersoy Üniversitesi"],
+    "universiteler": "Burdur Mehmet Akif Ersoy Üniversitesi",
     "resim1": "/static/images/Burdur.jpg",
     "müzeler": "Burdur Arkeoloji Müzesi",
     "resim": "/static/images/15.jpg"
@@ -201,7 +201,7 @@
     "nufus": "3.2 milyon",
     "plakaKodu": "16",
     "unluYemekler": "İskender Kebap, Kemalpaşa Tatlısı, Kestane Şekeri",
-    "universiteler": ["Uludağ Üniversitesi", "Bursa Teknik Üniversitesi"],
+    "universiteler": "Uludağ Üniversitesi, Bursa Teknik Üniversitesi",
     "resim1": "/static/images/Bursa.jpg",
     "müzeler": "Bursa Kent Müzesi, Türk İslam Eserleri Müzesi",
     "resim": "/static/images/16.jpg"
@@ -214,7 +214,7 @@
     "nufus": "557 bin",
     "plakaKodu": "17",
     "unluYemekler": "Ezine Peyniri, Sardalya, Peynir Helvası",
-    "universiteler": ["Çanakkale Onsekiz Mart Üniversitesi"],
+    "universiteler": "Çanakkale Onsekiz Mart Üniversitesi",
     "resim1": "/static/images/Çanakkale.jpg",
     "müzeler": "Çanakkale Savaşları Gelibolu Tarihi Alan Başkanlığı Müzesi, Troya Müzesi",
     "resim": "/static/images/17.jpg"
@@ -227,7 +227,7 @@
     "nufus": "175 bin",
     "plakaKodu": "18",
     "unluYemekler": "Çankırı Güveci, Halişka, Kızılcık Şerbeti",
-    "universiteler": ["Çankırı Karatekin Üniversitesi"],
+    "universiteler": "Çankırı Karatekin Üniversitesi",
     "resim1": "/static/images/Çankırı.jpeg",
     "müzeler": "Çankırı Müzesi, Tarihi Çamaşırhane Müzesi",
      "resim": "/static/images/18.jpg"
@@ -240,7 +240,7 @@
     "nufus": "528 bin",
     "plakaKodu": "19",
     "unluYemekler": "Çorum Leblebisi, Çorum Mantısı, Sıkma",
-    "universiteler": ["Hitit Üniversitesi"],
+    "universiteler": "Hitit Üniversitesi",
     "resim1": "/static/images/Çorum.jpg",
     "müzeler": "Çorum Müzesi, Boğazköy Müzesi",
      "resim": "/static/images/19.jpg"
@@ -253,7 +253,7 @@
     "nufus": "1 milyon",
     "plakaKodu": "20",
     "unluYemekler": "Denizli Kebabı, Kale Biberi, Yanık Kokoreç",
-    "universiteler": ["Pamukkale Üniversitesi"],
+    "universiteler": "Pamukkale Üniversitesi",
     "resim1": "/static/images/Denizli.jpg",
     "müzeler": "Atatürk Evi Etnografya Müzesi, Pamukkale Hierapolis Arkeoloji Müzesi",
     "resim": "/static/images/20.jpg"
@@ -266,7 +266,7 @@
     "nufus": "1.8 milyon",
     "plakaKodu": "21",
     "unluYemekler": "Kaburga Dolması, Diyarbakır Ciğeri, Örgü Peyniri",
-    "universiteler": ["Dicle Üniversitesi", "Diyarbakır Teknik Üniversitesi"],
+    "universiteler": "Dicle Üniversitesi, Diyarbakır Teknik Üniversitesi",
     "resim1": "/static/images/Diyarbakır.jpeg",
     "müzeler": "Diyarbakır Arkeoloji Müzesi, Cahit Sıtkı Tarancı Müzesi",
     "resim": "/static/images/21.jpeg"
@@ -279,7 +279,7 @@
     "nufus": "415 bin",
     "plakaKodu": "22",
     "unluYemekler": "Edirne Tava Ciğeri, Deva-i Misk Helvası, Badem Ezmesi",
-    "universiteler": ["Trakya Üniversitesi"],
+    "universiteler": "Trakya Üniversitesi",
     "resim1": "/static/images/Edirne.jpg",
     "müzeler": "Edirne Arkeoloji ve Etnografya Müzesi, Türk-İslam Eserleri Müzesi",
     "resim": "/static/images/22.png"
@@ -292,7 +292,7 @@
     "nufus": "604 bin",
     "plakaKodu": "23",
     "unluYemekler": "Harput Köftesi, Çayda Çıra, Orcik",
-    "universiteler": ["Fırat Üniversitesi"],
+    "universiteler": "Fırat Üniversitesi",
     "resim1": "/static/images/Elazığ.jpg",
     "müzeler": "Elazığ Arkeoloji ve Etnografya Müzesi",
     "resim": "/static/images/23.jpg"
@@ -305,7 +305,7 @@
     "nufus": "237 bin",
     "plakaKodu": "24",
     "unluYemekler": "Tulum Peyniri, Kemah Çorbası, Erzincan Tava",
-    "universiteler": ["Erzincan Binali Yıldırım Üniversitesi"],
+    "universiteler": "Erzincan Binali Yıldırım Üniversitesi",
     "resim1": "/static/images/Erzincan.jpg",
     "müzeler": "Erzincan Etnografya Müzesi",
     "resim": "/static/images/24.png"
@@ -318,7 +318,7 @@
     "nufus": "749 bin",
     "plakaKodu": "25",
     "unluYemekler": "Cağ Kebabı, Kadayıf Dolması, Ayran Aşı",
-    "universiteler": ["Atatürk Üniversitesi", "Erzurum Teknik Üniversitesi"],
+    "universiteler": "Atatürk Üniversitesi, Erzurum Teknik Üniversitesi",
     "resim1": "/static/images/Erzurum.jpg",
     "müzeler": "Erzurum Arkeoloji Müzesi, Türk‑İslam Eserleri ve Etnografya Müzesi",
     "resim": "/static/images/25.jpg"
@@ -331,7 +331,7 @@
     "nufus": "900 bin",
     "plakaKodu": "26",
     "unluYemekler": "Çibörek, Met Helvası, Haşhaşlı Revani",
-    "universiteler": ["Anadolu Üniversitesi", "Eskişehir Osmangazi Üniversitesi", "Eskişehir Teknik Üniversitesi"],
+    "universiteler": "Anadolu Üniversitesi, Eskişehir Osmangazi Üniversitesi, Eskişehir Teknik Üniversitesi",
     "resim1": "./static/images/Eskişehir.jpg",
     "müzeler": "Eti Arkeoloji Müzesi, Yılmaz Büyükerşen Balmumu Heykeller Müzesi",
     "resim": "/static/images/26.jpg"
@@ -344,7 +344,7 @@
     "nufus": "2.1 milyon",
     "plakaKodu": "27",
     "unluYemekler": "Gaziantep Baklavası, Yuvalama, Beyran Çorbası",
-    "universiteler": ["Gaziantep Üniversitesi", "Hasan Kalyoncu Üniversitesi"],
+    "universiteler": "Gaziantep Üniversitesi, Hasan Kalyoncu Üniversitesi",
     "resim1": "/static/images/Gaziantep.jpg",
     "müzeler": "Zeugma Mozaik Müzesi, Gaziantep Arkeoloji Müzesİ",
     "resim": "/static/images/27.png"
@@ -357,7 +357,7 @@
     "nufus": "450 bin",
     "plakaKodu": "28",
     "unluYemekler": "Fındıklı Kadayıf, Karalahana Çorbası, Hamsiköy Sütlacı (Karadeniz mutfağı)",
-    "universiteler": ["Giresun Üniversitesi"],
+    "universiteler": "Giresun Üniversitesi",
     "resim1": "/static/images/Giresun.jpeg",
     "müzeler": "Şebinkarahisar Atatürk Evi ve Müzesi, Giresun Müzesİ",
     "resim": "/static/images/28.jpeg"
@@ -370,7 +370,7 @@
     "nufus": "150 bin",
     "plakaKodu": "29",
     "unluYemekler": "Pestil, Köme, Gümüşhane Katmeri",
-    "universiteler": ["Gümüşhane Üniversitesi"],
+    "universiteler": "Gümüşhane Üniversitesi",
     "resim1": "/static/images/Gümüşhane.jpg",
     "müzeler": "Gümüşhane Müzesi, Gümüşhane İkizevler Kent Müzesİ",
     "resim": "/static/images/29.jpg"
@@ -383,7 +383,7 @@
     "nufus": "280 bin",
     "plakaKodu": "30",
     "unluYemekler": "Gulul, Kepir, Duvaklı Pilav",
-    "universiteler": ["Hakkari Üniversitesi"],
+    "universiteler": "Hakkari Üniversitesi",
     "resim1": "/static/images/Hakkari.jpg",
     "müzeler": "Hakkâri Kent Arşiv ve Etnografya Müzesi, Hakkâri Kilim Müzesİ",
     "resim": "/static/images/30.jpg"
@@ -396,7 +396,7 @@
     "nufus": "1.6 milyon",
     "plakaKodu": "31",
     "unluYemekler": "Künefe, Oruk, Tepsi Kebabı",
-    "universiteler": ["Hatay Mustafa Kemal Üniversitesi"],
+    "universiteler": "Hatay Mustafa Kemal Üniversitesi",
     "resim1": "/static/images/Hatay.jpg",
     "müzeler": "Hatay Arkeoloji Müzesi, Necmi Asfuroğlu Arkeoloji Müzesi",
     "resim": "/static/images/31.jpg"
@@ -409,7 +409,7 @@
     "nufus": "450 bin",
     "plakaKodu": "32",
     "unluYemekler": "Gül Lokumu, Testi Kebabı, Kabune",
-    "universiteler": ["Süleyman Demirel Üniversitesi", "Isparta Uygulamalı Bilimler Üniversitesi"],
+    "universiteler": "Süleyman Demirel Üniversitesi, Isparta Uygulamalı Bilimler Üniversitesi",
     "resim1": "/static/images/Isparta.jpg",
     "müzeler": "Isparta Müzesi, Kovada Gölü Milli Parkı Müzesi",
     "resim": "/static/images/32.png"
@@ -422,7 +422,7 @@
     "nufus": "1.9 milyon",
     "plakaKodu": "33",
     "unluYemekler": "Tantuni, Cezerye, Mamul",
-    "universiteler": ["Mersin Üniversitesi", "Tarsus Üniversitesi"],
+    "universiteler": "Mersin Üniversitesi, Tarsus Üniversitesi",
     "resim1": "/static/images/033.jpg",
     "müzeler": "Mersin Arkeoloji Müzesi, Mersin Atatürk Evi Müzesi",
     "resim": "/static/images/33.jpg"
@@ -435,7 +435,7 @@
     "nufus": "15.9 milyon",
     "plakaKodu": "34",
     "unluYemekler": "Islak Hamburger, Balık Ekmek, Sultanahmet Köftesi",
-    "universiteler": ["Boğaziçi Üniversitesi", "İstanbul Üniversitesi", "İTÜ"],
+    "universiteler": "Boğaziçi Üniversitesi, İstanbul Üniversitesi, İTÜ",
     "resim1": "/static/images/Istanbul.jpg",
     "müzeler": "İstanbul Arkeoloji Müzesi, Topkapı Sarayı Müzesi, İstanbul Modern Sanat Müzesi, Rahmi M. Koç Müzesi",
     "resim": "/static/images/34.jpg"
