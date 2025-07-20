@@ -271,33 +271,36 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
   <p><strong>Sprint Dönemi:</strong>  6 Temmuz – 20 Temmuz 2025<br>
   <strong>Proje:</strong> GeoAI</p>
 
-  <p>👩‍💼 <strong>Amine Demirbaş – Scrum Master</strong></p>
-  <ul>
-    <li>Takım içi iletişim ve görev koordinasyonu</li>
-    <li>Trello panosu takibi ve günlük toplantı organizasyonu</li>
-    <li>Sprint Review & Retrospective dokümantasyonu</li>
-  </ul>
+<h3>👥 Ekip Görev Dağılımı – Sprint 2</h3>
 
-  <p>👩‍💻 <strong>Melike Nur Köseoğlu – Product Owner</strong></p>
-  <ul>
-    <li>Leaflet.js ile harita görselleştirme</li>
-    <li>Backlog yönetimi ve kullanıcı test senaryoları</li>
-    <li>Tasarım yönlendirmeleri ve içerik planlama</li>
-  </ul>
+<strong>👩‍💼 Amine Demirbaş – Scrum Master</strong>
+<ul>
+  <li>Takım içi iletişim ve görev koordinasyonunu sağladı.</li>
+  <li>Trello panosunun takibi ve Daily Scrum toplantılarını organize etti.</li>
+  <li>Sprint Review ve Retrospective süreçlerini dokümante etti.</li>
+  <li>Projenin ilerleyen aşamaları için veritabanına eklemeler yaptı.</li>
+</ul>
 
-  <p>👨‍💻 <strong>Soner Başak – Backend, AI Developer</strong></p>
-  <ul>
-    <li>Şehir verileri için API ve JSON veri yapısı</li>
-    <li>Backend test ortamı ve veri servisleri</li>
-    <li>Gelecekteki veritabanı yapısı planlaması</li>
-  </ul>
+<strong>👩‍💻 Melike Nur Köseoğlu – Product Owner</strong>
+<ul>
+  <li>Leaflet.js kullanarak harita görselleştirmesinin yönlendirilmesini sağladı.</li>
+  <li>Backlog yönetimi yaptı ve kullanıcı test senaryolarını oluşturdu.</li>
+  <li>Tasarım sürecine rehberlik ederek içerik planlamasında aktif rol aldı.</li>
+</ul>
 
-  <p>👨‍💻 <strong>Canberk – Frontend Developer</strong></p>
-  <ul>
-    <li>Şehir seçimi ve popup bilgi kutuları</li>
-    <li>Responsive UI ve bilgi kartı komponentleri</li>
-  </ul>
-</details>
+<strong>👨‍💻 Soner Başak – Backend & AI Developer</strong>
+<ul>
+  <li>Şehir verileri için API ve JSON veri yapısını oluşturdu.</li>
+  <li>Backend test ortamını kurarak veri servislerini yapılandırdı.</li>
+  <li>Harita üzerinden şehir seçimi ve popup bilgi kutucuklarını geliştirdi.</li>
+  <li>Responsive kullanıcı arayüzü ve bilgi kartı komponentlerini oluşturdu.</li>
+</ul>
+
+<strong>👨‍💻 Canberk – Frontend Developer</strong>
+<li>Projenin ilerleyen aşamaları için veritabanı planlamasını yaptı.</li>
+<ul>
+  
+</ul>
 
 
   <details>
