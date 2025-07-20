@@ -186,74 +186,69 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
 ---
 
 <details>
-   <summary>🏃 Sprint 2 - Yapay Zeka, Veri Girişi ve Stabilizasyon</summary>
-
+  <summary>🏃 Sprint 2 - Yapay Zeka, Veri Girişi ve Stabilizasyon</summary>
 
   <details>
     <summary>🎯 Sprint 2 Notları</summary>
-    Sprint 2 süreci boyunca ekip koordinasyonu ve görev yönetimi önceki sprinteki gibi başarısını sürdürdü. Hem kullanıcı deneyimi hem de teknik altyapı açısından önemli geliştirmeler yapıldı. Yapay zekâ modülünün aktif hale getirilmesiyle birlikte proje büyük bir işlevsellik kazandı. Bellek ve sistemsel iyileştirmeler ile uygulamanın stabilitesi artırıldı.
+    Sprint 2 sürecinde ekip içi iş birliği ve görev dağılımı başarılı şekilde devam etti. Yapay zekâ modülünün projeye dahil edilmesi önemli bir kilometre taşı oldu. Ayrıca uygulamanın performansını etkileyen sistemsel sorunlar belirlenerek başarılı şekilde çözüldü. Stabilite açısından gözle görülür iyileştirmeler sağlandı.
   </details>
 
   <details>
     <summary>🎯 Sprint 2 Hedefleri</summary>
     <ul>
-  <li>🌍 Dünya haritası entegrasyonu</li>
-  <li>💻 Proje görünümünde ön yüz iyileştirmeleri</li>
-  <li>🗂️ Tüm iller için bilgi ve resim veri girişleri</li>
-  <li>🌐 Ülkeler için bilgi ve görsel içeriklerin eklenmesi</li>
-  <li>🤖 Yapay zekâ modülünün projeye entegrasyonu</li>
-  <li>🗃️ Klasör yapısının yeniden düzenlenmesi</li>
-  <li>❓ Yapay zekâ ile soru üretme yapısının oluşturulması</li>
-  <li>👁️ Kullanıcının soruları görmesi ve yanıtlaması</li>
-  <li>✅❌ Doğru-yanlış hesaplama sisteminin oluşturulması</li>
-  <li>🛠️ Hataların ve eksiklerin giderilmesi</li>
-  <li>🚀 Yapay zekânın soru üretme algoritmasının iyileştirilmesi</li>
-  <li>💾 Uygulama belleğinde yaşanan sıkıntıların çözülmesi</li>
-</ul>
+      <li>🌍 Dünya haritasının sisteme entegrasyonu</li>
+      <li>💻 Arayüzde kullanıcı deneyimini artıracak görsel güncellemeler</li>
+      <li>🗂️ İl bazında bilgi ve medya içeriklerinin girilmesi</li>
+      <li>🌐 Ülke bazlı içeriklerin hazırlanması ve yüklenmesi</li>
+      <li>🤖 Yapay zekâ modülünün entegrasyonu ve testleri</li>
+      <li>🗃️ Dosya ve klasör yapısının yeniden düzenlenmesi</li>
+      <li>❓ Soru üretim modülünün yapay zekâ ile oluşturulması</li>
+      <li>👁️ Kullanıcıların soru-cevap etkileşimini görüntülemesi</li>
+      <li>✅❌ Doğruluk hesaplama sisteminin geliştirilmesi</li>
+      <li>🛠️ Gelişim aşamasında tespit edilen eksiklerin giderilmesi</li>
+      <li>🚀 Yapay zekâ algoritmasının iyileştirilmesi</li>
+      <li>💾 Bellek kullanımındaki sorunların çözülmesi</li>
+    </ul>
   </details>
-  
+
   <details>
     <summary>🎯 Tahmin Edilen Tamamlanacak Puan</summary>
     <ul>
-      <li>Sprint 2 için belirlenen hedef puan: <strong>100 puan</strong></li>
-      <li>Gerçekleşen puan: <strong>100 puan</strong></li>
+      <li>Hedeflenen puan: <strong>100</strong></li>
+      <li>Gerçekleşen puan: <strong>100</strong></li>
       <li>Tamamlanma oranı: <strong>%100</strong></li>
     </ul>
   </details>
-  
+
   <details>
     <summary>🎯 Tahmin Mantığı</summary>
     <p>
-     Sprint başında her görev karmaşıklık ve efor bazlı puanlanmış, her sprint için 100 puanlık çerçeve belirlenmiştir. Görevlerin tamamlanma durumu bu puanlara göre değerlendirilmiştir. Sprint 2, %100 başarı oranıyla tamamlanarak önemli bir ilerleme kaydetmiştir.
+      Sprint başlangıcında her görev için efor ve zorluk seviyesi dikkate alınarak puanlama yapıldı. Toplamda 100 puan üzerinden planlanan bu sprint, tüm hedeflerin başarıyla tamamlanması sayesinde %100 oranında başarıya ulaştı.
     </p>
   </details>
-  
-  
 
   <details>
     <summary>🎯 Daily Scrum</summary>
     <ul>
-  <li>Her ekip üyesi, "Dün ne yaptım? Bugün ne yapacağım? Karşılaştığım engel var mı?" sorularına cevap vererek süreç şeffaf biçimde yönetilmiştir.</li>
-  <li>Belirli günlerde yaşanan uygulama belleği sorunları hızlıca gündeme getirilip aynı gün çözüm süreci başlatılmıştır.</li>
-  <li>Görevlerdeki ilerleme, takvimsel gecikmeler ve öncelik değişimleri anlık olarak yönetilmiştir.</li>
-</ul>
-    <p>Günlük toplantılarımızdan örnek ekran görüntüleri:</p>
+      <li>Her ekip üyesi günlük olarak ilerleme durumunu ve karşılaştığı engelleri paylaştı.</li>
+      <li>Bellek sorunları gibi kritik teknik problemler anında tespit edilip çözüme kavuşturuldu.</li>
+      <li>Tüm görevler dinamik bir şekilde güncellenerek takvimsel uyum sağlandı.</li>
+    </ul>
+    <p>Scrum toplantılarından ekran görüntüleri:</p>
     <img src="images/ss8.jpg" alt="Daily Scrum Görseli 1" width="600" style="margin-bottom: 10px;" />
-   <img src="images/ss10.jpg" alt="Daily Scrum Görseli 2" width="600" />
+    <img src="images/ss10.jpg" alt="Daily Scrum Görseli 2" width="600" />
   </details>
 
   <details>
-  <summary>🎯 Sprint Board Updates</summary>
-  <p>Sprint board'dan iki örnek ekran görüntüsü:</p>
-  <img src="images/trello01.png" alt="Sprint Board Görüntüsü 1" width="600" style="margin-bottom: 10px;" />
-  <img src="images/trello02.png" alt="Sprint Board Görüntüsü 2" width="600" />
-  
- 
-</details>
+    <summary>🎯 Sprint Board Updates</summary>
+    <p>Sprint boyunca görev yönetimi Trello üzerinden takip edildi. İşte örnek ekran görüntüleri:</p>
+    <img src="images/trello01.png" alt="Sprint Board Görüntüsü 1" width="600" style="margin-bottom: 10px;" />
+    <img src="images/trello02.png" alt="Sprint Board Görüntüsü 2" width="600" />
+  </details>
 
   <details>
     <summary>🎯 Ekran Görüntüleri</summary>
-    <p>Projeye ait 6 farklı ekran görüntüsü:</p>
+    <p>Uygulamanın geliştirme sürecine ait 6 ekran görüntüsü:</p>
     <p>
       <img src="images/ss1.jpg" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
       <img src="images/ss2.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
@@ -263,86 +258,80 @@ GeoAI, kullanıcıların hem Türkiye hem de dünya haritası üzerinde bölgele
       <img src="images/ss4.jpg" alt="Ekran Görüntüsü 4" width="300" />
     </p>
     <p>
-      <img src="images/ss5.jpg" alt="Ekran Görüntüsü 3" width="300" style="margin-right: 10px;" />
-      <img src="images/ss6.jpg" alt="Ekran Görüntüsü 4" width="300" />
+      <img src="images/ss5.jpg" alt="Ekran Görüntüsü 5" width="300" style="margin-right: 10px;" />
+      <img src="images/ss6.jpg" alt="Ekran Görüntüsü 6" width="300" />
     </p>
   </details>
 
   <details>
-  <summary>🎯 Sprint Review</summary>
- <ul>
-  <li>Yapay zekâ modülü, beklenenden daha başarılı bir performans sergileyerek ekip ve paydaşlar tarafından takdir edildi.</li>
-  <li>Dünya haritasının projeye entegre edilmesiyle, uygulamanın küresel düzeyde içerik sunma kapasitesi önemli ölçüde genişletildi.</li>
-  <li>Hem geliştirme süreci hem de kullanıcı deneyimi açısından alınan geri bildirimler genel olarak oldukça olumluydu.</li>
-  <li>Bazı şehirlerde eksik olan görsel veri içerikleri tespit edildi ve bu eksikliklerin giderilmesi Sprint 3'ün hedefleri arasına dahil edildi.</li>
-</ul>
-  <hr />
+    <summary>🎯 Sprint Review</summary>
+    <ul>
+      <li>Yapay zekâ modülünün entegrasyonu projenin teknik kapasitesini ciddi oranda artırdı.</li>
+      <li>Dünya haritası ile kullanıcı etkileşimi daha kapsamlı hale getirildi.</li>
+      <li>Geri bildirimler genel olarak olumluydu; özellikle kullanıcı deneyimindeki gelişmeler dikkat çekti.</li>
+      <li>Bazı şehirlerin eksik medya içerikleri Sprint 3 için hedeflendi.</li>
+    </ul>
+    <hr />
+    <p><strong>Sprint Dönemi:</strong> 6 Temmuz – 20 Temmuz 2025<br>
+    <strong>Proje:</strong> GeoAI</p>
 
-  <p><strong>Sprint Dönemi:</strong>  6 Temmuz – 20 Temmuz 2025<br>
-  <strong>Proje:</strong> GeoAI</p>
+    <h3>👥 Ekip Görev Dağılımı – Sprint 2</h3>
 
-<h3>👥 Ekip Görev Dağılımı – Sprint 2</h3>
+    <strong>👩‍💼 Amine Demirbaş – Scrum Master</strong>
+    <ul>
+      <li>İletişim ve koordinasyonu sağladı.</li>
+      <li>Günlük toplantıları organize etti.</li>
+      <li>Gelişmeleri dokümante etti.</li>
+      <li>Veritabanı entegrasyonları gerçekleştirdi.</li>
+    </ul>
 
-<strong>👩‍💼 Amine Demirbaş – Scrum Master</strong>
-<ul>
-  <li>Takım içi iletişim ve görev koordinasyonunu sağladı.</li>
-  <li>Trello panosunun takibi ve Daily Scrum toplantılarını organize etti.</li>
-  <li>Sprint Review ve Retrospective süreçlerini dokümante etti.</li>
-  <li>Projenin ilerleyen aşamaları için veritabanına eklemeler yaptı.</li>
-</ul>
+    <strong>👩‍💻 Melike Nur Köseoğlu – Product Owner</strong>
+    <ul>
+      <li>Yapay zekâ entegrasyonu ve UI geliştirmeleri yaptı.</li>
+      <li>Soru oluşturma fonksiyonlarını aktive etti.</li>
+    </ul>
 
-<strong>👩‍💻 Melike Nur Köseoğlu – Product Owner</strong>
-<ul>
-  <li>Yapay zeka projeye entegrasyonu yapıldı.</li>
-  <li>Tasarımda iyileştirmeler yapıldı.</li>
-  <li>Soru oluşturma fonksiyonları aktifleştirildi.</li>
-</ul>
+    <strong>👨‍💻 Soner Başak – Backend & AI Developer</strong>
+    <ul>
+      <li>Dünya haritası entegrasyonu sağladı.</li>
+      <li>Soru algoritmasını geliştirdi.</li>
+      <li>Sistemsel hataları giderdi.</li>
+    </ul>
 
-<strong>👨‍💻 Soner Başak – Backend & AI Developer</strong>
-<ul>
-  <li>Dünya haritası projeye entegre edildi.</li>
-  <li>Soru fonksiyonunda iyileştirmeler yapıldı.</li>
-  <li>Proje hataları giderildi.</li>
-</ul>
+    <strong>👨‍💻 Canberk – Frontend Developer</strong>
+    <ul>
+      <li>Veritabanı yapısını planladı.</li>
+      <li>Şehir verilerini işleyen API ve JSON yapısını oluşturdu.</li>
+    </ul>
+  </details>
 
-<strong>👨‍💻 Canberk – Frontend Developer</strong>
-<li>Projenin ilerleyen aşamaları için veritabanı planlamasını yaptı.</li>
-<li>Şehir verileri için API ve JSON veri yapısını oluşturdu.</li>
-<ul>
-  
-</ul>
+  <details>
+    <summary>🎯 Sprint Retrospective</summary>
+    <p>Takım değerlendirme toplantısında öne çıkan konular:</p>
 
+    <strong>🌟 İyi Gidenler</strong>
+    <ul>
+      <li>Takım içi iletişim yüksek motivasyonla sürdü.</li>
+      <li>Yapay zekâ entegrasyonu zamanında ve sorunsuz gerçekleşti.</li>
+      <li>Scrum toplantıları verimli ve çözüm odaklıydı.</li>
+    </ul>
 
-<details>
-  <summary>🎯 Sprint Retrospective</summary>
- <p>Takım içi değerlendirme toplantısında öne çıkan başlıklar şu şekildeydi:</p>
+    <strong>⚠️ Geliştirilmesi Gerekenler</strong>
+    <ul>
+      <li>Versiyon kontrolü için daha etkin bir sistem gerekli.</li>
+      <li>Arayüz testleri daha erken başlatılmalı.</li>
+    </ul>
 
-<strong>🌟 Neler iyi gitti?</strong>
-<ul>
-  <li>Ekip üyeleri arasındaki iletişim oldukça güçlüydü ve iş birliği yüksek motivasyonla sürdü.</li>
-  <li>Yapay zekâ modülü planlanan zaman dilimi içerisinde başarıyla entegre edildi.</li>
-  <li>Daily Scrum toplantıları düzenli olarak yapıldı ve karşılaşılan problemler hızlıca çözüme kavuşturuldu.</li>
-</ul>
-
-<strong>⚠️ Neler geliştirilmeli?</strong>
-<ul>
-  <li>Dosya ve kaynak yönetiminde daha etkin bir versiyon kontrol sistemine ihtiyaç duyuluyor.</li>
-  <li>Kullanıcı arayüzü test süreçlerine daha erken aşamada başlanmalı.</li>
-</ul>
-
-<strong>🚀 Bir sonraki sprint için öneriler</strong>
-<ul>
-  <li>Harita üzerinde filtreleme ve arama fonksiyonlarının eklenmesi planlanmalı.</li>
-  <li>Yapay zekâ tarafından üretilen içeriklerin kalite değerlendirmesi yapılmalı.</li>
-  <li>Beta kullanıcılar üzerinden test süreçleri başlatılarak kullanıcı geri bildirimleri alınmalı.</li>
-</ul>
-</details>
-
+    <strong>🚀 Öneriler</strong>
+    <ul>
+      <li>Harita üzerinde filtreleme ve arama fonksiyonları eklenmeli.</li>
+      <li>Yapay zekâ içeriğinin kalite kontrolü yapılmalı.</li>
+      <li>Beta kullanıcı testleriyle geri bildirim alınmalı.</li>
+    </ul>
+  </details>
 
 </details>
 
-
-</details>
 
 
 ---
