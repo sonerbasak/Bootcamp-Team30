@@ -125,7 +125,7 @@
     "plakaKodu": "10",
     "unluYemekler": "Höşmerim, Susurluk Tostu, Balıkesir Kaymaklısı",
     "universiteler": ["Balıkesir Üniversitesi", "Bandırma Onyedi Eylül Üniversitesi"],
-    "resim1": "/static/images/010.jpg"",
+    "resim1": "/static/images/010.jpg",
     "müzeler": "Taksiyarhis Anıt Müzesi, Kuva-yi Milliye Müzesi, Bandirma Müzesi",
     "resim": "/static/images/10.jpg",
   },
