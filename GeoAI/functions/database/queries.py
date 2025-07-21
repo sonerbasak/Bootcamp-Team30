@@ -333,22 +333,33 @@ def get_user_conversations(user_id: int) -> List[Dict]:
         cursor = conn.cursor()
         cursor.execute("""
             SELECT
-                users_other.username AS other_username,
                 users_other.id AS other_user_id,
-                users_other.profile_picture_url AS other_user_profile_picture_url, -- Profil resmi eklendi
-                MAX(m.timestamp) AS last_message_timestamp,
-                (SELECT content FROM messages WHERE id = MAX(m.id)) AS last_message_content
-            FROM messages AS m
+                users_other.username AS other_username,
+                users_other.profile_picture_url AS other_user_profile_picture_url,
+                m_latest.content AS last_message_content,
+                m_latest.timestamp AS last_message_timestamp
+            FROM messages AS m_latest
+            INNER JOIN (
+                SELECT
+                    MAX(id) AS max_message_id,
+                    CASE
+                        WHEN sender_id = ? THEN receiver_id
+                        ELSE sender_id
+                    END AS interlocutor_id
+                FROM messages
+                WHERE sender_id = ? OR receiver_id = ?
+                GROUP BY interlocutor_id
+            ) AS latest_messages
+            ON m_latest.id = latest_messages.max_message_id
             INNER JOIN users AS users_other
-                ON (m.sender_id = ? AND users_other.id = m.receiver_id)
-                OR (m.receiver_id = ? AND users_other.id = m.sender_id)
-            WHERE m.sender_id = ? OR m.receiver_id = ?
-            GROUP BY other_username, other_user_id, other_user_profile_picture_url -- GROUP BY'a eklendi
+                ON users_other.id = latest_messages.interlocutor_id
             ORDER BY last_message_timestamp DESC
-        """, (user_id, user_id, user_id, user_id))
+        """, (user_id, user_id, user_id)) # Pass user_id three times for the subquery's WHERE clause
         rows = cursor.fetchall()
-        columns = [description[0] for description in cursor.description]
-        return [dict(zip(columns, row)) for row in rows]
+        
+        # Since conn.row_factory = sqlite3.Row is set, rows are already like dictionaries.
+        # We can directly convert them to dict for consistency if needed, but often not strictly necessary.
+        return [dict(row) for row in rows] # Convert Row object to dictionary
 
 # --- PROFİL İSTATİSTİK VE AKTİVİTE SORGULARI ---
 def get_user_activities(user_id: int) -> List[Dict]:

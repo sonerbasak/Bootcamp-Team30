@@ -56,15 +56,16 @@
         </div>
     </div>
 
-    <div id="modal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <h2 id="modalTitle"></h2>
-            <div id="modalContent"></div>
-            <div class="modal-buttons">
-                <button class="close-btn" onclick="closeModal()">Kapat</button>
-                <a id="aiLink" href="{{ url_for('ai_page') }}" class="btn btn-success ai-btn">AI ile Quiz Oluştur</a>
-                <button class="swiper-button-prev" onclick="slidePrev()"></button>
-                <button class="swiper-button-next" onclick="slideNext()"></button>
+    <div id="modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true" style="display:none;">
+        <div class="modal-dialog modal-dialog-centered"> <div class="modal-content">
+                <h2 id="modalTitle"></h2>
+                <div id="modalContent"></div>
+                <div class="modal-buttons">
+                    <button class="close-btn" onclick="closeModal()">Kapat</button>
+                    <a id="aiLink" href="{{ url_for('ai_page') }}" class="btn btn-success ai-btn">AI ile Quiz Oluştur</a>
+                    <button class="swiper-button-prev" onclick="slidePrev()"></button>
+                    <button class="swiper-button-next" onclick="slideNext()"></button>
+                </div>
             </div>
         </div>
     </div>

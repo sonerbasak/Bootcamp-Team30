@@ -67,46 +67,33 @@ body,
 }
 
 /* --- Modal Stilleri (Bootstrap Modal Sınıflarını Kullanıyor) --- */
-/* Bu sınıf, Bootstrap'ın kendi stilleriyle birleşerek çalışır.
-   'fade' sınıfı HTML'den kaldırıldığında, animasyon devre dışı kalır
-   ve modal anında açılıp kapanır. */
+/* Bu kural, modal gizliyken tıklama olaylarını tamamen engellemesini sağlar. */
+.modal:not(.show) {
+    pointer-events: none; /* Modal görünmüyorken hiçbir tıklama veya etkileşimi engelleme */
+}
+
 .modal {
-    /* Bootstrap'ın kendi `modal` sınıfı zaten display: none; ve sonra JavaScript ile display: block; yapar.
-       Buradaki ayarlar, Bootstrap'ın varsayılan modal görünümünü özelleştirmek içindir,
-       animasyonu kontrol etmek için değil.
-    */
-    position: fixed;
-    z-index: 1055; /* Bootstrap'ın varsayılan z-index'ini takip et */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-color: rgba(0, 0, 0, 0.688); /* Arka plan karartması */
-    /* display: flex; ve align-items, justify-content sadece 'modal-dialog-centered'
-       veya benzeri Bootstrap sınıfları kullanılmıyorsa gerekebilir.
-       Bootstrap zaten bunları yönetir. */
+    /* Position, z-index, top, left, width, height Bootstrap tarafından yönetilir */
 }
 
 .modal-content {
     background-color: #fff;
     padding: 30px 20px;
     max-width: 700px;
-    text-align: center;
+    text-align: center; /* İçerik metnini ortalamak için */
     border-radius: 10px;
     color: #4db6ac;
     font-weight: bolder;
-    display: flex;
-    justify-content: flex-start;
-    gap: 30px;
-    align-items: center;
 }
 
-/* Modal butonları */
+/* Modal butonları için flex düzeni */
 .modal-buttons {
     margin-top: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Butonları ortala */
     gap: 10px;
+    flex-wrap: wrap; /* Küçük ekranlarda sığmazsa alt satıra geçsin */
 }
 
 /* Kapatma ve AI Butonları için Ortak Stil */
@@ -234,25 +221,19 @@ body,
 }
 
 /* Swiper Navigasyon Butonları (Ortak) */
+/* Eğer Swiper'ın kendi varsayılan butonlarını kullanıyorsanız, buradaki stilleri buna göre ayarlayın.
+   Bootstrap button sınıflarını kullandığınız için HTML'deki button'lara uygun stiller uygulandı. */
 .swiper-button-prev,
 .swiper-button-next {
-    background-color: transparent;
+    background-color: transparent; /* Eğer Bootstrap'in butonlarınıza ek olarak kullanıyorsanız */
     color: #004d40 !important;
     border: none;
-    padding: 10px 15px;
     cursor: pointer;
-    border-radius: 50%;
-    font-size: 1.5rem;
     transition: all 0.3s ease;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 50%;
-    transform: translateY(-50%);
+    /* Konumlandırma ve boyutlandırma Bootstrap button sınıflarına bırakıldı */
 }
 
+/* Swiper'ın varsayılan içeriğini ezmek için */
 .swiper-button-prev::after {
     content: 'prev'; /* Swiper'ın kendi okları için content */
     font-family: 'swiper-icons';
@@ -263,6 +244,7 @@ body,
     font-family: 'swiper-icons';
     font-size: 2.5rem;
 }
+
 
 /* --- AI ve Quiz Sayfaları Genel Stilleri --- */
 .ai-page,
@@ -804,8 +786,7 @@ body.login-register-page {
 /* --- Küçük Ekranlar İçin Duyarlılık --- */
 @media (max-width: 768px) {
     .modal-content {
-        flex-direction: column;
-        gap: 15px;
+        /* Flex stilleri kaldırıldığı için, burada sadece responsive padding/genişlik ayarlaması yeterli */
         padding: 20px 15px;
     }
 
