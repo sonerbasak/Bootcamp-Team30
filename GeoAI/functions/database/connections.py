@@ -20,10 +20,13 @@ def get_db_connection(db_file: str):
 
 def init_dbs():
     """Uygulama başlangıcında tüm veritabanlarını başlatır."""
+    print("DEBUG: init_dbs() fonksiyonu çalışıyor...")
     for db_file in [settings.QUIZ_DATABASE_FILE, settings.USERS_DATABASE_FILE]:
+        print(f"DEBUG: Veritabanı dosyası kontrol ediliyor: {db_file}")
         with get_db_connection(db_file) as conn:
             cursor = conn.cursor()
             if db_file == settings.QUIZ_DATABASE_FILE:
+                print(f"DEBUG: {db_file} için 'wrong_questions' tablosu kontrol ediliyor/oluşturuluyor.")
                 cursor.execute("""
                     CREATE TABLE IF NOT EXISTS wrong_questions (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,7 +43,9 @@ def init_dbs():
                         timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
                     )
                 """)
+                print(f"DEBUG: 'wrong_questions' tablosu tamamlandı.")
             elif db_file == settings.USERS_DATABASE_FILE:
+                print(f"DEBUG: {db_file} için 'users' tablosu kontrol ediliyor/oluşturuluyor.")
                 cursor.execute("""
                     CREATE TABLE IF NOT EXISTS users (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -48,6 +53,7 @@ def init_dbs():
                         email TEXT UNIQUE NOT NULL,
                         password_hash TEXT NOT NULL,
                         bio TEXT,
+                        profile_picture_url TEXT DEFAULT '/static/images/sample_user.png', -- BURASI GÜNCELLENDİ!
                         total_quizzes_completed INTEGER DEFAULT 0,
                         total_correct_answers INTEGER DEFAULT 0,
                         total_score INTEGER DEFAULT 0,
@@ -55,6 +61,9 @@ def init_dbs():
                         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
                     )
                 """)
+                print(f"DEBUG: 'users' tablosu tamamlandı.")
+
+                print(f"DEBUG: {db_file} için 'messages' tablosu kontrol ediliyor/oluşturuluyor.")
                 cursor.execute("""
                     CREATE TABLE IF NOT EXISTS messages (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -66,6 +75,9 @@ def init_dbs():
                         FOREIGN KEY (receiver_id) REFERENCES users(id)
                     )
                 """)
+                print(f"DEBUG: 'messages' tablosu tamamlandı.")
+
+                print(f"DEBUG: {db_file} için 'user_activities' tablosu kontrol ediliyor/oluşturuluyor.")
                 cursor.execute("""
                     CREATE TABLE IF NOT EXISTS user_activities (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -75,5 +87,20 @@ def init_dbs():
                         FOREIGN KEY (user_id) REFERENCES users(id)
                     )
                 """)
+                print(f"DEBUG: 'user_activities' tablosu tamamlandı.")
+
+                print(f"DEBUG: {db_file} için 'followers' tablosu kontrol ediliyor/oluşturuluyor.")
+                cursor.execute("""
+                    CREATE TABLE IF NOT EXISTS followers (
+                        follower_id INTEGER NOT NULL,
+                        followed_id INTEGER NOT NULL,
+                        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                        PRIMARY KEY (follower_id, followed_id),
+                        FOREIGN KEY (follower_id) REFERENCES users(id),
+                        FOREIGN KEY (followed_id) REFERENCES users(id)
+                    )
+                """)
+                print(f"DEBUG: 'followers' tablosu tamamlandı.")
             conn.commit()
+            print(f"DEBUG: {db_file} için değişiklikler kaydedildi.")
     print("Veritabanları başarıyla başlatıldı/kontrol edildi.")

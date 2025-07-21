@@ -66,19 +66,25 @@ body,
     border: 3px solid #00bfa5;
 }
 
-/* --- Modal Stilleri --- */
+/* --- Modal Stilleri (Bootstrap Modal Sınıflarını Kullanıyor) --- */
+/* Bu sınıf, Bootstrap'ın kendi stilleriyle birleşerek çalışır.
+   'fade' sınıfı HTML'den kaldırıldığında, animasyon devre dışı kalır
+   ve modal anında açılıp kapanır. */
 .modal {
-    /* display: none; */ /* JavaScript ile kontrol edilecek */
+    /* Bootstrap'ın kendi `modal` sınıfı zaten display: none; ve sonra JavaScript ile display: block; yapar.
+       Buradaki ayarlar, Bootstrap'ın varsayılan modal görünümünü özelleştirmek içindir,
+       animasyonu kontrol etmek için değil.
+    */
     position: fixed;
-    z-index: 999;
+    z-index: 1055; /* Bootstrap'ın varsayılan z-index'ini takip et */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.688);
-    display: flex; /* Varsayılan olarak flex, JavaScript gizleyebilir */
-    align-items: center;
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.688); /* Arka plan karartması */
+    /* display: flex; ve align-items, justify-content sadece 'modal-dialog-centered'
+       veya benzeri Bootstrap sınıfları kullanılmıyorsa gerekebilir.
+       Bootstrap zaten bunları yönetir. */
 }
 
 .modal-content {
@@ -104,6 +110,7 @@ body,
 }
 
 /* Kapatma ve AI Butonları için Ortak Stil */
+/* Not: Bootstrap'ın btn-close sınıfı zaten kapatma butonu stilini yönetir. */
 .close-btn,
 .ai-btn {
     border: none;
@@ -130,7 +137,7 @@ body,
     width: 90%;
     max-width: 500px;
     height: 400px;
-    margin: 0 auto; /* margin-left: auto; yerine margin: 0 auto; kullandık */
+    margin: 0 auto;
     perspective: 1200px;
     box-sizing: border-box;
 }
@@ -162,7 +169,7 @@ body,
     max-height: 250px;
     object-fit: contain;
     display: block;
-    margin: 0 auto 15px; /* Kısaltma: margin */
+    margin: 0 auto 15px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -198,14 +205,14 @@ body,
 .modal-content .swiper-pagination,
 .mySwiperQuiz .swiper-pagination,
 .mySwiperReviewQuiz .swiper-pagination {
-    bottom: 10px !important; /* modal-content'teki değeri koruduk */
+    bottom: 10px !important;
 }
 
 .modal-content .swiper-pagination-bullet,
 .mySwiperQuiz .swiper-pagination-bullet,
 .mySwiperReviewQuiz .swiper-pagination-bullet {
-    width: 14px; /* modal-content'teki değeri koruduk */
-    height: 14px; /* modal-content'teki değeri koruduk */
+    width: 14px;
+    height: 14px;
     background: #00bfa5;
     opacity: 0.6;
     transition: opacity 0.3s, background-color 0.3s;
@@ -363,7 +370,6 @@ body,
     display: flex;
     flex-direction: column;
     min-height: 70vh; /* Minimum yüksekliği ekranın %70'i kadar yap */
-    /* justify-content: space-between; Yorum satırına alındı, çünkü margin-top: auto; bu işi daha iyi yapıyor */
 }
 
 .quiz-header {
@@ -843,7 +849,6 @@ body.login-register-page {
     }
 
     .quiz-actions {
-        /* Bu bölümde yapılan değişiklikler */
         flex-wrap: wrap; /* Butonların bir satıra sığmazsa alt satıra geçmesini sağlar */
         gap: 10px; /* Butonlar arasındaki boşluğu azaltır */
         padding: 10px; /* İç boşluğu azaltır */
@@ -868,4 +873,91 @@ body.login-register-page {
     .quiz-actions .btn {
         width: 100%; /* Çok küçük ekranlarda butonları tek sütun yapar */
     }
+}
+
+/* --- Profil Sayfası Özel Stilleri (Sadece bu sayfadan taşındı) --- */
+.profile-header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+}
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    border: 2px solid #007bff;
+}
+.profile-stats .stat-item {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    margin-right: 10px;
+    min-width: 100px;
+}
+.profile-stats .stat-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #007bff;
+}
+.profile-bio {
+    margin-top: 20px;
+    color: #6c757d;
+}
+.section-header {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 5px;
+}
+/* Arama sonuçları için stil */
+#userSearchResults {
+    position: absolute; /* Navbar altına açılır liste gibi gelmesi için */
+    top: 100%; /* Navbar'ın hemen altına */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Diğer öğelerin üzerinde olması için */
+    max-height: 200px; 
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 0 0 5px 5px; /* Sadece alt köşeleri yuvarla */
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none; /* Başlangıçta gizli */
+}
+.search-result-item {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+}
+.search-result-item:last-child {
+    border-bottom: none;
+}
+.search-result-item a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    display: block; /* Tüm alanı tıklanabilir yap */
+}
+.search-result-item a:hover {
+    text-decoration: underline;
+    background-color: #f8f9fa; /* Hover efekti */
+}
+/* Navbar içinde arama inputu için stil */
+.navbar .form-control {
+    width: 200px; /* Genişliği ayarla */
+    margin-right: 10px;
+}
+.navbar .input-group {
+    position: relative; /* Arama sonuçları için konumlandırma bağlamı */
+    flex-wrap: nowrap; /* Bootstrap 5 flex-wrap özelliğini devre dışı bırakır */
+}
+/* Yeni butonlar için düzenleme */
+.profile-actions {
+    display: flex;
+    gap: 10px; /* Butonlar arasına boşluk */
+    margin-top: 10px; /* Genel bir üst boşluk */
 }
