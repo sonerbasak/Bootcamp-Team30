@@ -74,7 +74,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     initializeSwiper();
-    startTimer();
+    // Only start timer if questions are available
+    if (quizQuestions.length > 0) {
+        startTimer();
+    } else {
+        // If no questions, hide timer or show a message
+        const timerDisplay = document.getElementById("timer");
+        if (timerDisplay) {
+            timerDisplay.textContent = "Süre: --:--"; // Or hide it
+            timerDisplay.classList.add('d-none');
+        }
+    }
+
 
     // Geri butonu
     const backButton = document.querySelector(".back-button");
@@ -86,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             sessionStorage.removeItem(`aiQuizData-${currentParam}`);
             sessionStorage.removeItem(`aiQuizPrompt-${currentParam}`);
             console.log(`Geri giderken quiz verisi temizlendi: aiQuizData-${currentParam}`);
-            window.location.href = backButton.href;
+            window.location.href = backButton.href || ROOT_URL; // Fallback to ROOT_URL
         });
     } else {
         console.warn("Element with class 'back-button' not found.");
@@ -97,13 +108,31 @@ document.addEventListener("DOMContentLoaded", async () => {
 function initializeSwiper() {
     const swiperContainerEl = document.querySelector(".mySwiperQuiz");
 
-    if (!swiperContainerEl || swiperContainerEl.offsetWidth === 0 || quizQuestions.length === 0) {
-        console.log("Swiper konteyneri henüz hazır değil veya soru yok, yeniden deniyor...");
-        // Soru yoksa Swiper'ı başlatmaya çalışma
-        if (quizQuestions.length === 0) {
-            console.warn("Hiç soru bulunamadı, Swiper başlatılmıyor.");
-            return;
+    // Only proceed if there are questions to display
+    if (quizQuestions.length === 0) {
+        console.warn("Hiç soru bulunamadı, Swiper başlatılamıyor.");
+        // Ensure that the message "Hiç soru bulunamadı." is displayed if no questions
+        const questionsContainer = document.getElementById("quiz-questions-container");
+        if (questionsContainer && questionsContainer.innerHTML === '<p class="text-muted">Sorular yükleniyor...</p>') {
+             // Only change if default message is still there
+            questionsContainer.innerHTML = `
+                <div class="swiper-slide d-flex flex-column justify-content-center align-items-center" style="min-height: 300px;">
+                    <p class="text-center">Hiç soru bulunamadı. Lütfen daha sonra tekrar deneyin veya ana sayfaya dönün.</p>
+                </div>
+            `;
+            const submitButton = document.querySelector(".submit-button");
+            if (submitButton) submitButton.classList.add("d-none"); // Hide submit button if no questions
+            const prevButton = document.querySelector(".prev-button");
+            if (prevButton) prevButton.classList.add("d-none");
+            const nextButton = document.querySelector(".next-button");
+            if (nextButton) nextButton.classList.add("d-none");
         }
+        return;
+    }
+
+
+    if (!swiperContainerEl || swiperContainerEl.offsetWidth === 0) {
+        console.log("Swiper konteyneri henüz hazır değil, yeniden deniyor...");
         setTimeout(initializeSwiper, 100);
         return;
     }
@@ -173,7 +202,21 @@ async function loadQuestions(city) {
 
     try {
         const res = await fetch(`/api/gemini-quiz?city=${encodeURIComponent(city || '')}`);
+
+        if (res.redirected) {
+            // This case should ideally be handled by the server redirecting the HTML page,
+            // but as a fallback for API calls, follow it.
+            console.warn("API request redirected by server. Following redirect...");
+            window.location.href = res.url;
+            return; // Stop execution
+        }
+
         if (!res.ok) {
+            if (res.status === 401) {
+                console.error("Authentication required for API. Redirecting to login.");
+                window.location.href = window.LOGIN_URL; // Use the global variable
+                return; // Stop execution
+            }
             let errorDetails;
             try { errorDetails = await res.json(); } catch (jsonError) { errorDetails = { error: await res.text() }; }
             throw new Error(`API yanıt vermedi: ${res.status} - ${errorDetails.error || "Bilinmeyen Hata"}`);
@@ -191,7 +234,7 @@ async function loadQuestions(city) {
 
     } catch (error) {
         console.error("Sorular alınırken hata oluştu:", error);
-        alert("Sorular alınamadı: " + error.message);
+        alert("Sorular alınamadı: " + error.message + "\nLütfen tekrar deneyin veya farklı bir şehir seçin.");
         quizDataArray = [];
         sessionStorage.removeItem(`aiQuizData-${city || 'null'}`);
         sessionStorage.removeItem(`aiQuizPrompt-${city || 'null'}`);
@@ -211,7 +254,18 @@ async function loadWrongQuestionsForReview() {
     let wrongQuestions = [];
     try {
         const res = await fetch("/api/get-wrong-questions");
+        if (res.redirected) {
+            console.warn("API request redirected by server. Following redirect...");
+            window.location.href = res.url;
+            return;
+        }
+
         if (!res.ok) {
+            if (res.status === 401) {
+                console.error("Authentication required for API. Redirecting to login.");
+                window.location.href = window.LOGIN_URL; // Use the global variable
+                return;
+            }
             const errorData = await res.json();
             throw new Error(`Sorular alınamadı: ${res.status} - ${errorData.message}`);
         }
@@ -220,16 +274,24 @@ async function loadWrongQuestionsForReview() {
 
         if (wrongQuestions.length === 0) {
             const questionsContainer = document.getElementById("quiz-questions-container");
-            questionsContainer.innerHTML = `
-                <div class="swiper-slide d-flex flex-column justify-content-center align-items-center" style="min-height: 300px;">
-                    <p class="text-center">Henüz yanlış cevapladığınız soru bulunmamaktadır. Harika!</p>
-                </div>
-            `;
+            if (questionsContainer) {
+                questionsContainer.innerHTML = `
+                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center" style="min-height: 300px;">
+                        <p class="text-center">Henüz yanlış cevapladığınız soru bulunmamaktadır. Harika!</p>
+                        <button class="btn btn-primary mt-3" onclick="goHome()">Ana Sayfaya Dön</button>
+                    </div>
+                `;
+            }
             // Boş durumda Swiper'ı başlatmaya gerek yok, veya destroy et
             if (quizSwiper) {
                 quizSwiper.destroy(true, true);
                 quizSwiper = null;
             }
+            // Hide quiz controls if no questions
+            const quizActions = document.querySelector('.quiz-actions');
+            if (quizActions) quizActions.classList.add('d-none');
+            const timerDisplay = document.getElementById("timer");
+            if (timerDisplay) timerDisplay.classList.add('d-none');
             return; // Sorular olmadığı için buradan çık
         }
 
@@ -251,18 +313,25 @@ async function loadWrongQuestionsForReview() {
 
     } catch (error) {
         console.error("Yanlış soruları çekerken hata oluştu:", error);
-        alert("Yanlış sorular yüklenirken bir hata oluştu: " + error.message);
+        alert("Yanlış sorular yüklenirken bir hata oluştu: " + error.message + "\nLütfen tekrar deneyin.");
         quizQuestions = []; // Hata durumunda soruları boşalt
         const questionsContainer = document.getElementById("quiz-questions-container");
-        questionsContainer.innerHTML = `
-            <div class="swiper-slide d-flex flex-column justify-content-center align-items-center" style="min-height: 300px;">
-                <p class="text-center text-danger">Sorular yüklenirken bir hata oluştu: ${error.message}</p>
-            </div>
-        `;
+        if (questionsContainer) {
+            questionsContainer.innerHTML = `
+                <div class="swiper-slide d-flex flex-column justify-content-center align-items-center" style="min-height: 300px;">
+                    <p class="text-center text-danger">Sorular yüklenirken bir hata oluştu: ${error.message}</p>
+                    <button class="btn btn-primary mt-3" onclick="goHome()">Ana Sayfaya Dön</button>
+                </div>
+            `;
+        }
         if (quizSwiper) {
             quizSwiper.destroy(true, true);
             quizSwiper = null;
         }
+        const quizActions = document.querySelector('.quiz-actions');
+        if (quizActions) quizActions.classList.add('d-none');
+        const timerDisplay = document.getElementById("timer");
+        if (timerDisplay) timerDisplay.classList.add('d-none');
     }
 }
 
@@ -289,12 +358,17 @@ function renderQuestions(questions) {
         let optionsHtml = "";
         // Soruların yapısı modlara göre değiştiği için kontrol et
         const questionText = isReviewMode ? q.question_text : q.soru;
-        const options = isReviewMode ? [q.option_a, q.option_b, q.option_c, q.option_d] : [q.a, q.b, q.c, q.d];
+        // Options can be tricky, ensure they map correctly from different data structures
+        const options = [q.option_a || q.a, q.option_b || q.b, q.option_c || q.c, q.option_d || q.d];
+
+        // Filter out any undefined/null options that might arise from mapping
+        const validOptions = options.filter(option => option !== undefined && option !== null);
+
         const category = isReviewMode ? q.category : q.kategori;
         const correctAnsLetter = isReviewMode ? q.correct_answer_letter : q.cevap;
         const questionId = isReviewMode ? q.id : null; // Yanlış sorular için ID
 
-        options.forEach((option, optionIndex) => {
+        validOptions.forEach((option, optionIndex) => {
             const optionLetter = String.fromCharCode(65 + optionIndex);
             // userSelections dizisini her iki mod için de kullan
             const isChecked = userSelections[index] === optionLetter ? "checked" : "";
@@ -315,7 +389,7 @@ function renderQuestions(questions) {
             <div class="options">
                 ${optionsHtml}
             </div>
-            <div class="question-category" style="display: none;">${category}</div>
+            <div class="question-category" style="display: none;">${category || ''}</div>
             ${questionId ? `<div class="wrong-question-id" style="display: none;">${questionId}</div>` : ''}
             `;
         questionsContainer.appendChild(slide);
@@ -387,14 +461,15 @@ function submitQuiz() {
         let userAnswerText = null;
         if (userAnswerLetter) {
             const optionKey = `option_${userAnswerLetter.toLowerCase()}`;
-            userAnswerText = isReviewMode ? q[optionKey] : q[userAnswerLetter.toLowerCase()];
+            userAnswerText = isReviewMode ? (q[optionKey] || q[userAnswerLetter.toLowerCase()]) : q[userAnswerLetter.toLowerCase()];
         }
 
         let correctOptionText = null;
         if (correctAnswerLetter) {
             const correctOptionKey = `option_${correctAnswerLetter.toLowerCase()}`;
-            correctOptionText = isReviewMode ? q[correctOptionKey] : q[correctAnswerLetter.toLowerCase()];
+            correctOptionText = isReviewMode ? (q[correctOptionKey] || q[correctAnswerLetter.toLowerCase()]) : q[correctAnswerLetter.toLowerCase()];
         }
+
 
         const isCorrect =
             (userAnswerLetter && correctAnswerLetter) &&
@@ -409,7 +484,7 @@ function submitQuiz() {
             if (!isReviewMode) { // Ana quiz'de yanlış cevaplanırsa DB'ye kaydetmek için
                 questionsToProcessForDB.push({
                     city: getQueryParam("city") || "Genel Kültür",
-                    category: q.kategori,
+                    category: q.kategori || "Bilinmeyen", // Kategori yoksa varsayılan
                     question_text: q.soru,
                     option_a: q.a,
                     option_b: q.b,
@@ -497,9 +572,13 @@ function showResults(score, reviewAnswers) {
     const swiperElement = document.querySelector(".mySwiperQuiz");
     const actionsElement = document.querySelector(".quiz-actions");
     const resultsContainer = document.getElementById("quiz-results");
+    const timerDisplay = document.getElementById("timer");
+
 
     if (swiperElement) swiperElement.classList.add("d-none");
     if (actionsElement) actionsElement.classList.add("d-none");
+    if (timerDisplay) timerDisplay.classList.add("d-none");
+
 
     if (!resultsContainer) {
         console.error("Element with ID 'quiz-results' not found. Cannot display results.");
@@ -534,7 +613,7 @@ function showResults(score, reviewAnswers) {
         });
     }
 
-    html += `
+html += `
     <div class="text-center mt-4">
         <button
             class="btn btn-success px-4 py-2 fs-5 fw-semibold"
@@ -555,7 +634,8 @@ function showResults(score, reviewAnswers) {
             <button
                 class="btn btn-warning px-4 py-2 fs-5 fw-semibold ms-3"
                 style="border-radius: 25px; box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);"
-                onclick="window.location.href='/wrong-questions'"
+                // BURADA DEĞİŞİKLİK YAPIN:
+                onclick="window.location.href='${window.WRONG_QUESTIONS_URL}?type=wrong-questions'"
             >
                 Yanlış Cevapladıklarım
             </button>
@@ -575,7 +655,7 @@ function goHome() {
     sessionStorage.removeItem(`aiQuizData-${paramToClear}`);
     sessionStorage.removeItem(`aiQuizPrompt-${paramToClear}`);
     console.log(`Quiz data cleared for: ${paramToClear}`);
-    window.location.href = "/";
+    window.location.href = window.ROOT_URL; // Use the global variable
 }
 
 // --- Önceki Soru Fonksiyonu (Opsiyonel, eğer HTML'de kullanılıyorsa) ---

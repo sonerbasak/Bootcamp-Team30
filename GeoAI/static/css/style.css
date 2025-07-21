@@ -1,6 +1,6 @@
 /* style.css */
 
-/* Genel HTML, Body ve Harita Stilleri */
+/* --- Genel HTML, Body ve Harita Stilleri --- */
 html,
 body,
 #map {
@@ -13,13 +13,12 @@ body,
     width: 100%;
 }
 
-/* Splash ekran */
+/* --- Splash Ekranı --- */
 #splash {
     position: fixed;
     background: #4db6ac;
     color: white;
-    font-size: 3rem;
-    font-weight: bold;
+    font: bold 3rem sans-serif; /* Kısaltma: font-size, font-weight, font-family */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +28,7 @@ body,
     animation: fadeOut 2.5s ease forwards;
 }
 
-/* Intro Overlay */
+/* --- Intro Overlay --- */
 #introOverlay {
     position: fixed;
     top: 0;
@@ -40,20 +39,13 @@ body,
     font-weight: 600;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     z-index: 1050;
-    animation: fadeOut 10s ease forwards;
-    animation-delay: 2s;
+    animation: fadeOut 10s ease forwards 2s; /* Kısaltma: animation-delay ekledik */
 }
 
 /* Ortak fadeOut animasyonu */
 @keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
+    0% { opacity: 1; }
+    90% { opacity: 1; }
     100% {
         opacity: 0;
         visibility: hidden;
@@ -61,6 +53,7 @@ body,
     }
 }
 
+/* --- Leaflet Harita Bileşenleri --- */
 /* Tooltip */
 .leaflet-tooltip {
     background-color: #fff;
@@ -73,13 +66,13 @@ body,
     border: 3px solid #00bfa5;
 }
 
-/* Modal */
+/* --- Modal Stilleri --- */
 .modal {
-    display: none; /* JavaScript ile kontrol edilecek */
+    /* display: none; */ /* JavaScript ile kontrol edilecek */
     position: fixed;
     z-index: 999;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.688);
@@ -110,9 +103,9 @@ body,
     gap: 10px;
 }
 
-/* Kapatma butonu */
+/* Kapatma ve AI Butonları için Ortak Stil */
 .close-btn,
-.ai-btn { /* ai-btn de burada tanımlı olduğu için tekrara düşüyor, aşağıdaki ai-btn ezebilir */
+.ai-btn {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -132,23 +125,12 @@ body,
     box-shadow: 0 6px 15px rgba(0, 121, 107, 0.6);
 }
 
-/* Bu .ai-btn tanımı aşağıdaki daha spesifik olan tarafından ezilebilir, dikkat! */
-.ai-btn { 
-    background-color: #00796b;
-    box-shadow: 0 4px 12px rgba(0, 121, 107, 0.5);
-}
-
-.ai-btn:hover {
-    background-color: #004d40;
-    box-shadow: 0 6px 15px rgba(0, 77, 64, 0.7);
-}
-
-/* Swiper */
+/* --- Swiper Stilleri (Ana Sayfa Modalı İçin) --- */
 .mySwiper {
     width: 90%;
     max-width: 500px;
     height: 400px;
-    margin-left: auto;
+    margin: 0 auto; /* margin-left: auto; yerine margin: 0 auto; kullandık */
     perspective: 1200px;
     box-sizing: border-box;
 }
@@ -180,7 +162,7 @@ body,
     max-height: 250px;
     object-fit: contain;
     display: block;
-    margin: 0 auto 15px auto;
+    margin: 0 auto 15px; /* Kısaltma: margin */
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
@@ -212,32 +194,72 @@ body,
     color: #444;
 }
 
-/* Swiper pagination */
-.modal-content .swiper-pagination {
-    bottom: 10px !important;
+/* Swiper Pagination (Ortak) */
+.modal-content .swiper-pagination,
+.mySwiperQuiz .swiper-pagination,
+.mySwiperReviewQuiz .swiper-pagination {
+    bottom: 10px !important; /* modal-content'teki değeri koruduk */
 }
 
-.modal-content .swiper-pagination-bullet {
-    width: 14px;
-    height: 14px;
+.modal-content .swiper-pagination-bullet,
+.mySwiperQuiz .swiper-pagination-bullet,
+.mySwiperReviewQuiz .swiper-pagination-bullet {
+    width: 14px; /* modal-content'teki değeri koruduk */
+    height: 14px; /* modal-content'teki değeri koruduk */
     background: #00bfa5;
     opacity: 0.6;
     transition: opacity 0.3s, background-color 0.3s;
 }
 
-.modal-content .swiper-pagination-bullet-active {
+.modal-content .swiper-pagination-bullet-active,
+.mySwiperQuiz .swiper-pagination-bullet-active,
+.mySwiperReviewQuiz .swiper-pagination-bullet-active {
     background: #00796b;
     opacity: 1;
 }
 
-.modal-content .swiper-pagination-bullet:hover {
+.modal-content .swiper-pagination-bullet:hover,
+.mySwiperQuiz .swiper-pagination-bullet:hover,
+.mySwiperReviewQuiz .swiper-pagination-bullet:hover {
     background-color: #004d40;
     opacity: 1;
     cursor: pointer;
 }
 
-/* AI Sayfası Stilleri */
-.ai-page {
+/* Swiper Navigasyon Butonları (Ortak) */
+.swiper-button-prev,
+.swiper-button-next {
+    background-color: transparent;
+    color: #004d40 !important;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.swiper-button-prev::after {
+    content: 'prev'; /* Swiper'ın kendi okları için content */
+    font-family: 'swiper-icons';
+    font-size: 2.5rem;
+}
+.swiper-button-next::after {
+    content: 'next'; /* Swiper'ın kendi okları için content */
+    font-family: 'swiper-icons';
+    font-size: 2.5rem;
+}
+
+/* --- AI ve Quiz Sayfaları Genel Stilleri --- */
+.ai-page,
+.quiz-page {
     font-family: 'Montserrat', sans-serif;
     background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
     min-height: 100vh;
@@ -290,27 +312,6 @@ body,
     border-color: #004d40;
 }
 
-/* Daha spesifik AI butonu tanımı, yukarıdaki .ai-btn'i ezer */
-.ai-page .ai-btn, /* ai-page içindeki ai-btn */
-.quiz-actions .btn-success /* Quiz aksiyonlarındaki success butonu */
-{
-    background: linear-gradient(to right, #00796b, #004d40);
-    color: #e0f2f1;
-    border: none;
-    border-radius: 20px;
-    padding: 12px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.ai-page .ai-btn:hover,
-.quiz-actions .btn-success:hover {
-    background: linear-gradient(to right, #004d40, #00796b);
-    box-shadow: 0 5px 15px rgba(0, 77, 64, 0.4);
-}
-
 .ai-output {
     background-color: #f1fdfc;
     border-left: 4px solid #00796b;
@@ -323,11 +324,11 @@ body,
     transition: all 0.3s ease;
 }
 
-/* Geri butonu genel stili */
+/* --- Geri Butonu --- */
 .back-button {
     position: fixed;
     left: 20px;
-    top: 20px; /* Sabit pozisyon için top değeri ekledik */
+    top: 20px;
     font-size: 25px;
     font-weight: bolder;
     color: #00796b;
@@ -351,85 +352,89 @@ body,
     color: white;
 }
 
-/* Swiper'ın varsayılan navigasyon butonları için stiller */
-.swiper-button-prev,
-.swiper-button-next {
-    background-color: transparent;
-    color: #004d40 !important;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 50%;
-    transform: translateY(-50%);
-}
-/* Swiper'ın kendi okları için content (Swiper'ın kendi fontunu kullanır) */
-.swiper-button-prev::after {
-    content: 'prev'; /* 'prev' veya unicode değeri '\e900' gibi */
-    font-family: 'swiper-icons'; /* Bu, Swiper'ın kendi fontudur */
-    font-size: 2.5rem;
-}
-.swiper-button-next::after {
-    content: 'next'; /* 'next' veya unicode değeri '\e901' gibi */
-    font-family: 'swiper-icons';
-    font-size: 2.5rem;
-}
-
-/* Quiz Sayfası Genel Stilleri */
-.quiz-page {
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* --- Quiz Sayfası Konteyneri ve Düzenleme --- */
+.quiz-page-container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-}
-
-/* Quiz konteyneri genel stili (hem quiz.html hem de wrong_questions.html için ortak) */
-.quiz-container {
-    background-color: #ffffff;
-    width: 100%;
-    max-width: 750px;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 121, 107, 0.3);
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    text-align: center;
-    position: relative;
+    min-height: 70vh; /* Minimum yüksekliği ekranın %70'i kadar yap */
+    /* justify-content: space-between; Yorum satırına alındı, çünkü margin-top: auto; bu işi daha iyi yapıyor */
 }
 
-.quiz-title {
-    font-size: 2rem;
-    color: #004d40;
-    margin-bottom: 15px;
-}
-
-.timer {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #00796b;
+.quiz-header {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
     margin-bottom: 20px;
 }
 
-/* Swiper Quiz Stilleri */
-.mySwiperQuiz, /* quiz.html için */
-.mySwiperReviewQuiz /* wrong_questions.html için */ {
+.quiz-title {
+    font-size: 2.2rem;
+    color: #343a40;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.timer-display {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #dc3545;
+    margin-bottom: 20px;
+}
+
+/* Quiz içeriğini (sorular, seçenekler) ortala ve dikeyde esnek yap */
+.quiz-content {
+    flex-grow: 1; /* Mevcut alanı kaplamasını sağlar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Dikeyde ortala */
+    align-items: center; /* Yatayda ortala */
+    text-align: center; /* Metinleri ortala */
+    padding: 20px;
+    position: relative; /* loading-overlay için */
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 400px; /* Yüksekliği biraz artırdık, mevcut haliydi */
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+.loading-overlay .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+.loading-overlay p {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #00796b;
+}
+
+/* Swiper Quiz Stilleri (mySwiperQuiz ve mySwiperReviewQuiz birleştirildi) */
+.mySwiperQuiz,
+.mySwiperReviewQuiz {
+    width: 100%;
+    min-height: 300px; /* Slaytların minimum yüksekliği */
     margin: 0 auto;
     position: relative;
     opacity: 0; /* Başlangıçta gizli, JS ile görünür yapılacak */
-    transition: opacity 0.5s ease-in-out;
+    visibility: hidden; /* D-none ile birlikte kullanıldığında geçiş efekti sağlar */
+    transition: visibility 0s, opacity 0.5s linear;
 }
 
 .quiz-slide {
@@ -467,13 +472,13 @@ body,
     flex-direction: column;
     gap: 12px;
     width: 100%;
-    max-height: 200px; /* Seçenekler için max yükseklik, ihtiyaca göre ayarla */
-    overflow-y: auto; /* Seçenekler taşarsa scroll olsun */
-    padding-right: 5px; /* Scrollbar için boşluk bırakır */
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 5px;
 }
 
 .quiz-slide .options label {
-    display: flex;
+    display: flex; /* İçeriği hizalamak için flex kullanıldı */
     align-items: center;
     font-size: 1.1rem;
     cursor: pointer;
@@ -481,6 +486,8 @@ body,
     padding: 12px 15px;
     border-radius: 8px;
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%; /* Genişliği ayarla */
+    text-align: left; /* Metinleri sola hizala */
 }
 
 .quiz-slide .options label:hover {
@@ -494,33 +501,19 @@ body,
     transform: scale(1.2);
 }
 
-/* Swiper pagination (hem quiz hem de review quiz için) */
-.mySwiperQuiz .swiper-pagination,
-.mySwiperReviewQuiz .swiper-pagination {
-    bottom: -10px !important;
-}
-
-.mySwiperQuiz .swiper-pagination-bullet,
-.mySwiperReviewQuiz .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    background: #00bfa5;
-    opacity: 0.6;
-    transition: opacity 0.3s, background-color 0.3s;
-}
-
-.mySwiperQuiz .swiper-pagination-bullet-active,
-.mySwiperReviewQuiz .swiper-pagination-bullet-active {
-    background: #00796b;
-    opacity: 1;
-}
-
-/* Quiz Aksiyon Butonları */
+/* --- Quiz Aksiyon Butonları --- */
 .quiz-actions {
-    margin-top: 30px;
+    margin-top: auto; /* Konteynerin alt kısmına iter */
+    padding: 15px; /* İç boşluk */
+    background-color: #f8f9fa; /* Hafif arka plan */
+    border-top: 1px solid #e0e0e0; /* Ayırıcı çizgi */
+    border-bottom-left-radius: 15px; /* Alt köşeleri yuvarla */
+    border-bottom-right-radius: 15px; /* Alt köşeleri yuvarla */
     display: flex;
     justify-content: center;
     gap: 15px;
+    width: 100%; /* Kutu içinde tam genişlik */
+    box-sizing: border-box; /* Padding ve border genişliğe dahil */
 }
 
 .quiz-actions .btn {
@@ -531,25 +524,45 @@ body,
     transition: all 0.3s ease;
 }
 
-.quiz-actions .btn-danger {
-    background-color: #dc3545;
+.quiz-actions .btn-secondary {
+    background-color: #6c757d;
     border: none;
     color: white;
 }
-
-.quiz-actions .btn-danger:hover {
-    background-color: #c82333;
-    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+.quiz-actions .btn-secondary:hover {
+    background-color: #5a6268;
+    box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
 }
 
-/* AI sayfası ve quiz sonuçlarındaki başarı butonu (gradient) */
-/* .ai-btn'in önceki tanımı ile çakışmayı önlemek için daha spesifik yaptık */
-.ai-btn, /* Genel AI butonu */
-.quiz-actions .btn-success /* Quizdeki "Quizi Tamamla" veya "Tekrar Değerlendir" butonu */
-{
+.quiz-actions .btn-info {
+    background-color: #17a2b8;
+    border: none;
+    color: white;
+}
+.quiz-actions .btn-info:hover {
+    background-color: #138496;
+    box-shadow: 0 5px 15px rgba(23, 162, 184, 0.4);
+}
+
+.quiz-actions .btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: white;
+}
+.quiz-actions .btn-primary:hover {
+    background-color: #0069d9;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+/* AI sayfası ve quiz sonuçlarındaki başarı butonu (gradient) - Ortaklaştırıldı */
+.ai-page .ai-btn,
+.quiz-actions .btn-success,
+.quiz-results-container .btn-success,
+.quiz-results-container .btn-primary,
+.quiz-results-container .btn-warning {
     background: linear-gradient(to right, #00796b, #004d40);
     border: none;
-    color: #e0f2f1; /* Bu renk tanımı yukarıdaki .close-btn ve .ai-btn'deki color: #fff; tanımını ezecektir */
+    color: #e0f2f1;
     border-radius: 20px;
     padding: 12px;
     font-size: 1.1rem;
@@ -558,20 +571,13 @@ body,
     transition: all 0.3s ease;
 }
 
-.ai-btn:hover,
-.quiz-actions .btn-success:hover {
+.ai-page .ai-btn:hover,
+.quiz-actions .btn-success:hover,
+.quiz-results-container .btn-success:hover,
+.quiz-results-container .btn-primary:hover,
+.quiz-results-container .btn-warning:hover {
     background: linear-gradient(to right, #004d40, #00796b);
     box-shadow: 0 5px 15px rgba(0, 77, 64, 0.4);
-}
-
-.icon-hover {
-    width: 60px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.icon-hover:hover {
-    transform: scale(1.2);
 }
 
 /* Quiz sonuçları (hem quiz.html hem de wrong_questions.html için) */
@@ -589,14 +595,277 @@ body,
     margin-top: 20px;
 }
 
+/* Sonuçlar Konteyneri Genel Stili */
+.quiz-results-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.quiz-results-container .card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    text-align: left;
+}
+
 /* Scrollbar stilleri */
 #quiz-results::-webkit-scrollbar,
-#quiz-review-results::-webkit-scrollbar {
+#quiz-review-results::-webkit-scrollbar,
+.quiz-slide .options::-webkit-scrollbar,
+.swiper-slide p::-webkit-scrollbar,
+.swiper-slide ul::-webkit-scrollbar {
     width: 8px;
 }
 
 #quiz-results::-webkit-scrollbar-thumb,
-#quiz-review-results::-webkit-scrollbar-thumb {
+#quiz-review-results::-webkit-scrollbar-thumb,
+.quiz-slide .options::-webkit-scrollbar-thumb,
+.swiper-slide p::-webkit-scrollbar-thumb,
+.swiper-slide ul::-webkit-scrollbar-thumb {
     background-color: #00bfa5;
     border-radius: 6px;
+}
+
+/* --- Giriş/Kayıt Formu Stilleri --- */
+/* Genel body ayarları login.html ve register.html için */
+body.login-register-page {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-container h2 {
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 2rem;
+}
+
+.form-group label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+.form-container button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 100%;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.form-container p {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.form-container a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.form-container a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Hata ve Başarı Mesajları */
+.error-message,
+.success-message {
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* --- Kullanıcı Bilgisi ve Çıkış Butonu (Header Bar) --- */
+#header-bar {
+    position: fixed; /* sticky yerine fixed yaparak her zaman en üstte kalmasını sağlarız */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+    background-color: transparent; /* Gri arka planı kaldırıldı */
+    box-shadow: none; /* Gölge kaldırıldı */
+    display: flex;
+    justify-content: flex-end; /* Sağ hizala */
+    align-items: center;
+}
+
+.user-info {
+    font-size: 1.1rem;
+    color: #000; /* Yazı rengi siyah olarak ayarlandı, arka plan şeffaf olduğu için daha görünür olur */
+    margin-right: 1rem;
+    font-weight: bold;
+}
+
+.logout-btn {
+    background-color: #dc3545; /* Kırmızı renk */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+/* --- Genel İkon Hover Efekti --- */
+.icon-hover {
+    width: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.icon-hover:hover {
+    transform: scale(1.2);
+}
+
+/* --- Küçük Ekranlar İçin Duyarlılık --- */
+@media (max-width: 768px) {
+    .modal-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 15px;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .close-btn, .ai-btn {
+        width: 100%;
+    }
+
+    .swiper-slide {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    .swiper-slide h3 {
+        font-size: 1rem;
+    }
+
+    .swiper-slide img {
+        max-height: 180px;
+    }
+
+    .ai-container,
+    .quiz-page-container {
+        padding: 15px;
+    }
+
+    .quiz-title {
+        font-size: 1.8rem; /* Küçültülmüş başlık boyutu */
+    }
+
+    .quiz-slide .question-text {
+        font-size: 1.1rem;
+    }
+
+    .quiz-slide .options label {
+        font-size: 1rem;
+    }
+
+    .quiz-actions {
+        /* Bu bölümde yapılan değişiklikler */
+        flex-wrap: wrap; /* Butonların bir satıra sığmazsa alt satıra geçmesini sağlar */
+        gap: 10px; /* Butonlar arasındaki boşluğu azaltır */
+        padding: 10px; /* İç boşluğu azaltır */
+    }
+
+    .quiz-actions .btn {
+        width: calc(50% - 10px); /* İki sütunlu düzen için %50 genişlik, gap'i hesaba katar */
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+    
+    .back-button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        left: 10px;
+        top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-actions .btn {
+        width: 100%; /* Çok küçük ekranlarda butonları tek sütun yapar */
+    }
 }
