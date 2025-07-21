@@ -28,7 +28,7 @@ async def message_list(request: Request, current_user: CurrentUser = Depends(req
     if not current_user:
         return RedirectResponse(url=request.url_for("login_page"), status_code=status.HTTP_302_FOUND)
     messages = [] # Placeholder for actual message data
-    return templates.TemplateResponse("messages.html", {"request": request, "user": current_user, "messages": messages})
+    return templates.TemplateResponse("social/messages.html", {"request": request, "user": current_user, "messages": messages})
 
 # New route for user profile
 @router.get("/profile/{username}", response_class=HTMLResponse, name="user_profile")
@@ -42,7 +42,7 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
     if not profile_data:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")
 
-    return templates.TemplateResponse("user_profile.html", {
+    return templates.TemplateResponse("social/profile.html", {
         "request": request,
         "user": current_user,       # The logged-in user
         "profile_user": profile_data # The user whose profile is being viewed
