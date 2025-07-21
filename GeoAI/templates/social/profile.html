@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile_user.username }}'ın Profili - GeoAI</title>
+    <link rel="icon" type="image/fav-ico" href="/static/images/fav.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+    <style>
+        /* Sadece bu sayfa için ek stil */
+        .profile-header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+        }
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 2px solid #007bff;
+        }
+        .profile-stats .stat-item {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            margin-right: 10px;
+            min-width: 100px;
+        }
+        .profile-stats .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .profile-bio {
+            margin-top: 20px;
+            color: #6c757d;
+        }
+        .section-header {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 5px;
+        }
+        /* Arama sonuçları için stil */
+        #userSearchResults {
+            position: absolute; /* Navbar altına açılır liste gibi gelmesi için */
+            top: 100%; /* Navbar'ın hemen altına */
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Diğer öğelerin üzerinde olması için */
+            max-height: 200px; 
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 0 0 5px 5px; /* Sadece alt köşeleri yuvarla */
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: none; /* Başlangıçta gizli */
+        }
+        .search-result-item {
+            padding: 8px 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        .search-result-item a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            display: block; /* Tüm alanı tıklanabilir yap */
+        }
+        .search-result-item a:hover {
+            text-decoration: underline;
+            background-color: #f8f9fa; /* Hover efekti */
+        }
+        /* Navbar içinde arama inputu için stil */
+        .navbar .form-control {
+            width: 200px; /* Genişliği ayarla */
+            margin-right: 10px;
+        }
+        .navbar .input-group {
+            position: relative; /* Arama sonuçları için konumlandırma bağlamı */
+            flex-wrap: nowrap; /* Bootstrap 5 flex-wrap özelliğini devre dışı bırakır */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('read_root') }}">GeoAI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('read_root') }}">Türkiye Haritası</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('world_page') }}">Dünya Haritası</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('ai_page') }}">AI Destekli Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('quiz_page') }}">Standart Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('serve_wrong_questions_page') }}">Yanlış Cevaplar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('social_feed_page') }}">Sosyal Akış</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('message_list') }}">Mesajlar</a>
+                    </li>
+                </ul>
+                
+                <form class="d-flex" onsubmit="event.preventDefault();"> <div class="input-group">
+                        <input type="text" class="form-control" id="navbarUserSearchInput" placeholder="Kullanıcı ara..." aria-label="Kullanıcı ara">
+                        <button class="btn btn-outline-success" type="button" id="navbarSearchUserButton">🔍</button>
+                    </div>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {% if user %}{{ user.username }}{% else %}Misafir{% endif %}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            {% if user %}
+                            <li><a class="dropdown-item" href="{{ url_for('user_profile', username=user.username) }}">Profilim</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ url_for('logout_user') }}">Çıkış Yap</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="{{ url_for('login_page') }}">Giriş Yap</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('register_page') }}">Kayıt Ol</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-2" style="position: relative;"> 
+        <div id="userSearchResults" class="list-group">
+            </div>
+    </div>
+
+
+    <div class="container mt-4">
+        <div class="card shadow-sm">
+            <div class="profile-header">
+                <img src="{{ url_for('static', path='images/sample_user.png') }}" alt="Profil Resmi" class="profile-avatar">
+                <div>
+                    <h2 class="mb-0">{{ profile_user.username }}</h2>
+                    <p class="text-muted">{{ profile_user.email }}</p>
+                    {% if user and user.id == profile_user.id %}
+                        <button class="btn btn-sm btn-outline-secondary ms-2">Profili Düzenle</button>
+                    {% else %}
+                        <button class="btn btn-sm btn-success">Takip Et</button>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="profile-bio">
+                    <p>{{ profile_user.bio or "Merhaba! Coğrafya ve AI quizleri ile ilgileniyorum. Yeni şeyler öğrenmeyi ve kendimi geliştirmeyi seviyorum." }}</p>
+                </div>
+
+                <h4 class="section-header mt-4">İstatistikler</h4>
+                <div class="d-flex flex-wrap profile-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">{{ profile_user.total_quizzes_completed or 0 }}</div>
+                        <div class="stat-label">Tamamlanan Quiz</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">{{ profile_user.total_correct_answers or 0 }}</div>
+                        <div class="stat-label">Doğru Cevap</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">{{ profile_user.total_score or 0 }}</div>
+                        <div class="stat-label">Toplam Puan</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">{{ profile_user.highest_score or 0 }}</div>
+                        <div class="stat-label">En Yüksek Puan</div>
+                    </div>
+                </div>
+
+                <h4 class="section-header mt-4">Son Aktiviteler</h4>
+                <ul class="list-group list-group-flush">
+                    {% if profile_user.recent_activities %}
+                        {% for activity in profile_user.recent_activities %}
+                            <li class="list-group-item">{{ activity.activity_description }} - <small class="text-muted">{{ activity.timestamp }}</small></li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="list-group-item text-muted">Henüz bir aktivite bulunmamaktadır.</li>
+                    {% endif %}
+                </ul>
+
+                <h4 class="section-header mt-4">Takipçiler / Takip Ettikleri</h4>
+                <div class="d-flex flex-wrap">
+                    <span class="badge bg-secondary me-2 mb-2">Ahmet Y.</span>
+                    <span class="badge bg-secondary me-2 mb-2">Zeynep K.</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', path='js/profile-script.js') }}"></script>
+</body>
+</html>

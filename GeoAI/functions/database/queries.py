@@ -1,4 +1,4 @@
-# database/queries.py
+# functions/database/queries.py
 import sqlite3
 from typing import List, Dict, Optional
 from datetime import datetime
@@ -9,22 +9,36 @@ from functions.config import settings
 def get_user_by_username(username: str) -> Optional[Dict]:
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
-        cursor.execute("SELECT id, username, email, password_hash FROM users WHERE username = ?", (username,))
+        cursor.execute("""
+            SELECT 
+                id, username, email, password_hash, bio, 
+                total_quizzes_completed, total_correct_answers, total_score, highest_score, created_at
+            FROM users 
+            WHERE username = ?
+        """, (username,))
         user = cursor.fetchone()
         return dict(user) if user else None
 
 def get_user_by_id(user_id: int) -> Optional[Dict]:
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
-        cursor.execute("SELECT id, username, email FROM users WHERE id = ?", (user_id,))
+        cursor.execute("""
+            SELECT 
+                id, username, email, bio, 
+                total_quizzes_completed, total_correct_answers, total_score, highest_score, created_at
+            FROM users 
+            WHERE id = ?
+        """, (user_id,))
         user = cursor.fetchone()
         return dict(user) if user else None
 
 def create_user(username: str, email: str, password_hash: str) -> int:
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
-        cursor.execute("INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)",
-                       (username, email, password_hash))
+        cursor.execute("""
+            INSERT INTO users (username, email, password_hash, bio, total_quizzes_completed, total_correct_answers, total_score, highest_score) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """, (username, email, password_hash, "Merhaba! GeoAI kullanıcısıyım.", 0, 0, 0, 0)) # Varsayılan değerlerle ekleme
         conn.commit()
         return cursor.lastrowid # Yeni eklenen kullanıcının ID'si
 
@@ -67,9 +81,9 @@ def delete_wrong_questions_from_db(user_id: int, question_ids: List[int]) -> int
         conn.commit()
         return deleted_count
 
-# Mesajlaşma sorguları (Yeni eklenecek)
+# Mesajlaşma sorguları
 def create_message(sender_id: int, receiver_id: int, content: str) -> int:
-    with get_db_connection(settings.USERS_DATABASE_FILE) as conn: # Mesajları da users.db içinde tutalım veya ayrı bir db açabilirsiniz.
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
         cursor.execute("INSERT INTO messages (sender_id, receiver_id, content, timestamp) VALUES (?, ?, ?, ?)",
                        (sender_id, receiver_id, content, datetime.now()))
@@ -90,24 +104,75 @@ def get_user_conversations(user_id: int) -> List[Dict]:
     """Kullanıcının mesajlaştığı tüm diğer kullanıcıları ve son mesajlarını getirir."""
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
-        # En son mesajı olan benzersiz sohbetleri bul
         cursor.execute("""
             SELECT
-                CASE
-                    WHEN T1.sender_id = ? THEN T2.username
-                    ELSE T3.username
-                END AS other_username,
-                MAX(T1.timestamp) AS last_message_timestamp,
-                T1.content AS last_message_content,
-                CASE
-                    WHEN T1.sender_id = ? THEN T1.receiver_id
-                    ELSE T1.sender_id
-                END AS other_user_id
-            FROM messages AS T1
-            LEFT JOIN users AS T2 ON T1.receiver_id = T2.id
-            LEFT JOIN users AS T3 ON T1.sender_id = T3.id
-            WHERE T1.sender_id = ? OR T1.receiver_id = ?
-            GROUP BY other_username
+                users_other.username AS other_username,
+                users_other.id AS other_user_id,
+                MAX(m.timestamp) AS last_message_timestamp,
+                (SELECT content FROM messages WHERE id = MAX(m.id)) AS last_message_content
+            FROM messages AS m
+            INNER JOIN users AS users_other
+                ON (m.sender_id = ? AND users_other.id = m.receiver_id)
+                OR (m.receiver_id = ? AND users_other.id = m.sender_id)
+            WHERE m.sender_id = ? OR m.receiver_id = ?
+            GROUP BY other_username, other_user_id
             ORDER BY last_message_timestamp DESC
         """, (user_id, user_id, user_id, user_id))
         return [dict(row) for row in cursor.fetchall()]
+
+
+# Profil istatistik ve aktivite sorguları
+
+def get_user_activities(user_id: int) -> List[Dict]:
+    """Belirli bir kullanıcının son aktivitelerini getirir."""
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            'SELECT activity_description, timestamp FROM user_activities WHERE user_id = ? ORDER BY timestamp DESC LIMIT 10', # Son 10 aktivite
+            (user_id,)
+        )
+        return [dict(row) for row in cursor.fetchall()]
+
+def add_user_activity(user_id: int, description: str) -> None:
+    """Kullanıcı için yeni bir aktivite kaydeder."""
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            'INSERT INTO user_activities (user_id, activity_description) VALUES (?, ?)',
+            (user_id, description)
+        )
+        conn.commit()
+
+def update_user_quiz_stats(user_id: int, score_earned: int, correct_answers_count: int) -> None:
+    """Kullanıcının quiz istatistiklerini günceller."""
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+            UPDATE users
+            SET
+                total_quizzes_completed = total_quizzes_completed + 1,
+                total_correct_answers = total_correct_answers + ?,
+                total_score = total_score + ?,
+                highest_score = MAX(highest_score, ?)
+            WHERE id = ?
+            """,
+            (correct_answers_count, score_earned, score_earned, user_id)
+        )
+        conn.commit()
+    # Quiz istatistikleri güncellendiğinde bir aktivite kaydı ekle
+    add_user_activity(user_id, f"Quiz'i tamamladı ve {score_earned} puan kazandı.")
+
+def search_users_by_username(search_term: str) -> List[Dict]:
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        # Bu kısım zaten doğru: Hem veritabanındaki kullanıcı adını hem de arama terimini küçük harfe çevirip karşılaştırıyor.
+        cursor.execute("""
+            SELECT 
+                id, username, bio, total_quizzes_completed, total_score
+            FROM users 
+            WHERE LOWER(username) LIKE ?
+            ORDER BY username ASC
+        """, (f"%{search_term.lower()}%",)) # Arama terimini küçük harfe çevir
+        rows = cursor.fetchall()
+        return [dict(row) for row in rows]
