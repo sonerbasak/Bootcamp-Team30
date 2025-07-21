@@ -25,8 +25,15 @@
 
             <div id="header-bar" class="position-fixed top-0 start-0 w-100 p-3" style="z-index: 1000;">
                 <div class="d-flex justify-content-end align-items-center">
-                    {% if username %}
-                        <span class="me-3 fw-bold text-white user-info">Hoşgeldin, {{ username }}!</span>
+                    {# user objesi var mı ve user.username özelliği var mı diye kontrol ediyoruz #}
+                    {% if user and user.username %}
+                        <span class="me-3 fw-bold text-white user-info">Hoşgeldin, {{ user.username }}!</span>
+                        <a href="{{ url_for('message_list') }}" class="btn btn-info btn-sm me-2" title="Mesaj Kutusu">
+                            <i class="fas fa-envelope"></i> Mesajlar
+                        </a>
+                        <a href="{{ url_for('user_profile', username=user.username) }}" class="btn btn-secondary btn-sm me-2" title="Profilim">
+                            <i class="fas fa-user"></i> Profil
+                        </a>
                         <a href="{{ url_for('logout_user') }}" class="btn btn-danger btn-sm logout-btn" title="Çıkış Yap">
                             <i class="fas fa-sign-out-alt"></i> Çıkış
                         </a>
@@ -41,7 +48,7 @@
                 <div id="map"></div>
             </div>
             <div id="worldicon" class="position-fixed bottom-0 end-0 m-0 p-5">
-                <a href="{{ url_for('world_page') }}"> {# Use url_for for consistency #}
+                <a href="{{ url_for('world_page') }}">
                     <img src="../static/images/world.png" alt="world" class="img-fluid icon-hover" style="width: 7%;" />
                 </a>
             </div>
@@ -55,14 +62,12 @@
             <div id="modalContent"></div>
             <div class="modal-buttons">
                 <button class="close-btn" onclick="closeModal()">Kapat</button>
-                <a id="aiLink" href="{{ url_for('ai_page') }}" class="btn btn-success ai-btn">AI ile Quiz Oluştur</a> {# Use url_for #}
+                <a id="aiLink" href="{{ url_for('ai_page') }}" class="btn btn-success ai-btn">AI ile Quiz Oluştur</a>
                 <button class="swiper-button-prev" onclick="slidePrev()"></button>
                 <button class="swiper-button-next" onclick="slideNext()"></button>
             </div>
         </div>
     </div>
-
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
