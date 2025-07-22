@@ -89,7 +89,10 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('read_root') }}">Türkiye Haritası</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('world_page') }}">Dünya Haritası</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url_for('serve_wrong_questions_page') }}">Yanlış Cevaplarım</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('serve_wrong_questions_page') }}?type=wrong-questions">Yanlış Cevaplarım</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('serve_wrong_questions_page') }}">Genel Kültür Testi</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url_for('social_feed_page') }}">Sosyal Akış</a></li>
                 </ul>
                 <form class="d-flex" onsubmit="event.preventDefault();">
