@@ -12,7 +12,18 @@
     "müzeler": "Adana Müzesi, Kuruköprü Anıt Müzesi, Geleneksel Adana Evi",
     "müzeResmi": "/static/images/müzeler/01.png",
     "ekonomikFaaliyetler": "Tarım, Sanayi, Ticaret",
-    "tarimUrunleri": "Pamuk, Mısır, Soya, Narenciye"
+    "tarimUrunleri": "Pamuk, Mısır, Soya, Narenciye",
+    "gezilecekyerler": "Yılan Kalesi, Varda Köprüsü, Kapıkaya Kanyonu, Ayas Antik Kenti, Magarus Antik Kenti,Küp Şrlaleri",
+    "hangiülkedevaroldu": "Hititler, Asurlular, Roma İmparatorluğu, Osmanlı Devleti",
+    "gezilecekyerler": "Taş Köprü, Sabancı Merkez Camii, Varda Köprüsü, Büyük Saat, Ramazanoğlu Konağı, Yerköprü Şelalesi, Atatürk Müzesi, Adana Sinema Müzesi",
+    "önemliinsanlar": "Seyhan Karabayır, Nuri Alço, Seyhan Erözçelik, Ruhi Su, Sabancı Ailesi",
+    "hayvancılık": "Büyükbaş hayvancılık yaygın, küçükbaş yetiştiriciliği, kümes hayvancılığı gelişmiş, sulak alanlarda balıkçılık, manda yetiştiriciliği, süt ve et üretimi, doğal mera kullanımı, hayvan pazarları",
+    "bitkiörtüsü": "Maki, sazlık ve kamışlar, kızılçam ve meşe ormanları, tarım alanları, tropikal bitkiler, step bitkileri, narenciye bahçeleri, bahçecilik",
+    "havakoşulları": "Akdeniz iklimi; yazlar sıcak ve kurak, kışlar ılık ve yağışlı, nem yüksek, rüzgar hafif, güneşli gün sayısı fazla",
+    "coğrafiişaretler": "Adana Kebabı, Şalgam Suyu, Bici Bici, Pozantı Leblebisi, Kozan Narı, Feke Balı, Seyhan Balığı, Fars Köfte",
+    "tarihiólaylar": "Roma ticaret merkezi olması, Osmanlı fethi, 1920’lerde Milli Mücadele faaliyetleri, Hitit yerleşimleri, Asur ticaret yolları, Büyük Saat inşası, Varda Köprüsü yapımı, Seyhan Nehri kıyılarında yaşam",
+    "seyahathatirasi": "Adana kebabı sosu, Taş Köprü magneti, Varda Köprüsü posteri, Sabancı Camii biblosu, Ramazanoğlu konağı tablosu, Yerköprü seramik bardağı, Büyük Saat anahtarlığı, Adana şalvarı kumaşı"
+  
   },
   {
     "name": "Adıyaman",
@@ -27,7 +38,18 @@
     "müzeler": "Adıyaman Müzesi",
     "müzeResmi": "/static/images/müzeler/02.jpg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Ticaret",
-    "tarimUrunleri": "Mercimek, Nohut, Buğday, Pamuk"
+    "tarimUrunleri": "Mercimek, Nohut, Buğday, Pamuk",
+    "Adıyaman": {
+    "hangiülkedevaroldu": "Kommagene Krallığı, Roma İmparatorluğu, Emeviler, Osmanlı Devleti",
+    "gezilecekyerler": "Nemrut Dağı, Arsemia Antik Kenti, Cendere Köprüsü, Karakuş Tümülüsü, Kahta Kalesi, Malabadi Köprüsü, Perre Antik Kenti, Adıyaman Müzesi",
+    "önemliinsanlar": "I. Antiochos, Hacı Osman, Şeyh Mahmut Efendi, Mehmet Akif İnan, Rıza Tevfik Bölükbaşı",
+    "hayvancılık": "Koyun ve keçi yetiştiriciliği, arıcılık, büyükbaş hayvancılık, süt ve et üretimi, mera hayvancılığı, yaylacılık, doğal otlak kullanımı, hayvan pazarları",
+    "bitkiörtüsü": "Bozkır ve maki, step bitkileri, Akdeniz bitkileri, sazlık, dağ ormanları, aromatik bitkiler, zeytin bahçeleri, meyve bahçeleri",
+    "havakoşulları": "Karasal iklim; yazlar sıcak ve kurak, kışlar soğuk ve yağışlı, kar yağışı görülür, sıcaklık farkları fazla, nem düşük",
+    "coğrafiişaretler": "Adıyaman Biberi, Nemrut Ballı Kaymağı, Kahta Kestanesi, Perre Balı, Cendere Taşı, Kommagene Şarabı, Adıyaman Tarhanası, Dut Pekmezi",
+    "tarihiólaylar": "Kommagene Krallığı kuruluşu, Nemrut heykellerinin yapılması, Roma hakimiyeti, Emeviler’in fethi, Osmanlı’ya katılma, Malabadi Köprüsü inşası, Milli Mücadele, Arsemia keşfi",
+    "seyahathatirasi": "Nemrut Dağı magneti, Arsemia papirüsü, Cendere Köprüsü modeli, Adıyaman biberi paketi, Kahta kalesi posteri, Perre antik kent kartpostalı, kommagene şarabı etiketi, ballı kaymak kavanozu"
+
   },
   {
     "name": "Afyonkarahisar",
@@ -42,7 +64,17 @@
     "müzeler": "Zafer Müzesi, Afyonkarahisar Müzesi, Bolvadin Müzesi",
     "müzeResmi": "/static/images/müzeler/03.jpeg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Mermercilik, Termal Turizm",
-    "tarimUrunleri": "Haşhaş, Buğday, Arpa, Şeker Pancarı"
+    "tarimUrunleri": "Haşhaş, Buğday, Arpa, Şeker Pancarı",
+    "hangiülkedevaroldu": "Frigler, Lidyalılar, Selçuklu Devleti, Osmanlı Devleti",
+    "gezilecekyerler": "Afyon Kalesi, Ulu Camii, Zafer Müzesi, Frig Vadisi, Mevlevihane, İnli Mağarası, Kaplıcalar, Ayazini Köyü",
+    "önemliinsanlar": "Mehmet Akif Ersoy, Köprülü Mehmet Paşa, Nurettin Topçu, Ahmet Necdet Sezer, Sait Faik Abasıyanık",
+    "hayvancılık": "Büyükbaş hayvancılık, koyun-keçi yetiştiriciliği, süt ve et üretimi, meracılık, kaplıca turizmi destekli, doğal otlak, hayvan pazarı, manda yetiştiriciliği",
+    "bitkiörtüsü": "Bozkır, step bitkileri, çam-meşe ormanları, otsu bitkiler, tarım arazileri, yayla florası, endemik türler, çayır",
+    "havakoşulları": "Karasal iklim; kışlar soğuk ve kar yağışlı, yazlar sıcak ve kurak, nem düşük, güneşli gün sayısı fazla",
+    "coğrafiişaretler": "Sucuğu, Kaymağı, Lokumu, İnciri, Moru, Balı, Frig Vadisi Kekiği, Kekiği",
+    "tarihiólaylar": "Frig yerleşimleri, Lidyalı ticaret, Selçuklu dönemi, Osmanlı fethi, Kurtuluş Zaferi, Zafer Müzesi kuruluşu, Mevlevihane açılışı, antik keşifler",
+    "seyahathatirasi": "Afyon kaymağı kavanozu, sucuğu paket, kale maketi, Frig Vadisi örnek taşı, Ayazini seramik kupası, Mevlevihane mum maketi, kaplıca tuzu, Ulu Camii kartpostalı"
+
   },
   {
     "name": "Ağrı",
@@ -57,7 +89,17 @@
     "müzeler": "Ağrı Müzesi",
     "müzeResmi": "/static/images/müzeler/04.jpg",
     "ekonomikFaaliyetler": "Hayvancılık, Tarım",
-    "tarimUrunleri": "Buğday, Arpa, Patates"
+    "tarimUrunleri": "Buğday, Arpa, Patates",
+    "hangiülkedevaroldu": "Urartular, Persler, Selçuklu Devleti, Osmanlı Devleti",
+    "gezilecekyerler": "Ağrı Dağı, İshak Paşa Sarayı, Doğubayazıt Kalesi, Ahmed-i Hani Türbesi, Meteor Çukuru, Muradiye Şelalesi, Nuh’un Gemisi Mağarası, Taşlıçay Kalesi",
+    "önemliinsanlar": "Ahmed-i Hani, Hacı Bektaş Veli, Nurettin Topçu, Ali Kemal Özcan, Nihat Zeybekci",
+    "hayvancılık": "Sığır ve koyun yetiştiriciliği, yaylacılık, süt ve et üretimi, mera hayvancılığı, arıcılık, kış barınakları, doğal otlak, hayvan pazarı",
+    "bitkiörtüsü": "Bozkır, dağ otsuları, step bitkileri, seyrek çalılar, sınırlı orman, sazlık, alpin bitkiler, yayla florası",
+    "havakoşulları": "Karasal iklim; kışlar çok uzun ve sert, yazlar kısa ve serin, kar yağışı yüksek, donlu günler fazla, nem düşük",
+    "coğrafiişaretler": "Ağrı Balı, Kekiği, Doğubayazıt Balı, Ağrı Koyunu, Taşlıçay Balı, Gemii Temalı magnet, Ağrı keçisi oyuncağı, Saray maketi",
+    "tarihiólaylar": "Urartu yerleşimi, Pers hakimiyeti, Selçuklu dönemi, Osmanlı fethi, İshak Paşa Sarayı inşası, Nuh’un Gemisi efsanesi, bölgesel çatışmalar, 20. yy gelişmeleri",
+    "seyahathatirasi": "Ağrı Dağı posteri, İshak Paşa maketi, şelale fotoğraf albümü, Nuh’un Gemisi kartpostalı, saray biblosu, Meteor Çukuru taşı, Doğubayazıt anahtarlığı, Hani türbesi rozet"
+
   },
   {
     "name": "Amasya",
@@ -72,7 +114,17 @@
     "müzeler": "Şehzadeler Müzesi, Hazeranlar Konağı Etnografya Müzesi",
     "müzeResmi": "/static/images/müzeler/05.jpg",
     "ekonomikFaaliyetler": "Tarım, Ticaret, Turizm",
-    "tarimUrunleri": "Misket Elması, Kiraz, Şeker Pancarı, Buğday"
+    "tarimUrunleri": "Misket Elması, Kiraz, Şeker Pancarı, Buğday",
+    "hangiülkedevaroldu": "Hititler, Pontus Krallığı, Danişmentliler, Osmanlı Devleti",
+    "gezilecekyerler": "Amasya Kalesi, Kral Kaya Mezarları, Ferhat Su Kanalı, Yalıboyu Evleri, Şehzadeler Müzesi, Hazeranlar Konağı, Borabay Gölü, Sultan II. Bayezid Külliyesi",
+    "önemliinsanlar": "Strabon, Şehzade Bayezid, Fatih Sultan Mehmet, Yavuz Sultan Selim, Nasuh Paşa",
+    "hayvancılık": "Büyükbaş-küçükbaş hayvancılık, arıcılık, mera kullanımı, süt ve et üretimi, yaylacılık, doğal otlak, yerel ırklar, hayvan pazarı",
+    "bitkiörtüsü": "Karadeniz etkisiyle ormanlık, maki, çayırlar, tarım alanları, meyve bahçeleri, step bitkileri, nemli flora, sulak alan bitkileri",
+    "havakoşulları": "Karadeniz-karasal iklim geçişi; kışlar ılıman, yazlar serin, yağış dengeli, nem yüksek",
+    "coğrafiişaretler": "Amasya Elması, Çöreği, Dut Pekmezi, Karpuzu, Balı, Kirazı, Ayva Tatlısı, Küftesi",
+    "tarihiólaylar": "Pontus Krallığı merkezi, Danişmentli yönetimi, Osmanlı fethi, Amasya Sözleşmesi, Şehzadelerin eğitimi, Roma ve Bizans etkisi, kalelerin yapımı, kültürel gelişme",
+    "seyahathatirasi": "Amasya elması reçeli, kaya mezarları kartpostalı, su kanalı maketi, yalıboyu evi biblosu, Şehzadeler Müzesi magneti, Borabay gölü magneti, konak hatıra bardağı, kılıç replikası"
+  
   },
   {
     "name": "Ankara",
@@ -87,7 +139,17 @@
     "müzeler": "Anadolu Medeniyetleri Müzesi, Etnografya Müzesi",
     "müzeResmi": "/static/images/müzeler/06.jpg",
     "ekonomikFaaliyetler": "Kamu Hizmetleri, Sanayi, Tarım, Ticaret",
-    "tarimUrunleri": "Buğday, Arpa, Nohut, Ayçiçeği"
+    "tarimUrunleri": "Buğday, Arpa, Nohut, Ayçiçeği",
+    "hangiülkedevaroldu": "Frigler, Galatlar, Bizans İmparatorluğu, Osmanlı Devleti",
+    "gezilecekyerler": "Anıtkabir, Ankara Kalesi, Romatiyatrosu, Atatürk Orman Çiftliği, Hamamönü, Eymir Gölü, Dikmen Vadisi, MTA Şehit Cengiz Topel Parkı",
+    "önemliinsanlar": "Mustafa Kemal Atatürk, İhsan Doğramacı, Yahya Kemal Beyatlı, Cahit Arf, Ahmet Hamdi Tanpınar",
+    "hayvancılık": "Büyükbaş-küçükbaş hayvancılık, süt ve et üretimi, mera, kümes, yem bitkileri, doğal otlak, hayvancılık destek projeleri",
+    "bitkiörtüsü": "Bozkır, otsu bitkiler, step florası, sınırlı orman, meşe-kızılçam, tarım arazileri",
+    "havakoşulları": "Karasal iklim; kışlar soğuk ve kar yağışlı, yazlar sıcak ve kurak, nem düşük",
+    "coğrafiişaretler": "Ankara Tava, Beypazarı Kurusu, Elmadağ Balı, Nallıhan ipeği, Çubuk Balı, Soğuksu bitkisi, Gölbaşı Fasulyesi, Kalecik Karası",
+    "tarihiólaylar": "Frig yerleşimi, Galat hakimiyeti, Roma ve Bizans dönemi, Osmanlı fethi, 13 Ekim 1923 başkent ilanı, Anıtkabir inşası, Kurtuluş Savaşı, medeniyetler kavşağı",
+    "seyahathatirasi": "Anıtkabir bibloları, kale maketi, tiyatro kartpostalı, Hamamönü evi minyatürü, Eymir Gölü fotoğraf albümü, Orman Çiftliği reçeli, Dikmen vadisi anahtarlığı, park çekici"
+
   },
   {
     "name": "Antalya",
@@ -102,7 +164,17 @@
     "müzeler": "Antalya Müzesi, Aziz Nikolaos Müzesi, Side Arkeoloji Müzesi",
     "müzeResmi": "/static/images/müzeler/07.png",
     "ekonomikFaaliyetler": "Turizm, Tarım, Ticaret",
-    "tarimUrunleri": "Portakal, Muz, Domates, Biber"
+    "tarimUrunleri": "Portakal, Muz, Domates, Biber",
+    "hangiülkedevaroldu": "Likyalılar, Romalılar, Selçuklu Devleti, Osmanlı Devleti",
+    "gezilecekyerler": "Kaleiçi, Düden Şelalesi, Aspendos, Perge, Olympos, Termessos, Karaalioğlu Parkı, Hadrian Kapısı",
+    "önemliinsanlar": "Marko Paşa, Nurettin Güven, Güney Kaptan, Süleyman Demirel, Atilla İlhan",
+    "hayvancılık": "Koyun-keçi, küçükbaş, arıcılık, balıkçılık, büyükbaş hayvancılık, manda, tavukçuluk, mera kullanımı",
+    "bitkiörtüsü": "Akdeniz makisi, zeytinlik, turunçgil, otsu bitkiler, orman, tarım arazisi, sulak alan, maki",
+    "havakoşulları": "Akdeniz iklimi; yazlar sıcak ve kurak, kışlar ılık ve yağışlı, nem yüksek",
+    "coğrafiişaretler": "Portakal, Finike Mandalina, Kaş Kekiği, Alanya Suyu, Kumluca Balı, Gazipaşa Limon, Manavgat Narı, Karpuz",
+    "tarihiólaylar": "Likya Birliği, Roma liman kenti, Selçuklu dönemi, Osmanlı fethi, turizm gelişimi, Aspendos gösterileri, 20. yy altyapı, kültürel miras koruma",
+    "seyahathatirasi": "Kaleiçi magneti, Aspendos tiyatro kartpostalı, portakal reçeli, Olympos hatıra bardağı, Düden fotoğraf albümü, Perge antik kitabe replikası, Hadrian kapısı maketi, limon sabunu"
+
   },
   {
     "name": "Artvin",
@@ -117,7 +189,17 @@
     "müzeler": "Artvin Gastronomi Müzesi",
     "müzeResmi": "/static/images/müzeler/08.jpg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Ormancılık, Turizm",
-    "tarimUrunleri": "Çay, Fındık, Mısır, Patates"
+    "tarimUrunleri": "Çay, Fındık, Mısır, Patates",
+    "hangiülkedevaroldu": "Kolhis Krallığı, Bizans İmparatorluğu, Gürcü Krallığı, Osmanlı Devleti",
+    "gezilecekyerler": "Karagöl, Borçka Karagöl, Şavşat Karagöl, Camili Yaylası, Hatila Vadisi, Maral Şelalesi, Mençuna Şelalesi, Artvin Kalesi",
+    "önemliinsanlar": "Hristo Botyov, Şavşatlı Şeyh Şamil, Aziz Sancar, Ahmet Hamdi Tanpınar, Hasan Paşa",
+    "hayvancılık": "Küçükbaş, koyun, arıcılık, yayla hayvancılığı, büyükbaş, mera hayvancılığı, süt ve et üretimi, tavukçuluk",
+    "bitkiörtüsü": "Karadeniz ormanları, ladin, kayın, göknar, maki, alpin çalı, otsu bitkiler, doğal çayırlar",
+    "havakoşulları": "Karadeniz iklimi; bol yağış, nem yüksek, kışlar ılık, yazlar serin",
+    "coğrafiişaretler": "Artvin Balı, Macahel Balı, Mençuna Suyu, Şavşat Kavurması, Artvin Tulumu, Karagöl Alabalığı, Camili Kekiği, Borçka Fındığı",
+    "tarihiólaylar": "Kolhis dönemi, Bizans merkezi, Gürcü yönetimi, Osmanlı fethi, Sovyet sonrası gelişmeler, sınır anlaşmaları, yayla göçleri, kültürel festivaller",
+    "seyahathatirasi": "Karagöl magneti, yayla temalı seramik, bal kavanozu, şelale fotoğraf kitabı, Kafkas motifli atkı, Artvin tulum peyniri paketi, fındık kolyesi, Hatila posteri"
+
   },
   {
     "name": "Aydın",
@@ -132,7 +214,17 @@
     "müzeler": "Yörük Ali Efe Evi Müzesi, Afrodisias Müzesi, Aydin Arkeoloji Müzesi, Milet Müzesi",
     "müzeResmi": "/static/images/müzeler/09.jpeg",
     "ekonomikFaaliyetler": "Tarım, Turizm, Sanayi",
-    "tarimUrunleri": "İncir, Zeytin, Pamuk, Kestane"
+    "tarimUrunleri": "İncir, Zeytin, Pamuk, Kestane",
+    "hangiülkedevaroldu": "İyonlar, Lidyalılar, Bizans İmparatorluğu, Osmanlı Devleti",
+    "gezilecekyerler": "Milet, Didim Apollon Tapınağı, Priene, Kuşadası Milli Parkı, Aydın Kalesi, Tralleis, Afrodisias, Nazilli Camii",
+    "önemliinsanlar": "Herodot, Hipokrat, Arşimet, İsmail Rüştü Aksal, Cahit Arf",
+    "hayvancılık": "Küçükbaş, büyükbaş, arıcılık, su ürünleri, tavukçuluk, süt ve et üretimi, balıkçılık, yaylacılık",
+    "bitkiörtüsü": "Maki, zeytinlik, meyve bahçesi, otsu bitki, orman, endemik, tarım arazisi, sulak alan",
+    "havakoşulları": "Akdeniz iklimi; yazlar sıcak ve kurak, kışlar ılıman ve yağışlı, nem yüksek",
+    "coğrafiişaretler": "İnciri, Kuşadası Zeytini, Nazilli Üzümü, Söke Keten, Aydın Balı, Çine Kekiği, Karpuzu, Üzümü",
+    "tarihiólaylar": "İyon yerleşimi, Lidya hakimiyeti, Bizans dönemi, Osmanlı fethi, antik keşifler, ticaret yolları, Kuşadası limanı açılışı, kültür mirası projeleri",
+    "seyahathatirasi": "Aydın inciri paketi, Apollon tapınağı magneti, Afrodisias kitapçığı, Milet haritası, Zeytin sabunu, Kuşadası anahtarlığı, Tralleis heykelciği, Nazilli üzüm reçeli"
+    
   },
   {
     "name": "Balıkesir",
@@ -147,7 +239,17 @@
     "müzeler": "Taksiyarhis Anıt Müzesi, Kuva-yi Milliye Müzesi, Bandirma Müzesi",
     "müzeResmi": "/static/images/müzeler/10.jpg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Turizm, Sanayi",
-    "tarimUrunleri": "Zeytin, Buğday, Arpa, Domates"
+    "tarimUrunleri": "Zeytin, Buğday, Arpa, Domates",
+    "hangiülkedevaroldu": "Mysialılar, Persler, Bizans İmparatorluğu, Osmanlı Devleti",
+    "gezilecekyerler": "Cunda, Manyas Kuş Cenneti, Ayvalık Parkı, Balıkesir Kalesi, Antandros, Kuşcenneti, Hasanboğuldu Şelalesi, Kazdağı",
+    "önemliinsanlar": "Kubilay, Yunus Emre, Kâzım Karabekir, Halil İnalcık, Hasan Ali Yücel",
+    "hayvancılık": "Büyükbaş-küçükbaş, arıcılık, manda, süt ve et üretimi, kümes, mera, balıkçılık, doğal otlak",
+    "bitkiörtüsü": "Maki, çam-meşe ormanı, zeytinlik, step bitki, otsu bitki, sulak alan bitkisi, orman altı florası, doğal çayır",
+    "havakoşulları": "Karadeniz-Akdeniz geçişi; yazlar ılık, kışlar yağışlı, nem yüksek",
+    "coğrafiişaretler": "Ayvalık Zeytini, Edremit Zeytinyağı, Höşmerim, Kazdağı Balı, Cunda Erişte, Manyas Yoğurdu, Balıkesir Peyniri, Bigadiç Kirazı",
+    "tarihiólaylar": "Mysialılar dönemi, Pers istilası, Bizans hakimi, Osmanlı fethi, Kurtuluş Savaşı, Kazdağı efsanesi, antik kazılar, turizm gelişimi",
+    "seyahathatirasi": "Cunda adası tablosu, zeytin yağı paketi, manyas kuş kartpostalı, bal kavanozu, antandros heykelciği, şelale magneti, kazdağı sabunu, yöresel yoğurt paketi"
+
   },
   {
     "name": "Bilecik",
@@ -163,6 +265,16 @@
     "müzeResmi": "/static/images/müzeler/11.jpg",
     "ekonomikFaaliyetler": "Tarım, Sanayi, Maden (Mermer)",
     "tarimUrunleri": "Buğday, Arpa, Ayçiçeği, Şeker Pancarı"
+    "hangiülkedevaroldu": "Frigler, Bitinya Krallığı, Roma İmparatorluğu, Osmanlı Beyliği",
+    "gezilecekyerler": "Saat Kulesi, Söğüt Türbesi, Edebali Türbesi, Osmaneli Köprüsü, İnönü Müzesi, Vezirhan Köprüsü, Cumalıkızık Evleri, Gölpazarı Kaplıcaları",
+    "önemliinsanlar": "Ertuğrul Gazi, Osman Gazi, Şeyh Edebali, İsmail Hakkı Bursevî, Seyyid Battal Gazi",
+    "hayvancılık": "Büyükbaş-küçükbaş, arıcılık, mera, süt ve et üretimi, kümes, doğal otlak, yaylacılık, hayvan pazarı",
+    "bitkiörtüsü": "Meşe-kayın ormanı, maki, otsu bitki, çalılık, tarım arazisi, sulak alan bitkisi, doğal çayır, bozkır",
+    "havakoşulları": "Karasal iklim; yazlar sıcak, kışlar soğuk ve yağışlı, kar görülebilir",
+    "coğrafiişaretler": "Alıç Reçeli, Söğüt Kandili, Osmaneli Balı, Bozüyük Peyniri, Gölpazarı Fındığı, Dut Pekmezi, Söğüt Kekiği, Tarhana",
+    "tarihiólaylar": "Osmanlı Beyliği kuruluşu, Ertuğrul fethi, İnönü Savaşları, Şeyh Edebali tesiri, Osmanlı yükselişi, bölge savunması, külliye yapımları, müze kurulumu",
+    "seyahathatirasi": "Söğüt türbe maketi, saat kulesi magneti, alıç reçeli kavanozu, tarhana paketi, fındık kutusu, köprü posteri, müze broşürü, ev replikası"
+
   },
   {
     "name": "Bingöl",
@@ -177,7 +289,17 @@
     "müzeler": "",
     "müzeResmi": "/static/images/müzeler/12.jpg",
     "ekonomikFaaliyetler": "Hayvancılık, Tarım",
-    "tarimUrunleri": "Buğday, Arpa, Patates, Şeker Pancarı"
+    "tarimUrunleri": "Buğday, Arpa, Patates, Şeker Pancarı",
+    "hangiülkedevaroldu": "Urartular, Medler, Persler, Osmanlı Devleti",
+    "gezilecekyerler": "Yüzen Adalar, Kiğı Kalesi, Sülüklü Göl, Yüzen Adalar, Peri Suyu, Çır Kebapçısı, Bingöl Yaylaları, Mogan Gölü",
+    "önemliinsanlar": "Şeyh Said, Ahmed Arif, Cahit Zarifoğlu, İsmail Kaya, Ahmet Arif",
+    "hayvancılık": "Büyükbaş-küçükbaş, koyun, arıcılık, süt ve et, mera, yaylacılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Bozkır, çam-kayın ormanı, otsu bitki, step, alpin, sulak alan bitkisi, çalı, çayır",
+    "havakoşulları": "Karasal iklim; kışlar sert, yazlar sıcak, kar yağışı yüksek, nem düşük",
+    "coğrafiişaretler": "Bingöl Balı, Kiğı Kekiği, Yayla Çayı, Yüzen Ada magneti, Peri Suyu suyu, Kurutma paketi, Göl hatırası, kebap seti",
+    "tarihiólaylar": "Urartu yerleşimi, Med hakimiyeti, Pers istilası, Osmanlı fethi, Şeyh Said İsyanı, etnik değişimler, Kurtuluş Savaşı, doğal afetler",
+    "seyahathatirasi": "Yüzen adalar posteri, kiğı kale maketi, sülüklü göl fotoğrafı, çır kebabı biblosu, yayla temalı magnet, perisuyu çayı paketi, bingöl balı kavanozu, doğal tuz taşı"
+
   },
   {
     "name": "Bitlis",
@@ -192,7 +314,17 @@
     "müzeler": "Ahlat Müzesi, Bitlis Etnografya Müzesi",
     "müzeResmi": "/static/images/müzeler/13.jpg",
     "ekonomikFaaliyetler": "Hayvancılık, Tarım, Ticaret",
-    "tarimUrunleri": "Buğday, Arpa, Nohut, Mercimek"
+    "tarimUrunleri": "Buğday, Arpa, Nohut, Mercimek",
+    "hangiülkedevaroldu": "Urartular, Sasani İmparatorluğu, Bizans İmparatorluğu, Selçuklu Devleti",
+    "gezilecekyerler": "Bitlis Kalesi, Nemrut Dağı, Güroymak Kaplıcaları, Ahlat Mezarlığı, Eski Bitlis Evleri, Tatvan Sahili, Süphan Dağı, Bitlis Müzesi",
+    "önemliinsanlar": "Süleyman Çelebi, İsmail Beşikçi, Selahattin Eyyubi, Nurettin Topçu, Muzaffer Ozak",
+    "hayvancılık": "Büyükbaş-küçükbaş, koyun, süt ve et, mera, yaylacılık, arıcılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Bozkır, step, dağ ormanı, otsu bitki, alpin, sulak alan bitkisi, çalı, çayır",
+    "havakoşulları": "Karasal iklim; kışlar sert, yazlar kısa, kar yağışı yüksek, nem düşük",
+    "coğrafiişaretler": "Bitlis Balı, Ahlat Taşı, Süphan Kaymağı, Alabalık, El Sanatları, Nemrut Kekiği, Peyniri, kaplıca suyu",
+    "tarihiólaylar": "Urartu yerleşimi, Sasani-Bizans mücadeleleri, Selçuklu egemenliği, Osmanlı fethi, dini hareketler, bölgesel isyanlar, mezarlık inşası, 20. yy gelişmeleri",
+    "seyahathatirasi": "Nemrut magneti, kale maketi, kaplıca suyu paketi, ahlat taşı biblo, tatvan sahil kartpostalı, süphan kaymağı kavanozu, bal paketi, el sanatı deseni"
+
   },
   {
     "name": "Bolu",
@@ -207,7 +339,17 @@
     "müzeler": "Bolu Müzesi (Arkeoloji ve Etnografya Müzesi)",
     "müzeResmi": "/static/images/müzeler/14.png",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Ormancılık, Turizm",
-    "tarimUrunleri": "Mısır, Patates, Fındık, Buğday"
+    "tarimUrunleri": "Mısır, Patates, Fındık, Buğday",
+    "hangiülkedevaroldu": "Hititler, Frigler, Bitinya Krallığı, Roma İmparatorluğu",
+    "gezilecekyerler": "Abant Gölü, Yedigöller, Bolu Kalesi, Gölcük, Kartalkaya, Göynük Evleri, Seben Kaya Evleri, Mudurnu Çarşısı",
+    "önemliinsanlar": "İzzet Baysal, Mehmet Akif Ersoy, Ahmet Hamdi Tanpınar, Necip Fazıl Kısakürek, Sabri Esat Siyavuşgil",
+    "hayvancılık": "Büyükbaş-küçükbaş, süt ve et, mera, arıcılık, yaylacılık, hayvan pazarı, tavuk, doğal otlak",
+    "bitkiörtüsü": "Karadeniz ormanları, çam-kayın-ladin, otsu bitki, alpin, step, sulak alan, çayır, endemik",
+    "havakoşulları": "Karasal-Karadeniz geçişi; kışlar yoğun kar, yazlar nemli, yağış dengeli",
+    "coğrafiişaretler": "Abant Balı, Yedigöller Kekiği, Mudurnu Çöreği, Bolu Kaymağı, Seben Balı, Göynük Lokumu, Kartalkaya Suyu, Kestanesi",
+    "tarihiólaylar": "Hitit yerleşimi, Frig etkisi, Bitinya dönemi, Roma egemenliği, Osmanlı fethi, tarihi köy koruma, turizm gelişimi, doğal park ilanı",
+    "seyahathatirasi": "Abant gölü magneti, yedigöller fotoğraf kitabı, kartalkaya kayak anahtarlığı, mudurnu çarşı posteri, kaya evi biblosu, kestane şekeri paketi, lokum kutusu, su şişesi"
+
   },
   {
     "name": "Burdur",
@@ -222,7 +364,17 @@
     "müzeler": "Burdur Arkeoloji Müzesi",
     "müzeResmi": "/static/images/müzeler/15.jpg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Madencilik, Turizm",
-    "tarimUrunleri": "Gül, Lavanta, Buğday, Arpa"
+    "tarimUrunleri": "Gül, Lavanta, Buğday, Arpa",
+    "hangiülkedevaroldu": "Likya Uygarlığı, Roma İmparatorluğu, Bizans İmparatorluğu, Selçuklu Devleti",
+    "gezilecekyerler": "Burdur Müzesi, Sagalassos, Salda Gölü, Ağlasun, İnsuyu Mağarası, Burdur Kalesi, Hasan Dağı, Bucak Kaplıcaları",
+    "önemliinsanlar": "Naciye Sultan, Halide Edip Adıvar, Mehmet Akif Ersoy, Kemal Sunal, Tevfik Fikret",
+    "hayvancılık": "Büyükbaş-küçükbaş, koyun, süt ve et, mera, yaylacılık, arıcılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Maki, step, otsu bitki, orman, sulak alan, tarım, endemik, dağ flora",
+    "havakoşulları": "Akdeniz-karasal geçiş; yazlar kurak, kışlar yağışlı, nem düşük",
+    "coğrafiişaretler": "Salda Suyu, Bucak Balı, Ağlasun Cevizi, Tulum Peyniri, Lavanta Balı, Kekiği, Kaplıca Suyu, Burdur Çöreği",
+    "tarihiólaylar": "Likya uygarlığı, Roma-Bizans gelişimi, Selçuklu hakimiyeti, Osmanlı fethi, antik kazılar, bölgesel savaşlar, kültürel miras projeleri, turizm artışı",
+    "seyahathatirasi": "Salda su şişesi, sagalassos harita kartı, lavanta sabunu, kaplıca tuzu, ağlasun fındık kolyesi, mağara magneti, antik heykelciği, müze rehberi"
+
   },
   {
     "name": "Bursa",
@@ -237,7 +389,17 @@
     "müzeler": "Bursa Kent Müzesi, Türk İslam Eserleri Müzesi",
     "müzeResmi": "/static/images/müzeler/16.jpg",
     "ekonomikFaaliyetler": "Sanayi, Tarım, Otomotiv, Tekstil, Turizm",
-    "tarimUrunleri": "Şeftali, Armut, Zeytin, İncir"
+    "tarimUrunleri": "Şeftali, Armut, Zeytin, İncir",
+    "hangiülkedevaroldu": "Bitinya Krallığı, Roma İmparatorluğu, Bizans İmparatorluğu, Osmanlı Devleti",
+    "gezilecekyerler": "Ulu Camii, Yeşil Türbe, Bursa Kalesi, Cumalıkızık, Osman Gazi Türbesi, Emir Sultan Camii, Gölyazı, Uludağ",
+    "önemliinsanlar": "Osman Gazi, Orhan Gazi, İbrahim Çelebi, Hacı İvaz Paşa, İskender Paşa",
+    "hayvancılık": "Büyükbaş-küçükbaş, arıcılık, süt ve et, mera, yaylacılık, kümes, doğal otlak, tavuk",
+    "bitkiörtüsü": "Maki, orman, kayın-meşe, otsu bitki, tarım, sulak alan, alpin, endemik",
+    "havakoşulları": "Marmara-karasal geçiş; yazlar ılık, kışlar yağışlı, kar yağışı zaman zaman",
+    "coğrafiişaretler": "İskender, İnegöl Köfte, Uludağ Kirazı, İpek, Gemlik Zeytin, Kestane Balı, Kestane Şekeri, Höşmerim",
+    "tarihiólaylar": "Bitinya dönemi, Roma-Bizans yönetimi, Osmanlı başkenti olması, sanayi devrimi, kültürel miras koruma, yeşil türbe inşası, camii yapımları, turizm gelişimi",
+    "seyahathatirasi": "İskender tabağı magneti, cumalıkızık evi modeli, kervansaray kartpostalı, zeytin sabunu, kiraz reçeli, ipek mendil, türbe biblosu, höşmerim kutusu"
+
   },
   {
     "name": "Çanakkale",
@@ -252,7 +414,17 @@
     "müzeler": "Çanakkale Savaşları Gelibolu Tarihi Alan Başkanlığı Müzesi, Troya Müzesi",
     "müzeResmi": "/static/images/müzeler/17.jpg",
     "ekonomikFaaliyetler": "Tarım, Balıkçılık, Turizm, Şarapçılık",
-    "tarimUrunleri": "Zeytin, Domates, Buğday, Üzüm"
+    "tarimUrunleri": "Zeytin, Domates, Buğday, Üzüm",
+    "hangiülkedevaroldu": "Troya, Persler, Roma İmparatorluğu, Osmanlı Devleti",
+    "gezilecekyerler": "Troya Antik Kenti, Şehitler Anıtı, Assos, Bozcaada, Gökçeada, Kazdağları, Aynalı Çarşı, Kilitbahir Kalesi",
+    "önemliinsanlar": "Homeros, Mustafa Kemal Atatürk, Cevat Çobanlı, Namık Kemal, Şehitlerimiz",
+    "hayvancılık": "Büyükbaş-küçükbaş, arıcılık, süt ve et, mera, kümes, balıkçılık, doğal otlak, yaylacılık",
+    "bitkiörtüsü": "Maki, kızılçam, otsu bitki, zeytinlik, sulak alan, step, endemik, mera",
+    "havakoşulları": "Akdeniz-Karadeniz geçişi; yazlar sıcak, kışlar ılıman, yağış dengeli",
+    "coğrafiişaretler": "Zeytin, Bozcaada Şarap, Ezine Peyniri, Kilitbahir Balığı, Gökçeada Balı, Assos Zeytinyağı, Troya Balı, Şehitler Hatırası",
+    "tarihiólaylar": "Troya Savaşı efsanesi, Pers istilası, Roma-Bizans dönemi, Çanakkale Savaşı, Osmanlı hakimiyeti, antik keşifler, bozcaada gelişimi, kültürel miras",
+    "seyahathatirasi": "Troya heykelciği, anıt magneti, Assos taş suyu, ada şarabı mini, kilitbahir kalesi maketi, şarap etiketi, zeytin kolyesi, şehitler defteri replikası"
+
   },
   {
     "name": "Çankırı",
@@ -267,7 +439,17 @@
     "müzeler": "Çankırı Müzesi, Tarihi Çamaşırhane Müzesi",
     "müzeResmi": "/static/images/müzeler/18.jpg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Tuz Madenciliği",
-    "tarimUrunleri": "Buğday, Arpa, Nohut, Mercimek"
+    "tarimUrunleri": "Buğday, Arpa, Nohut, Mercimek",
+    "hangiülkedevaroldu": "Hititler, Frigler, Lidyalılar, Roma İmparatorluğu",
+    "gezilecekyerler": "Çankırı Kalesi, Tuz Mağarası, Ilgaz Milli Parkı, Müzesi, Hıdırlık Tepesi, Çerkeş Kalesi, Kurşunlu Camii, Cendere Köprüsü",
+    "önemliinsanlar": "Karahisari, Nasreddin Hoca, Hacı Bayram Veli, Hacı Bektaş Veli, Mimar Sinan",
+    "hayvancılık": "Büyükbaş-küçükbaş, arıcılık, mera, tavuk, süt ve et, doğal otlak, kümes, yaylacılık",
+    "bitkiörtüsü": "Meşe-çam ormanı, otsu bitki, bozkır, sulak alan, step, çalılık, doğal çayır, endemik",
+    "havakoşulları": "Karasal iklim; yazlar sıcak, kışlar soğuk ve kar yağışlı, nem düşük",
+    "coğrafiişaretler": "Çankırı Tuzu, Ilgaz Balı, Kurşunlu Peyniri, Çöreği, Kekiği, Camii Biblosu, Kale Magneti, Cendere Hatırası",
+    "tarihiólaylar": "Hitit yerleşimi, Frig hakimiyeti, Lidya dönemi, Roma egemenliği, Osmanlı fethi, Tuz üretimi, ortaçağ savunması, kültürel gelişme",
+    "seyahathatirasi": "Tuz mağarası tuzu, kale maketi, ilgaz kartpostalı, hıdırlık biblo, cami minyatürü, köprü magneti, camii cam bardağı, yöresel çörek"
+
   },
   {
     "name": "Çorum",
@@ -282,7 +464,17 @@
     "müzeler": "Çorum Müzesi, Boğazköy Müzesi",
     "müzeResmi": "/static/images/müzeler/19.jpg",
     "ekonomikFaaliyetler": "Tarım, Sanayi (Leblebi), Ticaret",
-    "tarimUrunleri": "Buğday, Arpa, Nohut, Ayçiçeği"
+    "tarimUrunleri": "Buğday, Arpa, Nohut, Ayçiçeği",
+    "hangiülkedevaroldu": "Hititler, Frigler, Persler, Roma İmparatorluğu",
+    "gezilecekyerler": "Alacahöyük, Hattuşaş, Boğazkale Müzesi, İncesu Kanyonu, Çorum Kalesi, Osmancık Çarşısı, Yazılıkaya, Oğuzlar Yaylası",
+    "önemliinsanlar": "Zaimoğlu, Cengiz Aytmatov, Ahmet Arif, İsmail Beşikçi, Şair Zihni",
+    "hayvancılık": "Büyükbaş-küçükbaş, arıcılık, süt ve et, mera, tavuk, yaylacılık, doğal otlak, koyun",
+    "bitkiörtüsü": "Step, orman (çam-meşe), otsu bitki, tarım, sulak alan, alpin, çayır, endemik",
+    "havakoşulları": "Karasal iklim; yazlar sıcak, kışlar soğuk ve kar yağışlı, nem düşük",
+    "coğrafiişaretler": "Leblebi, Alacahöyük Balı, Hattuşaş Kekiği, Osmancık Pirinci, Çorum Tarhanası, Yazılıkaya Sanatı, Oğuzlar Balı, Taş İşçiliği",
+    "tarihiólaylar": "Hitit başkenti, Frig etkisi, Pers istilası, Roma dönemi, Osmanlı fethi, arkeolojik kazılar, Kurtuluş Savaşı, kültürel miras",
+    "seyahathatirasi": "Leblebi paketi, höyük magneti, kaya kabartma kopyası, çorum kekiği kavanozu, tarhana poşeti, pirinç torbası, yazılıkaya kartpostalı, çarşı el işi"
+
   },
   {
     "name": "Denizli",
@@ -297,7 +489,16 @@
     "müzeler": "Atatürk Evi Etnografya Müzesi, Pamukkale Hierapolis Arkeoloji Müzesi",
     "müzeResmi": "/static/images/müzeler/20.jpg",
     "ekonomikFaaliyetler": "Tekstil, Turizm, Tarım",
-    "tarimUrunleri": "Pamuk, Üzüm, Kiraz, Biber"
+    "hangiülkedevaroldu": "Lidyalılar, Persler, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Pamukkale, Hierapolis, Laodikya, Kaklık Mağarası, Denizli Kalesi, Bağbaşı Yaylası, Çardak Kaplıcaları, Honaz Dağı",
+    "önemliinsanlar": "Denizli Ahmet, Halit Ziya Uşaklıgil, Mehmet Akif Ersoy, Hüseyin Cahit Yalçın, Evliya Çelebi",
+    "hayvancılık": "Büyükbaş-küçükbaş, koyun, süt ve et, mera, arıcılık, tavuk, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Maki, otsu bitki, orman, tarım, step, sulak alan, endemik, subalpin",
+    "havakoşulları": "Akdeniz iklimi; yazlar sıcak ve kurak, kışlar ılık ve yağışlı, nem düşük",
+    "coğrafiişaretler": "Denizli Horozu, Pamukkale Balı, Laodikya Üzümü, Honaz Kirazı, Kaplıca Suyu, Denizli Kekiği, Çardak Balı, Çay Daveti",
+    "tarihiólaylar": "Lidya dönem, Pers istilası, Bizans egemenliği, Osmanlı fethi, antik keşifler, turizm gelişimi, kaplıcalar kuruluşu, kültürel etkinlikler",
+    "seyahathatirasi": "Pamukkale tuzu, hierapolis heykelciği, laodikya şarap etiketi, kaklık kartpostalı, horoz biblosu, yayla fotoğraf albümü, kiraz reçeli, kaplıca su şişesi"
+
   },
   {
     "name": "Diyarbakır",
@@ -313,6 +514,16 @@
     "müzeResmi": "/static/images/müzeler/21.jpeg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Ticaret",
     "tarimUrunleri": "Karpuz, Buğday, Arpa, Pamuk"
+    "hangiülkedevaroldu": "Hurri-Mitanni, Asurlular, Artuklular, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Diyarbakır Surları, Ulu Camii, Hasan Paşa Hanı, Mardin Kapı, Hevsel Bahçeleri, On Gözlü Köprü, Cahit Sıtkı Tarancı Müzesi, Hasan Ağa Hanı",
+    "önemliinsanlar": "Cahit Sıtkı Tarancı, Ahmet Arif, Mehmed Emin Bozarslan, İbrahim Tatlıses, Musa Anter",
+    "hayvancılık": "Büyükbaş ve küçükbaş, koyun, arıcılık, mera, süt ve et, yaylacılık, tavukçuluk, doğal otlak",
+    "bitkiörtüsü": "Step bitkileri, meşe-gürgen ormanları, otsu bitkiler, sulak alan florası, tarım arazileri, çalılık, endemik türler, doğal çayırlar",
+    "havakoşulları": "Karasal iklim: yazlar sıcak & kurak, kışlar soğuk & yağışlı, kar yağışı nadir, nem düşük",
+    "coğrafiişaretler": "Diyarbakır Karpuzu, Dicle Balı, Siyah Fıstık, Tarhanası, Dut Pekmezi, Mardin Kapısı Ahşabı, Sur Magneti, Köfte",
+    "tarihiólaylar": "Hurri-Mitanni hakimiyeti, Asur egemenliği, Artuklu Beyliği, Osmanlı fethi, surların inşası, İslam’ın yayılışı, 20. yy çatışmaları, kültürel zenginlik",
+    "seyahathatirasi": "Surlar kartpostalı, Ulu Camii biblosu, Hasanköprü magneti, Mardin Kapısı minyatürü, Dicle Balı kavanozu, Sur defteri hatırası, Tarhana paketi, Karpuz tohum seti"
+ 
   },
   {
     "name": "Edirne",
@@ -327,7 +538,17 @@
     "müzeler": "Edirne Arkeoloji ve Etnografya Müzesi, Türk-İslam Eserleri Müzesi",
     "müzeResmi": "/static/images/müzeler/22.png",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Ticaret, Turizm",
-    "tarimUrunleri": "Ayçiçeği, Buğday, Pirinç, Mısır"
+    "tarimUrunleri": "Ayçiçeği, Buğday, Pirinç, Mısır",
+    "hangiülkedevaroldu": "Traklar, Roma İmparatorluğu, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Selimiye Camii, Üç Şerefeli Cami, Edirne Sarayı, Meriç Nehri, Saraçlar Caddesi, Eski Camii, Karaağaç Tren Garı, Havsa Kalesi",
+    "önemliinsanlar": "Mimar Sinan, Sultan II. Bayezid, Evliya Çelebi, Namık Kemal, Ali Paşa",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, tavukçuluk, mera, balıkçılık, doğal otlak, kümes",
+    "bitkiörtüsü": "Step bitkileri, ılıman ormanlar, otsu florası, sulak alan bitkileri, tarım arazileri, çalılık, endemik türler, çayırlar",
+    "havakoşulları": "Geçiş iklimi: yazlar sıcak & kurak, kışlar ılık & yağışlı, nem orta, rüzgar etkili",
+    "coğrafiişaretler": "Edirne Tava Ciğeri, Leblebi, Meriç Balığı, Beyaz Peynir, Saraçlar Köftesi, Karaağaç Üzümü, Ciğer Magneti, Selimiye Hatırası",
+    "tarihiólaylar": "Trak kökeni, Roma & Bizans dönemleri, Osmanlı başkenti olması, Balkan Savaşları, 1. DÜŞ savaşı, Selimiye inşası, Saraçlar çarşısı, savaş sonrası kalkınma",
+    "seyahathatirasi": "Camii minyatürü, tava ciğeri paketi, leblebi torbası, nehir manzaralı kartpostalı, saray biblosu, köfte tarifi kitapçığı, üzüm reçeli, tren garı magneti"
+
   },
   {
     "name": "Elazığ",
@@ -342,7 +563,17 @@
     "müzeler": "Elazığ Arkeoloji ve Etnografya Müzesi",
     "müzeResmi": "/static/images/müzeler/23.webp",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Maden (Elazığ Vişnesi)",
-    "tarimUrunleri": "Üzüm, Kayısı, Buğday, Arpa"
+    "tarimUrunleri": "Üzüm, Kayısı, Buğday, Arpa",
+    "hangiülkedevaroldu": "Urartular, Persler, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Harput Kalesi, Keban Barajı, Hazar Gölü, Elazığ Müzesi, Meryem Ana Kilisesi, Karakoçan Kaplıcaları, Munzur Dağları, Arkeoloji Müzesi",
+    "önemliinsanlar": "Pir Sultan Abdal, Mehmet Akif Ersoy, Nuri Dersimi, Seyrani, Şeyh Said",
+    "hayvancılık": "Büyükbaş & küçükbaş, koyun, süt & et, arıcılık, mera, yaylacılık, tavukçuluk, doğal otlak",
+    "bitkiörtüsü": "Bozkır, step, dağ ormanları, otsu bitkiler, tarım arazileri, sulak alan florası, alpin, endemik türler",
+    "havakoşulları": "Karasal iklim: kışlar sert & uzun, yazlar kısa & sıcak, kar yağışı, donlu günler, nem düşük",
+    "coğrafiişaretler": "Elazığ Üzümü, Keban Balığı, Hazar Balığı, Ceviz, Munzur Kaplıca Suyu, Harput Kekiği, Kaplıca Magneti, Tatlı Su Seti",
+    "tarihiólaylar": "Urartu yerleşimi, Pers hakimiyeti, Bizans dönemi, Harput inşası, Osmanlı fethi, Şeyh Said İsyanı, 20. yy kültür hareketleri, baraj yapımı",
+    "seyahathatirasi": "Kale magneti, kaplıca suyu şişesi, üzüm reçeli, baraj manzaralı kart, ceviz kolyesi, kekiği kavanozu, kilise figürü, anı defteri"
+
   },
   {
     "name": "Erzincan",
@@ -357,7 +588,17 @@
     "müzeler": "Erzincan Etnografya Müzesi",
     "müzeResmi": "/static/images/müzeler/24.png",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Maden",
-    "tarimUrunleri": "Buğday, Arpa, Şeker Pancarı, Patates"
+    "tarimUrunleri": "Buğday, Arpa, Şeker Pancarı, Patates",
+    "hangiülkedevaroldu": "Urartular, Pontus Krallığı, Mengücek Beyliği, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Erzincan Kalesi, Girlevik Şelalesi, Mama Hatun Türbesi, Otlukbeli Tabyaları, Kemaliye Evleri, Erzincan Müzesi, Abrenk Kilisesi, Munzur Dağları",
+    "önemliinsanlar": "Hasan Hüseyin Korkmazgil, Abdurrahim Karakoç, Ahmet Arif, Hacı Bektaş Veli, Seyrani",
+    "hayvancılık": "Büyükbaş & küçükbaş, koyun, süt & et, arıcılık, mera, yaylacılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Dağ ormanları, step, otsu bitkiler, sulak alan, çayırlar, alpin, endemik, tarım",
+    "havakoşulları": "Karasal iklim: kışlar sert & uzun, yazlar kısa & sıcak, kar yağışı yüksek, nem düşük",
+    "coğrafiişaretler": "Erzincan Tulum Peyniri, Girlevik Balı, Kemaliye Kekiği, Alabalık, Ceviz, Tabya Magneti, Kilise Biblosu, Şelale Kartpostalı",
+    "tarihiólaylar": "Urartu yerleşimi, Pontus dönemi, Mengücek yönetimi, Osmanlı fethi, 1939 depremi, Kurtuluş Savaşı, kültürel gelişim, tabyaların önemi",
+    "seyahathatirasi": "Tulum peyniri paketi, bal kavanozu, kilise simgesi, kale kartı, kekiği kavanozu, abrenk biblo, şelale fotoğraf kitabı, tabya minyatürü"
+
   },
   {
     "name": "Erzurum",
@@ -372,7 +613,17 @@
     "müzeler": "Erzurum Arkeoloji Müzesi, Türk‑İslam Eserleri ve Etnografya Müzesi",
     "müzeResmi": "/static/images/müzeler/25.jpg",
     "ekonomikFaaliyetler": "Hayvancılık, Tarım, Kış Turizmi, Ticaret",
-    "tarimUrunleri": "Buğday, Arpa, Şeker Pancarı, Patates"
+    "tarimUrunleri": "Buğday, Arpa, Şeker Pancarı, Patates",
+    "hangiülkedevaroldu": "Urartular, Bizans İmparatorluğu, Saltuklular, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Çifte Minareli Medrese, Erzurum Kalesi, Yakutiye Medresesi, Üç Kümbetler, Palandöken Kayak Merkezi, Aziziye Tabyaları, Tortum Şelalesi, Narman Peri Bacaları",
+    "önemliinsanlar": "İbrahim Hakkı Erzurumi, Nene Hatun, Erzurumlu Emrah, Salih Zeki, İhsan Doğramacı",
+    "hayvancılık": "Büyükbaş & küçükbaş, koyun, süt & et, arıcılık, mera, yaylacılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Alpin bitkiler, bozkır, otsu bitkiler, orman alanları, çayırlar, endemik, sulak alan, yayla",
+    "havakoşulları": "Sert karasal iklim: kışlar uzun & çok kar, yazlar kısa & serin, donlu günler, nem düşük",
+    "coğrafiişaretler": "Cağ Kebabı, Oltu Taşı, Ketesi, Su Böreği, İspir Fasulyesi, Pastırma, Dut Pekmezi, Civil Peyniri",
+    "tarihiólaylar": "Urartu dönemi, Bizans egemenliği, Saltuklu Beyliği, Osmanlı fethi, Erzurum Kongresi, 1930 depremi, Kurtuluş Savaşı, bölgesel direniş",
+    "seyahathatirasi": "Taşı oyma minyatür, cağ kebabı sosu, kayak rozeti, şelale posteri, medrese magneti, et lokumu paketi, pastırma dilimi maketi, peribaca fotoğrafı"
+
   },
   {
     "name": "Eskişehir",
@@ -387,7 +638,17 @@
     "müzeler": "Eti Arkeoloji Müzesi, Yılmaz Büyükerşen Balmumu Heykeller Müzesi",
     "müzeResmi": "/static/images/müzeler/26.jpg",
     "ekonomikFaaliyetler": "Sanayi, Demiryolu Ulaşımı, Tarım",
-    "tarimUrunleri": "Buğday, Arpa, Şeker Pancarı, Haşhaş"
+    "tarimUrunleri": "Buğday, Arpa, Şeker Pancarı, Haşhaş",
+    "hangiülkedevaroldu": "Frigler, Roma İmparatorluğu, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Odunpazarı Evleri, Sazova Parkı, Porsuk Çayı, Balmumu Müzesi, Lületaşı Müzesi, Kurşunlu Camii, Atlıhan Çarşısı, Alaaddin Camii",
+    "önemliinsanlar": "Aşık Veysel, Yunus Emre, Nasreddin Hoca, İbrahim Çallı, Hamza Yerlikaya",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, tavuk, mera, yaylacılık, doğal otlak, kanatlı",
+    "bitkiörtüsü": "Step, meşe-kayın ormanı, otsu bitki, çayır, endemik, tarım, sulak alan, bozkır",
+    "havakoşulları": "Karasal iklim: yazlar sıcak & kurak, kışlar soğuk & kar yağışlı, nem düşük",
+    "coğrafiişaretler": "Lületaşı, Odunpazarı Balı, Çörek, Hanımı, Porsuk Balığı, Çarşı Biblosu, Kaplıca Suyu, Kekiği",
+    "tarihiólaylar": "Frig yerleşimi, Roma & Bizans dönemi, Osmanlı fethi, sanayileşme, Kurtuluş Savaşı, Nasreddin efsaneleri, kültürel gelişme, modern eğitim",
+    "seyahathatirasi": "Lületaşından kolye, çarşı magneti, step manzaralı kart, bal kavanozu, çömlek biblosu, ev maketi, çay bardağı, kitap ayracı"
+
   },
   {
     "name": "Gaziantep",
@@ -402,7 +663,17 @@
     "müzeler": "Zeugma Mozaik Müzesi, Gaziantep Arkeoloji Müzesİ",
     "müzeResmi": "/static/images/müzeler/27.png",
     "ekonomikFaaliyetler": "Sanayi, Tarım, Ticaret, Gastronomi Turizmi",
-    "tarimUrunleri": "Antep Fıstığı, Zeytin, Buğday, Arpa"
+    "tarimUrunleri": "Antep Fıstığı, Zeytin, Buğday, Arpa",
+    "hangiülkedevaroldu": "Hititler, Asurlular, Roma İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Gaziantep Kalesi, Zeugma Mozaik Müzesi, Bakırcılar Çarşısı, Rumkale, Yesemek, Botanik Bahçe, Zincirli Bedesten, Almacı Pazarı",
+    "önemliinsanlar": "İbrahim Tatlıses, Şahin Bey, Gani Müjde, Ökkeş Özek, Sani Konukoğlu",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, tavuk, mera, doğal otlak, yaylacılık, kanatlı",
+    "bitkiörtüsü": "Step, meşe ormanı, otsu bitki, tarım, sulak alan, maki, endemik, çayır",
+    "havakoşulları": "Karasal iklim: yazlar sıcak & kurak, kışlar soğuk & yağışlı, nem düşük",
+    "coğrafiişaretler": "Antep Fıstığı, Baklavası, Fıstık Ezmesi, Katmeri, Lahmacunu, Bakırcı Hatırası, Mozaik Magnet, Fıstık Kekiği",
+    "tarihiólaylar": "Hitit yerleşimi, Asur yolu, Roma egemenliği, Osmanlı fethi, Kurtuluş Savaşı kahramanlığı, mozaiğin keşfi, sanayi gelişimi, kültürel miras",
+    "seyahathatirasi": "Fıstık paketi, baklava kutusu, kale kartpostalı, bakırcı biblosu, mozaik parçası, lahmacun tarifi kartı, kekiği kavanozu, anı defteri"
+
   },
   {
     "name": "Giresun",
@@ -417,7 +688,17 @@
     "müzeler": "Şebinkarahisar Atatürk Evi ve Müzesi, Giresun Müzesİ",
     "müzeResmi": "/static/images/müzeler/28.jpeg",
     "ekonomikFaaliyetler": "Fındık Üretimi, Tarım, Balıkçılık",
-    "tarimUrunleri": "Fındık, Çay, Mısır, Patates"
+    "tarimUrunleri": "Fındık, Çay, Mısır, Patates",
+    "hangiülkedevaroldu": "Kolhis Krallığı, Pontus Krallığı, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Giresun Kalesi, Giresun Adası, Kuşkayası Yol Anıtı, Tirebolu Kalesi, Espiye Çınarı, Karagöl, Zeytinlik Mahallesi, Giresun Müzesi",
+    "önemliinsanlar": "Bedri Rahmi Eyüboğlu, Yaşar Kemal, Haldun Taner, Behçet Necatigil, Orhan Pamuk (etk.)",
+    "hayvancılık": "Küçükbaş, süt & et, arıcılık, balıkçılık, tavuk, mera, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Karadeniz ormanları, maki, otsu bitki, fındık bahçeleri, sulak alan, endemik, çayır, yayla",
+    "havakoşulları": "Karadeniz iklimi: bol yağış, nem yüksek, yazlar serin, kışlar ılık",
+    "coğrafiişaretler": "Giresun Fındığı, Cevizi, Kuşkayası Biblosu, Mumu, Fındık Tohumu, Balı, Kekiği, Deniz Ürünleri",
+    "tarihiólaylar": "Kolhis dönemi, Pontus egemenliği, Bizans yönetimi, Osmanlı fethi, deniz ticareti, fındık üretimi, yayla festivalleri, kültürel gelişme",
+    "seyahathatirasi": "Fındık paketi, ada magneti, mumu biblo, çınar tohumu, kale kartpostalı, bal kavanozu, çarşı turu kartı, yayla fotoğrafı"
+,
   },
   {
     "name": "Gümüşhane",
@@ -432,7 +713,17 @@
     "müzeler": "Gümüşhane Müzesi, Gümüşhane İkizevler Kent Müzesİ",
     "müzeResmi": "/static/images/müzeler/29.jpg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Madencilik (Kurşun, Çinko, Gümüş)",
-    "tarimUrunleri": "Buğday, Arpa, Patates, Şeker Pancarı"
+    "tarimUrunleri": "Buğday, Arpa, Patates, Şeker Pancarı",
+    "hangiülkedevaroldu": "Urartular, Persler, Pontus Krallığı, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Santa Harabeleri, Karaca Mağarası, Zigana Geçidi, Torul Kalesi, Harşit Vadisi, Limni Gölü, Süleymaniye Camii, Gümüşhane Müzesi",
+    "önemliinsanlar": "Mehmet Akif Ersoy, İsmail Hakkı Baltacıoğlu, Hacı Bektaş Veli, Şair Zihni, İbrahim Hakkı",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, tavuk, mera, yaylacılık, doğal otlak, kanatlı",
+    "bitkiörtüsü": "Karadeniz-Doğu Anadolu ormanları, otsu bitki, alpin, sulak alan, endemik, çayır, step",
+    "havakoşulları": "Karasal iklim: kışlar sert & kar yağışlı, yazlar serin & kısa, nem düşük",
+    "coğrafiişaretler": "Gümüşhane Balı, Torul Cevizi, Zigana Kekiği, Limni Suyu, Mağara Magneti, Camii Biblosu, Harşit Balığı, Hatıra Seti",
+    "tarihiólaylar": "Urartu yerleşimi, Pers istilası, Pontus dönemi, Osmanlı fethi, manastır etkisi, kültür ticareti, 19. yy hareketleri, yayla göçleri",
+    "seyahathatirasi": "Bal kavanozu, mağara suyu şişesi, tepe kartpostalı, biblo, ceviz paketi, kekiği kavanozu, çarşı turu kitabı, hatıra defteri"
+
   },
   {
     "name": "Hakkari",
@@ -447,7 +738,17 @@
     "müzeler": "Hakkâri Kent Arşiv ve Etnografya Müzesi, Hakkâri Kilim Müzesİ",
     "müzeResmi": "/static/images/müzeler/30.jpg",
     "ekonomikFaaliyetler": "Hayvancılık, Tarım",
-    "tarimUrunleri": "Buğday, Arpa, Mercimek, Nohut"
+    "tarimUrunleri": "Buğday, Arpa, Mercimek, Nohut",
+    "hangiülkedevaroldu": "Urartular, Asurlular, Abbasiler, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Cilo Dağları, Zap Vadisi, Şemdinli Yaylası, Merga Büte, Zerin Köprüsü, Hakkâri Kalesi, Beytüşşebap Yaylası, Hakkâri Müzesi",
+    "önemliinsanlar": "Hacı Murat, Ahmed Arif, Zübeyir Aydar, Abdulkadir Aksu, Musa Anter",
+    "hayvancılık": "Büyükbaş & küçükbaş, koyun, süt & et, arıcılık, mera, yaylacılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Dağ ormanları, step, otsu bitki, alpin, sulak alan, endemik, çayır, çalı",
+    "havakoşulları": "Karasal iklim: kışlar çok sert & uzun, yazlar kısa & serin, kar yağışı yoğun, nem düşük",
+    "coğrafiişaretler": "Hakkâri Balı, Cilo Endemiği, Zap Balığı, Şemdinli Kekiği, Merga Yöresel Ürün, Kale Magneti, Yayla Takısı, Hatıra Boncuğu",
+    "tarihiólaylar": "Urartu yerleşimi, Asur hakimiyeti, Abbasi yönetimi, Osmanlı fethi, bölgesel isyanlar, kültürel direniş, sınır anlaşmaları, yayla yaşamı",
+    "seyahathatirasi": "Bal kavanozu, endemik tohum seti, kale kart, yayla fotoğrafı, boncuklu kolye, kekiği torbası, vadi manzaralı kart, köprü biblo"
+,
   },
   {
     "name": "Hatay",
@@ -462,7 +763,17 @@
     "müzeler": "Hatay Arkeoloji Müzesi, Necmi Asfuroğlu Arkeoloji Müzesi",
     "müzeResmi": "/static/images/müzeler/31.jpg",
     "ekonomikFaaliyetler": "Tarım, Ticaret, Sanayi, Turizm",
-    "tarimUrunleri": "Zeytin, Narenciye, Pamuk, Buğday"
+    "tarimUrunleri": "Zeytin, Narenciye, Pamuk, Buğday",
+    "hangiülkedevaroldu": "Antik Yunan/Seleukoslar, Roma İmparatorluğu, Memlükler, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "St. Pierre Kilisesi, Titus Tüneli, Harbiye Şelaleleri, Antakya Mozaik Müzesi, Asi Nehri, Habib-i Neccar Camii, Titus Tüneli, Titus Kartalı",
+    "önemliinsanlar": "Habib-i Neccar, Saint Pierre, Dörtyollu Halit, İbrahim Tatlıses, Saint Ignatius",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, tavuk, mera, balıkçılık, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Akdeniz makisi, zeytinlik, otsu bitki, orman, tarım, sulak alan, endemik, çalı",
+    "havakoşulları": "Akdeniz iklimi: yazlar sıcak & kurak, kışlar ılık & yağışlı, nem yüksek",
+    "coğrafiişaretler": "Künefe, Mozaik Hatırası, Asi Balığı, Dörtyol Mandalina, Harbiye Balı, Ciğer Sarmaçığı, Kilise Magneti, Tünel Suyu",
+    "tarihiólaylar": "Seleukos inşası, Roma dönemi, Memlük yönetimi, Osmanlı fethi, Hatay’ın Türkiye’ye katılması, dini çeşitlilik, mozaik keşfi, kültürel kaynaşma",
+    "seyahathatirasi": "Künefe paketi, mozaik parçası replikası, tünel su şişesi, şelale kartpostalı, cami biblosu, mandalina reçeli, bal kavanozu, kilise kilidi magneti"
+
   },
   {
     "name": "Isparta",
@@ -477,7 +788,17 @@
     "müzeler": "Isparta Müzesi, Kovada Gölü Milli Parkı Müzesi",
     "müzeResmi": "/static/images/müzeler/32.png",
     "ekonomikFaaliyetler": "Tarım (Gül ve Lavanta), Mermercilik, Turizm",
-    "tarimUrunleri": "Gül, Lavanta, Elma, Kiraz"
+    "tarimUrunleri": "Gül, Lavanta, Elma, Kiraz",
+    "hangiülkedevaroldu": "Lidyalılar, Persler, Roma ve Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Lavanta Bahçeleri, Eğirdir Gölü, Yazılı Kanyon, Kovada Gölü, Sagalassos, Eğirdir Kalesi, Isparta Müzesi, Kuyucak Köyü",
+    "önemliinsanlar": "Salih Bozok, Emine Işınsu, Yalçın Tosun, Cevat Şakir Kabaağaçlı, Hakkı Devrim",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, mera, yaylacılık, tavuk, doğal otlak, kanatlı",
+    "bitkiörtüsü": "Maki, orman, lavanta, otsu bitki, tarım, sulak alan, endemik, çayır",
+    "havakoşulları": "Geçiş iklimi: yazlar sıcak & kurak, kışlar ılık & yağışlı, nem orta",
+    "coğrafiişaretler": "Gül Yağı, Lavanta Balı, Eğirdir Balığı, Gül Reçeli, Sagalassos Şarap, Kanyon Magneti, Kekiği, Kuyucak Biblosu",
+    "tarihiólaylar": "Lidya dönemi, Pers istilası, Roma & Bizans egemenliği, Osmanlı fethi, gül tarımı gelişimi, antik kazılar, kanyon keşfi, kültürel festivaller",
+    "seyahathatirasi": "Gül suyu kavanozu, lavanta demeti, bal paketi, şarap şişesi, kanyon kartpostalı, kale biblosu, müze broşürü, köy el işi"
+
   },
   {
     "name": "Mersin",
@@ -492,7 +813,17 @@
     "müzeler": "Mersin Arkeoloji Müzesi, Mersin Atatürk Evi Müzesi",
     "müzeResmi": "/static/images/müzeler/33.jpg",
     "ekonomikFaaliyetler": "Liman İşletmeciliği, Sanayi, Tarım, Turizm",
-    "tarimUrunleri": "Narenciye, Muz, Çilek, Domates"
+    "tarimUrunleri": "Narenciye, Muz, Çilek, Domates",
+    "hangiülkedevaroldu": "Hititler, Fenikeliler, Romalılar, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Kızkalesi, Tarsus Şelalesi, Mamure Kalesi, Soli Pompeiopolis, Cennet Cehennem, Narlıkuyu, Mersin Marina, Mersin Müzesi",
+    "önemliinsanlar": "Cemil Meriç, Aziz Nesin, Yavuz Bingöl, Hüseyin Gazi, Şerif Gören",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, tavuk, balıkçılık, mera, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Akdeniz makisi, palmiye, otsu bitki, tarım, orman, sulak alan, endemik, çayır",
+    "havakoşulları": "Akdeniz iklimi: yazlar sıcak & kurak, kışlar ılık & yağışlı, nem yüksek",
+    "coğrafiişaretler": "Kızkalesi Fotoğrafı, Portakal Reçeli, Çamur Banyosu Seti, Soli Hatırası, Şelale Magneti, Narlıkuyu Balığı, Kale Biblo, Marina Kartpostalı",
+    "tarihiólaylar": "Hitit yerleşimi, Fenike kolonileri, Roma limanı, Osmanlı fethi, liman gelişimi, turizm patlaması, kültürel entegrasyon, sanayi hamlesi",
+    "seyahathatirasi": "Portakal reçeli paketi, kale magneti, şelale defteri, fotoğraf albümü, soliden seramik, marina bardağı, liman kartı, balıkçılık seti"
+
   },
   {
     "name": "Istanbul",
@@ -507,7 +838,17 @@
     "müzeler": "İstanbul Arkeoloji Müzesi, Topkapı Sarayı Müzesi, İstanbul Modern Sanat Müzesi, Rahmi M. Koç Müzesi",
     "müzeResmi": "/static/images/müzeler/34.jpg",
     "ekonomikFaaliyetler": "Ticaret, Finans, Sanayi, Turizm, Hizmet",
-    "tarimUrunleri": "Az miktarda sebze ve meyve (şehirleşme nedeniyle sınırlı)"
+    "tarimUrunleri": "Az miktarda sebze ve meyve (şehirleşme nedeniyle sınırlı)",
+    "hangiülkedevaroldu": "Bizans İmparatorluğu, Latin İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Ayasofya, Sultanahmet Camii, Topkapı Sarayı, Kapalıçarşı, Galata Kulesi, Yerebatan Sarnıcı, Boğaziçi Köprüsü, Taksim Meydanı",
+    "önemliinsanlar": "Fatih Sultan Mehmet, I. Süleyman, Mimar Sinan, Mustafa Kemal Atatürk, Yahya Kemal Beyatlı",
+    "hayvancılık": "Kuşçuluk (güvercin), kümes hayvancılığı, arıcılık, küçükbaş, süs balıkları, at yetiştiriciliği (hipodrom), tarihi at pazarı",
+    "bitkiörtüsü": "Karadeniz makisi, park ve koru ağaçları (çam, meşe), Boğaziçi sahil bitkileri, nadir orman altı türleri, süs bitkileri, endemik çiçekler",
+    "havakoşulları": "Geçiş iklimi: yazlar sıcak ve nemli, kışlar ılık ve yağışlı, rüzgarlı geçiş dönemleri, boğaz etkisiyle nem dengesi",
+    "coğrafiişaretler": "İstanbul Tulumu, Boğaz Balığı, Sultanahmet Köftesi, Lâle Soğanı, Çayır Sütü peyniri, Galata Kurabiyesi, Ayasofya Miniatürü, Nazar Boncuğu",
+    "tarihiólaylar": "Constantinopolis’in kuruluşu, 1204 Latin istilası, 1453 Osmanlı fethi, 1571 Mimar Sinan dönemi, 1800’lerde Tanzimat reformları, 1919-23 işgaller, 1950’lerde imar, 21. yy metropolleşme",
+    "seyahathatirasi": "Mini Ayasofya modeli, Lâle soğanı paketi, Galata magneti, Köfte tarifi kartı, Boğaz fotoğraf kartpostalı, Nazar boncuğu, Sultanahmet camii biblosu, Tarihi tramvay anahtarlık"
+
   },
   {
     "name": "Izmir",
@@ -522,7 +863,17 @@
     "müzeler": "İzmir Arkeoloji Müzesi, İzmir Etnografya Müzesi",
     "müzeResmi": "/static/images/müzeler/35.jpg",
     "ekonomikFaaliyetler": "Ticaret, Sanayi, Turizm, Tarım",
-    "tarimUrunleri": "Zeytin, Üzüm, İncir, Pamuk"
+    "tarimUrunleri": "Zeytin, Üzüm, İncir, Pamuk",
+    "hangiülkedevaroldu": "İyonlar, Lidyalılar, Persler, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Konak Meydanı ve Saat Kulesi, Kemeraltı Çarşısı, Kadifekale, Efes Antik Kenti (yakın), Çeşme, Alaçatı, İzmir Arkeoloji Müzesi, Kordon Boyu",
+    "önemliinsanlar": "Herodot (etkilenmiş), Halikarnas Balıkçısı, Attalos I (etkili), Nurullah Genç, Yaşar Kemal (etkilenmiş)",
+    "hayvancılık": "Kümes hayvancılığı, arıcılık, küçükbaş, zeytin güvesi kontrolü, su ürünleri, mandıracılık, koyun-keçi yetiştiriciliği",
+    "bitkiörtüsü": "Ege makisi, zeytinlikler, çam ormanları, otsu bitkiler, aromatik bitkiler, sulak alan sazlıkları, endemik salep orkide",
+    "havakoşulları": "Akdeniz iklimine geçiş: yazlar sıcak ve kurak, kışlar ılık ve yağışlı, rüzgar (imbat), nem orta",
+    "coğrafiişaretler": "İzmir Kumrusu, Boyoz, Çeşme Zeytini, Alaçatı Lavanta Balı, Bergama Halısı, Konak Pier Hatırası, Saat Kulesi Minyatürü, Arap Şükrü Karikatürü",
+    "tarihiólaylar": "Smyrna’nın kuruluşu, M.Ö. 7. yy İyon mimarisi, Pers egemenliği, Roma dönemi limanı, Bizans yönetimi, 15. yy Osmanlı fethi, 17 Ağustos 1922 tahliyesi, 20. yy liman reformu",
+    "seyahathatirasi": "Boyoz paketi, kumru tarifi kartı, lavanta demeti, zeytin sabunu, İzmir çantası, Kordon fotoğraf albümü, Saat kulesi magneti, Arkeoloji Müzesi broşürü"
+
   },
   {
     "name": "Kars",
@@ -537,7 +888,17 @@
     "müzeler": "Kars Müzesi, Kars Peynir Müzesi",
     "müzeResmi": "/static/images/müzeler/36.jpeg",
     "ekonomikFaaliyetler": "Hayvancılık, Tarım, Kış Turizmi",
-    "tarimUrunleri": "Buğday, Arpa, Patates, Şeker Pancarı"
+    "tarimUrunleri": "Buğday, Arpa, Patates, Şeker Pancarı",
+    "hangiülkedevaroldu": "Urartular, Selçuklu Devleti, Osmanlı Devleti, Rus İmparatorluğu",
+    "gezilecekyerler": "Kars Kalesi, Ani Harabeleri, Sarıkamış Kayak Merkezi, Kümbet Camii, Çıldır Gölü, Fethiye Camii, Selim Hanı, Kars Müzesi",
+    "önemliinsanlar": "Süphan Karakuş, Ahmed-i Hani (etki), Zarifoğlu (etki), Mehmet Emin Resulzade (etki), Arseni Arslanyan",
+    "hayvancılık": "Koyun-keçi yetiştiriciliği, büyükbaş etçi ırklar, arıcılık, manda sütü, yayla hayvancılığı, kümes, doğal mera kullanımı",
+    "bitkiörtüsü": "Step bitkileri, dağ çayırları, meşe-gürgen ormanları, otsu türler, endemik sarı kantaron, bozkır çiçeği, sulak alan sazları",
+    "havakoşulları": "Karasal, yüksek rakım: kışlar uzun ve çok kar, yazlar kısa ve serin, donlu günler fazla, nem düşük",
+    "coğrafiişaretler": "Kafkas Tavyası, Gravyer Peyniri, Çıldır Gölü Balığı, Sarıkamış Kar Bombası (badem ezmesi), Ani Harabeleri Magneti, Kars Kaşarı, Kümbet Hatırası, Han Seramiği",
+    "tarihiólaylar": "Urartu başkenti, 1064 Selçuklu fethi, Osmanlı idaresi, 1877 Rus işgali, 1920’de Türkiye’ye katılma, Kars Antlaşması, Sarıkamış Muharebesi, 1990 sonrası restorasyon",
+    "seyahathatirasi": "Kafkas tava tarifi kartı, peynir paketi, magnet seti, kar bombası kutusu, kale modelciği, sarıkamış fotoğraf kitabı, han bibloları, müze broşürü"
+
   },
   {
     "name": "Kastamonu",
@@ -552,7 +913,17 @@
     "müzeler": "Kastamonu Arkeoloji Müzesi, Kastamonu Kent Tarihi Müzesi",
     "müzeResmi": "/static/images/müzeler/37.jpg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Ormancılık, Turizm",
-    "tarimUrunleri": "Buğday, Arpa, Patates, Şeker Pancarı"
+    "tarimUrunleri": "Buğday, Arpa, Patates, Şeker Pancarı",
+    "hangiülkedevaroldu": "Paphlagonia, Roma İmparatorluğu, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Kastamonu Kalesi, Ilgaz Dağı Milli Parkı, Nasrullah Meydanı, Liva Paşa Konağı, Valla Kanyonu, Şeker Kanyonu, Kastamonu Müzesi, Çiçek Kalesi",
+    "önemliinsanlar": "Köroğlu (efsanevi), Şeyh Şaban-ı Veli, Şerife Bacı, İsmail Hakkı Tonguç, Kuzey Yıldızı",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, koyun, mera, yaylacılık, arıcılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Karadeniz ormanları (ladin, kayın), otsu bitki, alpin çayırlar, endemik kantaron, maki, yayla ormanları, sulak alan sazlık",
+    "havakoşulları": "Karadeniz-karasal geçişi: kışlar kar yağışlı, yazlar serin ve nemli, sisli günler",
+    "coğrafiişaretler": "Kastamonu Pastırması, Araç Kestanesi, Daday Zeytini, Valla Kanyonu Hatırası, Ilgaz Balı, Şeker Kanyonu Magneti, Liva Paşa Konağı Minyatürü, Hanım Göbeği Tatlısı",
+    "tarihiólaylar": "Paphlagonia krallığı, Roma yolu, Bizans savunması, 14. yy Osmanlı dönemi, Şerife Bacı yürüyüşü, Köroğlu efsanesi, Ilgaz milli park ilanı, 20. yy kültürel koruma",
+    "seyahathatirasi": "Pastırma dilimi paketi, kestane reçeli kavanozu, magnet seti, tarla çiçeği tohumu, hanım göbeği kutusu, eşya minyatürü, kitap ayracı, bal kavanozu"
+
   },
   {
     "name": "Kayseri",
@@ -567,7 +938,17 @@
     "müzeler": "Ahi Evran Zaviyesi Müzesi, Kadir Has Kent ve Mimar Sinan Müzesi",
     "müzeResmi": "/static/images/müzeler/38.jpeg",
     "ekonomikFaaliyetler": "Sanayi, Ticaret, Mobilyacılık, Hayvancılık",
-    "tarimUrunleri": "Buğday, Arpa, Şeker Pancarı, Patates"
+    "tarimUrunleri": "Buğday, Arpa, Şeker Pancarı, Patates",
+    "hangiülkedevaroldu": "Hititler, Roma İmparatorluğu, Bizans İmparatorluğu, Anadolu Selçuklu Devleti",
+    "gezilecekyerler": "Erciyes Kayak Merkezi, Gevher Nesibe Şifahaneleri, Kayseri Kalesi, Hunat Hatun Külliyesi, Sultan Sazlığı, Kapuzbaşı Şelaleleri, Kadir Has Stadyumu, Kayseri Müzesi",
+    "önemliinsanlar": "Nevşehirli Damat İbrahim Paşa, Nuh Nebi (efsanevi), Sümela Ruhban Okulu (etk.), Aşık Veysel (etk.), Hulusi Kentmen",
+    "hayvancılık": "Büyükbaş & küçükbaş, koyun, manda, süt & et, yaylacılık, mera, arıcılık, tavuk",
+    "bitkiörtüsü": "Step bitkileri, dağ çayırları, eflatun soğanlı çiçek, otsu bitki, endemik krokus, sulak alan saz, bozkır",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar, yazlar sıcak & kurak, nem düşük, rüzgar",
+    "coğrafiişaretler": "Mantı, Pastırma, Kayseri Yağlaması, Nevşehirli Lokum, Sultan Sazlığı Balı, Erciyes Kartpostalı, Şelale Magneti, Şifahane Biblosu",
+    "tarihiólaylar": "Kültepe Kaniş-Luva ticareti, Roma dönemi, Bizans savunması, 12. yy Selçuklu başkenti, Damat İbrahim Paşa dönemi, Cumhuriyet sanayi atılımı, Erciyes kayak turizmi, kültürel festivaller",
+    "seyahathatirasi": "Mantı paketi, pastırma kavanozu, magnet seti, nevşehirli lokum kutusu, kartpostal, bal kavanozu, şifahane minyatürü, yayla atkısı"
+
   },
   {
     "name": "Kırklareli",
@@ -582,7 +963,17 @@
     "müzeler": "Kırklareli Müzesi",
     "müzeResmi": "/static/images/müzeler/39.jpg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Ormancılık, Turizm",
-    "tarimUrunleri": "Buğday, Ayçiçeği, Mısır, Şeker Pancarı"
+    "tarimUrunleri": "Buğday, Ayçiçeği, Mısır, Şeker Pancarı",
+    "hangiülkedevaroldu": "Traklar, Roma İmparatorluğu, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Dupnisa Mağarası, İğneada Longoz Ormanları, Vize Kalesi, Lüleburgaz Kent Ormanı, Saray Maden Suyu, Kıyıköy, Krumovgrad Anıtı, Lozan Anıtı",
+    "önemliinsanlar": "Nasreddin Hoca (etk.), Evliya Çelebi (etk.), Hacı Kör Ahmet, Süleyman Demirel (etk.), Orhan Pamuk (etk.)",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, koyun, mera, yaylacılık, arıcılık, domuz yetiştiriciliği (tarihi), kümes",
+    "bitkiörtüsü": "Karadeniz makisi, longoz ormanları, otsu bitki, sulak alan sazlık, endemik orkide, bozkır, tarım, çayır",
+    "havakoşulları": "Karadeniz iklimi: yağış yıl boyu, nem yüksek, yaz serin, kış ılık",
+    "coğrafiişaretler": "Saray Maden Suyu, Lüleburgaz Simidi, Dupnisa Biblosu, Kıyıköy Balı, Kartpostal Seti, Orman Hatırası, Vize Kalesi Magneti, Mağara Mumu",
+    "tarihiólaylar": "Trak yerleşimi, Roma yolu, Bizans savunması, Osmanlı sınır kalesi, Lozan Antlaşması görüşmeleri, longoz koruma, mağara keşfi, ekoturizm gelişimi",
+    "seyahathatirasi": "Maden suyu şişesi, simit paketi, magnet seti, bal kavanozu, kartpostalı, mağara lampası bibloları, orman yürüyüş haritası, su şişesi"
+
   },
   {
     "name": "Kırşehir",
@@ -597,7 +988,17 @@
     "müzeler": "Kırşehir Müzesi",
     "müzeResmi": "/static/images/müzeler/40.jpg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Maden (Termal)",
-    "tarimUrunleri": "Buğday, Arpa, Nohut, Mercimek"
+    "tarimUrunleri": "Buğday, Arpa, Nohut, Mercimek",
+    "hangiülkedevaroldu": "Hititler, Frigler, Anadolu Selçuklu Devleti, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Ahi Evran Türbesi, Cacabey Medresesi, Kırşehir Müzesi, Mucur Tuz Mağaraları, Sultanhanı Kervansarayı, Kızılırmak Nehri Kıyısı, Cacabey Haritası, Seyfe Gölü",
+    "önemliinsanlar": "Ahi Evran, Cacabey, Yunus Emre (etk.), Aşık Veysel (etk.), Somuncu Baba",
+    "hayvancılık": "Küçükbaş & büyükbaş, koyun, süt & et, arıcılık, mera, yaylacılık, tavukçuluk, doğal otlak",
+    "bitkiörtüsü": "Step bitkileri, otsu bitki, endemik gül, çamlar, sulak alan sazlıkları, çayır, tarım",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar yağışlı, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Ahi Evran Lokumu, Cacabey Biblosu, Tuz Mağarası Minerali, Gül Reçeli, Gölsuyu Şişesi, Medrese Magneti, Han Modeli, Kayısı Kurusu",
+    "tarihiólaylar": "Hittite yerleşimi, Phrygian kültür, Selçuklu vakıf düzeni, Osmanlı kervansarayı, Ahi hareketi, tuz madenciliği, müzik festivalleri, kültürel miras projeleri",
+    "seyahathatirasi": "Lokum kutusu, magnet seti, tuz paketi, gül su şişesi, kervansaray modelciği, medrese broşürü, kayısı kolyesi, han biblosu"
+
   },
   {
     "name": "Kocaeli",
@@ -612,7 +1013,17 @@
     "müzeler": "Kocaeli Arkeoloji ve Etnografya Müzesi, Gayret Gemi Müzesi",
     "müzeResmi": "/static/images/müzeler/41.jpeg",
     "ekonomikFaaliyetler": "Sanayi, Ticaret, Liman İşletmeciliği, Otomotiv",
-    "tarimUrunleri": "Fındık, Mısır, Şeker Pancarı, Sebze"
+    "tarimUrunleri": "Fındık, Mısır, Şeker Pancarı, Sebze",
+    "hangiülkedevaroldu": "Bitinya Krallığı, Roma İmparatorluğu, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Kartepe Kayak Merkezi, Seka Park, İzmit Saat Kulesi, Hereke Halı Fabrikası, Ballıkayalar Tabiat Parkı, Yuvacık Barajı, Gayret Gemi Müzesi, Osman Hamdi Bey Evi",
+    "önemliinsanlar": "Osman Hamdi Bey, Yahya Kemal Beyatlı (etk.), Feridun Kandemir, Necmettin Erbakan (etk.), Ahmet Hamdi Apaydın",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, tavuk, mera, kümes, iklim destekli hayvancılık, mandıracılık",
+    "bitkiörtüsü": "Marmara makisi, çam ormanları, otsu bitki, park florası, endemik türler, sulak alan sazlık, tarım bitkileri",
+    "havakoşulları": "Marmara iklimi: yazlar ılık & nemli, kışlar ılık & yağışlı, rüzgar",
+    "coğrafiişaretler": "Hereke Halısı, İzmit Simidi, Kartepe Balı, Seka Park Magneti, Saat Kulesi Biblosu, Baraj Suyu Şişesi, Gemi Modeli, Osman Hamdi Seramiği",
+    "tarihiólaylar": "Bitinya yolu, Roma geçişi, Bizans savunması, Osmanlı liman inşası, Seka Kağıt Fabrikası, 1999 depremi, sanayi bölgesi kuruluşu, kültür festivalleri",
+    "seyahathatirasi": "Halı parçası, simit poşeti, magnet seti, bal kavanozu, saat kulesi minyatürü, seramik kupa, gemi modelciği, baraj manzaralı kart"
+
   },
   {
     "name": "Konya",
@@ -627,7 +1038,17 @@
     "müzeler": "Mevlana Müzesi, Konya Arkeoloji Müzesi, Karatay Medresesi Müzesi",
     "müzeResmi": "/static/images/müzeler/42.jpg",
     "ekonomikFaaliyetler": "Tarım, Sanayi, Ticaret, Turizm",
-    "tarimUrunleri": "Buğday, Arpa, Mısır, Şeker Pancarı"
+    "tarimUrunleri": "Buğday, Arpa, Mısır, Şeker Pancarı",
+    "hangiülkedevaroldu": "Hititler, Roma İmparatorluğu, Anadolu Selçuklu Devleti, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Mevlana Müzesi, Alaeddin Tepesi, İnce Minareli Medrese, Sille Köyü, Karatay Medresesi, Çatalhöyük (yakın), Meram Bağları, Konya Kalesi",
+    "önemliinsanlar": "Mevlana Celaleddin Rumi, Şems-i Tebrizi, Ahi Evran (etk.), Nasreddin Hoca (etk.), İbrahim Hakkı Erzurumi (etk.)",
+    "hayvancılık": "Küçükbaş, koyun (kilimlik), manda sütü, arıcılık, yaylacılık, mera, büyükbaş, kümes",
+    "bitkiörtüsü": "Step bitkileri, otsu bitki, çam ormanları (Meram), endemik orkide, tarla bitkileri, sulak alan sazlık",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar yağışlı, yazlar sıcak & kuru, nem düşük",
+    "coğrafiişaretler": "Mevlana Şal Şerbetsiz, Etli Ekmek, Konya Bamyası, Sille Cini, Çatalhöyük Magneti, Medrese Biblosu, Bağ Köprüsü Hatırası, Kilim Parçası",
+    "tarihiólaylar": "Çatalhöyük Neolitik yerleşimi, Roma eyaleti, 12. yy Selçuklu başkenti, Mevlana’nın gelişi, Sema törenleri, Osmanlı dönemi, Cumhuriyet modernleşmesi, kültür festivalleri",
+    "seyahathatirasi": "Şal serbeti kavanozu, magnet seti, etli ekmek tarifi kartı, kilim parçası, şapka biblosu, medrese maketi, çini kupa, sema defteri"
+
   },
   {
     "name": "Kütahya",
@@ -642,7 +1063,17 @@
     "müzeler": "Kütahya Çini Müzesi, Kütahya Arkeoloji Müzesi",
     "müzeResmi": "/static/images/müzeler/43.jpeg",
     "ekonomikFaaliyetler": ["Çini ve Seramik Sanayi", "Tarım", "Madencilik (Kömür)"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Haşhaş"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Haşhaş"],
+    "hangiülkedevaroldu": "Frigler, Lidyalılar, Germiyanoğulları, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Kütahya Çini Müzesi, Germiyan Sokakları, Frig Vadisi, Simav Kaplıcaları, Aizanoi Antik Kenti, Kütahya Kalesi, Hacı Bektaş Veli Külliyesi, Zafer Kulesi",
+    "önemliinsanlar": "Âşık Veysel (etk.), Hacı Bektaş Veli (etk.), Sultan Yavuz Selim (etk.), Necati Cumalı (etk.), Aziz Veysel (etk.)",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, koyun, manda, arıcılık, tavuk, mera, kaplıca destekli ahır",
+    "bitkiörtüsü": "Step bitkileri, otsu bitki, çam ormanları, sulak alan sazlık, endemik geyikotu, tarla bitkileri",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar yağışlı, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Kütahya Çini, Germiyan Halısı, Frig Ballı Kekiği, Simav Suyu, Zafer Kulesi Magneti, Kaplıca Biblosu, Antik Kitabe Replikası, Kalenin Top Modeli",
+    "tarihiólaylar": "Frig kolonileri, Lidya yolu, Germiyanoğlu beylikleri, Osmanlı fethi, çini atölyesi kuruluşu, 19. yy demiryolu, kaplıca gelişimi, müze açılışı",
+    "seyahathatirasi": "Çini kupa, halı parçası, ballı kekiği kavanozu, magnet seti, kaplıca su şişesi, kitabe maketi, kale kartpostalı, kültür broşürü"
+
   },
   {
     "name": "Malatya",
@@ -657,7 +1088,17 @@
     "müzeler": "Malatya Müzesi, Beşkonaklar Etnografya Müzesi",
     "müzeResmi": "/static/images/müzeler/44.jpg",
     "ekonomikFaaliyetler": ["Kayısı Üretimi", "Tarım", "Ticaret"],
-    "tarimUrunleri": ["Kayısı", "Buğday", "Arpa", "Nohut"]
+    "tarimUrunleri": ["Kayısı", "Buğday", "Arpa", "Nohut"],
+    "hangiülkedevaroldu": "Hititler, Urartular, Roma İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Nemrut Dağı, Arslantepe Höyüğü, Levent Vadisi, Malatya Kalesi, Battalgazi Ulu Camii, Aslantepe Müzesi, Göllübağ Höyüğü, Taşhoron Kilisesi",
+    "önemliinsanlar": "Yunus Emre (etk.), Battal Gazi (efsanevi), Mehmet Akif Ersoy (etk.), İhsan Sabuncuoğlu, Ahmet Hamdi Tanpınar (etk.)",
+    "hayvancılık": "Büyükbaş & küçükbaş, koyun, süt & et, manda, arıcılık, tavuk, mera, yaylacılık",
+    "bitkiörtüsü": "Step bitki örtüsü, dağ çayırları, meşe ormanları, endemik kayısı çiçeği, otsu bitki, sulak alan sazlık",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar yağışlı, yazlar sıcak & kuru, nem düşük",
+    "coğrafiişaretler": "Malatya Kayısısı, Battalgazi Biblosu, Ulu Camii Magneti, Nemrut Kartpostalı, Höyük Top Modeli, Aslantepe Mozaik Replikası, Levent Vadisi Balı, Kilise Biblosu",
+    "tarihiólaylar": "Hitit yerleşimi, Urartu egemenliği, Roma eyaleti, Selçuklu kervansarayı, Osmanlı fethi, kayısı tarımının kurumsallaşması, Nemrut keşfi, modern sanayi",
+    "seyahathatirasi": "Kayısı paketi, magnet seti, kartpostalı, mozaik parçası, biblo, bal kavanozu, karton plaka, kilise figürü"
+
   },
   {
     "name": "Manisa",
@@ -672,7 +1113,17 @@
     "müzeler": "Manisa Müzesi, Sultan Camii ve Külliyesi",
     "müzeResmi": "/static/images/müzeler/45.webp",
     "ekonomikFaaliyetler": ["Tarım", "Sanayi", "Ticaret"],
-    "tarimUrunleri": ["Üzüm", "Zeytin", "Tütün", "Pamuk"]
+    "tarimUrunleri": ["Üzüm", "Zeytin", "Tütün", "Pamuk"],
+    "hangiülkedevaroldu": "Lidyalılar, Persler, Roma İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Spil Dağı Milli Parkı, Sardes Antik Kenti, Manisa Kalesi, Muradiye Şelalesi, Manisa Arkeoloji Müzesi, Sultan Camii, Turgutlu Çamlıdere, Aigai Antik Kenti",
+    "önemliinsanlar": "II. Murad (etk.), Sultan Çelebi Mehmet (etk.), Seha Gidel, Berkin Elvan (etk.), Hikmet Çetinkaya",
+    "hayvancılık": "Küçükbaş & büyükbaş, koyun, süt & et, manda, arıcılık, tavuk, mera, yaylacılık",
+    "bitkiörtüsü": "Ege makisi, zeytinlik, otsu bitki, koru ormanları, endemik salep orkide, tarla bitkileri, çam ormanı",
+    "havakoşulları": "Akdeniz iklimi: yazlar sıcak & kurak, kışlar ılık & yağışlı, nem orta",
+    "coğrafiişaretler": "Manisa Mesir Macunu, Muradiye Balığı (somon türü), Spil Şifalı Su, Sardes Biblosu, Kale Magneti, Çamlıdere Ballı Kekiği, Sultan Camii Minyatürü, Aigai Kartpostalı",
+    "tarihiólaylar": "Lydia krallığı, Pers yolu, Roma eyaleti, Bizans idaresi, Osmanlı sancak merkezi, Mesir festivali, şehzadelerin eğitimi, modern arkeoloji",
+    "seyahathatirasi": "Mesir macunu tüpü, magnet seti, somon konservesi, su şişesi, biblo, kekiği kavanozu, kartpostal, festival broşürü"
+
   },
   {
     "name": "Kahramanmaraş",
@@ -687,7 +1138,17 @@
     "müzeler": "Kahramanmaraş Arkeoloji Müzesi, Kurtuluş Müzesi",
     "müzeResmi": "/static/images/müzeler/46.jpg",
     "ekonomikFaaliyetler": ["Tekstil", "Dondurma Üretimi", "Tarım", "Metal Sanayi"],
-    "tarimUrunleri": ["Kırmızı Biber", "Pamuk", "Buğday", "Arpa"]
+    "tarimUrunleri": ["Kırmızı Biber", "Pamuk", "Buğday", "Arpa"],
+    "hangiülkedevaroldu": "Hititler, Roma İmparatorluğu, Abbâsîler, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Dulkadiroğlu Kervansarayı, Maraş Kalesi, Elbistan Ovası, Ahir Dağı, Tekir Yaylası, Kahramanmaraş Müzesi, Kuyulu Höyük, Nurhak Dağları",
+    "önemliinsanlar": "Dulkadiroğlu Mehmet Altınsoy (etk.), Asım Us, Şehreküstü Şerafettin Efendi, Ramazan Canpolat, Mustafa Sait Yazıcıoğlu",
+    "hayvancılık": "Büyükbaş & küçükbaş, koyun, süt & et, manda, arıcılık, tavuk, mera, yaylacılık",
+    "bitkiörtüsü": "Bozkır bitkileri, dağ çayırları, meşe ormanları, otsu bitki, endemik orkide, sulak alan sazlıkları",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Maraş Dondurması, Tarhana Çorbası, Elbistan Kömbesi, Ahir Dağı Balı, Nurhak Kekiği, Kervansaray Magneti, Kale Biblosu, Tekir Yaylası Hatırası",
+    "tarihiólaylar": "Hitit yolu, Roma eyaleti, Abbâsî ticaret yolu, Dulkadiroğlu beylikleri, Osmanlı fethi, Kurtuluş Savaşı Kahramanlığı, dondurma endüstrisi, kültür festivali",
+    "seyahathatirasi": "Dondurma kutusu, tarhana paketi, kömbe kutusu, bal kavanozu, magnet seti, biblo, yayla fotoğrafı, festival broşürü"
+
   },
   {
     "name": "Mardin",
@@ -702,7 +1163,16 @@
     "müzeler": "Mardin Müzesi, Sakıp Sabancı Mardin Kent Müzesi",
     "müzeResmi": "/static/images/müzeler/47.jpg",
     "ekonomikFaaliyetler": ["Tarım", "Ticaret", "Turizm", "Taş İşçiliği"],
-    "tarimUrunleri": ["Mercimek", "Nohut", "Buğday", "Arpa"]
+    "tarimUrunleri": ["Mercimek", "Nohut", "Buğday", "Arpa"],
+    "hangiülkedevaroldu": "Sümerler, Asurlular, Artuklular, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Mardin Eski Şehir, Deyrülzafaran Manastırı, Zinciriye Medresesi, Kasımiye Medresesi, Dara Antik Kenti, Midyat Taş Evleri, Mor Gabriel Manastırı, Mardin Müzesi",
+    "önemliinsanlar": "Deyrülzafaran Ermeni Patriği (etk.), Artuklu hükümdarları, Aziz Şemsettin, Abdulkadir Geylani (etk.), Cahit Sıtkı Tarancı (etk.)",
+    "hayvancılık": "Küçükbaş & büyükbaş, koyun, süt & et, deve (tarihi), arıcılık, tavuk, mera, yaylacılık",
+    "bitkiörtüsü": "Step, otsu bitki, hurma bahçeleri, sulak alan sazları, ekili tarla, endemik mersin, çayır",
+    "havakoşulları": "Karasal-çöl geçişi: yazlar sıcak & kurak, kışlar ılık & yağışlı, nem düşük",
+    "coğrafiişaretler": "Mardin Taşı El Sanatı, Deyrülzafaran Sabunu, Midyat Gümüşü, Mor Gabriel Hatırası, Dara Kekiği, Zinciriye Magneti, Medrese Biblosu, Mardin Şerbeti",
+    "tarihiólaylar": "Sümer ticareti, Asur yolculuğu, Artuklu medreseleri, Osmanlı taş işçiliği, 20. yy kültür buluşmaları, UN(IEnumerable?) list"
+
   },
   {
     "name": "Muğla",
@@ -717,7 +1187,17 @@
     "müzeler": "Bodrum Sualtı Arkeoloji Müzesi, Marmaris Kalesi Müzesi",
     "müzeResmi": "/static/images/müzeler/48.jpg",
     "ekonomikFaaliyetler": ["Turizm", "Tarım", "Balıkçılık", "Arıcılık"],
-    "tarimUrunleri": ["Zeytin", "Narenciye", "Domates", "Mandalina"]
+    "tarimUrunleri": ["Zeytin", "Narenciye", "Domates", "Mandalina"],
+    "hangiülkedevaroldu": "Karyalılar, Persler, Romalılar, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Bodrum Kalesi, Ölüdeniz, Marmaris, Dalyan, Fethiye Saklıkent, Kaunos, Akyaka, Muğla Müzesi",
+    "önemliinsanlar": "Sıtkı Koçman, Şerif Mardin, Fikret Otyam, Sabahattin Ali, İsmail Hakkı Baltacıoğlu",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, tavuk, balıkçılık, mera, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Akdeniz makisi, zeytinlik, palmiye, otsu bitki, orman, sulak alan, endemik, çayır",
+    "havakoşulları": "Akdeniz iklimi: yazlar sıcak & kurak, kışlar ılık & yağışlı, nem yüksek",
+    "coğrafiişaretler": "Zeytinyağı, Mandalina, Çam Balı, Kaplumbağa Hatırası, Kilim, Çömlek, Kekiği, Kanyon Magneti",
+    "tarihiólaylar": "Karya uygarlığı, Pers istilası, Roma & Bizans dönemi, Osmanlı fethi, deniz ticareti, turizm yükselişi, kültürel festival, doğa koruma",
+    "seyahathatirasi": "Zeytinyağı şişesi, mandalina reçeli, bal kavanozu, kaplumbağa biblosu, kilim parçası, çömlek maketi, kanyon kartpostalı, müze broşürü"
+
   },
   {
     "name": "Muş",
@@ -732,7 +1212,17 @@
     "müzeler": "Muş Müzesi",
     "müzeResmi": "/static/images/müzeler/49.jpeg",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Patates"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Patates"],
+    "hangiülkedevaroldu": "Urartular, Bizans İmparatorluğu, Selçuklu Devleti, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Muş Kalesi, Hasankale, Nemrut Dağı, Murat Nehri, Varto Yaylası, Muş Müzesi, Sarı Saltuk Türbesi, Murat Vadisi",
+    "önemliinsanlar": "Ahmet Arif, Musa Anter, Nuri Dersimi, Şair Zihni, Mehmet Emin Resulzade",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, koyun, arıcılık, mera, yaylacılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Dağ ormanları, step, otsu bitki, alpin, sulak alan, endemik, çayır, çalı",
+    "havakoşulları": "Karasal iklim: kışlar uzun & sert, yazlar kısa & serin, kar yağışı yüksek, nem düşük",
+    "coğrafiişaretler": "Nemrut Endemiği, Balı, Kekiği, Kale Magneti, Vad\u0131 Kartpostalı, Türbe Biblosu, Yayla Fotoğrafı, Ceviz",
+    "tarihiólaylar": "Urartu yerleşimi, Bizans yönetimi, Selçuklu beylikleri, Osmanlı fethi, 19. yy kültür hareketleri, Kurtuluş Savaşı, tabiat keşfi, edebiyat akımları",
+    "seyahathatirasi": "Endemik tohum seti, bal kavanozu, kale maketi, kartpostal, türbe biblosu, yayla magneti, ceviz paketi, anı defteri"
+
   },
   {
     "name": "Nevşehir",
@@ -747,7 +1237,17 @@
     "müzeler": "Göreme Açık Hava Müzesi, Nevşehir Müzesi",
     "müzeResmi": "/static/images/müzeler/50.jpg",
     "ekonomikFaaliyetler": ["Turizm", "Tarım", "Çömlekçilik"],
-    "tarimUrunleri": ["Patates", "Üzüm", "Kabak Çekirdeği", "Nohut"]
+    "tarimUrunleri": ["Patates", "Üzüm", "Kabak Çekirdeği", "Nohut"],
+    "hangiülkedevaroldu": "Hititler, Roma İmparatorluğu, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Göreme Açık Hava Müzesi, Uçhisar Kalesi, Derinkuyu Yeraltı Şehri, Paşabağları, Zelve Vadisi, Ihlara Vadisi, Avanos, Hacı Bektaş Veli Türbesi",
+    "önemliinsanlar": "Hacı Bektaş Veli, Ahi Evran, Nasreddin Hoca, Yunus Emre, Şemsi Tebrizi",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, koyun, arıcılık, mera, yaylacılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Step, otsu bitki, endemik, çayır, tarım, sulak alan, alpin, bozkır",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar yağışlı, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Çömlek, Mozaik Replikası, Kaya Magneti, Bal\u0131, Kekiği, Defne Sabunu, Kilise Biblosu, Peri Bacası Seti",
+    "tarihiólaylar": "Hitit yerleşimi, Roma & Bizans dönemi, Osmanlı fethi, yeraltı şehirleri keşfi, dini hareketler, turizm patlaması, kültürel miras, UNESCO süreci",
+    "seyahathatirasi": "Çömlek parçası, mozaik kartı, peri bacası magneti, bal kavanozu, kekiği paketi, kilise figürü, sabun seti, hatıra defteri"
+
   },
   {
     "name": "Niğde",
@@ -762,7 +1262,17 @@
     "müzeler": "Niğde Müzesi",
     "müzeResmi": "/static/images/müzeler/51.jpg",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Maden (Çinko, Kurşun)"],
-    "tarimUrunleri": ["Elma", "Patates", "Buğday", "Arpa"]
+    "tarimUrunleri": ["Elma", "Patates", "Buğday", "Arpa"],
+    "hangiülkedevaroldu": "Hititler, Frigler, Roma İmparatorluğu, Selçuklu Devleti",
+    "gezilecekyerler": "Niğde Kalesi, Tyana Antik Kenti, Gümüşler Manastırı, Aladağlar Milli Parkı, Bor Ovası, İncesu Kanyonu, Çiftehan Kaplıcaları, Niğde Müzesi",
+    "önemliinsanlar": "Nasrettin Hoca, Seyyid Burhaneddin, Süleyman Demirel, Hüseyin Avni Ulaş, Ahmet Yesevi",
+    "hayvancılık": "Küçükbaş ve büyükbaş, koyun, süt ve et, mera, yaylacılık, arıcılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Step, otsu bitki, dağ ormanları, endemik, sulak alan, çayır, yayla florası, tarım arazisi",
+    "havakoşulları": "Karasal iklim: kışlar soğuk ve kar yağışlı, yazlar sıcak ve kurak, nem düşük",
+    "coğrafiişaretler": "Niğde Elması, Tyana Kekiği, Gümüşler Balı, Bor Ovası Üzümü, İncesu Kaplıcası, Çiftehan Kaplıcası, Niğde Ev Ürünleri, Aladağlar Çiçeği",
+    "tarihiólaylar": "Hitit yerleşimi, Frig ticaret yolları, Roma dönemi, Selçuklu başkenti, Osmanlı fethi, demir yolu açılışı, kaplıca keşfi, modernleşme",
+    "seyahathatirasi": "Elma reçeli kavanozu, kale magneti, manastır simgesi, ova kartpostalı, kaplıca su şişesi, kekiği torbası, antik heykelciği, yerel çiçek tohumu"
+
   },
   {
     "name": "Ordu",
@@ -777,7 +1287,17 @@
     "müzeler": "Paşaoğlu Konağı ve Etnografya Müzesi, Ordu Kent Müzesi",
     "müzeResmi": "/static/images/müzeler/52.jpg",
     "ekonomikFaaliyetler": ["Fındık Üretimi", "Tarım", "Balıkçılık", "Turizm"],
-    "tarimUrunleri": ["Fındık", "Çay", "Mısır", "Patates"]
+    "tarimUrunleri": ["Fındık", "Çay", "Mısır", "Patates"],
+    "hangiülkedevaroldu": "Miletliler, Persler, Pontus Krallığı, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Boztepe, Perşembe Yaylası, Ordu Teleferik, Yason Burnu, Çambaşı Yaylası, Ordu Kalesi, Ünye Kalesi, Kurul Kalesi",
+    "önemliinsanlar": "Bedri Rahmi Eyüboğlu, Orhan Veli Kanık, Yaşar Kemal, Fikret Otyam, Nuri Demir",
+    "hayvancılık": "Küçükbaş, süt ve et, arıcılık, balıkçılık, tavuk, mera, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Karadeniz ormanları, fındık bahçeleri, otsu bitki, maki, sulak alan, endemik, çayır, alpin",
+    "havakoşulları": "Karadeniz iklimi: yazlar ılık ve yağışlı, kışlar ılık ve yağışlı, nem yüksek",
+    "coğrafiişaretler": "Ordu Fındığı, Boztepe Çayı, Perşembe Balı, Yason Balığı, Çambaşı Kekiği, Ordu Döneri, Ünye Fındığı, Teleferik Magneti",
+    "tarihiólaylar": "Milet kolonileri, Pers hakimiyeti, Pontus krallığı, Roma egemenliği, Osmanlı fethi, fındık ticareti, yayla göçleri, turizm patlaması",
+    "seyahathatirasi": "Fındık paketi, boztepe fotoğrafı, teleferik bileti minyatürü, yayla çadır simgesi, çay tohumu seti, kekiği kavanozu, kale magneti, bal kavanozu"
+
   },
   {
     "name": "Rize",
@@ -792,7 +1312,17 @@
     "müzeler": "Rize Müzesi, Atatürk Çay ve Fabrika Müzesi",
     "müzeResmi": "/static/images/müzeler/53.png",
     "ekonomikFaaliyetler": ["Çay Üretimi", "Tarım", "Balıkçılık", "Turizm"],
-    "tarimUrunleri": ["Çay", "Fındık", "Kivi", "Mısır"]
+    "tarimUrunleri": ["Çay", "Fındık", "Kivi", "Mısır"],
+    "hangiülkedevaroldu": "Kolkhis Krallığı, Bizans İmparatorluğu, Selçuklu Devleti, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Ayder Yaylası, Fırtına Vadisi, Zil Kalesi, Rize Kalesi, Çamlıhemşin, Kaçkar Dağları, Palovit Şelalesi, Çayeli Limanı",
+    "önemliinsanlar": "Aziz Veysel, Ahmed Cevdet Pasha, Erdoğan Aydoğan, Mehmet Çavuş, Fatih Sultan Mehmet (etk.)",
+    "hayvancılık": "Küçükbaş, süt ve et, arıcılık, balıkçılık, yaylacılık, tavuk, doğal otlak, manda",
+    "bitkiörtüsü": "Karadeniz ormanları, çay bahçeleri, otsu bitki, maki, endemik, sulak alan, çayır, alpin",
+    "havakoşulları": "Karadeniz iklimi: yıl boyu bol yağış, nem yüksek, yazlar serin, kışlar ılık",
+    "coğrafiişaretler": "Rize Çayı, Muradiye Şelalesi Suyu, Ayder Tereyağı, Zil Kekiği, Kaçkar Kekiği, Rize Hurması, Çayeli Çayı, Rize Balı",
+    "tarihiólaylar": "Kolkhis efsanesi, Bizans ticareti, Selçuklu fethi, Osmanlı egemenliği, çay üretimi başlangıcı, yayla festivalleri, ulaşım ağlarının gelişimi, turizm patlaması",
+    "seyahathatirasi": "Çay paketi, yayla magneti, şelale fotoğrafı, kekiği kavanozu, hurma reçeli, kale kartı, dağıtılabilir çay demliği, yöresel şal"
+
   },
   {
     "name": "Sakarya",
@@ -807,7 +1337,17 @@
     "müzeler": "Sakarya Müzesi, Deprem Müzesi",
     "müzeResmi": "/static/images/müzeler/54.jpg",
     "ekonomikFaaliyetler": ["Sanayi", "Tarım", "Otomotiv", "Ticaret"],
-    "tarimUrunleri": ["Mısır", "Fındık", "Ayçiçeği", "Sebze"]
+    "tarimUrunleri": ["Mısır", "Fındık", "Ayçiçeği", "Sebze"],
+    "hangiülkedevaroldu": "Bitinyalılar, Roma İmparatorluğu, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Sapanca Gölü, Acarlar Longozu, Taraklı Evleri, Ormanya, Serdivan Kent Ormanı, Ballıkaya Kanyonu, Serdivan Kalesi, Söğütlü Şelalesi",
+    "önemliinsanlar": "Ali Fuat Cebesoy, Recep Tayyip Erdoğan (etk.), Mithatpaşa, Halide Edip Adıvar, Ferizli Fatma",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, tavuk, mera, balıkçılık, doğal otlak, kümes",
+    "bitkiörtüsü": "Karadeniz ormanları, maki, otsu bitki, sulak alan, endemik, çayır, tarım arazisi, park flora",
+    "havakoşulları": "Karadeniz iklimi: yazlar ılık & yağışlı, kışlar ılık & yağışlı, nem yüksek",
+    "coğrafiişaretler": "Sapanca Alabalığı, Sakarya Ayvası, Taraklı Evleri Hatırası, Acarlar Longozu Suyu, Ormanya Magneti, Ballıkaya Mumu, Şelale Kartpostalı, Serdivan Balı",
+    "tarihiólaylar": "Bitinya dönem, Roma yolu, Bizans savunmaları, Osmanlı fethi, Sakarya Meydan Muharebesi, demiryolu gelişimi, sanayi kurulumu, doğal koruma",
+    "seyahathatirasi": "Alabalık paketleri, ayva reçeli, ev maketi magneti, longoz su şişesi, kanyon fotoğrafı, park kartı, mum kutusu, yöresel bal kavanozu"
+
   },
   {
     "name": "Samsun",
@@ -822,7 +1362,17 @@
     "müzeler": "Samsun Arkeoloji ve Etnografya Müzesi, Gazi Müzesi",
     "müzeResmi": "/static/images/müzeler/55.jpg",
     "ekonomikFaaliyetler": ["Tarım", "Sanayi", "Ticaret", "Liman İşletmeciliği"],
-    "tarimUrunleri": ["Tütün", "Fındık", "Mısır", "Pirinç"]
+    "tarimUrunleri": ["Tütün", "Fındık", "Mısır", "Pirinç"],
+    "hangiülkedevaroldu": "Amazonlar (efsanevi), Persler, Pontus Krallığı, Selçuklu Devleti",
+    "gezilecekyerler": "Bandırma Vapuru Müzesi, Atatürk Anıtı, Amisos Tepesi, Ladik Gölü, Tekkeköy Mağaraları, Samsun Kalesi, Gazi Müzesi, Bafra Kalesi",
+    "önemliinsanlar": "Mustafa Kemal Atatürk, Çakır Ahmet, İsmail Hakkı Tonguç, Fuat Köprülü, Meryem Ana (dini figür)",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, tavuk, mera, balıkçılık, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Karadeniz ormanları, fındık bahçeleri, maki, otsu bitki, sulak alan, endemik, çayır, tarım",
+    "havakoşulları": "Karadeniz iklimi: yıl boyu yağışlı, nem yüksek, yazlar serin, kışlar ılık",
+    "coğrafiişaretler": "Bafra Pidesi, Samsun Bafra Lâlesi, Bandırma Vapuru Hatırası, Amisos Kekiği, Ladik Alabalığı, Tekkeköy Derin Mağara Seti, Gazi Magneti, Kale Biblo",
+    "tarihiólaylar": "Amazon efsanesi, Pers istilası, Pontus krallığı, Selçuklu dönemi, 19 Mayıs 1919, Kurtuluş Savaşı, demiryolu açılışı, sanayi gelişimi",
+    "seyahathatirasi": "Pide paketi, lale tohumu seti, vapur maketi, kekiği kavanozu, alabalık konservesi, mağara kartpostalı, anıt bibloları, kale fotoğrafı"
+
   },
   {
     "name": "Siirt",
@@ -837,7 +1387,17 @@
     "müzeler": "Siirt Müzesi",
     "müzeResmi": "/static/images/müzeler/56.jpeg",
     "ekonomikFaaliyetler": ["Tarım (Fıstık)", "Hayvancılık", "Ticaret"],
-    "tarimUrunleri": ["Siirt Fıstığı", "Buğday", "Arpa", "Mercimek"]
+    "tarimUrunleri": ["Siirt Fıstığı", "Buğday", "Arpa", "Mercimek"],
+    "hangiülkedevaroldu": "Asurlular, Urartular, Abbasiler, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Siirt Ulu Camii, Veysel Karani Türbesi, Botan Vadisi, Malabadi Köprüsü, Tillo Tepesi, Pervari Dağları, Siirt Müzesi, Şeyh Muhammed Türbesi",
+    "önemliinsanlar": "Veysel Karani, Ahmed Arif, Abdulkadir Meragi, Şeyh Burhaneddin, Musa Anter",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, koyun, arıcılık, mera, yaylacılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Dağ ormanları, step, otsu bitki, sulak alan, endemik, çayır, çalı, yayla",
+    "havakoşulları": "Karasal iklim: kışlar sert & kar yağışlı, yazlar kısa & serin, nem düşük",
+    "coğrafiişaretler": "Siirt Fıstığı, Botan Balı, Malabadi Kekiği, Tillo Magneti, Türbe Biblosu, Köprü Maketi, çay tohumu paketi, Siirt Çöreği",
+    "tarihiólaylar": "Asur ve Urartu yerleşimi, Abbasi yönetimi, Osmanlı fethi, Malabadi Köprüsü inşası, dini eğitim merkezi, kültürel zenginlik, doğal afetler, modernleşme",
+    "seyahathatirasi": "Fıstık paketi, bal kavanozu, köprü minyatürü, türbe magneti, çay tohumu seti, çörek poşeti, müze broşürü, vadı kartpostalı"
+
   },
   {
     "name": "Sinop",
@@ -852,7 +1412,17 @@
     "müzeler": "Sinop Arkeoloji Müzesi, Sinop Tarihi Cezaevi Müzesi",
     "müzeResmi": "/static/images/müzeler/57.jpeg",
     "ekonomikFaaliyetler": ["Balıkçılık", "Tarım", "Ormancılık", "Turizm"],
-    "tarimUrunleri": ["Fındık", "Mısır", "Soya", "Patates"]
+    "tarimUrunleri": ["Fındık", "Mısır", "Soya", "Patates"],
+    "hangiülkedevaroldu": "Gaskalar, Miletliler, Pontus Krallığı, Roma İmparatorluğu",
+    "gezilecekyerler": "Sinop Kalesi, İnceburun Feneri, Hamsilos Koyu, Tarihi Cezaevi Müzesi, Pervane Medresesi, Tarihi Evler, Akliman, Boyabat Kalesi",
+    "önemliinsanlar": "Pervâne Bey, Cemil Meriç, Şerif Mardin, Azmi Yalman, Hacı Hafız Mehmet Efendi",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, balıkçılık, mera, tavuk, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Karadeniz ormanları, maki, otsu bitki, sulak alan, tarım, endemik, çayır, orman altı flora",
+    "havakoşulları": "Karadeniz iklimi: yağış yıl boyu, nem yüksek, yaz serin, kış ılık",
+    "coğrafiişaretler": "Sinop Mantısı, İnceburun Balığı, Hamsilos Magneti, Cezaevi Hatırası, Medrese Biblosu, Ev Deseni, Akliman Camı, Karpuz",
+    "tarihiólaylar": "Milet kolonileri, Pontus yönetimi, Roma egemenliği, Osmanlı fethi, cezaevi yapımı, deniz ticareti, kültürel gelişmeler, turizm patlaması",
+    "seyahathatirasi": "Mantı poşeti, fener maketi, balık konservesi, davetiye magneti, ev figürü, cam deseni bibloları, kartpostal, su şişesi"
+
   },
   {
     "name": "Sivas",
@@ -867,7 +1437,17 @@
     "müzeler": "Sivas Kongre Binası ve Etnografya Müzesi, Sivas Arkeoloji Müzesi",
     "müzeResmi": "/static/images/müzeler/58.jpeg",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Demir-Çelik Sanayi", "Ticaret"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "hangiülkedevaroldu": "Hititler, Frigler, Danişmentliler, Selçuklu Devleti",
+    "gezilecekyerler": "Sivas Ulu Camii, Divriği Ulu Camii, Gök Medrese, Kangal Balıklı Kaplıca, Sızır Şelalesi, Sivas Kongre Binası, Şifaiye Medresesi, Çifte Minareli Medrese",
+    "önemliinsanlar": "Süleyman Demirel, Yunus Emre, İbrahim Çallı, Necip Fazıl Kısakürek, Hızır Paşa",
+    "hayvancılık": "Büyükbaş & küçükbaş, koyun, süt & et, mera, yaylacılık, arıcılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Step, otsu bitki, dağ ormanları, endemik, çayır, yayla, sulak alan, tarım",
+    "havakoşulları": "Karasal iklim: kışlar sert & kar yağışlı, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Sivas Köftesi, Divriği Taşı, Çifte Minare Magneti, Şelale Kartı, Balıklı Kaplıca Suyu, Gök Medrese Biblosu, Kongre Hatırası, Sızır Balığı",
+    "tarihiólaylar": "Hitit başkentliği, Danişmentli dönemi, Selçuklu başkenti, Osmanlı fethi, Sivas Kongresi, Kurtuluş Savaşı, arkeolojik kazılar, kültürel miras koruma",
+    "seyahathatirasi": "Köfte paketi, taş biblo, kongre broşürü, şelale fotoğrafı, hamam su şişesi, minare magneti, kitap ayracı, balık konservesi"
+
   },
   {
     "name": "Tekirdağ",
@@ -882,7 +1462,17 @@
     "müzeler": "Rakoczi Müzesi, Tekirdağ Arkeoloji ve Etnografya Müzesi",
     "müzeResmi": "/static/images/müzeler/59.jpg",
     "ekonomikFaaliyetler": ["Tarım", "Sanayi", "Ticaret", "Şarapçılık"],
-    "tarimUrunleri": ["Ayçiçeği", "Buğday", "Üzüm", "Mısır"]
+    "tarimUrunleri": ["Ayçiçeği", "Buğday", "Üzüm", "Mısır"],
+    "hangiülkedevaroldu": "Traklar, Bizans İmparatorluğu, Latin İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Şarköy Plajı, Rakoczi Müzesi, Uçmakdere, Barbaros Hayrettin Müzesi, Hoşköy Camii, Hayrabolu Çarşısı, Tekirdağ Arkeoloji Müzesi, Malkara Ovası",
+    "önemliinsanlar": "Barbaros Hayrettin Paşa, Mustafa Kemal Atatürk (geçici), Osman Hamdi Bey, Şaban-ı Veli, Süleyman Nazif",
+    "hayvancılık": "Büyükbaş & küçükbaş, süt & et, arıcılık, tavuk, mera, balıkçılık, doğal otlak, kümes",
+    "bitkiörtüsü": "Karadeniz-Marmara ormanı, maki, otsu bitki, sulak alan, tarım, endemik, çayır, zeytinlik",
+    "havakoşulları": "Karasal-Marmara geçişi: yazlar ılık & yağışlı, kışlar soğuk & yağışlı, nem orta",
+    "coğrafiişaretler": "Tekirdağ Köftesi, Şarköy Üzümü, Rakoczi Magneti, Uçmakdere Biblosu, Çarşı Hatırası, Camii Deseni, Çarık Nahiyesi, Ova Balı",
+    "tarihiólaylar": "Trak yerleşimi, Bizans yolu, Latin işgali, Osmanlı fethi, Rákóczi sürgünü, demiryolu açılışı, köfte festivali, tarım reformu",
+    "seyahathatirasi": "Köfte sos paketi, üzüm reçeli, müze magneti, camii minyatürü, festival bileti, çarşı broşürü, ova balı kavanozu, şarap etiketi"
+
   },
   {
     "name": "Tokat",
@@ -897,7 +1487,17 @@
     "müzeler": "Tokat Müzesi, Latifoğlu Konağı Müzesi",
     "müzeResmi": "/static/images/müzeler/60.jpg",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ticaret"],
-    "tarimUrunleri": ["Üzüm", "Kiraz", "Elma", "Buğday"]
+    "tarimUrunleri": ["Üzüm", "Kiraz", "Elma", "Buğday"],
+    "hangiülkedevaroldu": "Hititler, Persler, Danişmentliler, Selçuklu Devleti",
+    "gezilecekyerler": "Tokat Kalesi, Ballıca Mağarası, Reşadiye Kaplıcaları, Gök Medrese, Zile Kalesi, Sulusaray Antik Kenti, Tokat Müzesi, Almus Barajı",
+    "önemliinsanlar": "Şeyh Şaban-ı Veli, Yahya Kemal Beyatlı, İbrahim Hakkı Erzurumi, Niksar Murtaza, Şair Nefi",
+    "hayvancılık": "Büyükbaş & küçükbaş, koyun, süt & et, mera, yaylacılık, arıcılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Step, otsu bitki, dağ ormanları, endemik, çayır, yayla, sulak alan, tarım",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar yağışlı, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Zile Pekmezi, Ballıca Magneti, Tokat Kekiği, Kaplıca Suyu, Kale Biblo, Antik Kenti Kartı, Medrese Deseni, Anı Defteri",
+    "tarihiólaylar": "Hitit yerleşimi, Pers hakimiyeti, Danişmentli dönemi, Selçuklu başkenti, Osmanlı fethi, deprem tarihi, kültürel festivaller, modernleşme",
+    "seyahathatirasi": "Pekmez paketi, mağara su şişesi, kale kartı, medrese biblo, antik kenti broşürü, yöresel çörek paketi, kekiği kavanozu, turizm kartpostalı"
+
   },
   {
     "name": "Trabzon",
@@ -912,7 +1512,17 @@
     "müzeler": "Trabzon Ayasofya Müzesi, Atatürk Köşkü Müzesi",
     "müzeResmi": "/static/images/müzeler/61.jpeg",
     "ekonomikFaaliyetler": ["Balıkçılık", "Tarım (Fındık, Çay)", "Ticaret", "Turizm"],
-    "tarimUrunleri": ["Fındık", "Çay", "Mısır", "Kivi"]
+    "tarimUrunleri": ["Fındık", "Çay", "Mısır", "Kivi"],
+    "hangiülkedevaroldu": "Kolkhis Krallığı, Roma İmparatorluğu, Trabzon İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Sümela Manastırı, Ayasofya Müzesi, Uzungöl, Atatürk Köşkü, Boztepe, Çal Mağarası, Trabzon Kalesi, Bedesten",
+    "önemliinsanlar": "Şair Ahmet Hamdi Tanpınar, Niyazi Mısri, İskender Paşa, Şems-i Tebrizi, Fatih Sultan Mehmet (etk.)",
+    "hayvancılık": "Küçükbaş, süt & et, arıcılık, balıkçılık, mera, tavuk, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Karadeniz ormanları, otsu bitki, endemik, fındık bahçeleri, çayır, sulak alan, maki, yayla",
+    "havakoşulları": "Karadeniz iklimi: yağış yıl boyu, nem yüksek, yaz serin, kış ılık",
+    "coğrafiişaretler": "Trabzon Hurması, Sümela Magneti, Çay (Boztepe), Uzungöl Kartpostalı, Köşk Biblosu, Fındık Paketleri, Çal Deseni, Ayasofya Modeli",
+    "tarihiólaylar": "Kolkhis efsanesi, Roma egemenliği, Trabzon İmparatorluğu, Osmanlı fethi, deniz ticareti, 19. yy kültürel gelişmeler, yayla göçleri, turizm patlaması",
+    "seyahathatirasi": "Hurması reçeli, magnet seti, çay tohumu paketi, köşk kartı, mağara bibloları, kale fotoğrafı, fındık kutusu, manastır simgesi"
+
   },
   {
     "name": "Tunceli",
@@ -927,7 +1537,17 @@
     "müzeler": "Tunceli Müzesi",
     "müzeResmi": "/static/images/müzeler/62.jpg",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "hangiülkedevaroldu": "Urartular, Medler, Persler, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Munzur Vadisi Milli Parkı, Pertek Kalesi, Ovacık, Nazımiye Yaylası, Pulur Kaplıcaları, Tunceli Müzesi, Kureyşan Köyü, Munzur Şelalesi",
+    "önemliinsanlar": "Pir Sultan Abdal, Seyid Rıza, Ahmed-i Hani (etk.), Leyla Zana (etk.), Ali Haydar Kaytan",
+    "hayvancılık": "Küçükbaş, süt & et, koyun, manda, arıcılık, mera, tavuk, yaylacılık",
+    "bitkiörtüsü": "Dağ ormanları, step, otsu bitki, alpin, endemik, sulak alan, çayır, çalı",
+    "havakoşulları": "Karasal iklim: kışlar çok sert, yazlar kısa & serin, nem düşük",
+    "coğrafiişaretler": "Munzur Balı, Pertek Magneti, Pulur Suyu, Ovacık Kekiği, Köy Dokuması, Kaplıca Suyu Paketi, Yayla Simgeci, Müzesi Hatırası",
+    "tarihiólaylar": "Urartu yerleşimi, Med-Pers hakimiyeti, Osmanlı fethi, Dersim İsyanı, nüfus hareketleri, kültürel direniş, doğa koruma, modernleşme",
+    "seyahathatirasi": "Bal kavanozu, magnet seti, su şişesi, kekiği kavanozu, dokuma parçası, yayla kartpostalı, köy hatırası kitabı, müze broşürü"
+
   },
   {
     "name": "Şanlıurfa",
@@ -942,7 +1562,15 @@
     "müzeler": "Şanlıurfa Arkeoloji Müzesi, Haleplibahçe Mozaik Müzesi",
     "müzeResmi": "/static/images/müzeler/63.jpg",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ticaret", "Turizm"],
-    "tarimUrunleri": ["Pamuk", "Buğday", "Arpa", "Mercimek"]
+    "tarimUrunleri": ["Pamuk", "Buğday", "Arpa", "Mercimek"],
+    "hangiülkedevaroldu": "Sümerler, Babil İmparatorluğu, Eyyubiler, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Göbekli Tepe, Balıklıgöl, Harran Evleri, Halfeti, Şanlıurfa Kalesi, Rizvaniye Camii, Haleplibahçe Mozaikleri, Mevlid-i Halil Camii",
+    "önemliinsanlar": "Hz. İbrahim (efsanevi), Yunus Emre (etk.), Zeynel Abidin, Şeyh Şuayb, Aziz Mahmud Hüdayi",
+    "hayvancılık": "Büyükbaş-küçükbaş, süt & et, koyun, arıcılık, tavuk, mera, yaylacılık, manda",
+    "bitkiörtüsü": "Step, otsu bitki, sulak alan, sazlık, çayır, endemik, tarım, meyve bahçesi",
+    "havakoşulları": "Karasal-çöl geçişi: yazlar çok sıcak & kurak, kışlar ılık & yağışlı, nem düşük",
+    "coğrafiişaretler": "Urfa Biberi, Balıklıgöl Balığı, Harran Kekiği, Halfeti Gülü, Urfa Künefesi, Mozaik Magneti, Rizvaniye Biblosu, Kale Kartı",
+    "tarihiólaylar": "Göbekli Tepe inşası, Babil hakimiyeti"
   },
   {
     "name": "Uşak",
@@ -957,7 +1585,17 @@
     "müzeler": "Uşak Arkeoloji Müzesi, Atatürk ve Etnografya Müzesi",
     "müzeResmi": "/static/images/müzeler/64.jpeg",
     "ekonomikFaaliyetler": ["Tekstil", "Halıcılık", "Tarım", "Hayvancılık"],
-    "tarimUrunleri": ["Haşhaş", "Buğday", "Arpa", "Şeker Pancarı"]
+    "tarimUrunleri": ["Haşhaş", "Buğday", "Arpa", "Şeker Pancarı"],
+    "hangiülkedevaroldu": "Frigler, Lidyalılar, Roma İmparatorluğu, Selçuklu Devleti",
+    "gezilecekyerler": "Uşak Arkeoloji Müzesi, Ulubey Kanyonları, Clandıras Antik Kenti, Karun Hazineleri Müzesi, Kurşunlu Camii, Atatürk Caddesi, Pınarbaşı, Zeybekler Anıtı",
+    "önemliinsanlar": "İbrahim Çallı, Halide Edip Adıvar, Hüseyin Avni Ulaş, Ahmet Hamdi Tanpınar, Aşık Veysel (etk.)",
+    "hayvancılık": "Büyükbaş-küçükbaş, süt & et, koyun, arıcılık, tavuk, mera, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Step, otsu bitki, dağ ormanları, tarım, sulak alan, endemik, çayır, bozkır",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar yağışlı, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Uşak Halısı, Kanyon Magneti, Clandıras Biblosu, Çini Seti, Pınarbaşı Su Şişesi, Zeybek Davulu Minyatürü, Camii Deseni, Tarihi Ev Posteri",
+    "tarihiólaylar": "Frig yerleşimi, Lidya ticareti, Roma yolu, Selçuklu fethi, Osmanlı egemenliği, halı dokuma gelişimi, kanyon keşfi, modern sanayi",
+    "seyahathatirasi": "Halı deseni mendil, kanyon fotoğrafı, antik kenti kartpostalı, muzik aleti biblosu, çini kupa, camii magneti, su şişesi, ev maketi"
+
   },
   {
     "name": "Van",
@@ -972,7 +1610,17 @@
     "müzeler": "Van Müzesi, Urartu Müzesi",
     "müzeResmi": "/static/images/müzeler/65.jpg",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım", "Ticaret", "Turizm"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Patates"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Şeker Pancarı", "Patates"],
+    "hangiülkedevaroldu": "Urartular, Medler, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Van Kalesi, Akdamar Adası ve Kilisesi, Van Gölü, Hoşap Kalesi, Muradiye Şelalesi, Van Müzesi, Çavuştepe Kalesi, Süphan Dağı",
+    "önemliinsanlar": "Ahmed-i Hani, Ehmedê Xanî, Leyla Zana (etk.), Seyyid Nizamüddin, Hacı Bektaş Veli (etk.)",
+    "hayvancılık": "Küçükbaş & büyükbaş, koyun & keçi, süt & et, arıcılık, mera, yaylacılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Dağ ormanları, step, otsu bitki, endemik, sulak alan, çayır, alpin, tarım",
+    "havakoşulları": "Karasal iklim: kışlar sert & kar yağışlı, yazlar kısa & serin, nem düşük",
+    "coğrafiişaretler": "Van Balığı, Akdamar Kitabı Magneti, Gövelek Balı, Hoşap Biblosu, Akdamar Kilisesi Minyatürü, Süphan Kekiği, Kale Kartı, Göl Suyu Şişesi",
+    "tarihiólaylar": "Urartu başkenti, Med ve Pers hakimiyeti, Bizans dönem, Osmanlı fethi, kilise inşası, kültürel etkileşim, deprem tarihi, modern turizm",
+    "seyahathatirasi": "Bal kavanozu, magnet seti, kilise replikası, şelale fotoğrafı, kekiği kavanozu, kale kartı, göl manzaralı kart, anı defteri"
+
   },
   {
     "name": "Yozgat",
@@ -987,7 +1635,17 @@
     "müzeler": "Yozgat Müzesi",
     "müzeResmi": "/static/images/müzeler/66.jpg",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "hangiülkedevaroldu": "Hititler, Frigler, Roma İmparatorluğu, Selçuklu Devleti",
+    "gezilecekyerler": "Yozgat Müzesi, Çapanoğlu Camii, Bozok Yaylası, Çamlık Milli Parkı, Yozgat Kalesi, Sarıkaya Roma Hamamı, Çandır Kalesi, Sarıkaya Kaplıcaları",
+    "önemliinsanlar": "Süleyman Demirel, İbrahim Çallı, Ahmet Hamdi Tanpınar, Kemal Sunal (etk.), Yunus Emre (etk.)",
+    "hayvancılık": "Büyükbaş-küçükbaş, koyun, süt & et, mera, yaylacılık, arıcılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Step, otsu bitki, dağ ormanları, endemik, sulak alan, çayır, bozkır, tarım",
+    "havakoşulları": "Karasal iklim: kışlar sert & kar yağışlı, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Yozgat Çamlığı, Sarıkaya Kaplıca Suyu, Bozok Yaylası Magneti, Kaplıca Biblosu, Kale Kartı, Hamam Simgeci, Termal Set, Endemik Tohum",
+    "tarihiólaylar": "Hitit başkenti, Frig etkisi, Roma egemenliği, Selçuklu beylikleri, Osmanlı fethi, hamam inşası, kültürel festival, modern termal turizm",
+    "seyahathatirasi": "Kaplıca su şişesi, magnet seti, kekiği kavanozu, kale kartpostalı, hamam bibloları, yayla fotoğrafı, çam tohumu paketi, anı defteri"
+ 
   },
   {
     "name": "Zonguldak",
@@ -1002,7 +1660,17 @@
     "müzeler": "Zonguldak Maden Müzesi, Ereğli Müzesi",
     "müzeResmi": "/static/images/müzeler/67.jpg",
     "ekonomikFaaliyetler": ["Kömür Madenciliği", "Demir-Çelik Sanayi", "Tarım"],
-    "tarimUrunleri": ["Fındık", "Mısır", "Patates", "Sebze"]
+    "tarimUrunleri": ["Fındık", "Mısır", "Patates", "Sebze"],
+    "hangiülkedevaroldu": "Bitinyalılar, Roma İmparatorluğu, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Ereğli Kalesi, Filyos Kalesi, Cehennem Ağzı Mağaraları, Zonguldak Müzesi, Kozlu Limanı, Kilimli Plajı, Çatalağzı Termik Santral Alanı, Filyos Sahili",
+    "önemliinsanlar": "Nazım Hikmet, Cemal Süreya, Kara Fatma, Bedri Rahmi Eyüboğlu, İsmail Hakkı Tonguç",
+    "hayvancılık": "Büyükbaş-küçükbaş, süt & et, arıcılık, tavuk, balıkçılık, mera, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Karadeniz ormanları, maki, otsu bitki, sulak alan, endemik, çayır, tarım, fındık",
+    "havakoşulları": "Karadeniz iklimi: bol yağış, nem yüksek, yaz ılık, kış ılık",
+    "coğrafiişaretler": "Zonguldak Kömürü, Ereğli Demir Çelik Magneti, Filyos Balığı, Cehennem Mağara Biblosu, Liman Kartı, Plaj Kum Taneleri, Santral Hatırası, Kekiği",
+    "tarihiólaylar": "Bitinya dönemi, Roma egemenliği, Bizans yönetimi, Osmanlı fethi, kömür madenciliği başlangıcı, işçi hareketleri, demiryolu açılışı, modern sanayi",
+    "seyahathatirasi": "Kömür parçası anahtarlık, mıknatıs, mağara kartı, liman posteri, balık konservesi, santral fotoğrafı, plaj kumu kavanozu, el sanatı seti"
+
   },
   {
     "name": "Aksaray",
@@ -1017,7 +1685,17 @@
     "müzeler": "Aksaray Müzesi",
     "müzeResmi": "/static/images/müzeler/68.jpeg",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Ticaret", "Turizm"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "hangiülkedevaroldu": "Hititler, Roma İmparatorluğu, Bizans İmparatorluğu, Selçuklu Devleti",
+    "gezilecekyerler": "Ihlara Vadisi, Sultanhanı Kervansarayı, Eğri Minare, Aksaray Kalesi, Cacabey Medresesi, Hasan Dağı, Güzelyurt Kaya Evleri, Aksaray Müzesi",
+    "önemliinsanlar": "Ahmet Yesevi, Yunus Emre (etk.), Nasreddin Hoca, Seyyid Burhaneddin, İbrahim Hakkı Erzurumi",
+    "hayvancılık": "Büyükbaş-küçükbaş, koyun, süt & et, mera, yaylacılık, arıcılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Step, otsu bitki, dağ ormanları, endemik, tarım, sulak alan, yayla florası, çayır",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar yağışlı, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Eğri Minare Magneti, Kervansaray Modeli, Ihlara Su Şişesi, Cacabey Biblosu, Hasan Dağı Tozu, Kaya Evi Maketi, Medrese Kartı, Hatıra Seramiği",
+    "tarihiólaylar": "Hitit yerleşimi, Roma yolu, Bizans savunmaları, Selçuklu başkenti, Osmanlı fethi, kervansaray inşası, kültür karşılama, modern turizm",
+    "seyahathatirasi": "Magnet seti, seramik kup, su şişesi, biblo, toprak kil parçası, model maket, kartpostal, sergi broşürü"
+
   },
   {
     "name": "Bayburt",
@@ -1033,6 +1711,16 @@
     "müzeResmi": "/static/images/müzeler/69.jpg",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım"],
     "tarimUrunleri": ["Buğday", "Arpa", "Patates", "Şeker Pancarı"]
+    "hangiülkedevaroldu": "Urartular, Persler, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Bayburt Kalesi, Aydıntepe Yeraltı Şehri, Gürlevik Şelalesi, Çimağıl Mağarası, Dede Korkut Kültür Parkı, Bayburt Müzesi, Pendikli Kaya Sütunu, Çoruh Nehri Vadisi",
+    "önemliinsanlar": "Dede Korkut (efsanevi), Vehbi Yurtseven, Hümeyra, Mehmet Akif Ersoy (etk.), Ahmed-i Hani",
+    "hayvancılık": "Büyükbaş-küçükbaş, süt & et, koyun, arıcılık, mera, yaylacılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Step, otsu bitki, dağ ormanları, endemik, çayır, yayla, sulak alan, orman altı flora",
+    "havakoşulları": "Karasal iklim: kışlar sert & kar yağışlı, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Bayburt Kekiği, Yeraltı Şehri Biblosu, Şelale Magneti, Mağara Mumu, Nehir Kartpostalı, Kültür Parkı Hatırası, Kale Figürü, Müzesi Broşürü",
+    "tarihiólaylar": "Urartu yerleşimi, Pers ticaret yolu, Bizans dönemi, Osmanlı fethi, Dede Korkut efsanesi, yeraltı şehir keşfi, kültür festivali, doğal koruma",
+    "seyahathatirasi": "Kekiği kavanozu, mağara mumu, şelale kartpostalı, biblo, park broşürü, kale anahtarlık, nehir su şişesi, antik tohum seti"
+
   },
   {
     "name": "Karaman",
@@ -1047,7 +1735,17 @@
     "müzeler": "Karaman Müzesi",
     "müzeResmi": "/static/images/müzeler/70.jpg",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Gıda Sanayi"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Elma"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Elma"],
+    "hangiülkedevaroldu": "Hititler, Roma İmparatorluğu, Karamanoğulları, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Karaman Kalesi, Binbir Kilise, Karaman Müzesi, Sultanhanı, Meke Gölü, Karaman Evleri, İnanlı Mağarası, Emir Meydanı",
+    "önemliinsanlar": "Seyyid Ahmed Havyar, İbrahim Paşa (Karamanoğlu), Mehmet Emin Yurdakul (etk.), Ahmet Fakıh Paşa, Emir Cem",
+    "hayvancılık": "Büyükbaş-küçükbaş, koyun, süt & et, mera, yaylacılık, arıcılık, tavuk, doğal otlak",
+    "bitkiörtüsü": "Step, otsu bitki, tarım, endemik, çayır, dağ ormanları, çalı, sulak alan",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar yağışlı, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Karaman Hünkâr Beğendi, Meke Gölü Magneti, Kale Biblosu, Mahkeme Hanı Modeli, Binbir Kilise Kartı, Mağara Figürü, Ev Seramiği, Müzesi Broşürü",
+    "tarihiólaylar": "Hitit yerleşimi, Roma yolu, Karamanoğlu Beyliği, Osmanlı fethi, han inşası, kültür merkezi, Meke Gölü keşfi, modern tarım",
+    "seyahathatirasi": "Beğendi paketi, magnet, çini kup, kitap ayracı, kale kartı, han maketi, göl fotoğrafı, sergi kataloğu"
+
   },
   {
     "name": "Kırıkkale",
@@ -1062,7 +1760,17 @@
     "müzeler": "Kırıkkale Kent Müzesi",
     "müzeResmi": "/static/images/müzeler/71.jpg",
     "ekonomikFaaliyetler": ["Savunma Sanayi", "Metal Sanayi", "Tarım"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "hangiülkedevaroldu": "Hititler, Frigler, Roma İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Karakeçili Yaylası, Kırıkkale Silah Sanayi Müzesi, Irmak Kanyonu, Hacılar Höyüğü, Sulakyurt Gölü, Cehennemdere Tabiat Parkı, Yassıkaya Antik Kenti, Keskin Kaplıcaları",
+    "önemliinsanlar": "Şehit Astsubay Ömer Halisdemir (etkilenmiş), Mehmet Ali Kağıtçı, Hüseyin Gazi, Ali Rıza Yalçın, Emine Ün",
+    "hayvancılık": "Büyükbaş-küçükbaş, süt & et, koyun, arıcılık, mera, tavukçuluk, doğal otlak, kanatlı",
+    "bitkiörtüsü": "Bozkır bitkileri, otsu türler, step florası, endemik otlar, çalılık, tarım arazisi, sulak alan bitkileri, çayır",
+    "havakoşulları": "Karasal iklim: kışlar soğuk & kar yağışlı, yazlar sıcak & kurak, nem düşük",
+    "coğrafiişaretler": "Keskin Tulum Peyniri, Irmak Balığı, Sulakyurt Kaplıca Suyu, Cehennemdere Magneti, Hacılar Höyük Trofesi, Yayla Balı, Göl Çiçeği Tohumu, Silah Sanayi Miniatürü",
+    "tarihiólaylar": "Hitit yerleşimi, Frig yolları, Roma eyaleti, Osmanlı fethi, Cumhuriyet dönemi sanayi kuruluşu, 1999 depremi, kültürel festivaller, mera düzenlemeleri",
+    "seyahathatirasi": "Tulum peyniri paketi, kaplıca su şişesi, magnet seti, trofe maketi, bal kavanozu, antik parça replikası, yayla şapkası, sanayi broşürü"
+
   },
   {
     "name": "Batman",
@@ -1077,7 +1785,17 @@
     "müzeler": "Batman Müzesi",
     "müzeResmi": "/static/images/müzeler/72.png",
     "ekonomikFaaliyetler": ["Petrol Sanayi", "Tarım", "Ticaret"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Mercimek", "Nohut"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Mercimek", "Nohut"],
+    "hangiülkedevaroldu": "Asurlular, Urartular, Abbasiler, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Hasankeyf Antik Kenti, Dicle Nehri Kıyısı, Malabadi Köprüsü, Batman Müzesi, Kozluk Yaylası, Gercüş Vadisi, Midyat Taş Evleri, Batman Ulu Camii",
+    "önemliinsanlar": "Cahit Sıtkı Tarancı (etkilenmiş), Rojin, İhsan Şerif, Mehmet Emin Resulzade (etk.), Nuri Yıldırım",
+    "hayvancılık": "Büyükbaş-küçükbaş, koyun, süt & et, mera, arıcılık, balıkçılık, tavukçuluk, yaylacılık",
+    "bitkiörtüsü": "Step florası, otsu bitkiler, çalılık, sulak alan bitkileri, endemik türler, tarım arazisi, yarı kurak bitkiler, bozkır",
+    "havakoşulları": "Karasal-çöl geçişi: yazlar çok sıcak & kurak, kışlar soğuk & yağışlı, nem düşük",
+    "coğrafiişaretler": "Hasankeyf Sabunu, Dicle Balığı Konservesi, Köprü Magneti, Midyat Taş Seti, Batman Naylon Çantası, Zeytin Ezmesi, Kozluk Balı, Ulu Camii Biblosu",
+    "tarihiólaylar": "Asur ticaret yolu, Urartu savunması, Abbasi yönetimi, Osmanlı fethi, Ilısu Barajı projesi, Hasankeyf kurtarma, kültürel miras çalışmaları, 20. yy göçü",
+    "seyahathatirasi": "Sabun paketi, bal kavanozu, taş biblo, magnet seti, zeytin ezmesi kavanozu, baraj fotoğrafı, müze broşürü, cami mini modeli"
+
   },
   {
     "name": "Şırnak",
@@ -1092,7 +1810,17 @@
     "müzeler": "",
     "müzeResmi": "/static/images/müzeler/73.jpg",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım", "Sınır Ticareti"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Nohut", "Mercimek"],
+    "hangiülkedevaroldu": "Asurlular, Medler, Persler, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Cudi Dağı, İkizdere Vadisi, Şırnak Kalesi, İdil Antik Kenti, Gabar Dağı, Silopi Kaplıcaları, Hızırşah Türbesi, Beytüşşebap Yaylası",
+    "önemliinsanlar": "Hasan Turan, Leyla Zana, Ahmed Arif, Mehmet Çıra (etk.), Şeyh Şaban-ı Veli",
+    "hayvancılık": "Küçükbaş, süt & et, koyun, keçi, mera, yaylacılık, arıcılık, tavuk",
+    "bitkiörtüsü": "Step bitkileri, çalılık, otsu türler, endemik, dağ ormanları, sulak alan bitkileri, yayla florası, tarım",
+    "havakoşulları": "Karasal-çöl geçişi: kışlar sert & kar, yazlar sıcak & kurak, nem çok düşük",
+    "coğrafiişaretler": "Cudi Balı, Gabar Kekiği, Kaplıca Suyu, Kale Magneti, Antik Kenti Kartpostalı, Türbe Biblosu, Yayla Şapkası, Diyarbakır Balığı",
+    "tarihiólaylar": "Asur ticareti, Med-Pers hakimiyeti, Osmanlı fethi, sınır çatışmaları, barış antlaşmaları, terörle mücadele, kültür festivalleri, bölgesel kalkınma",
+    "seyahathatirasi": "Bal kavanozu, kekiği kavanozu, magnet seti, kartpostal, biblo, yayla çadır simgesi, türbe anahtarlık, kaplıca su şişesi"
+
   },
   {
     "name": "Bartın",
@@ -1107,7 +1835,17 @@
     "müzeler": "Amasra Müzesi",
     "müzeResmi": "/static/images/müzeler/74.jpg",
     "ekonomikFaaliyetler": ["Turizm", "Balıkçılık", "Ormancılık", "Tekne Yapımı"],
-    "tarimUrunleri": ["Fındık", "Mısır", "Kestane", "Patates"]
+    "tarimUrunleri": ["Fındık", "Mısır", "Kestane", "Patates"],
+    "hangiülkedevaroldu": "Bitinyalılar, Roma İmparatorluğu, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Amasra Antik Kenti, Çakraz Plajı, Kuşkayası Yol Anıtı, Bartın Çayı, İnkumu Tabiat Parkı, Uluyayla, Kurubük Tabiat Parkı, Bartın Müzesi",
+    "önemliinsanlar": "Nazım Hikmet (etkilenmiş), Bedri Rahmi Eyüboğlu (etk.), İsmail Hakkı Tonguç, Ahmet Hamdi Tanpınar (etk.), Ali Fuat Başgil",
+    "hayvancılık": "Küçükbaş, süt & et, koyun, arıcılık, tavuk, balıkçılık, mera, yaylacılık",
+    "bitkiörtüsü": "Karadeniz ormanları, maki, otsu bitki, sulak alan, tarım, endemik, çayır, yayla florası",
+    "havakoşulları": "Karadeniz iklimi: bol yağış, nem yüksek, yaz serin, kış ılık",
+    "coğrafiişaretler": "Amasra Salatası, Bartın Çayı Balığı, Kuşkayası Biblosu, İnkumu Kum Magneti, Antik Kent Kopyası, Uluyayla Balı, Tablo Kitapçığı, Portakal Reçeli",
+    "tarihiólaylar": "Bitinya yolu, Roma limanı, Bizans savunması, Osmanlı fethi, 2003 sel felaketi, kültürel miras projeleri, turizm patlaması, tabiat parkı açılışı",
+    "seyahathatirasi": "Salata paketi, balık konservesi, magnet seti, kum yoğurdu kavanozu, biblo, tarih broşürü, kartpostal, deniz kabuğu su şişesi"
+
   },
   {
     "name": "Ardahan",
@@ -1122,7 +1860,17 @@
     "müzeler": "",
     "müzeResmi": "/static/images/müzeler/75.jpg",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Patates"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Patates"],
+    "hangiülkedevaroldu": "Urartular, Gürcüler, Selçuklu Devleti, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Çıldır Gölü, Posof Yaylası, Ardahan Kalesi, Damal Kuş Cenneti, Hanak Kaplıcaları, Aktaş Şelalesi, Salt Lake (Tuzlu Göl), Ardahan Müzesi",
+    "önemliinsanlar": "Ahmed-i Hani (etk.), Mehmed Emin Resulzade (etk.), Leyla Zana (etk.), Şerif Ahmet Paşa, Mustafa Yalçıner",
+    "hayvancılık": "Büyükbaş-küçükbaş, koyun, süt & et, manda, arıcılık, balıkçılık, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Dağ ormanları, alpin çayır, otsu bitki, endemik, sulak alan, bozkır, tarım, yayla florası",
+    "havakoşulları": "Sert karasal iklim: kışlar uzun & çok kar, yazlar kısa & serin, nem düşük",
+    "coğrafiişaretler": "Çıldır Gölü Balığı, Ardahan Tulum Peyniri, Kuş Cenneti Magneti, Tuzlu Göl Suyu, Kaplıca Suyu, Yayla Balı, Kale Biblosu, Aktaş Kekiği",
+    "tarihiólaylar": "Urartu savunması, Gürcü krallığı, Selçuklu hakimiyeti, Osmanlı fethi, göl efsaneleri, milli mücadele, modern altyapı, kültürel festivaller",
+    "seyahathatirasi": "Bal kavanozu, magnet seti, göl fotoğrafı, peyniri paketi, su şişesi, kekiği torbası, kale kartpostalı, yayla ışığı lambası"
+
   },
   {
     "name": "Iğdır",
@@ -1137,7 +1885,17 @@
     "müzeler": "Iğdır Şehit ve Gazi Anıt Müzesi",
     "müzeResmi": "/static/images/müzeler/76.jpeg",
     "ekonomikFaaliyetler": ["Tarım", "Hayvancılık", "Sınır Ticareti"],
-    "tarimUrunleri": ["Kayısı", "Pamuk", "Buğday", "Arpa"]
+    "tarimUrunleri": ["Kayısı", "Pamuk", "Buğday", "Arpa"],
+    "hangiülkedevaroldu": "Urartular, Persler, İlhanlılar, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Ağrı Dağı Milli Parkı, Tuzluca Tuz Mağaraları, Iğdır Kalesi, Karakoyun Açık Hava Müzesi, Ekşi Su Kaynağı, Tuzluca Kaplıcaları, Oltu Taşı Dokuma Köyü, Aras Nehri Kıyısı",
+    "önemliinsanlar": "Ahmed-i Hani (etk.), Ali Rıza Yalçın (etk.), Hüseyin Alpaslan, Leyla Zana (etk.), Hacı Bektaş Veli (etk.)",
+    "hayvancılık": "Büyükbaş-küçükbaş, koyun, süt & et, mera, yaylacılık, tavuk, arıcılık, doğal otlak",
+    "bitkiörtüsü": "Dağ ormanları, bozkır, çalı, otsu bitki, sulak alan, endemik, tarım, yarı kurak bitkiler",
+    "havakoşulları": "Karasal-şiddetli geçiş: kışlar çok sert & kar, yazlar sıcak & kurak, nem çok düşük",
+    "coğrafiişaretler": "Iğdır Ekşi Su Suyu, Tuz Mağarası Minerali, Kale Magneti, Kaplıca Suyu, Yayla Balı, Oltu Taşı Takı, Aras Balığı, Açık Hava Müzesi Magneti",
+    "tarihiólaylar": "Urartu yerleşimi, Pers yolu, İlhanlı dönemi, Osmanlı fethi, tuz mağarası keşfi, milli mücadele, doğal park ilanı, kültürel karşılama",
+    "seyahathatirasi": "Su şişesi, magnet seti, kekiği kavanozu, mağara tuzu paketi, bal kavanozu, taş takı, kartpostal, şişe kapağı anahtarlığı"
+
   },
   {
     "name": "Yalova",
@@ -1152,7 +1910,17 @@
     "müzeler": "Yürüyen Köşk, Yalova Kent Müzesi",
     "müzeResmi": "/static/images/müzeler/77.jpeg",
     "ekonomikFaaliyetler": ["Termal Turizm", "Tarım", "Sanayi"],
-    "tarimUrunleri": ["Kivi", "Şeftali", "Elma", "Armut"]
+    "tarimUrunleri": ["Kivi", "Şeftali", "Elma", "Armut"],
+    "hangiülkedevaroldu": "Bitinyalılar, Roma İmparatorluğu, Latin İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Termal Kaplıcaları, Yürüyen Köşk, Sudüşen Şelalesi, Çınarcık Sahili, Çınarcık Ormanları, Erikli Yaylası, Yalova Müzesi, Atatürk Köşkü",
+    "önemliinsanlar": "Mustafa Kemal Atatürk (etk.), Reşat Nuri Güntekin (etk.), Halide Edip Adıvar (etk.), Hasan Ali Yücel (etk.), Ahmed Adnan Saygun (etk.)",
+    "hayvancılık": "Büyükbaş-küçükbaş, süt & et, arıcılık, tavuk, mera, yaylacılık, kümes, doğal otlak",
+    "bitkiörtüsü": "Karadeniz-Marmara ormanları, otsu bitki, endemik, sulak alan, çayır, zeytinlik, maki, park florası",
+    "havakoşulları": "Marmara iklimi: yazlar ılık & nemli, kışlar ılık & yağışlı, rüzgar orta",
+    "coğrafiişaretler": "Yalova Termal Suyu, Köşk Magneti, Şelale Biblosu, Erikli Balı, Çınarcık Zeytini, Atatürk Köşkü Minyatürü, Orman Yürüyüş Rotası Paketi, Müzesi Broşürü",
+    "tarihiólaylar": "Bitinya yolu, Roma izleri, Latin işgali, Osmanlı fethi, Cumhuriyet dönemi köşk inşası, termal turizm başlangıcı, 1999 depremi, kültürel festivaller",
+    "seyahathatirasi": "Su şişesi, magnet seti, şelale kartpostalı, köşk minyatürü, bal kavanozu, zeytin yağı şişesi, doğa yürüyüş haritası, kitap ayracı"
+
   },
   {
     "name": "Karabük",
@@ -1167,7 +1935,17 @@
     "müzeler": "Safranbolu Kent Tarihi Müzesi",
     "müzeResmi": "/static/images/müzeler/78.jpg",
     "ekonomikFaaliyetler": ["Demir-Çelik Sanayi", "Turizm", "Ormancılık"],
-    "tarimUrunleri": ["Safran", "Fındık", "Mısır", "Patates"]
+    "tarimUrunleri": ["Safran", "Fındık", "Mısır", "Patates"],
+    "hangiülkedevaroldu": "Hititler, Frigler, Roma İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Safranbolu Evleri, Yörük Köyü, Bulak Mencilis Mağarası, Eskipazar Lav Sütunları, Tokatlı Kanyonu, İncekaya Su Kemeri, Bulak Mağarası, Safranbolu Saat Kulesi",
+    "önemliinsanlar": "Mehmet Akif Ersoy (etk.), Halit Refiğ (etk.), Bedri Rahmi Eyüboğlu (etk.), Orhan Kemal (etk.), Yaşar Kemal (etk.)",
+    "hayvancılık": "Küçükbaş, süt & et, koyun, arıcılık, mera, yaylacılık, doğal otlak, tavuk",
+    "bitkiörtüsü": "Karadeniz ormanları, maki, otsu bitki, endemik, sulak alan, çayır, yayla florası, tarım",
+    "havakoşulları": "Karadeniz iklimi: yağış yıl boyu, nem yüksek, yazlar ılık, kışlar ılık",
+    "coğrafiişaretler": "Safranbolu Tarhana, Ev Biblosu, Bulak Suyu, Mağara Mumu, Tokatlı Magneti, Zaman Çarkı Hatırası, Yöresel Kilim, Saat Kulesi Minyatürü",
+    "tarihiólaylar": "Hitit yerleşimi, Frig yolları, Roma eyaleti, Osmanlı fethi, Safran ticareti, Demir çelik sanayi kuruluşu, UNESCO ilanı, kültürel koruma",
+    "seyahathatirasi": "Tarhana paketi, magnet seti, su şişesi, kilim parçası, kitabe maketi, ev biblosu, zaman çarkı rozet, müze broşürü"
+
   },
   {
     "name": "Kilis",
@@ -1183,6 +1961,16 @@
     "müzeResmi": "/static/images/müzeler/79.jpg",
     "ekonomikFaaliyetler": ["Tarım", "Ticaret", "Sınır Ticareti"],
     "tarimUrunleri": ["Zeytin", "Üzüm", "Antep Fıstığı", "Buğday"]
+    "hangiülkedevaroldu": "Hititler, Roma İmparatorluğu, Emeviler, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Kilis Tarihi Evleri, Deveci Hanı, Ökkeş Madrasesi, Kilis Müzesi, Gaziantep Kalesi manzarası, Kurtuşağı Yaylası, Balkazan Barajı, Elbeyli Şehitliği",
+    "önemliinsanlar": "Yahya Kemal Beyatlı (etk.), Hacı Mısır Mustafa Efendi, Mehmet Akif Ersoy (etk.), Ahmed Arif, Ali Rıza Efendi",
+    "hayvancılık": "Küçükbaş, süt & et, koyun, arıcılık, tavuk, mera, yaylacılık, doğal otlak",
+    "bitkiörtüsü": "Bozkır bitkileri, otsu türler, endemik, çalı, tarım, sulak alan, meyve bahçesi, maki",
+    "havakoşulları": "Akdeniz-çöl geçişi: yazlar sıcak & kurak, kışlar ılık & yağışlı, nem düşük",
+    "coğrafiişaretler": "Kilis Tütünü, Kebap çeşidi, Madrasesi Biblosu, Han Magneti, Yayla Balı, Baraj Suyu Şişesi, Ev Figürü, Şehitlik Sembolü",
+    "tarihiólaylar": "Hitit yerleşimi, Roma yolu, Emevi fethi, Osmanlı sınır kalesi, Kurtuluş Savaşı cephesi, ticaret yolu, kültürel kaynaşma, modern sınır ticareti",
+    "seyahathatirasi": "Tütün paketi, magnet seti, biblo, su şişesi, bal kavanozu, el işi kilimi, han minyatürü, şehitlik kartı"
+
   },
   {
     "name": "Osmaniye",
@@ -1197,7 +1985,17 @@
     "müzeler": "Karatepe-Aslantaş Açık Hava Müzesi",
     "müzeResmi": "/static/images/müzeler/80.jpg",
     "ekonomikFaaliyetler": ["Tarım (Yer Fıstığı)", "Sanayi", "Ticaret"],
-    "tarimUrunleri": ["Yer Fıstığı", "Mısır", "Pamuk", "Buğday"]
+    "tarimUrunleri": ["Yer Fıstığı", "Mısır", "Pamuk", "Buğday"],
+    "hangiülkedevaroldu": "Hititler, Asurlular, Roma İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Haruniye Şelalesi, Karatepe-Aslantaş Milli Parkı, Toprakkale Kalesi, Cebelibereket Müzesi, Düziçi Ovaları, Kanlıdivane Antik Kenti, Bulak Mağarası, Tekir Yaylası",
+    "önemliinsanlar": "Cahit Külebi (etk.), Hüseyin Özkan, İsmail Hakkı Tonguç (etk.), Mehmet Akif Ersoy (etk.), Şakir Gürwin",
+    "hayvancılık": "Büyükbaş-küçükbaş, süt & et, koyun, manda, arıcılık, tavuk, mera, yaylacılık",
+    "bitkiörtüsü": "Akdeniz makisi, orman, otsu bitki, tarım, sulak alan, endemik, çalı, yayla florası",
+    "havakoşulları": "Akdeniz iklimi: yazlar sıcak & kurak, kışlar ılık & yağışlı, nem orta",
+    "coğrafiişaretler": "Haruniye Magneti, Aslantaş Biblosu, Kale Maketi, Ovalar Balı, Antik Kent Kartı, Mağara Suyu Şişesi, Yayla Kekiği, Müzesi Broşürü",
+    "tarihiólaylar": "Hitit askeri yolu, Asur ticareti, Roma fethi, Osmanlı sancak merkezi, milli mücadele hattı, doğal park kuruluşu, kültürel festivaller, sanayi gelişimi",
+    "seyahathatirasi": "Magnet seti, biblo, bal paketi, su şişesi, kekiği kavanozu, antik heykelciği, yayla şapkası, müze broşürü"
+
   },
   {
     "name": "Düzce",
@@ -1212,6 +2010,16 @@
     "müzeler": "Düzce Konuralp Müzesi",
     "müzeResmi": "/static/images/müzeler/81.jpg",
     "ekonomikFaaliyetler": ["Tarım", "Ormancılık", "Sanayi", "Turizm"],
-    "tarimUrunleri": ["Fındık", "Mısır", "Buğday", "Patates"]
+    "tarimUrunleri": ["Fındık", "Mısır", "Buğday", "Patates"],
+    "hangiülkedevaroldu": "Frigler, Bitinyalılar, Roma İmparatorluğu, Osmanlı İmparatorluğu",
+    "gezilecekyerler": "Melen Çayı Tabiat Parkı, Samandere Şelalesi, Gölyaka Güzeldere Şelalesi, Düzce Müzesi, Akçakoca Plajı, Abant Gölü (yakın), Düzce Kalesi, Ballıkayalar Tabiat Parkı",
+    "önemliinsanlar": "Ülkü Adatepe (etk.), Barbaros Hayrettin Paşa (etk.), Behiç Erkin (etk.), Şemsi Tebrizi (etk.), Mehmet Akif Ersoy (etk.)",
+    "hayvancılık": "Büyükbaş-küçükbaş, süt & et, koyun, arıcılık, tavuk, mera, yaylacılık, kanatlı",
+    "bitkiörtüsü": "Karadeniz ormanları, maki, otsu bitki, sulak alan, tarım, endemik, çayır, orman altı flora",
+    "havakoşulları": "Karadeniz iklimi: yağış yıl boyu, nem yüksek, yazlar serin, kışlar ılık",
+    "coğrafiişaretler": "Melen Suyu, Şelale Magneti, Plaj Kum Paketi, Müze Replikası, Orman Yürüyüş Rotası, Kekiği Kavanozu, Göl Fotoğrafı, Şelale Suyu Šişesi",
+    "tarihiólaylar": "Frig yolları, Bitinya egemenliği, Roma idaresi, Osmanlı fethi, 1999 depremi, tabiat park ilanı, tarım reformu, kültürel etkinlikler",
+    "seyahathatirasi": "Su şişesi, magnet seti, kum paketi, fotoğraf albümü, bitki tohumu seti, rota haritası, müze broşürü, mini biblo"
+
   }
 ]
