@@ -84,10 +84,12 @@ function openIlModal(ilAdi) {
                 </div>
                 <div class="swiper-slide"><h3>Tarihçe</h3><p>${ilVerisi.tarih}</p></div>
                 <div class="swiper-slide"><h3>Eserler</h3><p>${ilVerisi.eserler}</p></div>
-                <div class="swiper-slide"><h3>Müzeler</h3><p>${ilVerisi.müzeler}</p></div>
+                <div class="swiper-slide"><h3>Müzeler</h3><img src="${ilVerisi['müzeResmi']}" alt="${ilVerisi['müzeResmi']}" /><br><p>${ilVerisi.müzeler}</p></div>
                 <div class="swiper-slide"><h3>Öneriler</h3><p>${ilVerisi.oneriler}</p></div>
                 <div class="swiper-slide"><h3>Yemekler</h3><p>${ilVerisi.unluYemekler}</p></div>
                 <div class="swiper-slide"><h3>Üniversiteler</h3><p>${ilVerisi.universiteler}</p></div>
+                <div class="swiper-slide"><h3>Ekonomik Faaliyetler</h3><p>${ilVerisi.ekonomikFaaliyetler}</p></div>
+                <div class="swiper-slide"><h3>Tarım Ürünleri</h3><p>${ilVerisi.tarimUrunleri}</p></div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
