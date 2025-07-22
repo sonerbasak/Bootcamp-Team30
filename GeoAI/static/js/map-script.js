@@ -90,8 +90,16 @@ function openIlModal(ilAdi) {
                 <div class="swiper-slide"><h3>Üniversiteler</h3><p>${ilVerisi.universiteler}</p></div>
                 <div class="swiper-slide"><h3>Ekonomik Faaliyetler</h3><p>${ilVerisi.ekonomikFaaliyetler}</p></div>
                 <div class="swiper-slide"><h3>Tarım Ürünleri</h3><p>${ilVerisi.tarimUrunleri}</p></div>
+                <div class="swiper-slide"><h3>Gezilecek Yerler</h3><p>${ilVerisi.gezilecekyerler}</p></div>
+                <div class="swiper-slide"><h3>Hangi Ülkede Var Oldu</h3><p>${ilVerisi.hangiülkedevaroldu}</p></div>
+                <div class="swiper-slide"><h3>Önemli İnsanlar</h3><p>${ilVerisi.önemliinsanlar}</p></div>
+                <div class="swiper-slide"><h3>Hayvancılık</h3><p>${ilVerisi.hayvancılık}</p></div>
+                <div class="swiper-slide"><h3>Bitki Örtüsü</h3><p>${ilVerisi.bitkiörtüsü}</p></div>
+                <div class="swiper-slide"><h3>Hava Koşulları</h3><p>${ilVerisi.havakoşulları}</p></div>
+                <div class="swiper-slide"><h3>Coğrafi İşaretler</h3><p>${ilVerisi.coğrafiişaretler}</p></div>
+                <div class="swiper-slide"><h3>Tarihi Olaylar</h3><p>${ilVerisi.tarihiólaylar}</p></div>
+                <div class="swiper-slide"><h3>Seyahat Hatırası</h3><p>${ilVerisi.seyahathatirasi}</p></div>
             </div>
-            <div class="swiper-pagination"></div>
         </div>
       `
             : "<p>İçerik bulunamadı.</p>";

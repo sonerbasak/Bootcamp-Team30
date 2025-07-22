@@ -13,9 +13,8 @@
     "müzeResmi": "/static/images/müzeler/01.png",
     "ekonomikFaaliyetler": "Tarım, Sanayi, Ticaret",
     "tarimUrunleri": "Pamuk, Mısır, Soya, Narenciye",
-    "gezilecekyerler": "Yılan Kalesi, Varda Köprüsü, Kapıkaya Kanyonu, Ayas Antik Kenti, Magarus Antik Kenti,Küp Şrlaleri",
+    "gezilecekyerler": "Yılan Kalesi, Varda Köprüsü, Kapıkaya Kanyonu, Ayas Antik Kenti, Magarus Antik Kenti,Küp Şrlaleri, Taş Köprü, Sabancı Merkez Camii, Varda Köprüsü, Büyük Saat, Ramazanoğlu Konağı, Yerköprü Şelalesi, Atatürk Müzesi, Adana Sinema Müzesi",
     "hangiülkedevaroldu": "Hititler, Asurlular, Roma İmparatorluğu, Osmanlı Devleti",
-    "gezilecekyerler": "Taş Köprü, Sabancı Merkez Camii, Varda Köprüsü, Büyük Saat, Ramazanoğlu Konağı, Yerköprü Şelalesi, Atatürk Müzesi, Adana Sinema Müzesi",
     "önemliinsanlar": "Seyhan Karabayır, Nuri Alço, Seyhan Erözçelik, Ruhi Su, Sabancı Ailesi",
     "hayvancılık": "Büyükbaş hayvancılık yaygın, küçükbaş yetiştiriciliği, kümes hayvancılığı gelişmiş, sulak alanlarda balıkçılık, manda yetiştiriciliği, süt ve et üretimi, doğal mera kullanımı, hayvan pazarları",
     "bitkiörtüsü": "Maki, sazlık ve kamışlar, kızılçam ve meşe ormanları, tarım alanları, tropikal bitkiler, step bitkileri, narenciye bahçeleri, bahçecilik",
@@ -23,7 +22,7 @@
     "coğrafiişaretler": "Adana Kebabı, Şalgam Suyu, Bici Bici, Pozantı Leblebisi, Kozan Narı, Feke Balı, Seyhan Balığı, Fars Köfte",
     "tarihiólaylar": "Roma ticaret merkezi olması, Osmanlı fethi, 1920’lerde Milli Mücadele faaliyetleri, Hitit yerleşimleri, Asur ticaret yolları, Büyük Saat inşası, Varda Köprüsü yapımı, Seyhan Nehri kıyılarında yaşam",
     "seyahathatirasi": "Adana kebabı sosu, Taş Köprü magneti, Varda Köprüsü posteri, Sabancı Camii biblosu, Ramazanoğlu konağı tablosu, Yerköprü seramik bardağı, Büyük Saat anahtarlığı, Adana şalvarı kumaşı"
-  
+
   },
   {
     "name": "Adıyaman",
@@ -39,7 +38,6 @@
     "müzeResmi": "/static/images/müzeler/02.jpg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Ticaret",
     "tarimUrunleri": "Mercimek, Nohut, Buğday, Pamuk",
-    "Adıyaman": {
     "hangiülkedevaroldu": "Kommagene Krallığı, Roma İmparatorluğu, Emeviler, Osmanlı Devleti",
     "gezilecekyerler": "Nemrut Dağı, Arsemia Antik Kenti, Cendere Köprüsü, Karakuş Tümülüsü, Kahta Kalesi, Malabadi Köprüsü, Perre Antik Kenti, Adıyaman Müzesi",
     "önemliinsanlar": "I. Antiochos, Hacı Osman, Şeyh Mahmut Efendi, Mehmet Akif İnan, Rıza Tevfik Bölükbaşı",
@@ -264,7 +262,7 @@
     "müzeler": "Bilecik Müzesi, Söğüt Ertuğrul Gazi Müzesi",
     "müzeResmi": "/static/images/müzeler/11.jpg",
     "ekonomikFaaliyetler": "Tarım, Sanayi, Maden (Mermer)",
-    "tarimUrunleri": "Buğday, Arpa, Ayçiçeği, Şeker Pancarı"
+    "tarimUrunleri": "Buğday, Arpa, Ayçiçeği, Şeker Pancarı",
     "hangiülkedevaroldu": "Frigler, Bitinya Krallığı, Roma İmparatorluğu, Osmanlı Beyliği",
     "gezilecekyerler": "Saat Kulesi, Söğüt Türbesi, Edebali Türbesi, Osmaneli Köprüsü, İnönü Müzesi, Vezirhan Köprüsü, Cumalıkızık Evleri, Gölpazarı Kaplıcaları",
     "önemliinsanlar": "Ertuğrul Gazi, Osman Gazi, Şeyh Edebali, İsmail Hakkı Bursevî, Seyyid Battal Gazi",
@@ -513,7 +511,7 @@
     "müzeler": "Diyarbakır Arkeoloji Müzesi, Cahit Sıtkı Tarancı Müzesi",
     "müzeResmi": "/static/images/müzeler/21.jpeg",
     "ekonomikFaaliyetler": "Tarım, Hayvancılık, Ticaret",
-    "tarimUrunleri": "Karpuz, Buğday, Arpa, Pamuk"
+    "tarimUrunleri": "Karpuz, Buğday, Arpa, Pamuk",
     "hangiülkedevaroldu": "Hurri-Mitanni, Asurlular, Artuklular, Osmanlı İmparatorluğu",
     "gezilecekyerler": "Diyarbakır Surları, Ulu Camii, Hasan Paşa Hanı, Mardin Kapı, Hevsel Bahçeleri, On Gözlü Köprü, Cahit Sıtkı Tarancı Müzesi, Hasan Ağa Hanı",
     "önemliinsanlar": "Cahit Sıtkı Tarancı, Ahmet Arif, Mehmed Emin Bozarslan, İbrahim Tatlıses, Musa Anter",
@@ -698,7 +696,6 @@
     "coğrafiişaretler": "Giresun Fındığı, Cevizi, Kuşkayası Biblosu, Mumu, Fındık Tohumu, Balı, Kekiği, Deniz Ürünleri",
     "tarihiólaylar": "Kolhis dönemi, Pontus egemenliği, Bizans yönetimi, Osmanlı fethi, deniz ticareti, fındık üretimi, yayla festivalleri, kültürel gelişme",
     "seyahathatirasi": "Fındık paketi, ada magneti, mumu biblo, çınar tohumu, kale kartpostalı, bal kavanozu, çarşı turu kartı, yayla fotoğrafı"
-,
   },
   {
     "name": "Gümüşhane",
@@ -748,7 +745,6 @@
     "coğrafiişaretler": "Hakkâri Balı, Cilo Endemiği, Zap Balığı, Şemdinli Kekiği, Merga Yöresel Ürün, Kale Magneti, Yayla Takısı, Hatıra Boncuğu",
     "tarihiólaylar": "Urartu yerleşimi, Asur hakimiyeti, Abbasi yönetimi, Osmanlı fethi, bölgesel isyanlar, kültürel direniş, sınır anlaşmaları, yayla yaşamı",
     "seyahathatirasi": "Bal kavanozu, endemik tohum seti, kale kart, yayla fotoğrafı, boncuklu kolye, kekiği torbası, vadi manzaralı kart, köprü biblo"
-,
   },
   {
     "name": "Hatay",
@@ -1710,7 +1706,7 @@
     "müzeler": "Bayburt Tarih ve Kültür Müzesi",
     "müzeResmi": "/static/images/müzeler/69.jpg",
     "ekonomikFaaliyetler": ["Hayvancılık", "Tarım"],
-    "tarimUrunleri": ["Buğday", "Arpa", "Patates", "Şeker Pancarı"]
+    "tarimUrunleri": ["Buğday", "Arpa", "Patates", "Şeker Pancarı"],
     "hangiülkedevaroldu": "Urartular, Persler, Bizans İmparatorluğu, Osmanlı İmparatorluğu",
     "gezilecekyerler": "Bayburt Kalesi, Aydıntepe Yeraltı Şehri, Gürlevik Şelalesi, Çimağıl Mağarası, Dede Korkut Kültür Parkı, Bayburt Müzesi, Pendikli Kaya Sütunu, Çoruh Nehri Vadisi",
     "önemliinsanlar": "Dede Korkut (efsanevi), Vehbi Yurtseven, Hümeyra, Mehmet Akif Ersoy (etk.), Ahmed-i Hani",
@@ -1960,7 +1956,7 @@
     "müzeler": "Kilis Müzesi",
     "müzeResmi": "/static/images/müzeler/79.jpg",
     "ekonomikFaaliyetler": ["Tarım", "Ticaret", "Sınır Ticareti"],
-    "tarimUrunleri": ["Zeytin", "Üzüm", "Antep Fıstığı", "Buğday"]
+    "tarimUrunleri": ["Zeytin", "Üzüm", "Antep Fıstığı", "Buğday"],
     "hangiülkedevaroldu": "Hititler, Roma İmparatorluğu, Emeviler, Osmanlı İmparatorluğu",
     "gezilecekyerler": "Kilis Tarihi Evleri, Deveci Hanı, Ökkeş Madrasesi, Kilis Müzesi, Gaziantep Kalesi manzarası, Kurtuşağı Yaylası, Balkazan Barajı, Elbeyli Şehitliği",
     "önemliinsanlar": "Yahya Kemal Beyatlı (etk.), Hacı Mısır Mustafa Efendi, Mehmet Akif Ersoy (etk.), Ahmed Arif, Ali Rıza Efendi",
