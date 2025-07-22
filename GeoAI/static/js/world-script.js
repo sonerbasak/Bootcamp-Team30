@@ -12,7 +12,7 @@ L.tileLayer("https://{s}.basemaps.cartocdn.com/watercolor/{z}/{x}/{y}{r}.png", {
 }).addTo(map);
 
 // Değişkenler
-let countriesInfo = [];
+let countriesInfo = []; // This will be populated after the fetch
 let swiperInstance = null;
 const modal = document.getElementById("modal");
 
@@ -22,7 +22,7 @@ Promise.all([
     fetch("/data/world-geo.json").then((res) => res.json()),
 ])
     .then(([countriesData, geoJsonData]) => {
-        countriesInfo = countriesData;
+        countriesInfo = countriesData; // `countriesInfo` now holds your country data
 
         const countriesLayer = L.geoJSON(geoJsonData, {
             style: {
@@ -50,13 +50,17 @@ Promise.all([
                     layer.closeTooltip();
                 });
 
+                // When a country is clicked on the map, open its modal
                 layer.on("click", () => openCountryModal(countryName));
             },
         }).addTo(map);
+
+        // Optional: Fit map to the bounds of all loaded countries
+        // map.fitBounds(countriesLayer.getBounds(), { padding: [20, 20] });
     })
     .catch((err) => console.error("Veri yüklenirken hata:", err));
 
-// Modal açma fonksiyonu
+// Modal açma fonksiyonu (mevcut haliyle bırakıldı)
 function openCountryModal(countryName) {
     const country = countriesInfo.find(
         (c) => c.name.trim().toLowerCase() === countryName.trim().toLowerCase()
@@ -94,7 +98,7 @@ function openCountryModal(countryName) {
     // AI quiz linkini güncelle
     const aiBtn = document.getElementById("aiLink");
     if (aiBtn) {
-        aiBtn.href = `ai?city=${encodeURIComponent(countryName)}`;
+        aiBtn.href = `ai?city=${encodeURIComponent(countryName)}`; // Consider changing 'city' to 'country' for clarity
     }
 
     // Modal aç
@@ -103,7 +107,7 @@ function openCountryModal(countryName) {
     // Önceki swiper varsa yok et
     if (swiperInstance) swiperInstance.destroy(true, true);
 
-    if (country) {
+    if (country) { // Only initialize swiper if country data exists
         swiperInstance = new Swiper(".mySwiper", {
             effect: "cards",
             grabCursor: true,
@@ -165,8 +169,52 @@ setTimeout(() => {
     }
 }, 5000);
 
+// --- Rastgele Ülke Seçme Fonksiyonu ---
+// Bu fonksiyon, `countriesInfo` dizisi yüklendikten sonra çalışacaktır.
+function selectRandomCountry() {
+    if (countriesInfo.length === 0) {
+        console.warn("Ülke verileri henüz yüklenmedi veya boş.");
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * countriesInfo.length);
+    const randomCountry = countriesInfo[randomIndex];
+
+    // Haritayı rastgele seçilen ülkenin tahmini merkezine odaklar
+    // `world-geo.json` dosyanızdaki ülkelerin properties içinde
+    // `latitude` ve `longitude` veya `centroid` gibi koordinat bilgileri yoksa
+    // bu kısım için ek bir mantık (örneğin ülkenin GeoJSON'undan merkezini hesaplama)
+    // gerekecektir.
+    // Şimdilik sadece openCountryModal'ı çağırıyoruz.
+    openCountryModal(randomCountry.name);
+
+    // OPTIONAL: Haritayı ülkenin merkezine kaydırmak için:
+    // Eğer `world-info.json` içinde `lat` ve `lng` varsa:
+    // if (randomCountry.lat && randomCountry.lng) {
+    //     map.flyTo([randomCountry.lat, randomCountry.lng], 5); // Zoom level 5 for countries
+    // } else {
+    //     // Alternatif olarak, eğer GeoJSON katmanından koordinat alabiliyorsanız
+    //     // countriesLayer.eachLayer(function(layer) {
+    //     //     if (layer.feature.properties.NAME_TR === randomCountry.name || layer.feature.properties.NAME_EN === randomCountry.name) {
+    //     //         map.flyToBounds(layer.getBounds()); // Ülke sınırlarına sığdır
+    //     //     }
+    //     // });
+    // }
+}
+
+// --- Rastgele Ülke Linki için Olay Dinleyici ---
+// HTML'deki randomCityLink ID'sini kullanmaya devam ediyorum.
+const randomCityLink = document.getElementById('randomCityLink');
+if (randomCityLink) {
+    randomCityLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Linkin varsayılan tıklama davranışını engeller (sayfa yenileme)
+        selectRandomCountry(); // Artık ülkeler için olan fonksiyonu çağır
+    });
+}
+
 // Global erişim için
 window.closeModal = closeModal;
 window.slidePrev = slidePrev;
 window.slideNext = slideNext;
 window.openCountryModal = openCountryModal;
+window.selectRandomCountry = selectRandomCountry; // Yeni fonksiyonu global yap

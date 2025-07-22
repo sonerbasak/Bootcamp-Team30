@@ -19,7 +19,7 @@ L.tileLayer(
 ).addTo(map);
 
 // Değişkenler
-let illerBilgi = [];
+let illerBilgi = []; // Bu dizi, fetch ile doldurulacak
 let swiperInstance = null;
 const modal = document.getElementById("modal");
 
@@ -29,7 +29,7 @@ Promise.all([
     fetch("/data/tr-geo.json").then((res) => res.json()),
 ])
     .then(([illerData, geoJsonData]) => {
-        illerBilgi = illerData;
+        illerBilgi = illerData; // illerBilgi artık global olarak erişilebilir
 
         const illerLayer = L.geoJSON(geoJsonData, {
             style: {
@@ -71,7 +71,6 @@ function openIlModal(ilAdi) {
         (i) => i.name.trim().toLowerCase() === ilAdi.trim().toLowerCase()
     );
 
-    // Modal içeriği ve Swiper yapısı
     const icerik = ilVerisi
         ? `
         <div class="swiper mySwiper">
@@ -99,7 +98,7 @@ function openIlModal(ilAdi) {
     document.getElementById("modalContent").innerHTML = icerik;
 
     // AI sayfasına bağlantı
-    const aiBtn = document.getElementById("aiLink"); // HTML'de id="aiLink" eklediğinizden emin olun
+    const aiBtn = document.getElementById("aiLink");
     if (aiBtn) {
         aiBtn.href = `ai?city=${encodeURIComponent(ilAdi)}`;
     }
@@ -108,9 +107,8 @@ function openIlModal(ilAdi) {
     modal.style.display = "flex";
 
     // Swiper'ı başlat
-    // Önceki Swiper örneğini yok et ki yeni slaytlarla çakışma olmasın
     if (swiperInstance) swiperInstance.destroy(true, true);
-    if (ilVerisi) {
+    if (ilVerisi) { // Sadece il verisi varsa Swiper'ı başlat
         swiperInstance = new Swiper(".mySwiper", {
             effect: "cards",
             grabCursor: true,
@@ -131,7 +129,6 @@ function openIlModal(ilAdi) {
 // Modal kapatma
 function closeModal() {
     modal.style.display = "none";
-    // Swiper örneğini yok etmeden önce slaytları sıfırlamak iyi bir pratik olabilir
     if (swiperInstance) {
         swiperInstance.destroy(true, true);
         swiperInstance = null;
@@ -180,7 +177,32 @@ setTimeout(() => {
     }
 }, 5000);
 
+// --- Rastgele Şehir Seçme Fonksiyonu ---
+function selectRandomCity() {
+    if (illerBilgi.length === 0) {
+        console.warn("Şehir verileri henüz yüklenmedi veya boş.");
+        return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * illerBilgi.length);
+    const randomIl = illerBilgi[randomIndex];
+
+    openIlModal(randomIl.name);
+}
+
+
+// --- Rastgele Şehir Linki için Olay Dinleyici ---
+const randomCityLink = document.getElementById('randomCityLink');
+if (randomCityLink) {
+    randomCityLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Linkin varsayılan tıklama davranışını engeller (sayfa yenileme)
+        selectRandomCity(); // Artık tanımlanmış olan fonksiyonu çağır
+    });
+}
+
 // Global erişim için fonksiyonları dışa aktar
 window.closeModal = closeModal;
 window.slidePrev = slidePrev;
 window.slideNext = slideNext;
+// openIlModal'ı da dışa aktarabilirsiniz, ancak şu an için direkt çağrılıyor.
+// window.openIlModal = openIlModal;

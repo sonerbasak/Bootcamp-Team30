@@ -21,6 +21,30 @@
                 <strong>Bir ülke seçin ve harita üzerinden AI destekli sorular oluşturun.</strong>
             </div>
 
+            <div id="header-bar" class="position-fixed top-0 start-0 w-100 p-3" style="z-index: 1000;">
+                <div class="d-flex justify-content-end align-items-center">
+                    {# user objesi var mı ve user.username özelliği var mı diye kontrol ediyoruz #}
+                    {% if user and user.username %}
+                        <span class="me-3 fw-bold text-white user-info">Hoşgeldin, {{ user.username }}!</span>
+                        <a href="#" id="randomCityLink"  class="btn btn-primary btn-sm me-2" title="Rastgele Ülke Seç">
+                            <i class="fas fa-shuffle"></i> Rastgele Ülke
+                        </a>
+                        <a href="{{ url_for('message_list') }}" class="btn btn-info btn-sm me-2" title="Mesaj Kutusu">
+                            <i class="fas fa-envelope"></i> Mesajlar
+                        </a>
+                        <a href="{{ url_for('user_profile', username=user.username) }}" class="btn btn-secondary btn-sm me-2" title="Profilim">
+                            <i class="fas fa-user"></i> Profil
+                        </a>
+                        <a href="{{ url_for('logout_user') }}" class="btn btn-danger btn-sm logout-btn" title="Çıkış Yap">
+                            <i class="fas fa-sign-out-alt"></i> Çıkış
+                        </a>
+                    {% else %}
+                        <a href="{{ url_for('login_page') }}" class="btn btn-primary btn-sm me-2">Giriş Yap</a>
+                        <a href="{{ url_for('register_page') }}" class="btn btn-secondary btn-sm">Kayıt Ol</a>
+                    {% endif %}
+                </div>
+            </div>
+
             <div id="mapCol" class="col-12">
                 <div id="map"></div>
             </div>
