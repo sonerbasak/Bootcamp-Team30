@@ -6,77 +6,7 @@
     <title>Mesajlar - GeoAI</title>
     <link rel="icon" type="image/fav-ico" href="{{ url_for('static', path='images/fav.ico') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
-    <style>
-        .conversations-list {
-            max-height: calc(100vh - 150px); /* Ekran yüksekliğine göre ayarlanabilir */
-            overflow-y: auto;
-            border-right: 1px solid #eee;
-        }
-        .chat-area {
-            max-height: calc(100vh - 200px); /* Ekran yüksekliğine göre ayarlanabilir */
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column-reverse; /* En yeni mesaj aşağıda olsun */
-        }
-        .message-bubble {
-            max-width: 70%;
-            padding: 8px 12px;
-            border-radius: 15px;
-            margin-bottom: 8px;
-            word-wrap: break-word;
-        }
-        .message-bubble.sent {
-            background-color: #dcf8c6;
-            align-self: flex-end;
-        }
-        .message-bubble.received {
-            background-color: #e0e0e0;
-            align-self: flex-start;
-        }
-        .message-input-area {
-            padding: 15px;
-            border-top: 1px solid #eee;
-        }
-        .conversation-item {
-            cursor: pointer;
-            padding: 10px 15px;
-            border-bottom: 1px solid #eee;
-        }
-        .conversation-item:hover {
-            background-color: #f8f9fa;
-        }
-        .conversation-item.active {
-            background-color: #e9ecef;
-            font-weight: bold;
-        }
-        .profile-pic-small {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 10px;
-        }
-        /* Yeni mesaj modal stilleri */
-        .search-results-list {
-            max-height: 250px;
-            overflow-y: auto;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        .search-result-item {
-            padding: 8px 15px;
-            cursor: pointer;
-            border-bottom: 1px solid #f8f9fa;
-        }
-        .search-result-item:hover {
-            background-color: #f0f0f0;
-        }
-        .search-result-item:last-child {
-            border-bottom: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../../static/css/social-style.css" />
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -122,7 +52,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid mt-4">
+    <div class="container-fluid mt-4 ">
         <div class="row">
             <div class="col-md-4 col-lg-3 conversations-list bg-white shadow-sm p-0">
                 <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
@@ -146,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="col-md-8 col-lg-9 bg-white shadow-sm d-flex flex-column">
+            <div class="col-md-8 col-lg-9 bg-white shadow-sm d-flex flex-column chat-container">
                 <div class="p-3 border-bottom d-flex align-items-center" id="chatHeader">
                     <h5 class="mb-0 text-muted">Bir konuşma seçin</h5>
                 </div>

@@ -1,0 +1,904 @@
+/* Custom CSS for Messages Page */
+
+body {
+    font-family: 'Segoe UI', 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    padding-top: 85px; /* Navbar altına daha fazla boşluk (70px'ten 85px'e çıkarıldı) */
+    overflow-y: hidden; /* Sayfanın genel dikey scrollbarını engeller */
+}
+
+.navbar {
+    background-color: #f8f9fa !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    color: #00796b !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: #004d40 !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #00796b !important;
+}
+
+.navbar .form-control {
+    border-color: #00796b;
+    box-shadow: none;
+    transition: border-color 0.3s ease;
+}
+
+.navbar .form-control:focus {
+    border-color: #004d40;
+    box-shadow: 0 0 0 0.25rem rgba(0, 121, 107, 0.25);
+}
+
+.navbar .btn-outline-success {
+    color: #00796b;
+    border-color: #00796b;
+    transition: all 0.3s ease;
+}
+
+.navbar .btn-outline-success:hover {
+    background-color: #00796b;
+    color: white;
+}
+
+.navbar-nav .dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .dropdown-item {
+    color: #004d40;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-nav .dropdown-item:hover {
+    background-color: #e0f2f1;
+    color: #00796b;
+}
+
+.container-fluid.mt-4 {
+    flex-grow: 1;
+    display: flex;
+    height: calc(100vh - 85px); /* Navbar altındaki boşluğa göre ayarlandı */
+    padding: 20px; /* Sağda, solda ve altta 20px boşluk */
+    box-sizing: border-box;
+    background-color: transparent;
+}
+
+.row {
+    flex-grow: 1;
+    margin: 0; /* Row'un kendi negatif margin'ini kaldırıyoruz */
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    width: 100%; /* Row'un genişliğini 100% yapıyoruz */
+    box-sizing: border-box;
+}
+
+/* Konuşmalar listesi ve sohbet alanı sütunları için boşluklar */
+.col-md-4, .col-lg-3 {
+    padding-right: 15px; /* Konuşmalar listesinin sağında boşluk */
+    box-sizing: border-box;
+}
+
+.col-md-8, .col-lg-9 {
+    padding-left: 15px; /* Sohbet alanının solunda boşluk */
+    box-sizing: border-box;
+}
+
+
+.conversations-list {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    overflow-y: auto;
+    border-right: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border: #00bfa5 1px solid;
+}
+.chat-container{
+    border: #00bfa5 1px solid;
+}
+
+.conversations-list .border-bottom {
+    border-color: #e0f2f1 !important;
+}
+
+.conversations-list h5 {
+    color: #004d40;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: #00796b;
+    border-color: #00796b;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #004d40;
+    border-color: #004d40;
+    box-shadow: 0 4px 12px rgba(0, 121, 107, 0.3);
+}
+
+.conversation-item {
+    cursor: pointer;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f1fdfc;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.conversation-item:last-child {
+    border-bottom: none;
+}
+
+.conversation-item:hover {
+    background-color: #e0f2f1;
+}
+
+.conversation-item.active {
+    background-color: #c8e6c9;
+    font-weight: bold;
+    border-left: 5px solid #00796b;
+    padding-left: 10px;
+}
+
+.conversation-item h6 {
+    color: #004d40;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.conversation-item small {
+    color: #607d8b;
+}
+
+.profile-pic-small {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+    border: 2px solid #00bfa5;
+}
+
+.chat-area {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+#chatHeader {
+    background-color: #f1fdfc;
+    border-bottom: 1px solid #e0f2f1 !important;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    margin: 0;
+    padding: 15px !important;
+    flex-shrink: 0;
+}
+
+#chatHeader h5 {
+    color: #004d40;
+    font-weight: 600;
+}
+
+#chatMessages {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 15px;
+}
+
+.message-bubble {
+    max-width: 75%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    font-size: 0.95rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.message-bubble.sent {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.message-bubble.received {
+    background-color: #e0f2f1;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.message-input-area {
+    padding: 15px;
+    border-top: 1px solid #e0f2f1;
+    background-color: #ffffff;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+#messageInput {
+    border-color: #00796b;
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#messageInput:focus {
+    border-color: #004d40;
+    box-shadow: 0 0 0 0.25rem rgba(0, 121, 107, 0.25);
+    outline: none;
+}
+
+#sendMessageButton {
+    border-radius: 25px;
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+}
+
+#newMessageModal .modal-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+#newMessageModal .modal-header {
+    background-color: #00796b;
+    color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom: none;
+}
+
+#newMessageModal .modal-title {
+    font-weight: 600;
+}
+
+#newMessageModal .btn-close {
+    filter: invert(1);
+}
+
+#newMessageModal .modal-body {
+    padding: 25px;
+}
+
+#newMessageModal .form-label {
+    font-weight: 600;
+    color: #004d40;
+}
+
+#newMessageModal .form-control {
+    border-color: #00796b;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+#newMessageModal .form-control:focus {
+    border-color: #004d40;
+    box-shadow: 0 0 0 0.25rem rgba(0, 121, 107, 0.25);
+}
+
+.search-results-list {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #e0f2f1;
+    border-radius: 8px;
+    margin-top: 10px;
+    background-color: #fbfdff;
+}
+
+.search-result-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1fdfc;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+.search-result-item:hover {
+    background-color: #e0f2f1;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+#selectedUserContainer {
+    background-color: #e0f2f1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #004d40;
+    font-weight: 500;
+}
+
+#selectedUsernameDisplay {
+    color: #00796b;
+    font-weight: 700;
+}
+
+#newMessageModal .modal-footer {
+    border-top: 1px solid #e0f2f1;
+    padding: 15px 25px;
+}
+
+#sendNewMessageButton {
+    background-color: #00796b;
+    border-color: #00796b;
+    font-weight: 600;
+}
+
+#sendNewMessageButton:hover {
+    background-color: #004d40;
+    border-color: #004d40;
+    box-shadow: 0 4px 12px rgba(0, 121, 107, 0.3);
+}
+
+.btn-secondary {
+    background-color: #607d8b;
+    border-color: #607d8b;
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    background-color: #455a64;
+    border-color: #455a64;
+    box-shadow: 0 4px 12px rgba(96, 125, 139, 0.3);
+}
+
+.conversations-list::-webkit-scrollbar,
+.chat-area::-webkit-scrollbar,
+.search-results-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.conversations-list::-webkit-scrollbar-thumb,
+.chat-area::-webkit-scrollbar-thumb,
+.search-results-list::-webkit-scrollbar-thumb {
+    background-color: #00bfa5;
+    border-radius: 6px;
+}
+
+.conversations-list::-webkit-scrollbar-track,
+.chat-area::-webkit-scrollbar-track,
+.search-results-list::-webkit-scrollbar-track {
+    background-color: #f1fdfc;
+}
+
+@media (max-width: 768px) {
+    .container-fluid.mt-4 {
+        padding: 10px;
+    }
+    .container-fluid.mt-4 .row {
+        flex-direction: column;
+        margin: 0;
+        width: 100%;
+    }
+
+    .col-md-4, .col-lg-3, .col-md-8, .col-lg-9 {
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    .conversations-list,
+    .chat-area {
+        max-height: unset;
+        flex: none;
+        margin: 0;
+        width: 100%;
+        border-right: none;
+    }
+
+    .conversations-list {
+        order: 2;
+    }
+
+    .chat-area {
+        order: 1;
+    }
+
+    .message-bubble {
+        max-width: 90%;
+        font-size: 0.9rem;
+    }
+
+    #messageInput {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    #sendMessageButton {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    #chatHeader {
+        padding: 10px !important;
+    }
+
+    .conversations-list .p-3,
+    .chat-area .p-3 {
+        padding: 10px !important;
+    }
+
+    .profile-pic-small {
+        width: 35px;
+        height: 35px;
+    }
+
+    .conversation-item {
+        padding: 10px;
+    }
+}
+/* Custom CSS for User Profile Page */
+
+body {
+    font-family: 'Segoe UI', 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #e0f2f1, #b2dfdb); /* Mevcut tema arka planı */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    padding-top: 70px; /* Navbar yüksekliğiniz kadar boşluk */
+    overflow-x: hidden; /* Yatay kaydırmayı engeller */
+}
+
+/* Navbar Stilleri (Mevcut navbar stilinize uyumlu) */
+.navbar {
+    background-color: #f8f9fa !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    color: #00796b !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: #004d40 !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #00796b !important;
+}
+
+.navbar .form-control {
+    border-color: #00796b;
+    box-shadow: none;
+    transition: border-color 0.3s ease;
+}
+
+.navbar .form-control:focus {
+    border-color: #004d40;
+    box-shadow: 0 0 0 0.25rem rgba(0, 121, 107, 0.25);
+}
+
+.navbar .btn-outline-success {
+    color: #00796b;
+    border-color: #00796b;
+    transition: all 0.3s ease;
+}
+
+.navbar .btn-outline-success:hover {
+    background-color: #00796b;
+    color: white;
+}
+
+.navbar-nav .dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .dropdown-item {
+    color: #004d40;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-nav .dropdown-item:hover {
+    background-color: #e0f2f1;
+    color: #00796b;
+}
+
+/* Genel Konteyner ve Kart Stili */
+.container.mt-4 {
+    padding-top: 20px; /* Navbar altındaki boşluğu artır */
+    padding-bottom: 30px; /* Sayfanın altındaki boşluğu artır */
+    flex-grow: 1; /* İçeriğin kalan yüksekliği doldurmasını sağlar */
+}
+
+.card.shadow-sm {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    overflow: hidden; /* İçerik taşmasını engeller */
+    border: none;
+}
+
+/* Profil Başlık Alanı */
+.profile-header {
+    background: linear-gradient(45deg, #00796b, #00bfa5); /* Renkli başlık */
+    padding: 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.1); /* Alt gölge */
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255, 255, 255, 0.8); /* Beyaz çerçeve */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0; /* Küçülmesini engeller */
+}
+
+.profile-header h2 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 5px !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header p.text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 1.1rem;
+}
+
+.profile-actions .btn {
+    margin-right: 10px;
+    border-radius: 25px;
+    font-weight: 500;
+    padding: 8px 18px;
+    transition: all 0.3s ease;
+}
+
+.profile-actions .btn-info {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.profile-actions .btn-info:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.profile-actions .badge {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    margin-left: 5px;
+    font-size: 0.8em;
+    padding: 5px 8px;
+    border-radius: 12px;
+}
+
+.profile-actions .btn-outline-secondary {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+.profile-actions .btn-outline-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.profile-actions .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+.profile-actions .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.profile-actions .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.profile-actions .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+
+/* Kart İçeriği */
+.card-body {
+    padding: 30px;
+    background-color: #fcfcfc;
+}
+
+.profile-bio {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-left: 5px solid #00796b;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    color: #004d40;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0f2f1;
+    padding-bottom: 10px;
+}
+
+.profile-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px; /* İstatistik öğeleri arasında boşluk */
+    margin-bottom: 30px;
+}
+
+.stat-item {
+    flex: 1 1 calc(25% - 20px); /* 4 öğe yan yana, boşlukları hesaba katarak */
+    min-width: 150px; /* Minimum genişlik */
+    background-color: #e0f2f1;
+    border-radius: 10px;
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.stat-value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #00796b;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: #4CAF50;
+    font-weight: 500;
+}
+
+.list-group-item {
+    border-color: #f1fdfc;
+    padding: 12px 20px;
+    background-color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.list-group-item small {
+    color: #78909c !important;
+}
+
+/* Modallar */
+.modal-content {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    background-color: #00796b;
+    color: white;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.modal-footer {
+    border-top: 1px solid #e0f2f1;
+    padding: 15px 25px;
+}
+
+.modal .list-group-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.modal .list-group-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    border: 1px solid #e0f2f1;
+}
+
+
+/* Edit Profile Modal */
+#editProfileModal .form-label {
+    font-weight: 600;
+    color: #004d40;
+}
+
+#editProfileModal .form-control {
+    border-color: #00796b;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+#editProfileModal .form-control:focus {
+    border-color: #004d40;
+    box-shadow: 0 0 0 0.25rem rgba(0, 121, 107, 0.25);
+}
+
+#editProfileModal .btn-primary {
+    background-color: #00796b;
+    border-color: #00796b;
+    font-weight: 600;
+}
+
+#editProfileModal .btn-primary:hover {
+    background-color: #004d40;
+    border-color: #004d40;
+}
+
+/* Navbar arama sonuçları için stil (profile-script.js ile kullanılıyorsa) */
+#userSearchResults {
+    position: absolute;
+    top: 60px; /* Navbar altındaki konumu */
+    right: 15px; /* Navbar arama kutusuyla hizalı */
+    width: 250px; /* Genişliği arama kutusuyla eşleşebilir */
+    z-index: 1050; /* Navbar'dan yüksek olsun */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#userSearchResults .list-group-item {
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: #333;
+}
+
+#userSearchResults .list-group-item:last-child {
+    border-bottom: none;
+}
+
+#userSearchResults .list-group-item:hover {
+    background-color: #e0f2f1;
+    color: #00796b;
+}
+
+#userSearchResults .list-group-item img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .profile-avatar {
+        margin-bottom: 15px;
+    }
+
+    .profile-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .profile-actions .btn {
+        margin-right: 0;
+    }
+
+    .profile-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .stat-item {
+        flex: 1 1 100%;
+        min-width: unset;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .profile-bio {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .section-header {
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+    #userSearchResults {
+        width: calc(100% - 30px); /* Küçük ekranlarda tam genişlik */
+        left: 15px;
+        right: 15px;
+        top: 60px;
+    }
+}
