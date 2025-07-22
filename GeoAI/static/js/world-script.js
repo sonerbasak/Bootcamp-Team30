@@ -60,37 +60,103 @@ Promise.all([
     })
     .catch((err) => console.error("Veri yüklenirken hata:", err));
 
-// Modal açma fonksiyonu (mevcut haliyle bırakıldı)
+// Modal açma fonksiyonu
 function openCountryModal(countryName) {
+    // Ensure countryName is a string before trimming
+    const safeCountryName = typeof countryName === 'string' ? countryName.trim().toLowerCase() : '';
+
     const country = countriesInfo.find(
-        (c) => c.name.trim().toLowerCase() === countryName.trim().toLowerCase()
+        // c.name'in undefined olmaması için kontrol ekledik
+        (c) => c && c.name && c.name.trim().toLowerCase() === safeCountryName
     );
 
-    const content = country
-        ? `
+    let content = "";
+    if (country) {
+        content = `
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="${country.flag || ''}" alt="${countryName}" class="img-fluid rounded" />
+                <div class="swiper-slide modal-section">
+                    ${country["CountryFlag/Image"] ? `<img src="${country["CountryFlag/Image"]}" alt="${countryName} Bayrağı" class="img-fluid rounded country-flag-img" />` : '<p>Bayrak bilgisi yok.</p>'}
                 </div>
-                <div class="swiper-slide"><h3>Tarihçe</h3><p>${country.tarih || 'Bilgi yok.'}</p></div>
-                <div class="swiper-slide"><h3>Eserler</h3><p>${country.eserler || 'Bilgi yok.'}</p></div>
-                <div class="swiper-slide"><h3>Öneriler</h3><p>${country.oneriler || 'Bilgi yok.'}</p></div>
-                <div class="swiper-slide">
-                    <h3>Bilgiler</h3>
-                    <p><strong>Nüfus:</strong> ${country.nufus || 'N/A'}</p>
-                    <p><strong>Plaka Kodu:</strong> ${country.plakaKodu || 'N/A'}</p>
-                    <p><strong>Yemekler:</strong> ${country.unluYemekler || 'N/A'}</p>
+                <div class="swiper-slide modal-section">
+                    <h3>Genel Bilgiler ℹ️</h3>
+                    <p><strong>Başkent:</strong> ${country.Capital || 'N/A'}</p>
+                    <p><strong>Yüzölçümü:</strong> ${country.Area || 'N/A'}</p>
+                    <p><strong>Nüfus:</strong> ${country.Population ? country.Population.toLocaleString('tr-TR') : 'N/A'}</p>
+                    <p><strong>Para Birimi:</strong> ${country.Currency || 'N/A'}</p>
                 </div>
-                <div class="swiper-slide">
-                    <h3>Üniversiteler</h3>
-                    <ul>${(country.universiteler || []).map(u => `<li>${u}</li>`).join('')}</ul>
+                <div class="swiper-slide modal-section">
+                    <h3>Resmi Dil(ler) 🗣️</h3>
+                    ${(country["OfficialLanguage(s)"] && country["OfficialLanguage(s)"].length > 0) ? 
+                        `<ul>${country["OfficialLanguage(s)"].map(lang => `<li>${lang}</li>`).join('')}</ul>` : 
+                        '<p>Dil bilgisi yok.</p>'}
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Coğrafya ve İklim 🌍</h3>
+                    <p>${country.GeographyAndClimate || 'Bilgi yok.'}</p>
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Tarihçe 📜</h3>
+                    <p>${country.History || 'Tarihçe bilgisi yok.'}</p>
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Uluslararası İlişkiler 🤝</h3>
+                    <p>${country.InternationalRelations || 'Bilgi yok.'}</p>
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Ünlü Yemekler 🍲</h3>
+                    ${(country.FamousDishes && country.FamousDishes.length > 0) ? 
+                        `<ul>${country.FamousDishes.map(dish => `<li>${dish}</li>`).join('')}</ul>` : 
+                        '<p>Yemek bilgisi yok.</p>'}
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Başlıca Turistik Yerler 🗺️</h3>
+                    ${(country.MajorTouristAttractions && country.MajorTouristAttractions.length > 0) ? 
+                        `<ul>${country.MajorTouristAttractions.map(attraction => `<li>${attraction}</li>`).join('')}</ul>` : 
+                        '<p>Turistik yer bilgisi yok.</p>'}
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Kültürel Öne Çıkanlar 🎭</h3>
+                    <p>${country.CulturalHighlights || 'Bilgi yok.'}</p>
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Üniversiteler ve Eğitim 🎓</h3>
+                    <p>${country.UniversitiesAndEducation || 'Üniversite bilgisi yok.'}</p>
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Doğal Kaynaklar 🌳</h3>
+                    <p>${country.NaturalResources || 'Bilgi yok.'}</p>
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Seyahat İpuçları ✈️</h3>
+                    <p>${country.TravelTips || 'Bilgi yok.'}</p>
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Başlıca Sporlar 🏆</h3>
+                    ${(country.MajorSports && country.MajorSports.length > 0) ? 
+                        `<ul>${country.MajorSports.map(sport => `<li>${sport}</li>`).join('')}</ul>` : 
+                        '<p>Spor bilgisi yok.</p>'}
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Tipik Mimari 🏛️</h3>
+                    <p>${country.TypicalArchitecture || 'Bilgi yok.'}</p>
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Vahşi Yaşam 🦌</h3>
+                    <p>${country.Wildlife || 'Bilgi yok.'}</p>
+                </div>
+                <div class="swiper-slide modal-section">
+                    <h3>Ünlü Kişilikler 🌟</h3>
+                    ${(country.FamousPersonalities && country.FamousPersonalities.length > 0) ? 
+                        `<ul>${country.FamousPersonalities.map(person => `<li>${person}</li>`).join('')}</ul>` : 
+                        '<p>Ünlü kişilik bilgisi yok.</p>'}
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
-        </div>
-        `
-        : "<p>Bu ülke için içerik bulunamadı.</p>";
+            </div>
+        `;
+    } else {
+        content = "<p>Bu ülke için içerik bulunamadı.</p>";
+    }
 
     document.getElementById("modalTitle").innerText = countryName;
     document.getElementById("modalContent").innerHTML = content;
@@ -98,7 +164,7 @@ function openCountryModal(countryName) {
     // AI quiz linkini güncelle
     const aiBtn = document.getElementById("aiLink");
     if (aiBtn) {
-        aiBtn.href = `ai?city=${encodeURIComponent(countryName)}`; // Consider changing 'city' to 'country' for clarity
+        aiBtn.href = `ai?country=${encodeURIComponent(countryName)}`;
     }
 
     // Modal aç
@@ -112,15 +178,14 @@ function openCountryModal(countryName) {
             effect: "cards",
             grabCursor: true,
             cardsEffect: {
-                perSlideOffset: 10,
+                perSlideOffset: 8,
                 perSlideRotate: 2,
                 slideShadows: false,
             },
             loop: false,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
+            // Pagination ve Navigation'ı burada iptal ediyoruz
+            pagination: false, // Sayfalama noktalarını kapat
+            navigation: false, // İleri/geri oklarını kapat
         });
     }
 }
@@ -134,7 +199,7 @@ function closeModal() {
     }
 }
 
-// Swiper kontrol butonları
+// Swiper kontrol butonları (artık Swiper'ın kendi navigasyonunu kullanmıyoruz, bu fonksiyonlar gereksiz olabilir ancak tutulabilir)
 function slidePrev() {
     if (swiperInstance) swiperInstance.slidePrev();
 }
@@ -180,12 +245,6 @@ function selectRandomCountry() {
     const randomIndex = Math.floor(Math.random() * countriesInfo.length);
     const randomCountry = countriesInfo[randomIndex];
 
-    // Haritayı rastgele seçilen ülkenin tahmini merkezine odaklar
-    // `world-geo.json` dosyanızdaki ülkelerin properties içinde
-    // `latitude` ve `longitude` veya `centroid` gibi koordinat bilgileri yoksa
-    // bu kısım için ek bir mantık (örneğin ülkenin GeoJSON'undan merkezini hesaplama)
-    // gerekecektir.
-    // Şimdilik sadece openCountryModal'ı çağırıyoruz.
     openCountryModal(randomCountry.name);
 
     // OPTIONAL: Haritayı ülkenin merkezine kaydırmak için:
@@ -203,7 +262,6 @@ function selectRandomCountry() {
 }
 
 // --- Rastgele Ülke Linki için Olay Dinleyici ---
-// HTML'deki randomCityLink ID'sini kullanmaya devam ediyorum.
 const randomCityLink = document.getElementById('randomCityLink');
 if (randomCityLink) {
     randomCityLink.addEventListener('click', function(event) {
