@@ -15,7 +15,7 @@
 
     {# Ana Quiz Konteyneri #}
     <div class="container-fluid quiz-page-container flex-grow-1 d-flex flex-column">
-        <a href="/" class="back-button" title="Geri Dön">←</a>
+        <a href="#" class="back-button" title="Geri Dön" onclick="history.back()">←</a>
         
         <div class="position-absolute top-0 end-0 p-3" style="z-index: 1000;">
             {% if username %}
@@ -41,8 +41,8 @@
             </div>
 
             <div class="swiper mySwiperQuiz d-none" style="visibility: hidden; opacity: 0; transition: visibility 0s, opacity 0.5s linear;">
-                <div class="swiper-wrapper" id="quiz-questions-container">
-                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center" style="min-height: 300px;">
+                <div class="swiper-wrapper" id="quiz-questions-container" style="height: auto;">
+                    <div class="swiper-slide d-flex flex-column justify-content-center align-items-center" >
                         <p class="text-muted">Sorular yükleniyor...</p>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
         </div>
 
         {# Quiz Aksiyon Butonları #}
-        <div class="quiz-actions text-center mt-auto py-3 bg-light d-flex justify-content-center align-items-center">
+        <div class="quiz-actions text-center mt-auto py-3  d-flex justify-content-center align-items-center">
             <button class="prev-button btn btn-info me-2">Önceki</button>
             <button class="next-button btn btn-primary me-2">Sonraki</button>
             <button class="submit-button btn btn-success" onclick="submitQuiz()">Quizi Tamamla</button>

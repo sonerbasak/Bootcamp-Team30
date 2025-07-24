@@ -116,9 +116,13 @@ body {
     display: flex;
     flex-direction: column;
     border: #00bfa5 1px solid;
+    margin-right: 10px;
 }
 .chat-container{
     border: #00bfa5 1px solid;
+    border-radius: 12px;
+    padding: 0px;
+
 }
 
 .conversations-list .border-bottom {

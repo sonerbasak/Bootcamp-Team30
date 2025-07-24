@@ -355,7 +355,7 @@ body,
 }
 
 .quiz-header {
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -460,8 +460,8 @@ body,
     flex-direction: column;
     gap: 12px;
     width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
+    /* max-height: 200px;
+    overflow-y: auto; */
     padding-right: 5px;
 }
 
@@ -493,8 +493,7 @@ body,
 .quiz-actions {
     margin-top: auto; /* Konteynerin alt kısmına iter */
     padding: 15px; /* İç boşluk */
-    background-color: #f8f9fa; /* Hafif arka plan */
-    border-top: 1px solid #e0e0e0; /* Ayırıcı çizgi */
+    background-color: #ffffff; /* Hafif arka plan */
     border-bottom-left-radius: 15px; /* Alt köşeleri yuvarla */
     border-bottom-right-radius: 15px; /* Alt köşeleri yuvarla */
     display: flex;
@@ -571,7 +570,6 @@ body,
 /* Quiz sonuçları (hem quiz.html hem de wrong_questions.html için) */
 #quiz-results,
 #quiz-review-results {
-    max-height: 400px;
     overflow-y: auto;
     padding: 20px;
     background-color: #f1fdfc;
