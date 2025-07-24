@@ -16,7 +16,7 @@
     <div class="ai-container">
         <h1 class="ai-title" id="pageTitle">🤖 AI ile Quiz Oluştur</h1>
 
-        <button id="generate-quiz-btn" class="ai-btn" onclick="generateQuestion()">Quiz Oluştur</button>
+        <button id="generate-quiz-btn" class="ai-btn">Quiz Oluştur</button>
 
         <div class="ai-output" id="outputBox">
             {% if quiz %}
@@ -28,45 +28,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="../static/js/ai-script.js"></script>
-    <script>
-        function getQueryParam(param) {
-            const params = new URLSearchParams(window.location.search);
-            return params.get(param);
-        }
-        document.addEventListener("DOMContentLoaded", () => {
-            let city = getQueryParam("city") || getQueryParam("country") || "Genel";
-            const title = document.getElementById("pageTitle");
-            if (title) {
-                title.textContent = `🤖 ${city} hakkında AI ile Quiz Oluştur`;
-            }
-        });
-
-        document.getElementById("generate-quiz-btn").addEventListener("click", () => {
-            const city = getQueryParam("city") || "Genel";
-            window.location.href = `quiz?city=${encodeURIComponent(city)}`;
-        });
-
-    </script>
-    <script>
-        async function generateQuestion() {
-            const city = getQueryParam("city") || getQueryParam("country") || "Genel";
-            try {
-                const res = await fetch(`/api/gemini-quiz?city=${encodeURIComponent(city)}`);
-                const data = await res.json();
-                sessionStorage.setItem("aiQuizData", data.quiz_text);
-                window.location.href = `quiz.html?city=${encodeURIComponent(city)}`;
-            } catch (e) {
-                alert("Quiz oluşturulamadı, lütfen tekrar deneyin.");
-                console.error(e);
-            }
-        }
-        document.getElementById("generate-quiz-btn").addEventListener("click", generateQuestion);
-
-    </script>
-
 </body>
-
 </html>
