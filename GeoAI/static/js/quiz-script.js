@@ -20,8 +20,8 @@ function getQueryParam(param) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const quizType = getQueryParam("type"); // URL'den type parametresini oku (örn: 'wrong-questions')
-    const city = getQueryParam("city");
+    const quizType = getQueryParam("type"); // 'country', 'city' veya 'wrong-questions'
+    const quizName = getQueryParam("name"); // Ülke veya şehir adı (eski 'city' parametresinin yerini aldı)
 
     isReviewMode = (quizType === "wrong-questions");
 
@@ -29,8 +29,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (quizTitleEl) {
         if (isReviewMode) {
             quizTitleEl.textContent = "Yanlış Cevapladığınız Sorular - Tekrar Çöz!";
+        } else if (quizName) { // Eğer bir isim (ülke/şehir) varsa başlığı ona göre ayarla
+            quizTitleEl.textContent = `${quizName} Hakkında Quiz!`;
         } else {
-            quizTitleEl.textContent = city ? `${city} Hakkında Quiz!` : `Genel Kültür Quiz!`;
+            quizTitleEl.textContent = `Genel Kültür Quiz!`; // Varsayılan başlık
         }
     } else {
         console.warn("Element with class 'quiz-title' not found.");
@@ -58,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (isReviewMode) {
         await loadWrongQuestionsForReview();
     } else {
-        await loadQuestions(city);
+        await loadQuestions(quizType, quizName);
     }
 
     if (loadingSlide) {
@@ -74,18 +76,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     initializeSwiper();
-    // Only start timer if questions are available
+    // Yalnızca sorular varsa zamanlayıcıyı başlat
     if (quizQuestions.length > 0) {
         startTimer();
     } else {
-        // If no questions, hide timer or show a message
+        // Soru yoksa zamanlayıcıyı gizle veya mesaj göster
         const timerDisplay = document.getElementById("timer");
         if (timerDisplay) {
-            timerDisplay.textContent = "Süre: --:--"; // Or hide it
+            timerDisplay.textContent = "Süre: --:--";
             timerDisplay.classList.add('d-none');
         }
     }
-
 
     // Geri butonu
     const backButton = document.querySelector(".back-button");
@@ -93,11 +94,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         backButton.addEventListener("click", (event) => {
             event.preventDefault();
             // Moddan bağımsız olarak session storage temizliği
-            const currentParam = isReviewMode ? "wrong-questions" : (getQueryParam("city") || 'null');
-            sessionStorage.removeItem(`aiQuizData-${currentParam}`);
-            sessionStorage.removeItem(`aiQuizPrompt-${currentParam}`);
-            console.log(`Geri giderken quiz verisi temizlendi: aiQuizData-${currentParam}`);
-            window.location.href = backButton.href || ROOT_URL; // Fallback to ROOT_URL
+            const currentQuizType = getQueryParam("type");
+            const currentQuizName = getQueryParam("name");
+            const paramToClear = isReviewMode ? "wrong-questions" : `${currentQuizType || 'general'}-${currentQuizName || 'null'}`;
+            sessionStorage.removeItem(`aiQuizData-${paramToClear}`);
+            sessionStorage.removeItem(`aiQuizPrompt-${paramToClear}`);
+            console.log(`Geri giderken quiz verisi temizlendi: aiQuizData-${paramToClear}`);
+
+            if (currentQuizType === 'city' && currentQuizName) {
+                window.location.href = window.TURKEY_PAGE_URL || window.ROOT_URL;
+            } else if (currentQuizType === 'country' && currentQuizName) {
+                window.location.href = window.WORLD_PAGE_URL || window.ROOT_URL;
+            } else {
+                window.location.href = backButton.href || window.ROOT_URL;
+            }
         });
     } else {
         console.warn("Element with class 'back-button' not found.");
@@ -108,20 +118,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 function initializeSwiper() {
     const swiperContainerEl = document.querySelector(".mySwiperQuiz");
 
-    // Only proceed if there are questions to display
     if (quizQuestions.length === 0) {
         console.warn("Hiç soru bulunamadı, Swiper başlatılamıyor.");
-        // Ensure that the message "Hiç soru bulunamadı." is displayed if no questions
         const questionsContainer = document.getElementById("quiz-questions-container");
-        if (questionsContainer && questionsContainer.innerHTML === '<p class="text-muted">Sorular yükleniyor...</p>') {
-             // Only change if default message is still there
-            questionsContainer.innerHTML = `
+        if (questionsContainer && questionsContainer.innerHTML.includes('Sorular yükleniyor')) {
+             questionsContainer.innerHTML = `
                 <div class="swiper-slide d-flex flex-column justify-content-center align-items-center" style="min-height: 300px;">
                     <p class="text-center">Hiç soru bulunamadı. Lütfen daha sonra tekrar deneyin veya ana sayfaya dönün.</p>
                 </div>
             `;
             const submitButton = document.querySelector(".submit-button");
-            if (submitButton) submitButton.classList.add("d-none"); // Hide submit button if no questions
+            if (submitButton) submitButton.classList.add("d-none"); // Soru yoksa submit butonunu gizle
             const prevButton = document.querySelector(".prev-button");
             if (prevButton) prevButton.classList.add("d-none");
             const nextButton = document.querySelector(".next-button");
@@ -129,7 +136,6 @@ function initializeSwiper() {
         }
         return;
     }
-
 
     if (!swiperContainerEl || swiperContainerEl.offsetWidth === 0) {
         console.log("Swiper konteyneri henüz hazır değil, yeniden deniyor...");
@@ -155,7 +161,7 @@ function initializeSwiper() {
         allowTouchMove: false,
 
         slidesPerView: 1,
-        slidesPerGroup: 1, // Burası 1 olmalı ki tek tek atlasın
+        slidesPerGroup: 1,
         centeredSlides: true,
         spaceBetween: 20,
         autoHeight: true,
@@ -194,28 +200,29 @@ function initializeSwiper() {
 }
 
 // --- Soruları Yükleme Fonksiyonu (Normal Quiz) ---
-async function loadQuestions(city) {
-    console.log("loadQuestions başladı. City:", city);
+async function loadQuestions(quizType, quizName) {
+    console.log("loadQuestions başladı. Quiz Tipi:", quizType, "Quiz Adı:", quizName);
 
     let quizDataArray = [];
     let sentPromptText = null;
 
     try {
-        const res = await fetch(`/api/gemini-quiz?city=${encodeURIComponent(city || '')}`);
+        const url = `/api/gemini-quiz?type=${encodeURIComponent(quizType || 'general')}&name=${encodeURIComponent(quizName || '')}`;
+        console.log("API Fetch URL:", url); // URL'yi logluyoruz
+
+        const res = await fetch(url);
 
         if (res.redirected) {
-            // This case should ideally be handled by the server redirecting the HTML page,
-            // but as a fallback for API calls, follow it.
-            console.warn("API request redirected by server. Following redirect...");
+            console.warn("API isteği sunucu tarafından yönlendirildi. Yönlendirilen URL:", res.url);
             window.location.href = res.url;
-            return; // Stop execution
+            return;
         }
 
         if (!res.ok) {
             if (res.status === 401) {
-                console.error("Authentication required for API. Redirecting to login.");
-                window.location.href = window.LOGIN_URL; // Use the global variable
-                return; // Stop execution
+                console.error("API için kimlik doğrulama gerekli. Giriş sayfasına yönlendiriliyor.");
+                window.location.href = window.LOGIN_URL;
+                return;
             }
             let errorDetails;
             try { errorDetails = await res.json(); } catch (jsonError) { errorDetails = { error: await res.text() }; }
@@ -228,21 +235,24 @@ async function loadQuestions(city) {
         console.log("Gemini API'den Gelen Quiz Verisi:", quizDataArray);
         console.log("YAPAY ZEKAYA GÖNDERİLEN PROMPT:", sentPromptText);
 
-        sessionStorage.setItem(`aiQuizData-${city || 'null'}`, JSON.stringify(quizDataArray));
-        sessionStorage.setItem(`aiQuizPrompt-${city || 'null'}`, sentPromptText);
-        console.log("Yeni quiz ve prompt verileri sessionStorage'a kaydedildi.");
+        const sessionStorageKey = `aiQuizData-${quizType || 'general'}-${quizName || 'null'}`;
+        const sessionStoragePromptKey = `aiQuizPrompt-${quizType || 'general'}-${quizName || 'null'}`;
+
+        sessionStorage.setItem(sessionStorageKey, JSON.stringify(quizDataArray));
+        sessionStorage.setItem(sessionStoragePromptKey, sentPromptText);
+        console.log("Yeni quiz ve prompt verileri sessionStorage'a kaydedildi. Key:", sessionStorageKey);
 
     } catch (error) {
         console.error("Sorular alınırken hata oluştu:", error);
-        alert("Sorular alınamadı: " + error.message + "\nLütfen tekrar deneyin veya farklı bir şehir seçin.");
+        alert("Sorular alınamadı: " + error.message + "\nLütfen tekrar deneyin veya farklı bir seçim yapın.");
         quizDataArray = [];
-        sessionStorage.removeItem(`aiQuizData-${city || 'null'}`);
-        sessionStorage.removeItem(`aiQuizPrompt-${city || 'null'}`);
+        sessionStorage.removeItem(`aiQuizData-${quizType || 'general'}-${quizName || 'null'}`);
+        sessionStorage.removeItem(`aiQuizPrompt-${quizType || 'general'}-${quizName || 'null'}`);
     }
 
     quizQuestions = quizDataArray;
     userSelections = new Array(quizQuestions.length).fill(null);
-    quizDuration = TIME_PER_QUESTION_SECONDS_QUIZ; // Ana quiz süresi
+    quizDuration = TIME_PER_QUESTION_SECONDS_QUIZ;
     timeLeft = quizDuration;
 
     renderQuestions(quizQuestions);
@@ -263,7 +273,7 @@ async function loadWrongQuestionsForReview() {
         if (!res.ok) {
             if (res.status === 401) {
                 console.error("Authentication required for API. Redirecting to login.");
-                window.location.href = window.LOGIN_URL; // Use the global variable
+                window.location.href = window.LOGIN_URL;
                 return;
             }
             const errorData = await res.json();
@@ -287,7 +297,6 @@ async function loadWrongQuestionsForReview() {
                 quizSwiper.destroy(true, true);
                 quizSwiper = null;
             }
-            // Hide quiz controls if no questions
             const quizActions = document.querySelector('.quiz-actions');
             if (quizActions) quizActions.classList.add('d-none');
             const timerDisplay = document.getElementById("timer");
@@ -356,12 +365,9 @@ function renderQuestions(questions) {
         slide.classList.add("swiper-slide", "quiz-slide");
 
         let optionsHtml = "";
-        // Soruların yapısı modlara göre değiştiği için kontrol et
         const questionText = isReviewMode ? q.question_text : q.soru;
-        // Options can be tricky, ensure they map correctly from different data structures
         const options = [q.option_a || q.a, q.option_b || q.b, q.option_c || q.c, q.option_d || q.d];
 
-        // Filter out any undefined/null options that might arise from mapping
         const validOptions = options.filter(option => option !== undefined && option !== null);
 
         const category = isReviewMode ? q.category : q.kategori;
@@ -396,7 +402,6 @@ function renderQuestions(questions) {
     });
 
     // Sorular DOM'a eklendikten sonra Swiper'ı güncelle
-    // initializeSwiper fonksiyonu DOMContentLoaded'da çağrıldığı için burada sadece update
     if (quizSwiper) {
         quizSwiper.update();
         quizSwiper.updateAutoHeight();
@@ -453,6 +458,9 @@ function submitQuiz() {
     const reviewAnswers = [];
     const questionsToProcessForDB = []; // Veritabanına kaydedilecek/silinecek sorular
 
+    const currentQuizType = getQueryParam("type");
+    const currentQuizName = getQueryParam("name"); // 'name' parametresi, 'city'nin yerini aldı
+
     quizQuestions.forEach((q, index) => {
         const userAnswerLetter = userSelections[index];
         // Doğru cevap harfini moda göre al
@@ -470,7 +478,6 @@ function submitQuiz() {
             correctOptionText = isReviewMode ? (q[correctOptionKey] || q[correctAnswerLetter.toLowerCase()]) : q[correctAnswerLetter.toLowerCase()];
         }
 
-
         const isCorrect =
             (userAnswerLetter && correctAnswerLetter) &&
             (userAnswerLetter.trim().toLowerCase() === correctAnswerLetter.trim().toLowerCase());
@@ -483,8 +490,9 @@ function submitQuiz() {
         } else {
             if (!isReviewMode) { // Ana quiz'de yanlış cevaplanırsa DB'ye kaydetmek için
                 questionsToProcessForDB.push({
-                    city: getQueryParam("city") || "Genel Kültür",
-                    category: q.kategori || "Bilinmeyen", // Kategori yoksa varsayılan
+                    type: currentQuizType || "general", // Yeni eklendi: Quiz tipi
+                    name: currentQuizName || "unknown", // Yeni eklendi: Ülke/Şehir adı
+                    category: q.kategori || "Bilinmeyen",
                     question_text: q.soru,
                     option_a: q.a,
                     option_b: q.b,
@@ -494,7 +502,6 @@ function submitQuiz() {
                     user_answer_letter: userAnswerLetter || "BOŞ",
                 });
             }
-            // İnceleme modunda yanlış cevaplananları tekrar kaydetmeye gerek yok, zaten DB'deler.
         }
 
         reviewAnswers.push({
@@ -521,14 +528,13 @@ function submitQuiz() {
     showResults(score, reviewAnswers);
 }
 
-// --- Yanlış Soruları Veritabanına Kaydetme Fonksiyonu (Normal Quiz için) ---
 async function saveWrongQuestionsToDatabase(questions) {
     for (const q of questions) {
         try {
             const res = await fetch("/api/save-wrong-question", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(q),
+                body: JSON.stringify(q), // q objesi zaten 'type' ve 'name'i içeriyor
             });
             if (!res.ok) {
                 const errorData = await res.json();
@@ -574,11 +580,9 @@ function showResults(score, reviewAnswers) {
     const resultsContainer = document.getElementById("quiz-results");
     const timerDisplay = document.getElementById("timer");
 
-
     if (swiperElement) swiperElement.classList.add("d-none");
     if (actionsElement) actionsElement.classList.add("d-none");
     if (timerDisplay) timerDisplay.classList.add("d-none");
-
 
     if (!resultsContainer) {
         console.error("Element with ID 'quiz-results' not found. Cannot display results.");
@@ -634,7 +638,6 @@ html += `
             <button
                 class="btn btn-warning px-4 py-2 fs-5 fw-semibold ms-3"
                 style="border-radius: 25px; box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);"
-                // BURADA DEĞİŞİKLİK YAPIN:
                 onclick="window.location.href='${window.WRONG_QUESTIONS_URL}?type=wrong-questions'"
             >
                 Yanlış Cevapladıklarım
@@ -651,11 +654,21 @@ html += `
 // --- Ana Sayfaya Dönme Fonksiyonu ---
 function goHome() {
     // Session Storage temizliği moddan bağımsız
-    const paramToClear = isReviewMode ? "wrong-questions" : (getQueryParam("city") || 'null');
+    const quizType = getQueryParam("type");
+    const quizName = getQueryParam("name"); // 'name' parametresi, 'city'nin yerini aldı
+    const paramToClear = isReviewMode ? "wrong-questions" : `${quizType || 'general'}-${quizName || 'null'}`;
     sessionStorage.removeItem(`aiQuizData-${paramToClear}`);
     sessionStorage.removeItem(`aiQuizPrompt-${paramToClear}`);
     console.log(`Quiz data cleared for: ${paramToClear}`);
-    window.location.href = window.ROOT_URL; // Use the global variable
+
+    // Yönlendirme mantığı: Eğer bir şehir veya ülke quiz'i ise ilgili harita sayfasına dön
+    if (quizType === 'city' && quizName) {
+        window.location.href = window.TURKEY_PAGE_URL || window.ROOT_URL;
+    } else if (quizType === 'country' && quizName) {
+        window.location.href = window.WORLD_PAGE_URL || window.ROOT_URL;
+    } else {
+        window.location.href = window.ROOT_URL; // Diğer durumlarda ana sayfaya dön
+    }
 }
 
 // --- Önceki Soru Fonksiyonu (Opsiyonel, eğer HTML'de kullanılıyorsa) ---
@@ -674,12 +687,8 @@ function nextQuestion() {
 
 // --- goBackToAI Fonksiyonu (Placeholder: Kullanılmıyorsa silinebilir, ReferenceError'ı önlemek için eklendi) ---
 function goBackToAI() {
-    // Bu fonksiyon muhtemelen artık doğrudan kullanılmıyor, ancak ReferenceError'ı önlemek için
-    // Eğer ana sayfa yönlendirmesi veya benzer bir işlev görmesi gerekiyorsa içini doldurun
-    console.warn("goBackToAI fonksiyonu çağrıldı, ancak şu anda bir işlevi yok. Ana sayfaya yönlendiriliyor.");
-    goHome(); // Veya farklı bir yönlendirme yapın
+    goHome();
 }
-
 
 // Fonksiyonları global kapsamda erişilebilir yap (HTML'den 'onclick' ile çağrıldıkları için)
 window.submitQuiz = submitQuiz;

@@ -1,4 +1,3 @@
-# quiz/services.py
 import google.generativeai as genai
 import json
 from typing import List, Dict
@@ -7,7 +6,8 @@ from functions.config import settings
 genai.configure(api_key=settings.GEMINI_API_KEY)
 model = genai.GenerativeModel("models/gemini-2.5-flash")
 
-async def generate_quiz_from_gemini(city: str, count: int) -> List[Dict]:
+# BURADA DEĞİŞİKLİK: Fonksiyonun parametrelerini güncelliyoruz
+async def generate_quiz_from_gemini(quiz_type: str, quiz_name: str, count: int) -> List[Dict]:
     """Gemini API'den quiz soruları üretir ve JSON olarak parse eder."""
     categories = [
         "Tarih", "Doğal Güzellikler", "Yapılar", "Tarım Ürünü ve Yemekler", "Genel Bilgiler"
@@ -22,8 +22,17 @@ async def generate_quiz_from_gemini(city: str, count: int) -> List[Dict]:
             num_questions += 1
         prompt_parts.append(f"**{category}** kategorisinden {num_questions} adet soru oluştur.")
 
+    # BURADA DEĞİŞİKLİK: Prompt metnini type ve name'e göre ayarlıyoruz
+    target_entity = ""
+    if quiz_type == "country" and quiz_name:
+        target_entity = f"{quiz_name} ülkesi"
+    elif quiz_type == "city" and quiz_name:
+        target_entity = f"{quiz_name} şehri"
+    else:
+        target_entity = "genel kültür" # Varsayılan
+
     base_prompt = f"""
-    {city} hakkında aşağıdaki kategorilerden belirtilen sayıda Türkçe çoktan seçmeli soru oluştur.
+    {target_entity} hakkında aşağıdaki kategorilerden belirtilen sayıda Türkçe çoktan seçmeli soru oluştur.
     Toplamda **tam olarak {count} adet** soru oluşturduğunu kontrol et. Ne bir eksik ne bir fazla.
     Her soru kesin olarak 4 şıklı olsun (A, B, C, D). 4 şıktan az veya fazla şık olmasın.
     Her sorunun cevabı, sadece doğru şıkkın harfi (A, B, C veya D) olsun.
