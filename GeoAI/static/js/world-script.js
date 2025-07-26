@@ -238,7 +238,6 @@ setTimeout(() => {
 // Bu fonksiyon, `countriesInfo` dizisi yüklendikten sonra çalışacaktır.
 function selectRandomCountry() {
     if (countriesInfo.length === 0) {
-        console.warn("Ülke verileri henüz yüklenmedi veya boş.");
         return;
     }
 

@@ -66,10 +66,6 @@ async def generate_quiz_from_gemini(quiz_type: str, quiz_name: str, count: int) 
     Oluşturulacak kategoriler ve soru sayıları:
     {"\n".join(prompt_parts)}
     """
-    print("\n" + "="*70)
-    print("YAPAY ZEKAYA GÖNDERİLEN PROMPT (BACKEND KONSOLU):")
-    print(base_prompt)
-    print("="*70 + "\n")
 
     response = await model.generate_content_async(base_prompt)
 
@@ -85,10 +81,6 @@ async def generate_quiz_from_gemini(quiz_type: str, quiz_name: str, count: int) 
             raise ValueError("Gemini'den gelen yanıt JSON formatında değil veya hatalı.")
 
     except json.JSONDecodeError as e:
-        print(f"JSON Çözümleme Hatası: {e}")
-        print(f"Gemini'den gelen ham yanıt: {response.text}")
         raise ValueError(f"Quiz verisi JSON olarak çözümlenemedi: {str(e)}")
     except ValueError as e:
-        print(f"Yanıt Format Hatası: {e}")
-        print(f"Gemini'den gelen ham yanıt: {response.text}")
         raise ValueError(f"Quiz verisi beklenen JSON formatında gelmedi: {str(e)}")

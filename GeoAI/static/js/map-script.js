@@ -63,7 +63,7 @@ Promise.all([
 
         map.fitBounds(illerLayer.getBounds(), { padding: [20, 20] });
     })
-    .catch((err) => console.error("Veri yüklenirken hata:", err));
+    .catch((err) => console.error("Veri yüklenirken hata:"));
 
 // İl modalı aç
 function openIlModal(ilAdi) {

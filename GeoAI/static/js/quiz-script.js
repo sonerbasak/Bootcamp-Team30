@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const questionsContainer = document.getElementById("quiz-questions-container");
     if (!questionsContainer) {
-        console.error("Element with ID 'quiz-questions-container' not found. Cannot render questions.");
         return;
     }
 
@@ -99,7 +98,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const paramToClear = isReviewMode ? "wrong-questions" : `${currentQuizType || 'general'}-${currentQuizName || 'null'}`;
             sessionStorage.removeItem(`aiQuizData-${paramToClear}`);
             sessionStorage.removeItem(`aiQuizPrompt-${paramToClear}`);
-            console.log(`Geri giderken quiz verisi temizlendi: aiQuizData-${paramToClear}`);
 
             if (currentQuizType === 'city' && currentQuizName) {
                 window.location.href = window.TURKEY_PAGE_URL || window.ROOT_URL;
@@ -119,7 +117,6 @@ function initializeSwiper() {
     const swiperContainerEl = document.querySelector(".mySwiperQuiz");
 
     if (quizQuestions.length === 0) {
-        console.warn("Hiç soru bulunamadı, Swiper başlatılamıyor.");
         const questionsContainer = document.getElementById("quiz-questions-container");
         if (questionsContainer && questionsContainer.innerHTML.includes('Sorular yükleniyor')) {
              questionsContainer.innerHTML = `
@@ -138,14 +135,12 @@ function initializeSwiper() {
     }
 
     if (!swiperContainerEl || swiperContainerEl.offsetWidth === 0) {
-        console.log("Swiper konteyneri henüz hazır değil, yeniden deniyor...");
         setTimeout(initializeSwiper, 100);
         return;
     }
 
     if (quizSwiper) {
         quizSwiper.destroy(true, true); // Mevcut Swiper'ı yok et
-        console.log("Mevcut Swiper örneği yok edildi.");
     }
 
     quizSwiper = new Swiper(".mySwiperQuiz", {
@@ -178,12 +173,10 @@ function initializeSwiper() {
             init: function () {
                 this.update();
                 this.updateAutoHeight();
-                console.log("Swiper init edildi.");
             },
             resize: function () {
                 this.update();
                 this.updateAutoHeight();
-                console.log("Swiper yeniden boyutlandırıldı.");
             },
             observerUpdate: function () {
                 console.log("Swiper observer güncellendi.");
@@ -193,7 +186,6 @@ function initializeSwiper() {
 
     if (quizSwiper && quizQuestions.length > 0) {
         quizSwiper.slideTo(0, 0); // İlk slayta anında git
-        console.log("Swiper başlatıldı ve ilk soruya geçildi.");
     } else {
         console.warn("Swiper başlatılamadı veya hiç soru yok.");
     }
@@ -201,26 +193,22 @@ function initializeSwiper() {
 
 // --- Soruları Yükleme Fonksiyonu (Normal Quiz) ---
 async function loadQuestions(quizType, quizName) {
-    console.log("loadQuestions başladı. Quiz Tipi:", quizType, "Quiz Adı:", quizName);
 
     let quizDataArray = [];
     let sentPromptText = null;
 
     try {
         const url = `/api/gemini-quiz?type=${encodeURIComponent(quizType || 'general')}&name=${encodeURIComponent(quizName || '')}`;
-        console.log("API Fetch URL:", url); // URL'yi logluyoruz
 
         const res = await fetch(url);
 
         if (res.redirected) {
-            console.warn("API isteği sunucu tarafından yönlendirildi. Yönlendirilen URL:", res.url);
             window.location.href = res.url;
             return;
         }
 
         if (!res.ok) {
             if (res.status === 401) {
-                console.error("API için kimlik doğrulama gerekli. Giriş sayfasına yönlendiriliyor.");
                 window.location.href = window.LOGIN_URL;
                 return;
             }
@@ -232,18 +220,13 @@ async function loadQuestions(quizType, quizName) {
         quizDataArray = data.quiz_data || [];
         sentPromptText = data.sent_prompt;
 
-        console.log("Gemini API'den Gelen Quiz Verisi:", quizDataArray);
-        console.log("YAPAY ZEKAYA GÖNDERİLEN PROMPT:", sentPromptText);
-
         const sessionStorageKey = `aiQuizData-${quizType || 'general'}-${quizName || 'null'}`;
         const sessionStoragePromptKey = `aiQuizPrompt-${quizType || 'general'}-${quizName || 'null'}`;
 
         sessionStorage.setItem(sessionStorageKey, JSON.stringify(quizDataArray));
         sessionStorage.setItem(sessionStoragePromptKey, sentPromptText);
-        console.log("Yeni quiz ve prompt verileri sessionStorage'a kaydedildi. Key:", sessionStorageKey);
 
     } catch (error) {
-        console.error("Sorular alınırken hata oluştu:", error);
         alert("Sorular alınamadı: " + error.message + "\nLütfen tekrar deneyin veya farklı bir seçim yapın.");
         quizDataArray = [];
         sessionStorage.removeItem(`aiQuizData-${quizType || 'general'}-${quizName || 'null'}`);
@@ -260,19 +243,16 @@ async function loadQuestions(quizType, quizName) {
 
 // --- Yanlış Soruları Yükleme Fonksiyonu (İnceleme Modu) ---
 async function loadWrongQuestionsForReview() {
-    console.log("Yanlış sorular yükleniyor (İnceleme Modu)...");
     let wrongQuestions = [];
     try {
         const res = await fetch("/api/get-wrong-questions");
         if (res.redirected) {
-            console.warn("API request redirected by server. Following redirect...");
             window.location.href = res.url;
             return;
         }
 
         if (!res.ok) {
             if (res.status === 401) {
-                console.error("Authentication required for API. Redirecting to login.");
                 window.location.href = window.LOGIN_URL;
                 return;
             }
@@ -305,7 +285,6 @@ async function loadWrongQuestionsForReview() {
         }
 
         if (wrongQuestions.length > MAX_QUESTIONS_TO_REVIEW) {
-            console.log(`${wrongQuestions.length} soru bulundu, rastgele ${MAX_QUESTIONS_TO_REVIEW} tanesi seçiliyor.`);
             for (let i = wrongQuestions.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [wrongQuestions[i], wrongQuestions[j]] = [wrongQuestions[j], wrongQuestions[i]];
@@ -321,7 +300,6 @@ async function loadWrongQuestionsForReview() {
         renderQuestions(quizQuestions);
 
     } catch (error) {
-        console.error("Yanlış soruları çekerken hata oluştu:", error);
         alert("Yanlış sorular yüklenirken bir hata oluştu: " + error.message + "\nLütfen tekrar deneyin.");
         quizQuestions = []; // Hata durumunda soruları boşalt
         const questionsContainer = document.getElementById("quiz-questions-container");
@@ -348,7 +326,6 @@ async function loadWrongQuestionsForReview() {
 function renderQuestions(questions) {
     const questionsContainer = document.getElementById("quiz-questions-container");
     if (!questionsContainer) {
-        console.error("Hata: 'quiz-questions-container' ID'li eleman bulunamadı. Sorular render edilemiyor.");
         return;
     }
 
@@ -413,14 +390,12 @@ function renderQuestions(questions) {
         quizSwiper.update();
         quizSwiper.updateAutoHeight();
         quizSwiper.slideTo(currentQuestionIndex, 0); // Mevcut soruya git
-        console.log("Swiper renderQuestions içinde güncellendi.");
     }
 }
 
 // --- Seçenek Değişikliğini Yönetme Fonksiyonu ---
 function handleOptionChange(questionIndex, selectedLetter) {
     userSelections[questionIndex] = selectedLetter;
-    console.log(`Question ${questionIndex}: Selected ${selectedLetter}`);
     if (quizSwiper) {
         quizSwiper.updateAutoHeight();
     }
@@ -430,7 +405,6 @@ function handleOptionChange(questionIndex, selectedLetter) {
 function startTimer() {
     const timerDisplay = document.getElementById("timer");
     if (!timerDisplay) {
-        console.warn("Zamanlayıcı gösterge elemanı bulunamadı.");
         return;
     }
 
@@ -455,7 +429,6 @@ function startTimer() {
         }
         timeLeft--;
     }, 1000);
-    console.log("Zamanlayıcı başlatıldı.");
 }
 
 // --- Quizi Tamamlama Fonksiyonu ---
@@ -569,7 +542,6 @@ async function submitFullQuizResultsToDatabase(answers) {
         });
         if (!res.ok) {
             const errorData = await res.json();
-            console.error("Quiz sonuçları kaydedilirken hata:", errorData);
         } else {
             const successData = await res.json();
             console.log("Quiz sonuçları başarıyla kaydedildi:", successData);
@@ -577,17 +549,14 @@ async function submitFullQuizResultsToDatabase(answers) {
             // çünkü `submit_quiz_results` backend'de zaten yanlışları kaydediyor.
         }
     } catch (error) {
-        console.error("Quiz sonuçları gönderme API çağrısı sırasında hata:", error);
     }
 }
 
 // --- Doğru Cevaplanan Yanlış Soruları Veritabanından Kaldırma Fonksiyonu (İnceleme Modu için) ---
 async function removeCorrectlyAnsweredWrongQuestionsFromDatabase(questionIds) {
     if (questionIds.length === 0) {
-        console.log("Kaldırılacak yanlış soru ID'si bulunmuyor.");
         return;
     }
-    console.log("Doğru cevaplanan yanlış soru ID'leri veritabanından kaldırılıyor:", questionIds);
     try {
         const res = await fetch('/api/remove-correctly-answered-questions', {
             method: 'POST',
@@ -599,9 +568,7 @@ async function removeCorrectlyAnsweredWrongQuestionsFromDatabase(questionIds) {
             throw new Error(errorData.detail || 'API yanıt hatası');
         }
         const data = await res.json();
-        console.log('API yanıtı (silme işlemi):', data.message);
     } catch (error) {
-        console.error('Doğru cevaplanan yanlış soruları kaldırırken hata oluştu:', error);
         alert('Bazı doğru cevaplanan yanlış soruları veritabanından kaldırırken bir sorun oluştu: ' + error.message);
     }
 }
@@ -618,7 +585,6 @@ function showResults(score, reviewAnswers) {
     if (timerDisplay) timerDisplay.classList.add("d-none");
 
     if (!resultsContainer) {
-        console.error("Element with ID 'quiz-results' not found. Cannot display results.");
         return;
     }
 
@@ -681,7 +647,6 @@ html += `
 
     resultsContainer.innerHTML = html;
     resultsContainer.classList.remove("d-none");
-    console.log("Quiz sonuçları gösteriliyor.");
 }
 
 // --- Ana Sayfaya Dönme Fonksiyonu ---
@@ -692,7 +657,6 @@ function goHome() {
     const paramToClear = isReviewMode ? "wrong-questions" : `${quizType || 'general'}-${quizName || 'null'}`;
     sessionStorage.removeItem(`aiQuizData-${paramToClear}`);
     sessionStorage.removeItem(`aiQuizPrompt-${paramToClear}`);
-    console.log(`Quiz data cleared for: ${paramToClear}`);
 
     // Yönlendirme mantığı: Eğer bir şehir veya ülke quiz'i ise ilgili harita sayfasına dön
     if (quizType === 'city' && quizName) {

@@ -5,10 +5,6 @@ from contextlib import contextmanager
 from functions.config import settings
 import os # os modülünü import edin
 
-# Logging yapılandırması
-# Bu satır, uygulamanız başladığında tüm logların INFO seviyesinden itibaren gösterilmesini sağlar.
-# Eğer sadece bu dosyada değil, tüm uygulamada logging seviyesini kontrol etmek isterseniz
-# bu ayarı main.py gibi ana giriş noktanızda bir kez yapabilirsiniz.
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 @contextmanager
@@ -17,10 +13,9 @@ def get_db_connection(db_file: str):
     conn = None
     try:
         conn = sqlite3.connect(db_file)
-        conn.row_factory = sqlite3.Row # Kolayca sütun isimleriyle erişim için
+        conn.row_factory = sqlite3.Row
         yield conn
     except sqlite3.Error as e:
-        # print yerine logging kullanıldı
         logging.error(f"Veritabanı bağlantı hatası ({db_file}): {e}")
         raise # Hatayı yukarı fırlat
     finally:
@@ -28,8 +23,7 @@ def get_db_connection(db_file: str):
             conn.close()
 
 def init_dbs():
-    """Uygulama başlangıcında tüm veritabanlarını başlatır ve gerekli tabloları oluşturur."""
-    logging.info("Veritabanları başlatılıyor...") # print yerine logging kullanıldı
+    logging.info("Veritabanları başlatılıyor...")
 
     # Önce USERS_DATABASE_FILE tablolarını oluşturun, çünkü diğer DB'ler buna Foreign Key ile bağlı olabilir.
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:

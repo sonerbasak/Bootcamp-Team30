@@ -48,11 +48,8 @@ class UserResponse(BaseModel):
 router = APIRouter(tags=["Auth"])
 templates = Jinja2Templates(directory="templates")
 
-# --- Statik Dosya Yükleme Dizini ---
-# Profil resimlerini kaydedeceğimiz dizin. Bu dizinin proje kök dizininizde fiziksel olarak var olduğundan emin olun.
-# Örn: 'your_project/static/uploads/profile_pictures/'
 UPLOAD_DIR = Path("static/uploads/profile_pictures")
-UPLOAD_DIR.mkdir(parents=True, exist_ok=True) # Dizin yoksa oluştur
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 @router.get("/login", response_class=HTMLResponse, name="login_page")
 async def login_page(request: Request, current_user: CurrentUser = Depends(require_auth)):

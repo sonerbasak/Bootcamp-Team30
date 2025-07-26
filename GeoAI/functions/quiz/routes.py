@@ -134,7 +134,6 @@ async def ai_page(request: Request, current_user: CurrentUser = Depends(require_
         return RedirectResponse(url=request.url_for("login_page"), status_code=status.HTTP_302_FOUND)
     quiz_type = request.query_params.get("type")
     quiz_name = request.query_params.get("name")
-    print(f"DEBUG: AI Page - current_user: {current_user.username if current_user else 'None'}, Type: {quiz_type}, Name: {quiz_name}")
     return templates.TemplateResponse("ai.html", {"request": request, "type": quiz_type, "name": quiz_name, "user": current_user})
 
 @router.get("/quiz", response_class=HTMLResponse, name="quiz_page")
@@ -237,7 +236,6 @@ async def get_wrong_quiz_questions(
             correct_letter_in_shuffled = chr(65 + correct_index_in_shuffled)
         except ValueError:
             correct_letter_in_shuffled = 'N/A'
-            print(f"Uyarı: Doğru cevap metni '{correct_answer_text_from_original}' karıştırılmış seçeneklerde bulunamadı.")
 
         quiz_questions.append({
             "id": wrong_question_id,

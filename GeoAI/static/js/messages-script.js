@@ -84,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const messages = await response.json();
             displayMessages(messages);
         } catch (error) {
-            console.error('Mesaj yükleme hatası:', error);
             chatMessages.innerHTML = `<p class="text-center text-danger">Mesajlar yüklenemedi: ${error.message}</p>`;
         }
     }
@@ -137,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const responseData = await response.json();
-            console.log('Mesaj gönderildi:', responseData);
 
             // Mesaj gönderildikten sonra sohbeti yeniden yükle
             if (selectedOtherUserId == receiverId) { // Eğer mevcut sohbetse
@@ -148,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return true;
 
         } catch (error) {
-            console.error('Mesaj gönderme hatası:', error);
             alert(`Mesaj gönderilemedi: ${error.message}`);
             return false;
         } finally {
@@ -193,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             attachConversationItemListeners(); // Yeni eklenen öğelere olay dinleyicilerini tekrar ata
         } catch (error) {
-            console.error('Konuşma listesi güncellenirken hata:', error);
+            console.error('Konuşma listesi güncellenirken hata:');
         }
     }
 
@@ -238,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const users = await response.json();
             displaySearchResults(users);
         } catch (error) {
-            console.error('Kullanıcı arama hatası:', error);
+            console.error('Kullanıcı arama hatası:');
             searchResults.innerHTML = `<div class="p-2 text-danger">Arama sırasında hata oluştu.</div>`;
         }
     }

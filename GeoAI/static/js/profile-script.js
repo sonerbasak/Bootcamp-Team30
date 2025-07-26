@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             userSearchResults.style.display = 'block';
 
         } catch (error) {
-            console.error('Kullanıcı arama hatası:', error);
+            console.error('Kullanıcı arama hatası:');
             userSearchResults.innerHTML = `<div class="text-danger p-2">Hata: ${error.message}</div>`;
             userSearchResults.style.display = 'block';
         }
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Takip etme hatası: ' + (errorData.detail || 'Bir hata oluştu.'));
                 }
             } catch (error) {
-                console.error('Takip etme isteği hatası:', error);
+                console.error('Takip etme isteği hatası:');
                 alert('Takip etme isteği gönderilirken bir sorun oluştu.');
             }
         });
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     alert('Takibi bırakma hatası: ' + (errorData.detail || 'Bir hata oluştu.'));
                 }
             } catch (error) {
-                console.error('Takibi bırakma isteği hatası:', error);
+                console.error('Takibi bırakma isteği hatası:');
                 alert('Takibi bırakma isteği gönderilirken bir sorun oluştu.');
             }
         });
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     editProfileMessage.textContent = errorData.detail || 'Profil güncellenemedi. 😢';
                 }
             } catch (error) {
-                console.error('Profil düzenleme isteği hatası:', error);
+                console.error('Profil düzenleme isteği hatası:');
                 editProfileMessage.className = 'mt-2 text-danger';
                 editProfileMessage.textContent = 'Profil güncelleme isteği gönderilirken bir sorun oluştu. 🚨';
             }
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             } catch (error) {
-                console.error('Takipçileri yükleme hatası:', error);
+                console.error('Takipçileri yükleme hatası:');
                 followersList.innerHTML = `<li class="list-group-item text-danger">Hata: ${error.message}</li>`;
             }
         });
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             } catch (error) {
-                console.error('Takip edilenleri yükleme hatası:', error);
+                console.error('Takip edilenleri yükleme hatası:');
                 followingList.innerHTML = `<li class="list-group-item text-danger">Hata: ${error.message}</li>`;
             }
         });
