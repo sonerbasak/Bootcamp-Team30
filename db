@@ -1,0 +1,659 @@
+import json
+import sqlite3
+import random
+from typing import Dict, List, Any, Tuple
+
+# --- 0. Konfigürasyonlar ve Veri Tanımları ---
+
+# Kategori başlıkları ve ilgili JSON anahtarları
+KATEGORILER: Dict[str, List[str]] = {
+    "Seyahat İnsanı": ["gezilecekyerler", "oneriler", "TravelTips", "MajorTouristAttractions"],
+    "Kültür Sever": ["unluYemekler", "coğrafiişaretler", "FamousDishes", "CulturalHighlights", "seyahathatirasi"],
+    "Tarih Profesörü": ["tarih", "eserler", "müzeler", "tarihiólaylar", "History", "hangiülkedevaroldu", "FamousPersonalities"],
+    "Doğa Tutkunu": ["bitkiörtüsü", "havakoşulları", "hayvancılık", "NaturalResources", "Wildlife", "GeographyAndClimate"],
+    "Dünya Vatandaşı": ["CountryFlag/Image", "Capital", "Population", "OfficialLanguage(s)", "Currency", "InternationalRelations", "MajorSports"]
+}
+
+# Seviye Eşikleri ve Unvanlar
+SEVIYE_ESIKLERI: List[int] = [25, 50, 100, 250, 500]
+SEVIYE_UNVANLARI: Dict[str, List[str]] = {
+    "Kültür Sever": [
+        "Kültür Meraklısı", "Kültür Dostu", "Kültür Bilgini", "Kültür Uzmanı", "Kültür Elçisi"
+    ],
+    "Seyahat İnsanı": [
+        "Gezi Meraklısı", "Yolcu", "Keşifçi", "Seyyah", "Seyahat İnsanı"
+    ],
+    "Tarih Profesörü": [
+        "Meraklı Öğrenci", "Araştırmacı", "Tarihçi", "Akademisyen", "Tarih Profesörü"
+    ],
+    "Doğa Tutkunu": [
+        "Gözlemci", "Doğa Yürüyüşçüsü", "Ekoloji Gönüllüsü", "Ekosistem Bilgini", "Doğa Tutkunu"
+    ],
+    "Dünya Vatandaşı": [ # "Yaşam Ustası" olarak belirtilmişti, buraya dikkat.
+        "Meraklı", "Gözlemci", "Katılımcı", "Usta", "Yaşam Ustası"
+    ]
+}
+
+# --- 1. Veritabanı İşlemleri ---
+
+def veritabani_olustur():
+    """
+    Kullanıcı bilgilerini saklamak için SQLite veritabanı ve tablo oluşturur.
+    Her kategori için doğru cevap sayılarını ve mevcut unvanları tutar.
+    """
+    conn = sqlite3.connect("kullanici_profil_verileri.db")
+    cursor = conn.cursor()
+
+    # Kullanıcı doğru cevap sayıları ve unvanlar tablosu
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS kullanici_profil (
+            kullanici_id INTEGER PRIMARY KEY,
+            kultur_sever_dogru INTEGER DEFAULT 0,
+            seyahat_insani_dogru INTEGER DEFAULT 0,
+            tarih_profesoru_dogru INTEGER DEFAULT 0,
+            doga_tutkunu_dogru INTEGER DEFAULT 0,
+            dunya_vatandasi_dogru INTEGER DEFAULT 0,
+            kultur_sever_unvan TEXT DEFAULT 'Yok',
+            seyahat_insani_unvan TEXT DEFAULT 'Yok',
+            tarih_profesoru_unvan TEXT DEFAULT 'Yok',
+            doga_tutkunu_unvan TEXT DEFAULT 'Yok',
+            dunya_vatandasi_unvan TEXT DEFAULT 'Yok'
+        )
+    ''')
+    conn.commit()
+    conn.close()
+    print("Veritabanı ve kullanıcı profili tablosu başarıyla oluşturuldu/kontrol edildi.")
+
+def kullanici_profil_guncelle(
+    kullanici_id: int,
+    kategori_dogru_sayilari: Dict[str, int],
+    kategori_unvanlari: Dict[str, str]
+):
+    """
+    Kullanıcının kategori doğru sayılarını ve unvanlarını veritabanında günceller.
+    Eğer kullanıcı yoksa yeni bir kayıt oluşturur.
+    """
+    conn = sqlite3.connect("kullanici_profil_verileri.db")
+    cursor = conn.cursor()
+
+    # Önce mevcut veriyi çek, yoksa varsayılan değerleri kullan
+    cursor.execute('SELECT * FROM kullanici_profil WHERE kullanici_id = ?', (kullanici_id,))
+    existing_data = cursor.fetchone()
+
+    if existing_data:
+        # Mevcut veriyi güncelle
+        cursor.execute('''
+            UPDATE kullanici_profil SET
+                kultur_sever_dogru = ?,
+                seyahat_insani_dogru = ?,
+                tarih_profesoru_dogru = ?,
+                doga_tutkunu_dogru = ?,
+                dunya_vatandasi_dogru = ?,
+                kultur_sever_unvan = ?,
+                seyahat_insani_unvan = ?,
+                tarih_profesoru_unvan = ?,
+                doga_tutkunu_unvan = ?,
+                dunya_vatandasi_unvan = ?
+            WHERE kullanici_id = ?
+        ''', (
+            kategori_dogru_sayilari.get("Kültür Sever", existing_data[1]),
+            kategori_dogru_sayilari.get("Seyahat İnsanı", existing_data[2]),
+            kategori_dogru_sayilari.get("Tarih Profesörü", existing_data[3]),
+            kategori_dogru_sayilari.get("Doğa Tutkunu", existing_data[4]),
+            kategori_dogru_sayilari.get("Dünya Vatandaşı", existing_data[5]),
+            kategori_unvanlari.get("Kültür Sever", existing_data[6]),
+            kategori_unvanlari.get("Seyahat İnsanı", existing_data[7]),
+            kategori_unvanlari.get("Tarih Profesörü", existing_data[8]),
+            kategori_unvanlari.get("Doğa Tutkunu", existing_data[9]),
+            kategori_unvanlari.get("Dünya Vatandaşı", existing_data[10]),
+            kullanici_id
+        ))
+    else:
+        # Yeni kayıt oluştur
+        cursor.execute('''
+            INSERT INTO kullanici_profil (
+                kullanici_id, kultur_sever_dogru, seyahat_insani_dogru, tarih_profesoru_dogru,
+                doga_tutkunu_dogru, dunya_vatandasi_dogru, kultur_sever_unvan,
+                seyahat_insani_unvan, tarih_profesoru_unvan, doga_tutkunu_unvan, dunya_vatandasi_unvan
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            kullanici_id,
+            kategori_dogru_sayilari.get("Kültür Sever", 0),
+            kategori_dogru_sayilari.get("Seyahat İnsanı", 0),
+            kategori_dogru_sayilari.get("Tarih Profesörü", 0),
+            kategori_dogru_sayilari.get("Doğa Tutkunu", 0),
+            kategori_dogru_sayilari.get("Dünya Vatandaşı", 0),
+            kategori_unvanlari.get("Kültür Sever", SEVIYE_UNVANLARI["Kültür Sever"][0] if 0 >= SEVIYE_ESIKLERI[0] else 'Yok'),
+            kategori_unvanlari.get("Seyahat İnsanı", SEVIYE_UNVANLARI["Seyahat İnsanı"][0] if 0 >= SEVIYE_ESIKLERI[0] else 'Yok'),
+            kategori_unvanlari.get("Tarih Profesörü", SEVIYE_UNVANLARI["Tarih Profesörü"][0] if 0 >= SEVIYE_ESIKLERI[0] else 'Yok'),
+            kategori_unvanlari.get("Doğa Tutkunu", SEVIYE_UNVANLARI["Doğa Tutkunu"][0] if 0 >= SEVIYE_ESIKLERI[0] else 'Yok'),
+            kategori_unvanlari.get("Dünya Vatandaşı", SEVIYE_UNVANLARI["Dünya Vatandaşı"][0] if 0 >= SEVIYE_ESIKLERI[0] else 'Yok')
+        ))
+
+    conn.commit()
+    conn.close()
+    # print(f"Kullanıcı ID {kullanici_id} profil bilgileri veritabanına güncellendi.")
+
+def kullanici_profil_getir(kullanici_id: int) -> Dict[str, Any]:
+    """
+    Belirli bir kullanıcı ID'sine ait profil bilgilerini veritabanından çeker.
+    Eğer kullanıcı yoksa, varsayılan sıfır doğru sayısıyla bir profil döndürür.
+    """
+    conn = sqlite3.connect("kullanici_profil_verileri.db")
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM kullanici_profil WHERE kullanici_id = ?', (kullanici_id,))
+    row = cursor.fetchone()
+    conn.close()
+
+    if row:
+        return {
+            "kullanici_id": row[0],
+            "kultur_sever_dogru": row[1],
+            "seyahat_insani_dogru": row[2],
+            "tarih_profesoru_dogru": row[3],
+            "doga_tutkunu_dogru": row[4],
+            "dunya_vatandasi_dogru": row[5],
+            "kultur_sever_unvan": row[6],
+            "seyahat_insani_unvan": row[7],
+            "tarih_profesoru_unvan": row[8],
+            "doga_tutkunu_unvan": row[9],
+            "dunya_vatandasi_unvan": row[10]
+        }
+    else:
+        # Kullanıcı yoksa varsayılan boş bir profil döndür
+        return {
+            "kullanici_id": kullanici_id,
+            "kultur_sever_dogru": 0,
+            "seyahat_insani_dogru": 0,
+            "tarih_profesoru_dogru": 0,
+            "doga_tutkunu_dogru": 0,
+            "dunya_vatandasi_dogru": 0,
+            "kultur_sever_unvan": "Yok",
+            "seyahat_insani_unvan": "Yok",
+            "tarih_profesoru_unvan": "Yok",
+            "doga_tutkunu_unvan": "Yok",
+            "dunya_vatandasi_unvan": "Yok"
+        }
+
+# --- 2. Veri Yükleme ve Soru Havuzu Oluşturma ---
+
+def json_verilerini_yukle(dosya_yolu: str) -> List[Dict[str, Any]]:
+    """
+    Belirtilen JSON dosyasından verileri yükler.
+    """
+    try:
+        with open(dosya_yolu, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print(f"Hata: {dosya_yolu} bulunamadı.")
+        return []
+    except json.JSONDecodeError:
+        print(f"Hata: {dosya_yolu} JSON formatı bozuk.")
+        return []
+
+# Örnek ülke ve şehir JSON verileri (uygulamadaki yolları değiştirmelisiniz)
+# Benim ortamımda bu dosyalar yok, bu yüzden test amaçlı boş listelerle başlatıyorum.
+# Gerçek uygulamada bunları doğru dosya yollarıyla doldurmalısınız.
+ulke_verileri = [
+  {"name": "Laos", "OfficialLanguage(s)": ["Laoca"], "Capital": "Vientiane", "Area": "236,800 km²", "Population": "Yaklaşık 7.6 milyon", "FamousDishes": ["Laap (baharatlı et salatası)", "Tam Mak Hoong (baharatlı papaya salatası)"], "MajorTouristAttractions": ["Luang Prabang (UNESCO Mirası)", "Vientiane'deki That Luang Stupası"], "History": "Fransız sömürgesine, Vietnam Savaşı'nın etkilerine ve komünist bir devletin kuruluşuna kadar uzanan bir geçmiş.", "TravelTips": "Luang Prabang'ın huzurlu atmosferini deneyimleyin.", "InternationalRelations": "Birleşmiş Milletler (BM), ASEAN (Güneydoğu Asya Uluslar Birliği) üyesi.", "NaturalResources": ["Kereste", "Alçıtaşı"], "Wildlife": "Asya fili, kaplan (nadiren)", "GeographyAndClimate": "Karadeniz'e kıyısı olmayan bir ülke. Yüksek dağlık bölgeler ve platolar. Tropikal iklim.", "CulturalHighlights": "Theravada Budizmi, geleneksel festivaller.", "MajorSports": ["Futbol", "Muay Lao"], "FamousPersonalities": ["Kaysone Phomvihane"], "CountryFlag/Image": "static/images/flags/la.png"},
+  {"name": "Letonya", "OfficialLanguage(s)": ["Letonca"], "Capital": "Riga", "Area": "64,589 km²", "Population": "Yaklaşık 1.8 milyon", "FamousDishes": ["Rupjmaize (çavdar ekmeği)", "Sklandrausis (havuçlu tart)"], "MajorTouristAttractions": ["Riga Eski Şehir (UNESCO Mirası)", "Jūrmala (sahil kasabası)"], "History": "Viking, Alman, Polonya-Litvanya, İsveç ve Rus egemenliklerini yaşamış, 20. yüzyılda iki kez bağımsızlığını kazanmıştır (1918 ve 1991).", "TravelTips": "Riga'nın Art Nouveau mimarisini keşfedin.", "InternationalRelations": "Avrupa Birliği (AB) ve NATO üyesi.", "NaturalResources": ["Turba", "Kireçtaşı"], "Wildlife": "Geyik, yaban domuzu", "GeographyAndClimate": "Baltık Denizi'ne kıyısı olan bir Baltık ülkesidir. Çoğunlukla düz ovalar. Ilıman karasal iklim.", "CulturalHighlights": "Zengin şarkı ve dans festivalleri.", "MajorSports": ["Buz Hokeyi", "Basketbol"], "FamousPersonalities": ["Artūrs Irbe"], "CountryFlag/Image": "static/images/flags/lv.png"}
+]
+
+sehir_verileri = [
+    {
+        "name": "Adana", "tarih": "Adana, Çukurova'nın bereketli topraklarında kurulmuş kadim bir şehirdir. Antik çağlardan beri önemli bir yerleşim yeri olmuştur.",
+        "eserler": "Taşköprü, Büyük Saat Kulesi, Sabancı Merkez Camii", "oneriler": "Adana kebabı ye, Seyhan Nehri kenarında gezinti yap.", "nufus": "2.2 milyon",
+        "plakaKodu": "01", "unluYemekler": "Adana Kebabı, Şırdan, Bici Bici", "universiteler": "Çukurova Üniversitesi",
+        "gezilecekyerler": "Yılan Kalesi, Varda Köprüsü, Kapıkaya Kanyonu", "hangiülkedevaroldu": "Hititler, Asurlular, Roma İmparatorluğu, Osmanlı Devleti",
+        "önemliinsanlar": "Seyhan Karabayır", "hayvancılık": "Büyükbaş hayvancılık yaygın", "bitkiörtüsü": "Maki, sazlık ve kamışlar",
+        "havakoşulları": "Akdeniz iklimi; yazlar sıcak ve kurak", "coğrafiişaretler": "Adana Kebabı, Şalgam Suyu",
+        "tarihiólaylar": "Roma ticaret merkezi olması, Osmanlı fethi", "seyahathatirasi": "Adana kebabı sosu"
+    },
+    {
+        "name": "Afyonkarahisar", "tarih": "Afyonkarahisar, antik Frigya'nın önemli yerleşim yerlerinden biri olup, termal kaynakları ve mermerleriyle ünlüdür.",
+        "eserler": "Afyonkarahisar Kalesi, Frig Vadisi, Ulu Cami", "oneriler": "Afyon sucuğu ve kaymağını tat", "nufus": "750 bin",
+        "plakaKodu": "03", "unluYemekler": "Afyon Sucuğu, Afyon Kaymağı", "universiteler": "Afyon Kocatepe Üniversitesi",
+        "gezilecekyerler": "Afyon Kalesi, Ulu Camii, Zafer Müzesi", "hangiülkedevaroldu": "Frigler, Lidyalılar, Selçuklu Devleti, Osmanlı Devleti",
+        "önemliinsanlar": "Mehmet Akif Ersoy", "hayvancılık": "Büyükbaş hayvancılık", "bitkiörtüsü": "Bozkır, step bitkileri",
+        "havakoşulları": "Karasal iklim; kışlar soğuk ve kar yağışlı", "coğrafiişaretler": "Sucuğu, Kaymağı, Lokumu",
+        "tarihiólaylar": "Frig yerleşimleri, Lidyalı ticaret", "seyahathatirasi": "Afyon kaymağı kavanozu"
+    }
+]
+
+# Gerçek uygulamada bu yorum satırlarını kaldırıp kendi dosya yollarınızı kullanın:
+# ulke_verileri = json_verilerini_yukle("ulkeler.json")
+# sehir_verileri = json_verilerini_yukle("turkiye_illeri.json")
+
+
+def soru_havuzu_olustur(ulke_data: List[Dict[str, Any]], sehir_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Ülke ve şehir verilerinden dinamik olarak sorular oluşturur.
+    Her soru, ait olduğu kategori, doğru cevap ve yanlış seçenekleri içerir.
+    """
+    soru_havuzu = []
+
+    # Ülke verilerinden sorular
+    for ulke in ulke_data:
+        ulke_adi = ulke.get("name")
+        if not ulke_adi:
+            continue
+
+        # Örnek sorular (çeşitliliği artırmak için farklı anahtarlar kullanılabilir)
+        # 1. Başkent sorusu (Dünya Vatandaşı)
+        if ulke.get("Capital"):
+            soru_havuzu.append({
+                "kategori": "Dünya Vatandaşı",
+                "soru": f"{ulke_adi}'nin başkenti neresidir?",
+                "dogru_cevap": ulke["Capital"],
+                "tip": "tek_secenekli",
+                "kaynak": ulke_adi,
+                "anahtar": "Capital"
+            })
+        # 2. Resmi dil sorusu (Dünya Vatandaşı)
+        if ulke.get("OfficialLanguage(s)"):
+            lang = ulke["OfficialLanguage(s)"][0] # Sadece ilk dili alıyoruz
+            soru_havuzu.append({
+                "kategori": "Dünya Vatandaşı",
+                "soru": f"{ulke_adi}'nin resmi dili nedir?",
+                "dogru_cevap": lang,
+                "tip": "tek_secenekli",
+                "kaynak": ulke_adi,
+                "anahtar": "OfficialLanguage(s)"
+            })
+        # 3. Tarih sorusu (Tarih Profesörü)
+        if ulke.get("History"):
+            soru_havuzu.append({
+                "kategori": "Tarih Profesörü",
+                "soru": f"Hangi ülke Fransız sömürgesine, Vietnam Savaşı'nın etkilerine ve komünist bir devletin kuruluşuna kadar uzanan bir geçmişe sahiptir?",
+                "dogru_cevap": ulke_adi,
+                "tip": "tek_secenekli",
+                "kaynak": ulke_adi,
+                "anahtar": "History",
+                "zorluk": "orta" # Bu tür sorulara zorluk eklenebilir
+            })
+        # 4. Ünlü yemek sorusu (Kültür Sever)
+        if ulke.get("FamousDishes"):
+            yemek = random.choice(ulke["FamousDishes"])
+            soru_havuzu.append({
+                "kategori": "Kültür Sever",
+                "soru": f"'{yemek}' hangi ülkenin ünlü yemeklerindendir?",
+                "dogru_cevap": ulke_adi,
+                "tip": "tek_secenekli",
+                "kaynak": ulke_adi,
+                "anahtar": "FamousDishes"
+            })
+        # 5. Gezilecek yer sorusu (Seyahat İnsanı)
+        if ulke.get("MajorTouristAttractions"):
+            yer = random.choice(ulke["MajorTouristAttractions"])
+            soru_havuzu.append({
+                "kategori": "Seyahat İnsanı",
+                "soru": f"'{yer}' hangi ülkede yer alan önemli bir turistik cazibe merkezidir?",
+                "dogru_cevap": ulke_adi,
+                "tip": "tek_secenekli",
+                "kaynak": ulke_adi,
+                "anahtar": "MajorTouristAttractions"
+            })
+        # 6. Doğal kaynaklar sorusu (Doğa Tutkunu)
+        if ulke.get("NaturalResources"):
+            kaynak = random.choice(ulke["NaturalResources"])
+            soru_havuzu.append({
+                "kategori": "Doğa Tutkunu",
+                "soru": f"'{kaynak}' hangi ülkenin doğal kaynaklarından biridir?",
+                "dogru_cevap": ulke_adi,
+                "tip": "tek_secenekli",
+                "kaynak": ulke_adi,
+                "anahtar": "NaturalResources"
+            })
+        # 7. Coğrafya/İklim sorusu (Doğa Tutkunu)
+        if ulke.get("GeographyAndClimate"):
+            soru_havuzu.append({
+                "kategori": "Doğa Tutkunu",
+                "soru": f"Hangi ülke, Baltık Denizi'ne kıyısı olan düz ovalara ve ılıman karasal iklime sahiptir?",
+                "dogru_cevap": ulke_adi,
+                "tip": "tek_secenekli",
+                "kaynak": ulke_adi,
+                "anahtar": "GeographyAndClimate"
+            })
+
+
+    # Şehir verilerinden sorular
+    for sehir in sehir_data:
+        sehir_adi = sehir.get("name")
+        if not sehir_adi:
+            continue
+
+        # 1. Plaka kodu sorusu (Dünya Vatandaşı)
+        if sehir.get("plakaKodu"):
+            soru_havuzu.append({
+                "kategori": "Dünya Vatandaşı",
+                "soru": f"'{sehir_adi}' şehrinin plaka kodu kaçtır?",
+                "dogru_cevap": sehir["plakaKodu"],
+                "tip": "tek_secenekli",
+                "kaynak": sehir_adi,
+                "anahtar": "plakaKodu"
+            })
+        # 2. Ünlü yemek sorusu (Kültür Sever)
+        if sehir.get("unluYemekler"):
+            yemek = random.choice(sehir["unluYemekler"])
+            soru_havuzu.append({
+                "kategori": "Kültür Sever",
+                "soru": f"'{yemek}' hangi şehrimizin ünlü yemeklerindendir?",
+                "dogru_cevap": sehir_adi,
+                "tip": "tek_secenekli",
+                "kaynak": sehir_adi,
+                "anahtar": "unluYemekler"
+            })
+        # 3. Tarihi eser sorusu (Tarih Profesörü)
+        if sehir.get("eserler"):
+            eser = random.choice(sehir["eserler"].split(', '))
+            soru_havuzu.append({
+                "kategori": "Tarih Profesörü",
+                "soru": f"'{eser}' hangi şehrimizde yer alan önemli bir tarihi eserdir?",
+                "dogru_cevap": sehir_adi,
+                "tip": "tek_secenekli",
+                "kaynak": sehir_adi,
+                "anahtar": "eserler"
+            })
+        # 4. Gezilecek yer sorusu (Seyahat İnsanı)
+        if sehir.get("gezilecekyerler"):
+            yer = random.choice(sehir["gezilecekyerler"].split(', '))
+            soru_havuzu.append({
+                "kategori": "Seyahat İnsanı",
+                "soru": f"'{yer}' hangi şehrimizde gezilecek yerler arasında bulunur?",
+                "dogru_cevap": sehir_adi,
+                "tip": "tek_secenekli",
+                "kaynak": sehir_adi,
+                "anahtar": "gezilecekyerler"
+            })
+        # 5. Bitki örtüsü sorusu (Doğa Tutkunu)
+        if sehir.get("bitkiörtüsü"):
+            bitki = sehir["bitkiörtüsü"].split(', ')[0] # İlkini al
+            soru_havuzu.append({
+                "kategori": "Doğa Tutkunu",
+                "soru": f"Hangi şehrimizin bitki örtüsünde '{bitki}' bulunur?",
+                "dogru_cevap": sehir_adi,
+                "tip": "tek_secenekli",
+                "kaynak": sehir_adi,
+                "anahtar": "bitkiörtüsü"
+            })
+        # 6. Tarihi olay sorusu (Tarih Profesörü)
+        if sehir.get("tarihiólaylar"):
+            olay = sehir["tarihiólaylar"].split(', ')[0] # İlkini al
+            soru_havuzu.append({
+                "kategori": "Tarih Profesörü",
+                "soru": f"'{olay}' hangi şehrimizin tarihinde önemli bir olaydır?",
+                "dogru_cevap": sehir_adi,
+                "tip": "tek_secenekli",
+                "kaynak": sehir_adi,
+                "anahtar": "tarihiólaylar"
+            })
+
+    print(f"Toplam {len(soru_havuzu)} soru oluşturuldu.")
+    return soru_havuzu
+
+def soru_olustur(soru_havuzu: List[Dict[str, Any]], kategori_filtre: str = None) -> Dict[str, Any] | None:
+    """
+    Soru havuzundan rastgele bir soru seçer.
+    İsteğe bağlı olarak belirli bir kategoriye göre filtreleme yapabilir.
+    Seçilen soru için 3 yanlış seçenek üretir (toplam 4 seçenek).
+    """
+    secilebilir_sorular = soru_havuzu
+    if kategori_filtre:
+        secilebilir_sorular = [s for s in soru_havuzu if s["kategori"] == kategori_filtre]
+
+    if not secilebilir_sorular:
+        print(f"Belirtilen kriterlere uygun soru bulunamadı: Kategori={kategori_filtre}")
+        return None
+
+    soru = random.choice(secilebilir_sorular)
+    dogru_cevap = str(soru["dogru_cevap"]) # Cevabı string'e çevir
+
+    # Yanlış seçenekler üretme
+    yanlis_secenekler = set()
+    tum_olasi_cevaplar = []
+
+    # Ülkelerden veya şehirlerden tüm isimleri topla
+    for ulke in ulke_verileri:
+        if ulke.get("name") and ulke["name"] != dogru_cevap:
+            tum_olasi_cevaplar.append(ulke["name"])
+    for sehir in sehir_verileri:
+        if sehir.get("name") and sehir["name"] != dogru_cevap:
+            tum_olasi_cevaplar.append(sehir["name"])
+
+    # Eğer soru bir özelliğin ait olduğu yerle ilgiliyse
+    if soru.get("anahtar") in ["FamousDishes", "MajorTouristAttractions", "NaturalResources", "History", "GeographyAndClimate", "OfficialLanguage(s)"]:
+        # Yanlış seçenekleri diğer ülkeler/şehirler arasından bulmaya çalış
+        if soru["kaynak"] in [u["name"] for u in ulke_verileri]: # Ülke sorusuysa
+            potansiyel_yanlislar = [u["name"] for u in ulke_verileri if u["name"] != soru["kaynak"]]
+        elif soru["kaynak"] in [s["name"] for s in sehir_verileri]: # Şehir sorusuysa
+            potansiyel_yanlislar = [s["name"] for s in sehir_verileri if s["name"] != soru["kaynak"]]
+        else: # Genel bir özellikse (örn. plaka kodu)
+            potansiyel_yanlislar = [s["plakaKodu"] for s in sehir_verileri if s.get("plakaKodu") and s["plakaKodu"] != dogru_cevap]
+            if len(potansiyel_yanlislar) < 3: # Yetmezse, şehir isimlerini de ekle
+                potansiyel_yanlislar.extend([s["name"] for s in sehir_verileri if s["name"] != dogru_cevap])
+
+
+        random.shuffle(potansiyel_yanlislar)
+        for opt in potansiyel_yanlislar:
+            if str(opt) != dogru_cevap and str(opt) not in yanlis_secenekler:
+                yanlis_secenekler.add(str(opt))
+            if len(yanlis_secenekler) == 3:
+                break
+        
+        # Eğer yeterli yanlış seçenek bulunamazsa, rastgele başka şehir/ülke isimlerinden ekle
+        while len(yanlis_secenekler) < 3 and len(tum_olasi_cevaplar) > 0:
+            rastgele_cevap = random.choice(tum_olasi_cevaplar)
+            if rastgele_cevap != dogru_cevap and rastgele_cevap not in yanlis_secenekler:
+                yanlis_secenekler.add(rastgele_cevap)
+            tum_olasi_cevaplar.remove(rastgele_cevap) # Tekrar seçilmemesi için kaldır
+
+    # Eğer sorunun cevabı bir sayı veya plaka kodu gibi spesifik bir değerse
+    elif soru.get("anahtar") == "plakaKodu" or soru.get("anahtar") == "Population" or soru.get("anahtar") == "Area":
+        # Sayısal değerler için rastgele yanlış seçenekler üret
+        try:
+            dogru_sayisal_deger = float(''.join(filter(str.isdigit, dogru_cevap))) # Sadece rakamları al
+            yanlis_secenekler.add(str(int(dogru_sayisal_deger + random.randint(1, 10) * 10000))) # Yakın değerler
+            yanlis_secenekler.add(str(int(abs(dogru_sayisal_deger - random.randint(1, 10) * 5000)))) # Yakın değerler
+            while len(yanlis_secenekler) < 3:
+                # Geniş aralıktan rastgele bir sayı
+                yanlis_secenekler.add(str(random.randint(100000, 100000000)))
+            # Son kontrol
+            if dogru_cevap in yanlis_secenekler:
+                yanlis_secenekler.remove(dogru_cevap) # Doğru cevabı yanlış seçeneklerden çıkar
+        except ValueError: # Sayısal olmayan plaka kodları için
+             potansiyel_yanlislar = [s["plakaKodu"] for s in sehir_verileri if s.get("plakaKodu") and s["plakaKodu"] != dogru_cevap]
+             while len(yanlis_secenekler) < 3 and len(potansiyel_yanlislar) > 0:
+                rastgele_plaka = random.choice(potansiyel_yanlislar)
+                if rastgele_plaka != dogru_cevap and rastgele_plaka not in yanlis_secenekler:
+                    yanlis_secenekler.add(rastgele_plaka)
+                potansiyel_yanlislar.remove(rastgele_plaka)
+
+    # Toplam seçenekleri oluştur
+    secenekler = list(yanlis_secenekler)
+    secenekler.append(dogru_cevap)
+    random.shuffle(secenekler) # Seçenekleri karıştır
+
+    return {
+        "kategori": soru["kategori"],
+        "soru": soru["soru"],
+        "secenekler": secenekler,
+        "dogru_cevap": dogru_cevap,
+        "tip": soru["tip"]
+    }
+
+
+def cevabi_kontrol_et(soru: Dict[str, Any], kullanici_cevabi: str) -> bool:
+    """
+    Kullanıcının verdiği cevabın doğru olup olmadığını kontrol eder.
+    Büyük/küçük harf duyarlılığını azaltmak için karşılaştırmalar yapılabilir.
+    """
+    return str(kullanici_cevabi).strip().lower() == str(soru["dogru_cevap"]).strip().lower()
+
+# --- 3. Kullanıcı Unvanlarını Hesaplama ---
+
+def seviye_ve_unvan_belirle(dogru_sayisi: int, kategori_adi: str) -> str:
+    """
+    Kategoriye özel doğru cevap sayısına göre kullanıcının seviye unvanını döndürür.
+    """
+    for i, esik in enumerate(SEVIYE_ESIKLERI):
+        if dogru_sayisi < esik:
+            # Eğer esik 25 ise ve doğru sayısı 24 ise önceki seviyenin (0) unvanını döndür.
+            # Ancak biz 25 ve üzeri için seviye 1 başlıyor dedik.
+            # Dolayısıyla 25'ten azsa "Yok" veya "Başlangıç" gibi bir şey dönebilir.
+            # Ya da seviye 1 unvanı için 25+ şartını doğrudan burada uygularız.
+            if i == 0 and dogru_sayisi < esik: # Yani 25'ten azsa
+                return "Yok" # Veya "Başlangıç Seviyesi"
+            elif i > 0: # Bir önceki seviyenin unvanını döndür
+                return SEVIYE_UNVANLARI[kategori_adi][i-1]
+    
+    # En yüksek eşiği (500) geçmişse son unvanı döndür
+    return SEVIYE_UNVANLARI[kategori_adi][len(SEVIYE_ESIKLERI) - 1]
+
+
+def kullanici_unvanlarini_guncelle(kullanici_id: int) -> Dict[str, str]:
+    """
+    Kullanıcının veritabanındaki doğru cevap sayılarına göre tüm kategori unvanlarını hesaplar
+    ve güncellenmiş unvanları bir sözlük olarak döndürür.
+    """
+    profil = kullanici_profil_getir(kullanici_id)
+    guncel_unvanlar: Dict[str, str] = {}
+
+    guncel_unvanlar["Kültür Sever"] = seviye_ve_unvan_belirle(profil["kultur_sever_dogru"], "Kültür Sever")
+    guncel_unvanlar["Seyahat İnsanı"] = seviye_ve_unvan_belirle(profil["seyahat_insani_dogru"], "Seyahat İnsanı")
+    guncel_unvanlar["Tarih Profesörü"] = seviye_ve_unvan_belirle(profil["tarih_profesoru_dogru"], "Tarih Profesörü")
+    guncel_unvanlar["Doğa Tutkunu"] = seviye_ve_unvan_belirle(profil["doga_tutkunu_dogru"], "Doğa Tutkunu")
+    guncel_unvanlar["Dünya Vatandaşı"] = seviye_ve_unvan_belirle(profil["dunya_vatandasi_dogru"], "Dünya Vatandaşı")
+
+    # Unvanları veritabanına kaydet (doğru sayılarını güncellemese bile)
+    temp_dogru_sayilari = {
+        "Kültür Sever": profil["kultur_sever_dogru"],
+        "Seyahat İnsanı": profil["seyahat_insani_dogru"],
+        "Tarih Profesörü": profil["tarih_profesoru_dogru"],
+        "Doğa Tutkunu": profil["doga_tutkunu_dogru"],
+        "Dünya Vatandaşı": profil["dunya_vatandasi_dogru"]
+    }
+    kullanici_profil_guncelle(kullanici_id, temp_dogru_sayilari, guncel_unvanlar)
+
+    return guncel_unvanlar
+
+# --- 4. Ana Oyun Akışı Simülasyonu ---
+
+def oyun_simulasyonu():
+    """
+    Oyunun bir mini simülasyonunu çalıştırır:
+    - Veritabanını oluşturur.
+    - Soru havuzunu oluşturur.
+    - Kullanıcıya sorular sorar, cevapları kontrol eder.
+    - Doğru cevaplara göre kullanıcının profilini günceller ve unvanlarını gösterir.
+    """
+    print("--- Oyun Başlıyor! ---")
+
+    # Veritabanını hazırla
+    veritabani_olustur()
+
+    # Soru havuzunu oluştur
+    global tum_sorular
+    tum_sorular = soru_havuzu_olustur(ulke_verileri, sehir_verileri)
+
+    if not tum_sorular:
+        print("Soru havuzu boş. Lütfen JSON verilerinizin doğru olduğundan emin olun.")
+        return
+
+    kullanici_id = 1 # Örnek bir kullanıcı ID'si
+
+    # Kullanıcının mevcut profilini getir
+    profil = kullanici_profil_getir(kullanici_id)
+    print(f"\nKullanıcı ID: {profil['kullanici_id']}")
+    print("Mevcut Doğru Cevap Sayıları:")
+    print(f"  Kültür Sever: {profil['kultur_sever_dogru']}")
+    print(f"  Seyahat İnsanı: {profil['seyahat_insani_dogru']}")
+    print(f"  Tarih Profesörü: {profil['tarih_profesoru_dogru']}")
+    print(f"  Doğa Tutkunu: {profil['doga_tutkunu_dogru']}")
+    print(f"  Dünya Vatandaşı: {profil['dunya_vatandasi_dogru']}")
+    print("Mevcut Unvanlar:")
+    print(f"  Kültür Sever: {profil['kultur_sever_unvan']}")
+    print(f"  Seyahat İnsanı: {profil['seyahat_insani_unvan']}")
+    print(f"  Tarih Profesörü: {profil['tarih_profesoru_unvan']}")
+    print(f"  Doğa Tutkunu: {profil['doga_tutkunu_unvan']}")
+    print(f"  Dünya Vatandaşı: {profil['dunya_vatandasi_unvan']}")
+
+
+    # Birkaç tur soru soralım
+    for i in range(5): # Örnek olarak 5 soru sor
+        print(f"\n--- Soru {i+1} ---")
+
+        # Rastgele bir kategori seç (veya belirli bir kategori için soru sorabilirsiniz)
+        secilen_kategori = random.choice(list(KATEGORILER.keys()))
+        soru_bilgisi = soru_olustur(tum_sorular, kategori_filtre=secilen_kategori)
+
+        if not soru_bilgisi:
+            print("Soru oluşturulamadı, simülasyon sona eriyor.")
+            break
+
+        print(f"Kategori: {soru_bilgisi['kategori']}")
+        print(f"Soru: {soru_bilgisi['soru']}")
+        for j, secenek in enumerate(soru_bilgisi["secenekler"]):
+            print(f"  {j+1}. {secenek}")
+
+        kullanici_cevabi_input = input("Cevabınız (seçenek numarası veya tam cevap): ").strip()
+
+        # Kullanıcının cevabını doğrula
+        is_correct = False
+        try:
+            cevap_numarasi = int(kullanici_cevabi_input)
+            if 1 <= cevap_numarasi <= len(soru_bilgisi["secenekler"]):
+                kullanici_cevabi_metin = soru_bilgisi["secenekler"][cevap_numarasi - 1]
+                is_correct = cevabi_kontrol_et(soru_bilgisi, kullanici_cevabi_metin)
+            else:
+                print("Geçersiz seçenek numarası.")
+        except ValueError:
+            # Sayı değilse direkt metin olarak kontrol et
+            is_correct = cevabi_kontrol_et(soru_bilgisi, kullanici_cevabi_input)
+
+        if is_correct:
+            print("Doğru cevap!")
+            # Doğru cevap sayısını artır
+            if soru_bilgisi["kategori"] == "Kültür Sever":
+                profil["kultur_sever_dogru"] += 1
+            elif soru_bilgisi["kategori"] == "Seyahat İnsanı":
+                profil["seyahat_insani_dogru"] += 1
+            elif soru_bilgisi["kategori"] == "Tarih Profesörü":
+                profil["tarih_profesoru_dogru"] += 1
+            elif soru_bilgisi["kategori"] == "Doğa Tutkunu":
+                profil["doga_tutkunu_dogru"] += 1
+            elif soru_bilgisi["kategori"] == "Dünya Vatandaşı":
+                profil["dunya_vatandasi_dogru"] += 1
+        else:
+            print(f"Yanlış cevap. Doğru cevap: {soru_bilgisi['dogru_cevap']}")
+
+        # Kullanıcı profilini veritabanında güncelle
+        current_dogru_sayilari = {
+            "Kültür Sever": profil["kultur_sever_dogru"],
+            "Seyahat İnsanı": profil["seyahat_insani_dogru"],
+            "Tarih Profesörü": profil["tarih_profesoru_dogru"],
+            "Doğa Tutkunu": profil["doga_tutkunu_dogru"],
+            "Dünya Vatandaşı": profil["dunya_vatandasi_dogru"]
+        }
+        current_unvanlar = { # Unvanları her seferinde tekrar hesapla
+            "Kültür Sever": seviye_ve_unvan_belirle(profil["kultur_sever_dogru"], "Kültür Sever"),
+            "Seyahat İnsanı": seviye_ve_unvan_belirle(profil["seyahat_insani_dogru"], "Seyahat İnsanı"),
+            "Tarih Profesörü": seviye_ve_unvan_belirle(profil["tarih_profesoru_dogru"], "Tarih Profesörü"),
+            "Doğa Tutkunu": seviye_ve_unvan_belirle(profil["doga_tutkunu_dogru"], "Doğa Tutkunu"),
+            "Dünya Vatandaşı": seviye_ve_unvan_belirle(profil["dunya_vatandasi_dogru"], "Dünya Vatandaşı")
+        }
+        kullanici_profil_guncelle(kullanici_id, current_dogru_sayilari, current_unvanlar)
+
+        # Güncel unvanları göster
+        print("Güncel Unvanlarınız:")
+        for kategori, unvan in current_unvanlar.items():
+            print(f"  {kategori}: {unvan}")
+
+    print("\n--- Oyun Sona Erdi ---")
+    print("\nSon Profil Durumu:")
+    final_profil = kullanici_profil_getir(kullanici_id)
+    print(json.dumps(final_profil, indent=2, ensure_ascii=False))
+
+
+# --- Uygulama Başlangıcı ---
+if __name__ == "__main__":
+    oyun_simulasyonu()
