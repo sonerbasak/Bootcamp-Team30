@@ -365,14 +365,21 @@ function renderQuestions(questions) {
         slide.classList.add("swiper-slide", "quiz-slide");
 
         let optionsHtml = "";
-        const questionText = isReviewMode ? q.question_text : q.soru;
-        const options = [q.option_a || q.a, q.option_b || q.b, q.option_c || q.c, q.option_d || q.d];
+        // Soru metni, seçenekler ve doğru cevap harfi için daha tutarlı erişim
+        // Normal modda API'den 'soru', 'a', 'b', 'c', 'd', 'cevap' gelir.
+        // İnceleme modunda DB'den 'question_text', 'option_a'...'option_d', 'correct_answer_letter' gelir.
+        const questionText = q.question_text || q.soru; // Her iki mod için de uygun olanı al
+        const optionA = q.option_a || q.a;
+        const optionB = q.option_b || q.b;
+        const optionC = q.option_c || q.c;
+        const optionD = q.option_d || q.d;
+        const options = [optionA, optionB, optionC, optionD];
 
         const validOptions = options.filter(option => option !== undefined && option !== null);
 
-        const category = isReviewMode ? q.category : q.kategori;
-        const correctAnsLetter = isReviewMode ? q.correct_answer_letter : q.cevap;
-        const questionId = isReviewMode ? q.id : null; // Yanlış sorular için ID
+        const category = q.category || q.kategori;
+        const correctAnsLetter = q.correct_answer_letter || q.cevap;
+        const questionId = q.id || null; // Yanlış sorular için ID
 
         validOptions.forEach((option, optionIndex) => {
             const optionLetter = String.fromCharCode(65 + optionIndex);
@@ -468,14 +475,16 @@ function submitQuiz() {
 
         let userAnswerText = null;
         if (userAnswerLetter) {
+            // Seçenek metnini alma: isReviewMode ise 'option_a' gibi, değilse 'a' gibi
             const optionKey = `option_${userAnswerLetter.toLowerCase()}`;
-            userAnswerText = isReviewMode ? (q[optionKey] || q[userAnswerLetter.toLowerCase()]) : q[userAnswerLetter.toLowerCase()];
+            userAnswerText = isReviewMode ? (q[optionKey]) : q[userAnswerLetter.toLowerCase()];
         }
 
         let correctOptionText = null;
         if (correctAnswerLetter) {
+            // Doğru seçenek metnini alma: isReviewMode ise 'option_a' gibi, değilse 'a' gibi
             const correctOptionKey = `option_${correctAnswerLetter.toLowerCase()}`;
-            correctOptionText = isReviewMode ? (q[correctOptionKey] || q[correctAnswerLetter.toLowerCase()]) : q[correctAnswerLetter.toLowerCase()];
+            correctOptionText = isReviewMode ? (q[correctOptionKey]) : q[correctAnswerLetter.toLowerCase()];
         }
 
         const isCorrect =
@@ -490,15 +499,15 @@ function submitQuiz() {
         } else {
             if (!isReviewMode) { // Ana quiz'de yanlış cevaplanırsa DB'ye kaydetmek için
                 questionsToProcessForDB.push({
-                    type: currentQuizType || "general", // Yeni eklendi: Quiz tipi
-                    name: currentQuizName || "unknown", // Yeni eklendi: Ülke/Şehir adı
-                    category: q.kategori || "Bilinmeyen",
-                    question_text: q.soru,
+                    quiz_type: currentQuizType || "general", // BURASI DÜZELTİLDİ: 'type' yerine 'quiz_type'
+                    quiz_name: currentQuizName || "unknown", // BURASI DÜZELTİLDİ: 'name' yerine 'quiz_name'
+                    category: q.kategori || "Bilinmeyen", // Normal quiz için 'kategori'
+                    question_text: q.soru, // Normal quiz için 'soru'
                     option_a: q.a,
                     option_b: q.b,
                     option_c: q.c,
                     option_d: q.d,
-                    correct_answer_letter: q.cevap,
+                    correct_answer_letter: q.cevap, // Normal quiz için 'cevap'
                     user_answer_letter: userAnswerLetter || "BOŞ",
                 });
             }
@@ -520,31 +529,55 @@ function submitQuiz() {
             removeCorrectlyAnsweredWrongQuestionsFromDatabase(questionsToProcessForDB);
         }
     } else {
-        if (questionsToProcessForDB.length > 0) {
-            saveWrongQuestionsToDatabase(questionsToProcessForDB);
-        }
+        // API'ye gönderilecek veriyi tek bir çağrıda göndermek için:
+        // FastAPI'nin list of QuizAnswer'ı bekleyen submit-quiz-results endpoint'i var.
+        const quizAnswersPayload = quizQuestions.map((q, index) => {
+            const userAnswerLetter = userSelections[index];
+            const correctAnswerLetter = isReviewMode ? q.correct_answer_letter : q.cevap;
+
+            // `QuizAnswer` modeline uygun veri hazırlığı
+            return {
+                id: isReviewMode ? q.id : null, // Sadece yanlış sorularda id var
+                user_answer: userAnswerLetter || "BOŞ",
+                correct_answer: correctAnswerLetter,
+                question_text: isReviewMode ? q.question_text : q.soru,
+                option_a: isReviewMode ? q.option_a : q.a,
+                option_b: isReviewMode ? q.option_b : q.b,
+                option_c: isReviewMode ? q.option_c : q.c,
+                option_d: isReviewMode ? q.option_d : q.d,
+                quiz_type: currentQuizType || "general",
+                quiz_name: currentQuizName || "unknown",
+                category: isReviewMode ? q.category : q.kategori,
+            };
+        });
+        
+        // Tek bir API çağrısı ile tüm sonuçları gönder
+        submitFullQuizResultsToDatabase(quizAnswersPayload);
     }
 
     showResults(score, reviewAnswers);
 }
 
-async function saveWrongQuestionsToDatabase(questions) {
-    for (const q of questions) {
-        try {
-            const res = await fetch("/api/save-wrong-question", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(q), // q objesi zaten 'type' ve 'name'i içeriyor
-            });
-            if (!res.ok) {
-                const errorData = await res.json();
-                console.error("Yanlış soru kaydedilirken hata:", errorData);
-            } else {
-                console.log("Yanlış soru başarıyla kaydedildi:", q.question_text);
-            }
-        } catch (error) {
-            console.error("Yanlış soru kaydetme API çağrısı sırasında hata:", error);
+
+// --- Tüm Quiz Sonuçlarını Veritabanına Gönderme Fonksiyonu (Yeni) ---
+async function submitFullQuizResultsToDatabase(answers) {
+    try {
+        const res = await fetch("/api/submit-quiz-results", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ answers: answers }), // FastAPI'nin beklediği format {answers: [...]}
+        });
+        if (!res.ok) {
+            const errorData = await res.json();
+            console.error("Quiz sonuçları kaydedilirken hata:", errorData);
+        } else {
+            const successData = await res.json();
+            console.log("Quiz sonuçları başarıyla kaydedildi:", successData);
+            // Başarılı kayıttan sonra wrong_questions'a da kaydetmek gerekmez,
+            // çünkü `submit_quiz_results` backend'de zaten yanlışları kaydediyor.
         }
+    } catch (error) {
+        console.error("Quiz sonuçları gönderme API çağrısı sırasında hata:", error);
     }
 }
 
@@ -637,7 +670,7 @@ html += `
         ` : `
             <button
                 class="btn btn-warning px-4 py-2 fs-5 fw-semibold ms-3"
-                style="border-radius: 25px; box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);"
+                style="border-radius: 25px; box_shadow: 0 5px 15px rgba(255, 193, 7, 0.4);"
                 onclick="window.location.href='${window.WRONG_QUESTIONS_URL}?type=wrong-questions'"
             >
                 Yanlış Cevapladıklarım

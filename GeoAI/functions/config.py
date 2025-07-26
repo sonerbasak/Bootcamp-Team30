@@ -11,7 +11,8 @@ class Settings(BaseSettings):
 
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "") # Eğer yoksa boş string döner
     QUIZ_DATABASE_FILE: Path = BASE_DIR / "quiz_errors.db"
-    USERS_DATABASE_FILE: Path = BASE_DIR / "users.db"
+    USERS_DATABASE_FILE: Path = BASE_DIR / "users.db" # <--- BU SATIRI EKLEDİK
+    QUIZ_STATS_DATABASE_FILE: Path = BASE_DIR / "quiz_stats.db"
     
     SECRET_KEY: str = os.getenv("SECRET_KEY")
     if not SECRET_KEY:
