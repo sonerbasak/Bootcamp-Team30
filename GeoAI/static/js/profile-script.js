@@ -5,10 +5,41 @@ document.addEventListener('DOMContentLoaded', function() {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
-    // Navbar Arama Fonksiyonları
+    // --- Global Yardımcı Fonksiyonlar ve Değişkenler ---
+    // window.STATIC_URLS ve window.CURRENT_PROFILE_USERNAME'ın HTML'den doğru şekilde yüklendiğinden emin olun.
+    // userProfileTemplate'ı daha dinamik hale getirmek için _USERNAME_PLACEHOLDER_ kullanıldı.
+    function getProfileUrl(usernameToUse) {
+        if (window.STATIC_URLS && window.STATIC_URLS.userProfileTemplate) {
+            return window.STATIC_URLS.userProfileTemplate.replace('_USERNAME_PLACEHOLDER_', usernameToUse);
+        }
+        console.warn("WARN: window.STATIC_URLS.userProfileTemplate bulunamadı. Varsayılan profil URL şablonu kullanılıyor.");
+        return `/profile/${usernameToUse}`; // Yedek URL
+    }
+
+    // Basit bir toast mesajı gösterimi (gerçek uygulamada Bootstrap Toast kullanılması önerilir)
+    function showToast(message, type = 'success') {
+        // Bootstrap toast kullanımı için bir yapıya ihtiyacınız olabilir.
+        // Şimdilik basit bir alert kullanıyoruz.
+        alert(message);
+    }
+
+    // HTML'den global değişkenleri al
+    const username = window.CURRENT_PROFILE_USERNAME;
+    const currentUserId = window.CURRENT_USER_ID; 
+    const isMyProfile = window.IS_MY_PROFILE; // Kendi profilimiz miyiz?
+
+    if (!username) {
+        console.error("HATA: Kullanıcı adı HTML'den alınamadı. Profil sayfası düzgün yüklenmemiş olabilir.");
+    }
+    if (currentUserId === null) { // null kontrolü yapıldı
+        console.warn("UYARI: window.CURRENT_USER_ID null. Misafir kullanıcı veya oturum açmamış.");
+    }
+
+    // --- Navbar Arama Fonksiyonları ---
     const navbarUserSearchInput = document.getElementById('navbarUserSearchInput');
-    const navbarSearchUserButton = document.getElementById('navbarSearchUserButton');
     const userSearchResults = document.getElementById('userSearchResults');
+
+    let searchTimeout;
 
     async function searchUsers() {
         const searchTerm = navbarUserSearchInput.value.trim();
@@ -19,11 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         try {
-            const response = await fetch(`/api/search-users?q=${encodeURIComponent(searchTerm)}`);
+            const response = await fetch(`/api/search_users?search_term=${encodeURIComponent(searchTerm)}`); // API rotası düzeltildi: search_users
             if (!response.ok) {
                 const errorText = await response.text();
                 console.error('API Error:', response.status, errorText);
-                throw new Error(`Kullanıcılar aranırken bir hata oluştu: ${response.status} ${response.statusText}`);
+                throw new Error(`Kullanıcılar aranırken bir hata oluştu: ${response.status} ${response.statusText}. Detay: ${errorText}`);
             }
             const users = await response.json();
             
@@ -35,11 +66,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 users.forEach(user => {
                     const userDiv = document.createElement('div');
                     userDiv.classList.add('list-group-item', 'search-result-item');
-                    // Kullanıcı profil URL'sini oluşturmak için dinamik yol
                     const profileUrl = getProfileUrl(user.username);
+                    const userProfilePicture = user.profile_picture_url || (window.STATIC_URLS && window.STATIC_URLS.sampleUserImage ? window.STATIC_URLS.sampleUserImage : '/static/images/sample_user.png');
+                    
                     userDiv.innerHTML = `
                         <a href="${profileUrl}" class="d-flex align-items-center text-decoration-none text-dark">
-                            <img src="${user.profile_picture_url || window.STATIC_URLS.sampleUserImage}" alt="${user.username}" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                            <img src="${userProfilePicture}" alt="${user.username}" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
                             <div>
                                 <strong>${user.username}</strong>
                                 <p class="text-muted mb-0 small">${user.bio || 'Bio yok.'}</p>
@@ -49,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     userSearchResults.appendChild(userDiv);
                 });
             }
-            userSearchResults.style.display = 'block';
+            userSearchResults.style.display = 'block'; 
 
         } catch (error) {
             console.error('Kullanıcı arama hatası:', error);
@@ -58,14 +90,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    if (navbarSearchUserButton) {
-        navbarSearchUserButton.addEventListener('click', searchUsers);
-    }
-
-    if (navbarUserSearchInput) {
+    // Arama kutusu ve buton event listener'ları
+    if (navbarUserSearchInput) { 
         navbarUserSearchInput.addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
-                event.preventDefault();
+                event.preventDefault(); 
                 searchUsers();
             }
         });
@@ -79,37 +108,32 @@ document.addEventListener('DOMContentLoaded', function() {
         navbarUserSearchInput.addEventListener('focus', function() {
             if (navbarUserSearchInput.value.trim().length >= 2) {
                 searchUsers();
-            } else if (userSearchResults.innerHTML.trim() !== '' && userSearchResults.innerHTML.trim().includes('text-muted')) {
-                 userSearchResults.style.display = 'block';
+            } else if (navbarUserSearchInput.value.trim().length > 0) { 
+                userSearchResults.innerHTML = '<div class="text-muted p-2">Lütfen en az 2 karakter girin.</div>';
+                userSearchResults.style.display = 'block';
             }
         });
 
         navbarUserSearchInput.addEventListener('input', function() {
-             if (navbarUserSearchInput.value.trim().length >= 2) {
-                 searchUsers();
-             } else if (navbarUserSearchInput.value.trim() === '') {
-                 userSearchResults.style.display = 'none';
-             } else {
-                 userSearchResults.innerHTML = '<div class="text-muted p-2">Lütfen en az 2 karakter girin.</div>';
-                 userSearchResults.style.display = 'block';
-             }
-         });
+            clearTimeout(searchTimeout); // Debounce ekle
+            const searchTerm = this.value.trim();
+            if (searchTerm.length >= 2) {
+                searchTimeout = setTimeout(() => searchUsers(), 300);
+            } else if (searchTerm === '') {
+                userSearchResults.style.display = 'none'; 
+            } else {
+                userSearchResults.innerHTML = '<div class="text-muted p-2">Lütfen en az 2 karakter girin.</div>';
+                userSearchResults.style.display = 'block';
+            }
+        });
     }
-
-    // Profil Sayfası Özel Fonksiyonlar
-    // Jinja2 tarafından doğrudan render edilen kullanıcı adını alıyoruz
-    // window.CURRENT_PROFILE_USERNAME artık HTML'den geldiği için burayı kullanabiliriz
-    const username = window.CURRENT_PROFILE_USERNAME;
-
-    if (!username) {
-        console.error("Kullanıcı adı HTML'den alınamadı. Profil sayfası düzgün yüklenmemiş olabilir.");
-        return; 
-    }
-
-    // Takip et/bırak butonları için doğru ID'leri kullanıyoruz
-    const followButton = document.getElementById('followButton');
-    const unfollowButton = document.getElementById('unfollowButton');
     
+    const navbarSearchUserButton = document.getElementById('navbarSearchUserButton');
+    if (navbarSearchUserButton) {
+        navbarSearchUserButton.addEventListener('click', searchUsers);
+    }
+
+    // --- Profil Düzenleme Fonksiyonları ---
     const editProfileForm = document.getElementById('editProfileForm');
     const editBioInput = document.getElementById('editBio');
     const profilePictureUploadInput = document.getElementById('profilePictureUpload');
@@ -119,126 +143,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const editProfileModal = editProfileModalElement ? new bootstrap.Modal(editProfileModalElement) : null; 
     const editProfileMessage = document.getElementById('editProfileMessage');
 
-    // Kullanıcı profil URL şablonunu global değişkenden al
-    function getProfileUrl(usernameToUse) {
-        return window.STATIC_URLS.userProfileTemplate.replace('_USERNAME_PLACEHOLDER_', usernameToUse);
-    }
-
-    // Takip Et Butonu İşlevi
-    if (followButton) {
-        followButton.addEventListener('click', async function() {
-            try {
-                const response = await fetch(`/api/follow/${username}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' }
-                });
-                if (response.ok) {
-                    alert('Takip edildi! ✅');
-                    location.reload(); 
-                } else {
-                    const errorData = await response.json();
-                    alert('Takip etme hatası: ' + (errorData.detail || 'Bir hata oluştu.'));
-                }
-            } catch (error) {
-                console.error('Takip etme isteği hatası:', error);
-                alert('Takip etme isteği gönderilirken bir sorun oluştu.');
-            }
-        });
-    }
-
-    // Takibi Bırak Butonu İşlevi
-    if (unfollowButton) {
-        unfollowButton.addEventListener('click', async function() {
-            try {
-                const response = await fetch(`/api/unfollow/${username}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' }
-                });
-                if (response.ok) {
-                    alert('Takip bırakıldı! 👋');
-                    location.reload(); 
-                } else {
-                    const errorData = await response.json();
-                    alert('Takibi bırakma hatası: ' + (errorData.detail || 'Bir hata oluştu.'));
-                }
-            } catch (error) {
-                console.error('Takibi bırakma isteği hatası:', error);
-                alert('Takibi bırakma isteği gönderilirken bir sorun oluştu.');
-            }
-        });
-    }
-
-    // Profili Düzenle Formu İşlevi
-    // isMyProfile kontrolünü HTML'den gelen global değişkenden alıyoruz
-    if (window.IS_MY_PROFILE && editProfileForm) {
-        // Modal açıldığında mevcut rozet ID'lerini ve seçim durumunu ayarla
-        let selectedBadges = new Set(window.DISPLAYED_BADGE_IDS || []); // Güvenli başlangıç
-
+    if (isMyProfile && editProfileForm) {
         const currentProfilePicInModal = document.getElementById('currentProfilePic');
-        const availableBadgesContainer = document.getElementById('availableBadgesContainer');
-        const selectedBadgeIdsInput = document.getElementById('selectedBadgeIdsInput');
-
-        // Mevcut rozetleri yükle ve seçim kutularını oluşturma fonksiyonu
-        function loadAvailableBadgesForEdit() {
-            availableBadgesContainer.innerHTML = ''; // Her açılışta önceki içeriği temizle
-            const achievedBadges = window.ACHIEVED_BADGES || []; // Güvenli başlangıç
-
-            achievedBadges.forEach(badge => {
-                const badgeInfo = badge.badge_info;
-                const isSelected = selectedBadges.has(badgeInfo.id);
-
-                const badgeDiv = document.createElement('div');
-                badgeDiv.classList.add('form-check', 'form-check-inline', 'text-center', 'border', 'rounded', 'p-1', 'badge-selection-item');
-                if (isSelected) {
-                    badgeDiv.classList.add('selected');
-                }
-                badgeDiv.style.cursor = 'pointer';
-                badgeDiv.style.width = '70px'; 
-                badgeDiv.style.height = '70px'; 
-                badgeDiv.style.overflow = 'hidden';
-
-                badgeDiv.innerHTML = `
-                    <img src="${badgeInfo.image_url}" alt="${badgeInfo.name}" class="img-fluid" style="width: 50px; height: 50px; object-fit: contain;">
-                    <small class="d-block text-truncate" title="${badgeInfo.name}">${badgeInfo.name}</small>
-                `;
-                badgeDiv.dataset.badgeId = badgeInfo.id;
-
-                badgeDiv.addEventListener('click', function() {
-                    const id = parseInt(this.dataset.badgeId);
-                    if (selectedBadges.has(id)) {
-                        selectedBadges.delete(id);
-                        this.classList.remove('selected');
-                    } else {
-                        if (selectedBadges.size < 5) {
-                            selectedBadges.add(id);
-                            this.classList.add('selected');
-                        } else {
-                            alert("En fazla 5 rozet sergileyebilirsiniz.");
-                        }
-                    }
-                    selectedBadgeIdsInput.value = JSON.stringify(Array.from(selectedBadges));
-                });
-                
-                new bootstrap.Tooltip(badgeDiv, {
-                    title: `${badgeInfo.name}: ${badgeInfo.description}`,
-                    placement: 'top'
-                });
-
-                availableBadgesContainer.appendChild(badgeDiv);
-            });
-            selectedBadgeIdsInput.value = JSON.stringify(Array.from(selectedBadges));
-        }
-
+        
         if (editProfileModalElement) {
             editProfileModalElement.addEventListener('show.bs.modal', function() {
-                // Modalı açarken mevcut profil resmini ayarla
                 currentProfilePicInModal.src = profileAvatarImage.src;
-                // Rozetleri yükle
-                loadAvailableBadgesForEdit();
             });
         }
 
-        // Profil fotoğrafı önizlemesi
         profilePictureUploadInput.addEventListener('change', function() {
             if (this.files && this.files[0]) {
                 currentProfilePicInModal.src = URL.createObjectURL(this.files[0]);
@@ -252,7 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const formData = new FormData();
             formData.append('bio', newBio);
-            formData.append('displayed_badge_ids', selectedBadgeIdsInput.value); // Rozetleri ekle
 
             if (profilePictureFile) {
                 formData.append('profile_picture', profilePictureFile);
@@ -297,11 +209,73 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Takipçiler modalı açıldığında veri yükle
+    // --- Takip Et/Takibi Bırak İşlevselliği (Ana Profil Butonları) ---
+    const followButton = document.getElementById('followButton');
+    const unfollowButton = document.getElementById('unfollowButton');
+
+    // Bu fonksiyon, hem ana sayfa butonları hem de modal içi butonlar için kullanılabilir.
+    async function performFollowUnfollow(targetUsername, actionType, listItemElement = null) {
+        const url = actionType === 'follow' ? `/api/follow/${targetUsername}` : `/api/unfollow/${targetUsername}`;
+        const method = 'POST';
+
+        try {
+            const response = await fetch(url, {
+                method: method,
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const result = await response.json();
+
+            if (response.ok) {
+                showToast(result.message);
+                if (!listItemElement) { // Eğer ana profil butonlarıysa sayfayı yenile
+                    location.reload(); 
+                } else { // Modal içindeki butonlar için görsel güncelleme
+                    const button = listItemElement.querySelector('.follow-unfollow-btn');
+                    if (button) {
+                        if (actionType === 'follow') {
+                            button.classList.remove('btn-success', 'follow-btn');
+                            button.classList.add('btn-danger', 'unfollow-btn');
+                            button.textContent = 'Takibi Bırak';
+                            button.dataset.isFollowing = 'true';
+                        } else {
+                            button.classList.remove('btn-danger', 'unfollow-btn');
+                            button.classList.add('btn-success', 'follow-btn');
+                            button.textContent = 'Takip Et';
+                            button.dataset.isFollowing = 'false';
+                        }
+                    }
+                }
+            } else {
+                showToast(result.detail || `İşlem başarısız: ${actionType}`);
+            }
+        } catch (error) {
+            console.error(`Error during ${actionType} operation:`, error);
+            showToast('Bir ağ hatası oluştu. Lütfen tekrar deneyin.');
+        }
+    }
+
+    if (followButton) {
+        followButton.addEventListener('click', () => performFollowUnfollow(username, 'follow'));
+    }
+    if (unfollowButton) {
+        unfollowButton.addEventListener('click', () => performFollowUnfollow(username, 'unfollow'));
+    }
+
+    // --- Önerilen Arkadaşlar Takip/Takibi Bırak Butonları ---
+    document.querySelectorAll('.recommended-friends-section .follow-btn, .recommended-friends-section .unfollow-btn').forEach(button => {
+        button.addEventListener('click', async function() {
+            const targetUsername = this.dataset.username; // Buradan username'i al
+            const actionType = this.classList.contains('unfollow-btn') ? 'unfollow' : 'follow';
+            await performFollowUnfollow(targetUsername, actionType); // listItemElement'ı boş bırak
+        });
+    });
+
+    // --- Modals: Takipçiler ve Takip Edilenler ---
     const followersModalElement = document.getElementById('followersModal');
+    const followersList = document.getElementById('followersList');
+
     if (followersModalElement) {
         followersModalElement.addEventListener('show.bs.modal', async function () {
-            const followersList = document.getElementById('followersList');
             followersList.innerHTML = '<li class="list-group-item text-muted">Yükleniyor...</li>';
             try {
                 const response = await fetch(`/api/profile/${username}/followers`);
@@ -315,11 +289,83 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     followers.forEach(f => {
                         const li = document.createElement('li');
-                        li.classList.add('list-group-item', 'd-flex', 'align-items-center');
+                        li.classList.add('list-group-item', 'd-flex', 'align-items-center', 'justify-content-between');
+                        const userProfilePicture = f.profile_picture_url || (window.STATIC_URLS ? window.STATIC_URLS.sampleUserImage : '/static/images/sample_user.png');
+                        
+                        let buttonsHtml = '';
+
+                        // Kendi profilimizdeysek ve bu kişi kendimiz değilse "Takipçiyi Çıkar" butonu
+                        if (isMyProfile && currentUserId !== null && f.id !== currentUserId) {
+                            buttonsHtml += `
+                                <button class="btn btn-sm btn-danger ms-2 remove-follower-btn" 
+                                        data-username="${f.username}" 
+                                        data-id="${f.id}">
+                                    Takipçiyi Çıkar
+                                </button>
+                            `;
+                        } 
+                        // Başka birinin profilindeyken veya kendi profilimizdeyken ama farklı bir kullanıcıysa
+                        // ve oturum açmış kullanıcı varsa takip et/takibi bırak butonu
+                        if (currentUserId !== null && f.id !== currentUserId) {
+                            const isFollowedByCurrentUser = f.is_followed_by_current_user === true; 
+                            buttonsHtml += `
+                                <button class="btn btn-sm ${isFollowedByCurrentUser ? 'btn-danger unfollow-btn' : 'btn-success follow-btn'} follow-unfollow-btn" 
+                                        data-username="${f.username}" 
+                                        data-is-following="${isFollowedByCurrentUser}">
+                                    ${isFollowedByCurrentUser ? 'Takibi Bırak' : 'Takip Et'}
+                                </button>
+                            `;
+                        }
+
                         li.innerHTML = `
-                            <img src="${f.profile_picture_url || window.STATIC_URLS.sampleUserImage}" alt="${f.username}" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
-                            <a href="${getProfileUrl(f.username)}">${f.username}</a><p class="text-muted mb-0 ms-2" style="display:inline;">${f.bio || ''}</p>`;
+                            <div class="d-flex align-items-center">
+                                <img src="${userProfilePicture}" alt="${f.username}" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                <a href="${getProfileUrl(f.username)}" class="text-decoration-none text-dark"><strong>${f.username}</strong></a>
+                            </div>
+                            <div class="profile-list-actions">
+                                ${buttonsHtml}
+                            </div>
+                        `;
                         followersList.appendChild(li);
+                    });
+
+                    // Takipçiyi Çıkar butonlarına event listener ekle
+                    followersList.querySelectorAll('.remove-follower-btn').forEach(button => {
+                        button.addEventListener('click', async function() {
+                            const targetUsername = this.dataset.username;
+                            const confirmRemove = confirm(`${targetUsername} adlı takipçiyi listenizden çıkarmak istediğinize emin misiniz?`);
+                            if (confirmRemove) {
+                                try {
+                                    const removeResponse = await fetch(`/api/remove_follower/${targetUsername}`, {
+                                        method: 'POST'
+                                    });
+                                    const removeResult = await removeResponse.json();
+
+                                    if (removeResponse.ok) {
+                                        showToast(removeResult.message);
+                                        // Başarılı olursa, elemanı listeden kaldır
+                                        this.closest('li').remove();
+                                        // Ana sayfadaki takipçi sayısını güncellemek için sayfayı yenile
+                                        location.reload(); 
+                                    } else {
+                                        showToast(removeResult.detail || 'Takipçiyi çıkarma başarısız oldu.', 'error');
+                                    }
+                                } catch (error) {
+                                    console.error('Error removing follower:', error);
+                                    showToast('Takipçiyi çıkarırken bir ağ hatası oluştu.', 'error');
+                                }
+                            }
+                        });
+                    });
+
+                    // Modal içindeki takip et/takibi bırak butonlarına event listener ekle
+                    followersList.querySelectorAll('.follow-unfollow-btn').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const targetUsername = this.dataset.username;
+                            const isFollowing = this.dataset.isFollowing === 'true';
+                            const actionType = isFollowing ? 'unfollow' : 'follow';
+                            performFollowUnfollow(targetUsername, actionType, this.closest('li'));
+                        });
                     });
                 }
             } catch (error) {
@@ -329,11 +375,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Takip edilenler modalı açıldığında veri yükle
     const followingModalElement = document.getElementById('followingModal');
+    const followingList = document.getElementById('followingList');
+
     if (followingModalElement) {
         followingModalElement.addEventListener('show.bs.modal', async function () {
-            const followingList = document.getElementById('followingList');
             followingList.innerHTML = '<li class="list-group-item text-muted">Yükleniyor...</li>';
             try {
                 const response = await fetch(`/api/profile/${username}/following`);
@@ -347,11 +393,42 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     following.forEach(f => {
                         const li = document.createElement('li');
-                        li.classList.add('list-group-item', 'd-flex', 'align-items-center');
+                        li.classList.add('list-group-item', 'd-flex', 'align-items-center', 'justify-content-between');
+                        const userProfilePicture = f.profile_picture_url || (window.STATIC_URLS ? window.STATIC_URLS.sampleUserImage : '/static/images/sample_user.png');
+                        
+                        let buttonsHtml = '';
+                        // Kendi kullanıcımız değilse ve oturum açmış bir kullanıcı varsa butonu göster
+                        if (currentUserId !== null && f.id !== currentUserId) { 
+                            const isFollowedByCurrentUser = f.is_followed_by_current_user === true;
+                            buttonsHtml += `
+                                <button class="btn btn-sm ${isFollowedByCurrentUser ? 'btn-danger unfollow-btn' : 'btn-success follow-btn'} follow-unfollow-btn" 
+                                        data-username="${f.username}" 
+                                        data-is-following="${isFollowedByCurrentUser}">
+                                    ${isFollowedByCurrentUser ? 'Takibi Bırak' : 'Takip Et'}
+                                </button>
+                            `;
+                        }
+                        
                         li.innerHTML = `
-                            <img src="${f.profile_picture_url || window.STATIC_URLS.sampleUserImage}" alt="${f.username}" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
-                            <a href="${getProfileUrl(f.username)}">${f.username}</a><p class="text-muted mb-0 ms-2" style="display:inline;">${f.bio || ''}</p>`;
+                            <div class="d-flex align-items-center">
+                                <img src="${userProfilePicture}" alt="${f.username}" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                                <a href="${getProfileUrl(f.username)}" class="text-decoration-none text-dark"><strong>${f.username}</strong></a>
+                            </div>
+                            <div class="profile-list-actions">
+                                ${buttonsHtml}
+                            </div>
+                        `;
                         followingList.appendChild(li);
+                    });
+
+                    // Modal içindeki takip et/takibi bırak butonlarına event listener ekle
+                    followingList.querySelectorAll('.follow-unfollow-btn').forEach(button => {
+                        button.addEventListener('click', function() {
+                            const targetUsername = this.dataset.username;
+                            const isFollowing = this.dataset.isFollowing === 'true';
+                            const actionType = isFollowing ? 'unfollow' : 'follow';
+                            performFollowUnfollow(targetUsername, actionType, this.closest('li'));
+                        });
                     });
                 }
             } catch (error) {
@@ -360,36 +437,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Önerilen Arkadaşlar Takip/Takibi Bırak Butonları
-    document.querySelectorAll('.recommended-friends-section .follow-btn, .recommended-friends-section .unfollow-btn').forEach(button => {
-        button.addEventListener('click', async function() {
-            const usernameToModify = this.dataset.username;
-            const isFollowing = this.classList.contains('unfollow-btn');
-            
-            const url = isFollowing ? `/api/unfollow/${usernameToModify}` : `/api/follow/${usernameToModify}`;
-            const method = 'POST';
-
-            try {
-                const response = await fetch(url, {
-                    method: method,
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    alert(data.message);
-                    location.reload(); 
-                } else {
-                    const errorData = await response.json();
-                    alert(`Hata: ${errorData.detail}`);
-                }
-            } catch (error) {
-                console.error('Fetch error:', error);
-                alert('Bir hata oluştu. Lütfen tekrar deneyin.');
-            }
-        });
-    });
 });

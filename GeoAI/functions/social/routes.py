@@ -81,37 +81,73 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
     if not profile_user_data:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Kullanıcı bulunamadı.")
     
-    # db_queries.get_user_by_username fonksiyonu zaten quiz istatistiklerini eklediği için
-    # profile_user doğrudan template'e gönderilebilir.
     profile_user = profile_user_data 
 
-    followers = db_queries.get_followers(profile_user['id'])
-    following = db_queries.get_following(profile_user['id'])
-    followers_count = len(followers)
-    following_count = len(following)
+    # Takipçi ve Takip Edilenler listelerini çekin
+    # Her bir kullanıcı için 'is_followed_by_current_user' bilgisini ekleyin
+    raw_followers = db_queries.get_followers(profile_user['id'])
+    followers_with_status = []
+    for follower in raw_followers:
+        follower_data = db_queries.get_user_by_id(follower['follower_id']) # Takipçinin tam bilgilerini al
+        if follower_data:
+            # Oturum açmış kullanıcı, bu takipçiyi takip ediyor mu?
+            is_followed_by_current_user = False
+            if current_user and current_user.id:
+                is_followed_by_current_user = db_queries.is_following(current_user.id, follower_data['id'])
+            
+            # Burada 'id' alanını da döndürüyoruz, JavaScript'te currentUserId ile karşılaştırmak için önemli
+            followers_with_status.append({
+                "id": follower_data['id'],
+                "username": follower_data['username'],
+                "profile_picture_url": follower_data.get('profile_picture_url', "/static/images/sample_user.png"),
+                "bio": follower_data.get('bio', ''),
+                "is_followed_by_current_user": is_followed_by_current_user
+            })
+    
+    raw_following = db_queries.get_following(profile_user['id'])
+    following_with_status = []
+    for followed in raw_following:
+        followed_data = db_queries.get_user_by_id(followed['followed_id']) # Takip edilenin tam bilgilerini al
+        if followed_data:
+            # Oturum açmış kullanıcı, bu takip edileni takip ediyor mu? (Bu zaten true olmalı, ama tutarlılık için)
+            is_followed_by_current_user = False
+            if current_user and current_user.id:
+                is_followed_by_current_user = db_queries.is_following(current_user.id, followed_data['id'])
+            
+            following_with_status.append({
+                "id": followed_data['id'],
+                "username": followed_data['username'],
+                "profile_picture_url": followed_data.get('profile_picture_url', "/static/images/sample_user.png"),
+                "bio": followed_data.get('bio', ''),
+                "is_followed_by_current_user": is_followed_by_current_user # Her zaman true olmalı bu listede
+            })
+
+    followers_count = len(followers_with_status)
+    following_count = len(following_with_status)
 
     is_following_user = False
     if current_user and current_user.id != profile_user['id']:
         is_following_user = db_queries.is_following(current_user.id, profile_user['id'])
 
-    # Son aktiviteleri çek ve profile_user objesine ekle
     profile_user['recent_activities'] = db_queries.get_user_activities(profile_user['id'])
 
-    # Quiz İstatistiklerini Çek (quiz_stats.db'den)
     user_id = profile_user['id']
-    quiz_summaries = db_queries.get_user_quiz_summaries(user_id, limit=5) # Son 5 quiz özeti
-    category_stats = db_queries.get_user_category_stats(user_id) # Kategori bazlı istatistikler
+    quiz_summaries = db_queries.get_user_quiz_summaries(user_id, limit=5)
+    category_stats = db_queries.get_user_category_stats(user_id)
 
     return templates.TemplateResponse(
         "profile.html", {
             "request": request,
-            "profile_user": profile_user, # Artık tüm istatistikler burada
-            "user": current_user, # Giriş yapmış kullanıcıyı template'e gönder
+            "profile_user": profile_user,
+            "user": current_user, 
             "followers_count": followers_count,
             "following_count": following_count,
             "is_following_user": is_following_user,
             "quiz_summaries": quiz_summaries, 
             "category_stats": category_stats,
+            # Bu listeleri JavaScript'e JSON API aracılığıyla göndereceğiz, doğrudan template'e değil.
+            # "followers_list": followers_with_status,
+            # "following_list": following_with_status,
         }
     )
 
@@ -302,3 +338,41 @@ async def get_conversations_api(current_user: CurrentUser = Depends(require_auth
             conv['last_message_timestamp'] = conv['last_message_timestamp'].isoformat()
             
     return conversations
+
+@router.post("/api/remove_follower/{follower_username}", response_model=Dict[str, str], name="remove_follower_api")
+async def remove_follower_api(
+    follower_username: str,
+    current_user: CurrentUser = Depends(require_auth)
+):
+    """
+    Oturum açmış kullanıcının takipçi listesinden belirli bir takipçiyi çıkarır.
+    Yani, o kişinin sizi takip etmesini engeller.
+    """
+    if not current_user:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Giriş yapmalısınız.")
+
+    # Kendi kendinizi takipçi listenizden çıkaramazsınız
+    if follower_username == current_user.username:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Kendinizi takipçilerinizden çıkaramazsınız.")
+
+    # Çıkarılacak takipçinin bilgilerini al
+    follower_data = db_queries.get_user_by_username(follower_username)
+    if not follower_data:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Takipçi bulunamadı.")
+    
+    follower_id = follower_data['id']
+
+    # Bu kullanıcının gerçekten current_user'ı takip ettiğinden emin olalım
+    # (yani follower_id, current_user.id'yi takip ediyor mu?)
+    is_following_me = db_queries.check_if_user_follows(follower_id, current_user.id)
+    if not is_following_me:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"{follower_username} zaten sizi takip etmiyor.")
+
+    # Takip ilişkisini kaldır
+    success = db_queries.remove_follower_relationship(follower_id=follower_id, followed_id=current_user.id)
+
+    if success:
+        return JSONResponse(content={"message": f"{follower_username} başarıyla takipçilerinizden çıkarıldı."}, status_code=status.HTTP_200_OK)
+    else:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Takipçiyi çıkarma işlemi başarısız oldu.")
+

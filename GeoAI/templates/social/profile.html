@@ -21,6 +21,8 @@
         // Kullanıcının oturum açıp açmadığını ve profilin sahibinin kendisi olup olmadığını kontrol edin
         window.IS_MY_PROFILE = {{ 'true' if user and user.id == profile_user.id else 'false' }};
         
+        window.CURRENT_USER_ID = {{ user.id | tojson | safe if user else 'null' }}; // user objesi varsa id'sini, yoksa null
+
         // Rozet verilerini JSON olarak güvenli bir şekilde aktarın
         // profile_user.achieved_badges ve profile_user.displayed_badge_ids FastAPI tarafından gönderilmelidir
         window.ACHIEVED_BADGES = {{ profile_user.achieved_badges | tojson | safe }};
@@ -118,27 +120,21 @@
                     <p id="userBio">{{ profile_user.bio or "Merhaba! Coğrafya ve AI quizleri ile ilgileniyorum. Yeni şeyler öğrenmeyi ve kendimi geliştirmeyi seviyorum." }}</p>
                 </div>
 
-                <h4 class="section-header mt-4">Sergilenen Rozetler</h4>
-                <div id="displayedBadges" class="d-flex flex-wrap justify-content-center gap-2 mb-4">
-                    {% if profile_user.displayed_badge_ids %}
-                        {% for badge_id in profile_user.displayed_badge_ids %}
-                            {% set found_badge = none %}
-                            {% for achieved_badge in profile_user.achieved_badges %}
-                                {% if achieved_badge.badge_info.id == badge_id %}
-                                    {% set found_badge = achieved_badge.badge_info %}
-                                {% endif %}
-                            {% endfor %}
-
-                            {% if found_badge %}
-                                <div class="badge-item text-center" data-badge-id="{{ found_badge.id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ found_badge.name }}: {{ found_badge.description }}">
-                                    <img src="{{ found_badge.image_url }}" alt="{{ found_badge.name }}" class="img-fluid rounded-circle" style="width: 50px; height: 50px; object-fit: contain;">
-                                </div>
-                            {% endif %}
+                {# ROZETLER BURAYA TAŞINDI #}
+                <h4 class="section-header mt-4">Kazanılan Rozetler</h4>
+                <div id="achievedBadgesList" class="d-flex flex-wrap justify-content-start gap-3">
+                    {% if profile_user.achieved_badges %}
+                        {% for badge in profile_user.achieved_badges %}
+                            <div class="badge-item text-center" data-badge-id="{{ badge.badge_info.id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ badge.badge_info.name }}: {{ badge.badge_info.description }}">
+                                <img src="{{ badge.badge_info.image_url }}" alt="{{ badge.badge_info.name }}" class="img-fluid rounded-circle" style="width: 70px; height: 70px; object-fit: contain;">
+                                <small class="d-block">{{ badge.badge_info.name }}</small>
+                            </div>
                         {% endfor %}
                     {% else %}
-                        <p>Sergilenecek rozet yok.</p>
+                        <p>Henüz rozet kazanılmamış.</p>
                     {% endif %}
                 </div>
+                {# ROZETLERİN KONUMU BURADA SONA ERİYOR #}
 
                 <h4 class="section-header mt-4">İstatistikler</h4>
                 <div class="d-flex flex-wrap profile-stats">
@@ -170,20 +166,6 @@
                         <li class="list-group-item text-muted">Henüz bir aktivite bulunmamaktadır.</li>
                     {% endif %}
                 </ul>
-
-                <h4 class="section-header mt-4">Kazanılan Tüm Rozetler</h4>
-                <div id="achievedBadgesList" class="d-flex flex-wrap justify-content-start gap-3">
-                    {% if profile_user.achieved_badges %}
-                        {% for badge in profile_user.achieved_badges %}
-                            <div class="badge-item text-center" data-badge-id="{{ badge.badge_info.id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ badge.badge_info.name }}: {{ badge.badge_info.description }}">
-                                <img src="{{ badge.badge_info.image_url }}" alt="{{ badge.badge_info.name }}" class="img-fluid rounded-circle" style="width: 70px; height: 70px; object-fit: contain;">
-                                <small class="d-block">{{ badge.badge_info.name }}</small>
-                            </div>
-                        {% endfor %}
-                    {% else %}
-                        <p>Henüz rozet kazanılmamış.</p>
-                    {% endif %}
-                </div>
 
                 {# Önerilen Arkadaşlar #}
                 {% if user and user.id == profile_user.id and recommended_friends %}
@@ -234,13 +216,7 @@
                             <textarea class="form-control" id="editBio" rows="3">{{ profile_user.bio or "" }}</textarea>
                         </div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Sergilenecek Rozetleri Seç (En Fazla 5)</label>
-                            <div id="availableBadgesContainer" class="d-flex flex-wrap gap-2 border p-2 rounded" style="max-height: 250px; overflow-y: auto;">
-                                {# Rozetler buraya JavaScript ile yüklenecek #}
-                            </div>
-                            <input type="hidden" id="selectedBadgeIdsInput" name="displayed_badge_ids">
-                        </div>
+                        {# Rozet seçme bölümü tamamen kaldırıldı #}
                         
                         <div id="editProfileMessage" class="mt-3"></div>
                         <div class="modal-footer">

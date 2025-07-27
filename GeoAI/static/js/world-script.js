@@ -232,7 +232,7 @@ setTimeout(() => {
             intro.style.display = "none";
         }, 1000);
     }
-}, 5000);
+}, 2500);
 
 // --- Rastgele Ülke Seçme Fonksiyonu ---
 // Bu fonksiyon, `countriesInfo` dizisi yüklendikten sonra çalışacaktır.
@@ -245,19 +245,6 @@ function selectRandomCountry() {
     const randomCountry = countriesInfo[randomIndex];
 
     openCountryModal(randomCountry.name);
-
-    // OPTIONAL: Haritayı ülkenin merkezine kaydırmak için:
-    // Eğer `world-info.json` içinde `lat` ve `lng` varsa:
-    // if (randomCountry.lat && randomCountry.lng) {
-    //     map.flyTo([randomCountry.lat, randomCountry.lng], 5); // Zoom level 5 for countries
-    // } else {
-    //     // Alternatif olarak, eğer GeoJSON katmanından koordinat alabiliyorsanız
-    //     // countriesLayer.eachLayer(function(layer) {
-    //     //     if (layer.feature.properties.NAME_TR === randomCountry.name || layer.feature.properties.NAME_EN === randomCountry.name) {
-    //     //         map.flyToBounds(layer.getBounds()); // Ülke sınırlarına sığdır
-    //     //     }
-    //     // });
-    // }
 }
 
 // --- Rastgele Ülke Linki için Olay Dinleyici ---

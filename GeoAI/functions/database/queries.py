@@ -356,7 +356,7 @@ def search_users_by_username(search_term: str) -> List[Dict]:
         cursor = conn.cursor()
         cursor.execute("""
             SELECT
-                id, username, email, bio, profile_picture_url, displayed_badge_ids -- 'email' BURAYA EKLENDİ!
+                id, username, email, bio, profile_picture_url, displayed_badge_ids
             FROM users
             WHERE LOWER(username) LIKE ?
             ORDER BY username ASC
@@ -368,7 +368,7 @@ def search_users_by_username(search_term: str) -> List[Dict]:
             user_data = {
                 "id": row["id"],
                 "username": row["username"],
-                "email": row["email"], # 'email' veriyi de sözlüğe ekleyin!
+                "email": row["email"],
                 "bio": row["bio"],
                 "profile_picture_url": row["profile_picture_url"],
                 "displayed_badge_ids": json.loads(row["displayed_badge_ids"]) if row["displayed_badge_ids"] else []
@@ -663,3 +663,40 @@ def get_all_users_category_data() -> (Dict[int, List[float]], List[str]):
             all_users_category_vectors[user_id] = user_vector
     
     return all_users_category_vectors, all_categories
+
+def remove_follower_relationship(follower_id: int, followed_id: int) -> bool:
+    """
+    Belirtilen 'follower_id'nin, 'followed_id'yi takip etme ilişkisini siler.
+    Yani, bir takipçiyi kendi takipçi listenizden çıkarır.
+    """
+    # get_db_connection'a settings.USERS_DATABASE_FILE'ı iletin
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        try:
+            cursor.execute(
+                "DELETE FROM followers WHERE follower_id = ? AND followed_id = ?", # "follows" yerine "followers"
+                (follower_id, followed_id)
+            )
+            conn.commit()
+            return cursor.rowcount > 0 # Silme işlemi başarılı olduysa True döndürür
+        except sqlite3.Error as e:
+            print(f"Database error during remove_follower_relationship: {e}")
+            conn.rollback()
+            return False
+
+def check_if_user_follows(follower_id: int, followed_id: int) -> bool:
+    """
+    Bir kullanıcının başka bir kullanıcıyı takip edip etmediğini kontrol eder.
+    """
+    # get_db_connection'a settings.USERS_DATABASE_FILE'ı iletin
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        try:
+            cursor.execute(
+                "SELECT 1 FROM followers WHERE follower_id = ? AND followed_id = ?", # "follows" yerine "followers"
+                (follower_id, followed_id)
+            )
+            return cursor.fetchone() is not None
+        except sqlite3.Error as e:
+            print(f"Database error during check_if_user_follows: {e}")
+            return False

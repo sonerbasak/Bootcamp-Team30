@@ -49,7 +49,6 @@
         "image_url": "/static/images/badges/history_grandmaster.png",
         "threshold": 5000.0
     },
-
     {
         "type_name": "category_master",
         "type": "category_achievement",
@@ -100,7 +99,6 @@
         "image_url": "/static/images/badges/nature_grandmaster.png",
         "threshold": 5000.0
     },
-
     {
         "type_name": "category_master",
         "type": "category_achievement",
@@ -151,7 +149,6 @@
         "image_url": "/static/images/badges/buildings_grandmaster.png",
         "threshold": 5000.0
     },
-
     {
         "type_name": "category_master",
         "type": "category_achievement",
@@ -202,7 +199,6 @@
         "image_url": "/static/images/badges/food_grandmaster.png",
         "threshold": 5000.0
     },
-
     {
         "type_name": "category_master",
         "type": "category_achievement",
@@ -253,7 +249,6 @@
         "image_url": "/static/images/badges/general_grandmaster.png",
         "threshold": 5000.0
     },
-
     {
         "type_name": "daily_login_streak",
         "type": "engagement",
@@ -304,7 +299,6 @@
         "image_url": "/static/images/badges/loyal_user_5.png",
         "threshold": 180.0
     },
-
     {
         "type_name": "total_correct_answers",
         "type": "quiz_stats",
@@ -355,36 +349,35 @@
         "image_url": "/static/images/badges/correct_5.png",
         "threshold": 5000.0
     },
-
     {
         "type_name": "highest_score_per_quiz",
         "type": "performance",
         "category": "",
         "level": 1,
-        "name": "Yüksek Puan Avcısı I",
-        "description": "Tek bir quizden 100'den fazla puan aldı.",
+        "name": "Puan Avcısı I",
+        "description": "Tek bir quizden 20'den fazla puan aldı.",
         "image_url": "/static/images/badges/score_hunter_1.png",
-        "threshold": 100.0
+        "threshold": 20.0
     },
     {
         "type_name": "highest_score_per_quiz",
         "type": "performance",
         "category": "",
         "level": 2,
-        "name": "Yüksek Puan Avcısı II",
-        "description": "Tek bir quizden 500'den fazla puan aldı.",
+        "name": "Puan Avcısı II",
+        "description": "Tek bir quizden 40'den fazla puan aldı.",
         "image_url": "/static/images/badges/score_hunter_2.png",
-        "threshold": 500.0
+        "threshold": 40.0
     },
     {
         "type_name": "highest_score_per_quiz",
         "type": "performance",
         "category": "",
         "level": 3,
-        "name": "Yüksek Puan Avcısı III",
-        "description": "Tek bir quizden 1000'den fazla puan aldı.",
+        "name": "Puan Avcısı III",
+        "description": "Tek bir quizden 60'den fazla puan aldı.",
         "image_url": "/static/images/badges/score_hunter_3.png",
-        "threshold": 1000.0
+        "threshold": 60.0
     },
     {
         "type_name": "highest_score_per_quiz",
@@ -392,9 +385,9 @@
         "category": "",
         "level": 4,
         "name": "Puan Rekortmeni",
-        "description": "Tek bir quizden 2500'den fazla puan aldı.",
+        "description": "Tek bir quizden 80'den fazla puan aldı.",
         "image_url": "/static/images/badges/score_hunter_4.png",
-        "threshold": 2500.0
+        "threshold": 80.0
     },
     {
         "type_name": "highest_score_per_quiz",
@@ -402,11 +395,10 @@
         "category": "",
         "level": 5,
         "name": "Rakipsiz Skorer",
-        "description": "Tek bir quizden 5000'den fazla puan aldı.",
+        "description": "Tek bir quizden 100 puan aldı.",
         "image_url": "/static/images/badges/score_hunter_5.png",
-        "threshold": 5000.0
+        "threshold": 100.0
     },
-
     {
         "type_name": "total_quizzes_completed",
         "type": "quiz_progress",
@@ -457,7 +449,6 @@
         "image_url": "/static/images/badges/quiz_marathoner_4.png",
         "threshold": 1000.0
     },
-
     {
         "type_name": "social_follower",
         "type": "social",
@@ -508,7 +499,6 @@
         "image_url": "/static/images/badges/popular_player_5.png",
         "threshold": 250.0
     },
-
     {
         "type_name": "social_share",
         "type": "social",

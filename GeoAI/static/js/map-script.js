@@ -185,7 +185,7 @@ setTimeout(() => {
             intro.style.display = "none";
         }, 1000);
     }
-}, 5000);
+}, 2500);
 
 // --- Rastgele Şehir Seçme Fonksiyonu ---
 function selectRandomCity() {
