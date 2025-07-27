@@ -11,8 +11,11 @@ from functions.auth.dependencies import require_auth, CurrentUser
 from functions.auth.routes import router as auth_router
 from functions.quiz.routes import router as quiz_router
 from functions.social.routes import router as social_router # Sosyal modül rotaları
+import logging
 
 app = FastAPI()
+
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 @app.on_event("startup")
 async def startup_event():

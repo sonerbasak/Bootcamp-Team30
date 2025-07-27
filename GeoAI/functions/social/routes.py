@@ -237,12 +237,41 @@ async def get_messages_api(other_user_id: int, current_user: CurrentUser = Depen
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Giriş yapmalısınız.")
     
     messages = db_queries.get_messages_between_users(current_user.id, other_user_id)
-    # Datetime objelerini ISO formatına çevir (JSON serileştirme için)
-    for msg in messages:
-        if isinstance(msg.get('timestamp'), datetime):
-            msg['timestamp'] = msg['timestamp'].isoformat()
     
-    return messages
+    # Gönderici ve alıcı bilgilerini toplamak için
+    # Performans için, ilgili tüm kullanıcıların bilgilerini tek seferde çekip bir map oluşturmak daha iyi.
+    all_involved_user_ids = set()
+    for msg in messages:
+        all_involved_user_ids.add(msg['sender_id'])
+        # other_user_id de listeye eklendiğinden emin olun (mesajlarda receiver_id olarak gelir)
+        all_involved_user_ids.add(other_user_id) 
+        all_involved_user_ids.add(current_user.id) # current_user da gerekebilir
+
+    user_info_map = {}
+    for user_id in all_involved_user_ids:
+        user_data = db_queries.get_user_by_id(user_id)
+        if user_data:
+            user_info_map[user_id] = {
+                "username": user_data["username"],
+                "profile_picture_url": user_data["profile_picture_url"]
+            }
+
+    formatted_messages = []
+    for msg in messages:
+        sender_info = user_info_map.get(msg['sender_id'], {})
+        
+        formatted_messages.append({
+            "id": msg['id'],
+            "sender_id": msg['sender_id'],
+            "receiver_id": msg['receiver_id'],
+            "content": msg['content'],
+            # Timestamp'ı kontrol et ve ISO formatına çevir
+            "timestamp": msg['timestamp'].isoformat() if isinstance(msg.get('timestamp'), datetime) else str(msg['timestamp']),
+            "sender_username": sender_info.get("username", "Bilinmeyen Kullanıcı"),
+            "sender_profile_picture_url": sender_info.get("profile_picture_url", "/static/images/sample_user.png")
+        })
+    
+    return formatted_messages # Güncellenmiş listeyi döndür
 
 @router.post("/api/messages/send", response_class=JSONResponse, name="send_message_api")
 async def send_message_api(receiver_id: int = Form(...), content: str = Form(...), current_user: CurrentUser = Depends(require_auth)):

@@ -3,26 +3,33 @@ from fastapi import APIRouter, Request, Query, HTTPException, status, Depends, F
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
-from typing import List, Dict, Optional # Optional eklendi
-import random # random modülü eklendi
+from typing import List, Dict, Optional
+import random
+from datetime import datetime
 
 from functions.auth.dependencies import require_auth, CurrentUser
 from functions.database.queries import (
     save_wrong_question_to_db,
     get_wrong_questions_from_db,
     delete_wrong_questions_from_db,
-    add_quiz_summary,       # <-- New function for overall quiz stats
-    update_category_stats   # <-- New function for category-specific stats
+    add_quiz_summary,
+    update_category_stats,
+    get_user_overall_quiz_stats, # <-- BU SATIRI GÜNCELLEDİK!
+    # get_user_total_quizzes_completed, # <-- BU SATIRI KALDIRDIK
+    # get_user_correct_answers_count, # <-- BU SATIRI KALDIRDIK
+    # get_user_badges, # <-- BU SATIRI KALDIRDIK (badge_service kullanacak)
+    # get_badge_type_by_name_and_threshold # <-- BU SATIRI KALDIRDIK (badge_service kullanacak)
 )
-from functions.quiz.services import generate_quiz_from_gemini # This function will be updated
-from functions.database import queries as db_queries # Renamed for clarity to avoid conflict with imported functions
+from functions.quiz.services import generate_quiz_from_gemini
+from functions.database import queries as db_queries
+from functions.services.badge_service import badge_service # <-- badge_service'ı import ettik!
 
 router = APIRouter(tags=["Quiz"])
 templates = Jinja2Templates(directory="templates")
 
 class WrongQuestionData(BaseModel):
-    quiz_type: str # Changed from 'type' to 'quiz_type' for consistency
-    quiz_name: str # Changed from 'name' to 'quiz_name' for consistency
+    quiz_type: str
+    quiz_name: str
     category: str
     question_text: str
     option_a: str
@@ -32,23 +39,21 @@ class WrongQuestionData(BaseModel):
     correct_answer_letter: str
     user_answer_letter: str
 
-# Quiz cevaplarını almak için Pydantic modeli
 class QuizAnswer(BaseModel):
-    id: Optional[int] = None # 'question_id' yerine 'id' olarak adlandıralım, WrongQuestion modelindeki gibi
-    user_answer: str # Kullanıcının verdiği cevap (örneğin 'A', 'B', 'C', 'D')
-    correct_answer: str # Doğru cevap (örneğin 'C') - Bu veritabanına kaydedilirken `correct_answer_letter` olacak
+    id: Optional[int] = None
+    user_answer: str
+    correct_answer: str
     question_text: str
     option_a: str
     option_b: str
     option_c: str
     option_d: str
-    quiz_type: str # Changed from 'type' to 'quiz_type'
-    quiz_name: str # Changed from 'name' to 'quiz_name'
+    quiz_type: str
+    quiz_name: str
     category: str
 
 class QuizResultRequest(BaseModel):
     answers: List[QuizAnswer]
-    # Quiz ID'si veya benzeri bilgiler de eklenebilir
 
 # KULLANICI İSTATİSTİKLERİNİ GÜNCELLEYEN ROTA
 @router.post("/api/submit-quiz-results", name="submit_quiz_results")
@@ -56,42 +61,32 @@ async def submit_quiz_results(request: Request, quiz_results: QuizResultRequest,
     if not current_user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Authentication required")
 
+    user_id = current_user.id
     total_questions = len(quiz_results.answers)
     correct_answers_count = 0
     score_earned = 0
     wrong_answers_details = []
-    correctly_answered_wrong_question_ids = [] # Daha önce yanlış cevaplanmış ve şimdi doğru cevaplanan soruların ID'leri
+    correctly_answered_wrong_question_ids = []
 
-    # Variables to track quiz_type and quiz_name for the overall summary
-    # Assuming all questions in a single submission belong to the same quiz_type and quiz_name
-    # If not, you might need to make quiz_type/name part of QuizResultRequest directly
     submission_quiz_type = "unknown"
     submission_quiz_name = "Unnamed Quiz"
 
     if quiz_results.answers:
-        # Take the type and name from the first answer as representative for the quiz summary
         submission_quiz_type = quiz_results.answers[0].quiz_type
         submission_quiz_name = quiz_results.answers[0].quiz_name
 
     for answer_data in quiz_results.answers:
-        # Doğru cevabı kontrol et
         if answer_data.user_answer == answer_data.correct_answer:
             correct_answers_count += 1
-            score_earned += 10 # Her doğru cevap için varsayılan 10 puan
-            # Eğer bu soru daha önce yanlış cevaplanan bir sorudan geliyorsa (tekrar çöz modunda),
-            # o sorunun ID'sini topla.
+            score_earned += 10
             if answer_data.id:
                 correctly_answered_wrong_question_ids.append(answer_data.id)
             
-            # Kategori istatistiklerini güncelle (doğru cevap)
-            db_queries.update_category_stats(current_user.id, answer_data.category, True)
+            db_queries.update_category_stats(user_id, answer_data.category, True)
         else:
-            # Yanlış cevapları 'wrong_questions' tablosuna kaydet
             wrong_answers_details.append(answer_data)
             db_queries.save_wrong_question_to_db(
-                user_id=current_user.id,
-                # In queries.py, this is 'city' (for location) and 'category'.
-                # Mapping 'quiz_name' to 'city' and 'category' to 'category' seems logical here.
+                user_id=user_id,
                 city=answer_data.quiz_name,
                 category=answer_data.category,
                 question_text=answer_data.question_text,
@@ -102,12 +97,11 @@ async def submit_quiz_results(request: Request, quiz_results: QuizResultRequest,
                 correct_answer_letter=answer_data.correct_answer,
                 user_answer_letter=answer_data.user_answer
             )
-            # Kategori istatistiklerini güncelle (yanlış cevap)
-            db_queries.update_category_stats(current_user.id, answer_data.category, False)
+            db_queries.update_category_stats(user_id, answer_data.category, False)
             
     # QUIZ ÖZETİNİ KAYDET
     db_queries.add_quiz_summary(
-        user_id=current_user.id,
+        user_id=user_id,
         quiz_type=submission_quiz_type,
         quiz_name=submission_quiz_name,
         total_questions=total_questions,
@@ -117,7 +111,23 @@ async def submit_quiz_results(request: Request, quiz_results: QuizResultRequest,
 
     # Eğer tekrar çözme modunda doğru cevaplanan yanlış sorular varsa, bunları veritabanından sil
     if correctly_answered_wrong_question_ids:
-        db_queries.delete_wrong_questions_from_db(current_user.id, correctly_answered_wrong_question_ids)
+        db_queries.delete_wrong_questions_from_db(user_id, correctly_answered_wrong_question_ids)
+
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # YENİ EKLENEN KISIM: ROZET KAZANMA MANTIĞI İÇİN badge_service KULLANIMI
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+    # Quiz istatistikleri kaydedildikten sonra rozetleri kontrol et ve ver.
+    # badge_service içindeki logic, get_user_overall_quiz_stats gibi fonksiyonları çağırarak
+    # güncel istatistikleri alacak.
+    awarded_badges = badge_service.check_and_award_badges(user_id)
+    if awarded_badges:
+        print(f"DEBUG: Kullanıcı {user_id} şu rozetleri kazandı: {', '.join(awarded_badges)}")
+    
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    # ROZET KAZANMA MANTIĞI SONU
+    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 
     return JSONResponse({
         "message": "Quiz sonuçları başarıyla kaydedildi.",
@@ -125,9 +135,11 @@ async def submit_quiz_results(request: Request, quiz_results: QuizResultRequest,
         "correct_answers": correct_answers_count,
         "score_earned": score_earned,
         "wrong_answers_count": len(wrong_answers_details),
-        "profile_updated": True # This is still technically true as stats are updated in quiz_stats.db
+        "profile_updated": True, # Bu değer True ise, ön yüzde profilin güncellenmesi tetiklenebilir.
+        "newly_awarded_badges": awarded_badges # Yeni kazanılan rozetleri de döndürebiliriz
     })
 
+# Diğer rotalarınız burada devam ediyor...
 @router.get("/ai", name="ai_page")
 async def ai_page(request: Request, current_user: CurrentUser = Depends(require_auth)):
     if not current_user:
@@ -143,7 +155,7 @@ async def quiz_page(request: Request, name: str = Query(None), type: str = Query
         return RedirectResponse(url=request.url_for("login_page"), status_code=status.HTTP_302_FOUND)
     return templates.TemplateResponse("quiz.html", {
         "request": request,
-        "name": name, # 'city' yerine 'name'
+        "name": name,
         "type": type,
         "user": current_user,
         "wrong_questions": wrong_questions
@@ -164,9 +176,9 @@ async def save_wrong_question(question_data: WrongQuestionData, current_user: Cu
     if not current_user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Authentication required")
     try:
-        save_wrong_question_to_db(
+        db_queries.save_wrong_question_to_db(
             user_id=current_user.id,
-            city=question_data.quiz_name, # Map 'quiz_name' to 'city' in db_queries
+            city=question_data.quiz_name,
             category=question_data.category,
             question_text=question_data.question_text,
             option_a=question_data.option_a,
@@ -188,13 +200,12 @@ async def get_wrong_questions_api(current_user: CurrentUser = Depends(require_au
         wrong_questions = get_wrong_questions_from_db(current_user.id)
         for q in wrong_questions:
             if 'timestamp' in q and q['timestamp'] is not None:
-                q['timestamp'] = str(q['timestamp']) # Ensure timestamp is serializable
+                q['timestamp'] = str(q['timestamp'])
         return JSONResponse(content={"wrong_questions": wrong_questions}, status_code=200)
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Yanlış soruları çekerken hata oluştu: {str(e)}")
 
 
-# YENİ EKLENEN ROTA: Yanlış cevaplanan soruları quiz formatında döndürür (BU ZATEN VARDI, KALSIN)
 @router.get("/api/wrong_quiz_questions", response_model=List[Dict], name="get_wrong_quiz_questions")
 async def get_wrong_quiz_questions(
     request: Request,
@@ -219,9 +230,8 @@ async def get_wrong_quiz_questions(
         option_c = q_data.get('option_c', '')
         option_d = q_data.get('option_d', '')
         correct_answer_letter = q_data.get('correct_answer_letter', '').upper()
-        # BURADA DEĞİŞİKLİK: city yerine type ve name alıyoruz
-        quiz_type = q_data.get('type', 'general') # Varsayılan değerler önemli
-        quiz_name = q_data.get('name', '') # Use 'name' from DB for quiz_name
+        quiz_type = q_data.get('type', 'general')
+        quiz_name = q_data.get('name', '')
         category = q_data.get('category', 'Quiz')
         wrong_question_id = q_data.get('id')
 
@@ -243,8 +253,7 @@ async def get_wrong_quiz_questions(
             "options": options,
             "correct_answer_letter": correct_letter_in_shuffled,
             "explanation": q_data.get('explanation', "Bu soru için açıklama bulunmamaktadır."),
-            # BURADA DEĞİŞİKLİK: city yerine type ve name ekliyoruz
-            "quiz_type": quiz_type, # Use 'type' from DB for quiz_type
+            "quiz_type": quiz_type,
             "quiz_name": quiz_name,
             "category": category,
             "original_correct_answer_letter": correct_answer_letter

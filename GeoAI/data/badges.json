@@ -1,0 +1,562 @@
+[
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Tarih",
+        "level": 1,
+        "name": "Tarih Acemi",
+        "description": "Tarih kategorisinde 10 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/history_novice.png",
+        "threshold": 10.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Tarih",
+        "level": 2,
+        "name": "Tarih Meraklısı",
+        "description": "Tarih kategorisinde 50 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/history_enthusiast.png",
+        "threshold": 50.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Tarih",
+        "level": 3,
+        "name": "Tarih Bilge",
+        "description": "Tarih kategorisinde 250 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/history_wise.png",
+        "threshold": 250.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Tarih",
+        "level": 4,
+        "name": "Tarih Uzman",
+        "description": "Tarih kategorisinde 1000 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/history_expert.png",
+        "threshold": 1000.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Tarih",
+        "level": 5,
+        "name": "Tarih Büyük Usta",
+        "description": "Tarih kategorisinde 5000 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/history_grandmaster.png",
+        "threshold": 5000.0
+    },
+
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Doğal Güzellikler",
+        "level": 1,
+        "name": "Doğa Acemi",
+        "description": "Doğal Güzellikler kategorisinde 10 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/nature_novice.png",
+        "threshold": 10.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Doğal Güzellikler",
+        "level": 2,
+        "name": "Doğa Meraklısı",
+        "description": "Doğal Güzellikler kategorisinde 50 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/nature_enthusiast.png",
+        "threshold": 50.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Doğal Güzellikler",
+        "level": 3,
+        "name": "Doğa Bilge",
+        "description": "Doğal Güzellikler kategorisinde 250 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/nature_wise.png",
+        "threshold": 250.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Doğal Güzellikler",
+        "level": 4,
+        "name": "Doğa Uzman",
+        "description": "Doğal Güzellikler kategorisinde 1000 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/nature_expert.png",
+        "threshold": 1000.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Doğal Güzellikler",
+        "level": 5,
+        "name": "Doğa Büyük Usta",
+        "description": "Doğal Güzellikler kategorisinde 5000 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/nature_grandmaster.png",
+        "threshold": 5000.0
+    },
+
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Yapılar",
+        "level": 1,
+        "name": "Yapı Acemi",
+        "description": "Yapılar kategorisinde 10 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/buildings_novice.png",
+        "threshold": 10.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Yapılar",
+        "level": 2,
+        "name": "Yapı Meraklısı",
+        "description": "Yapılar kategorisinde 50 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/buildings_enthusiast.png",
+        "threshold": 50.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Yapılar",
+        "level": 3,
+        "name": "Yapı Bilge",
+        "description": "Yapılar kategorisinde 250 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/buildings_wise.png",
+        "threshold": 250.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Yapılar",
+        "level": 4,
+        "name": "Yapı Uzman",
+        "description": "Yapılar kategorisinde 1000 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/buildings_expert.png",
+        "threshold": 1000.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Yapılar",
+        "level": 5,
+        "name": "Yapı Büyük Usta",
+        "description": "Yapılar kategorisinde 5000 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/buildings_grandmaster.png",
+        "threshold": 5000.0
+    },
+
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Tarım Ürünü ve Yemekler",
+        "level": 1,
+        "name": "Lezzet Acemi",
+        "description": "Tarım Ürünü ve Yemekler kategorisinde 10 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/food_novice.png",
+        "threshold": 10.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Tarım Ürünü ve Yemekler",
+        "level": 2,
+        "name": "Lezzet Meraklısı",
+        "description": "Tarım Ürünü ve Yemekler kategorisinde 50 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/food_enthusiast.png",
+        "threshold": 50.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Tarım Ürünü ve Yemekler",
+        "level": 3,
+        "name": "Lezzet Bilge",
+        "description": "Tarım Ürünü ve Yemekler kategorisinde 250 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/food_wise.png",
+        "threshold": 250.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Tarım Ürünü ve Yemekler",
+        "level": 4,
+        "name": "Lezzet Uzman",
+        "description": "Tarım Ürünü ve Yemekler kategorisinde 1000 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/food_expert.png",
+        "threshold": 1000.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Tarım Ürünü ve Yemekler",
+        "level": 5,
+        "name": "Lezzet Büyük Usta",
+        "description": "Tarım Ürünü ve Yemekler kategorisinde 5000 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/food_grandmaster.png",
+        "threshold": 5000.0
+    },
+
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Genel Bilgiler",
+        "level": 1,
+        "name": "Genel Bilgi Acemi",
+        "description": "Genel Bilgiler kategorisinde 10 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/general_novice.png",
+        "threshold": 10.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Genel Bilgiler",
+        "level": 2,
+        "name": "Genel Bilgi Meraklısı",
+        "description": "Genel Bilgiler kategorisinde 50 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/general_enthusiast.png",
+        "threshold": 50.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Genel Bilgiler",
+        "level": 3,
+        "name": "Genel Bilgi Bilge",
+        "description": "Genel Bilgiler kategorisinde 250 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/general_wise.png",
+        "threshold": 250.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Genel Bilgiler",
+        "level": 4,
+        "name": "Genel Bilgi Uzman",
+        "description": "Genel Bilgiler kategorisinde 1000 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/general_expert.png",
+        "threshold": 1000.0
+    },
+    {
+        "type_name": "category_master",
+        "type": "category_achievement",
+        "category": "Genel Bilgiler",
+        "level": 5,
+        "name": "Genel Bilgi Büyük Usta",
+        "description": "Genel Bilgiler kategorisinde 5000 doğru cevap kazandı.",
+        "image_url": "/static/images/badges/general_grandmaster.png",
+        "threshold": 5000.0
+    },
+
+    {
+        "type_name": "daily_login_streak",
+        "type": "engagement",
+        "category": "",
+        "level": 1,
+        "name": "Sadık Kullanıcı I",
+        "description": "Uygulamaya arka arkaya 3 gün giriş yaptı.",
+        "image_url": "/static/images/badges/loyal_user_1.png",
+        "threshold": 3.0
+    },
+    {
+        "type_name": "daily_login_streak",
+        "type": "engagement",
+        "category": "",
+        "level": 2,
+        "name": "Sadık Kullanıcı II",
+        "description": "Uygulamaya arka arkaya 7 gün giriş yaptı.",
+        "image_url": "/static/images/badges/loyal_user_2.png",
+        "threshold": 7.0
+    },
+    {
+        "type_name": "daily_login_streak",
+        "type": "engagement",
+        "category": "",
+        "level": 3,
+        "name": "Sadık Kullanıcı III",
+        "description": "Uygulamaya arka arkaya 30 gün giriş yaptı.",
+        "image_url": "/static/images/badges/loyal_user_3.png",
+        "threshold": 30.0
+    },
+    {
+        "type_name": "daily_login_streak",
+        "type": "engagement",
+        "category": "",
+        "level": 4,
+        "name": "Sadık Kullanıcı IV",
+        "description": "Uygulamaya arka arkaya 90 gün giriş yaptı.",
+        "image_url": "/static/images/badges/loyal_user_4.png",
+        "threshold": 90.0
+    },
+    {
+        "type_name": "daily_login_streak",
+        "type": "engagement",
+        "category": "",
+        "level": 5,
+        "name": "Uygulama Bağımlısı",
+        "description": "Uygulamaya arka arkaya 180 gün giriş yaptı.",
+        "image_url": "/static/images/badges/loyal_user_5.png",
+        "threshold": 180.0
+    },
+
+    {
+        "type_name": "total_correct_answers",
+        "type": "quiz_stats",
+        "category": "",
+        "level": 1,
+        "name": "Doğru Cevapçı I",
+        "description": "Toplam 10 doğru cevap verdi.",
+        "image_url": "/static/images/badges/correct_1.png",
+        "threshold": 10.0
+    },
+    {
+        "type_name": "total_correct_answers",
+        "type": "quiz_stats",
+        "category": "",
+        "level": 2,
+        "name": "Doğru Cevapçı II",
+        "description": "Toplam 50 doğru cevap verdi.",
+        "image_url": "/static/images/badges/correct_2.png",
+        "threshold": 50.0
+    },
+    {
+        "type_name": "total_correct_answers",
+        "type": "quiz_stats",
+        "category": "",
+        "level": 3,
+        "name": "Doğru Cevap Uzmanı",
+        "description": "Toplam 250 doğru cevap verdi.",
+        "image_url": "/static/images/badges/correct_3.png",
+        "threshold": 250.0
+    },
+    {
+        "type_name": "total_correct_answers",
+        "type": "quiz_stats",
+        "category": "",
+        "level": 4,
+        "name": "Doğru Cevap Profesörü",
+        "description": "Toplam 1000 doğru cevap verdi.",
+        "image_url": "/static/images/badges/correct_4.png",
+        "threshold": 1000.0
+    },
+    {
+        "type_name": "total_correct_answers",
+        "type": "quiz_stats",
+        "category": "",
+        "level": 5,
+        "name": "Trivia Gurusu",
+        "description": "Toplam 5000 doğru cevap verdi.",
+        "image_url": "/static/images/badges/correct_5.png",
+        "threshold": 5000.0
+    },
+
+    {
+        "type_name": "highest_score_per_quiz",
+        "type": "performance",
+        "category": "",
+        "level": 1,
+        "name": "Yüksek Puan Avcısı I",
+        "description": "Tek bir quizden 100'den fazla puan aldı.",
+        "image_url": "/static/images/badges/score_hunter_1.png",
+        "threshold": 100.0
+    },
+    {
+        "type_name": "highest_score_per_quiz",
+        "type": "performance",
+        "category": "",
+        "level": 2,
+        "name": "Yüksek Puan Avcısı II",
+        "description": "Tek bir quizden 500'den fazla puan aldı.",
+        "image_url": "/static/images/badges/score_hunter_2.png",
+        "threshold": 500.0
+    },
+    {
+        "type_name": "highest_score_per_quiz",
+        "type": "performance",
+        "category": "",
+        "level": 3,
+        "name": "Yüksek Puan Avcısı III",
+        "description": "Tek bir quizden 1000'den fazla puan aldı.",
+        "image_url": "/static/images/badges/score_hunter_3.png",
+        "threshold": 1000.0
+    },
+    {
+        "type_name": "highest_score_per_quiz",
+        "type": "performance",
+        "category": "",
+        "level": 4,
+        "name": "Puan Rekortmeni",
+        "description": "Tek bir quizden 2500'den fazla puan aldı.",
+        "image_url": "/static/images/badges/score_hunter_4.png",
+        "threshold": 2500.0
+    },
+    {
+        "type_name": "highest_score_per_quiz",
+        "type": "performance",
+        "category": "",
+        "level": 5,
+        "name": "Rakipsiz Skorer",
+        "description": "Tek bir quizden 5000'den fazla puan aldı.",
+        "image_url": "/static/images/badges/score_hunter_5.png",
+        "threshold": 5000.0
+    },
+
+    {
+        "type_name": "total_quizzes_completed",
+        "type": "quiz_progress",
+        "category": "",
+        "level": 1,
+        "name": "İlk Quizini Tamamla",
+        "description": "İlk quizini başarıyla tamamladı!",
+        "image_url": "/static/images/badges/first_quiz.png",
+        "threshold": 1.0
+    },
+    {
+        "type_name": "total_quizzes_completed",
+        "type": "quiz_progress",
+        "category": "",
+        "level": 2,
+        "name": "Quiz Maratoncusu I",
+        "description": "Toplam 10 quiz tamamladı.",
+        "image_url": "/static/images/badges/quiz_marathoner_1.png",
+        "threshold": 10.0
+    },
+    {
+        "type_name": "total_quizzes_completed",
+        "type": "quiz_progress",
+        "category": "",
+        "level": 3,
+        "name": "Quiz Maratoncusu II",
+        "description": "Toplam 50 quiz tamamladı.",
+        "image_url": "/static/images/badges/quiz_marathoner_2.png",
+        "threshold": 50.0
+    },
+    {
+        "type_name": "total_quizzes_completed",
+        "type": "quiz_progress",
+        "category": "",
+        "level": 4,
+        "name": "Quiz Maratoncusu III",
+        "description": "Toplam 250 quiz tamamladı.",
+        "image_url": "/static/images/badges/quiz_marathoner_3.png",
+        "threshold": 250.0
+    },
+    {
+        "type_name": "total_quizzes_completed",
+        "type": "quiz_progress",
+        "category": "",
+        "level": 5,
+        "name": "Sonsuz Bilgi Avcısı",
+        "description": "Toplam 1000 quiz tamamladı.",
+        "image_url": "/static/images/badges/quiz_marathoner_4.png",
+        "threshold": 1000.0
+    },
+
+    {
+        "type_name": "social_follower",
+        "type": "social",
+        "category": "",
+        "level": 1,
+        "name": "Popüler Oyuncu I",
+        "description": "5 takipçiye ulaştı.",
+        "image_url": "/static/images/badges/popular_player_1.png",
+        "threshold": 5.0
+    },
+    {
+        "type_name": "social_follower",
+        "type": "social",
+        "category": "",
+        "level": 2,
+        "name": "Popüler Oyuncu II",
+        "description": "20 takipçiye ulaştı.",
+        "image_url": "/static/images/badges/popular_player_2.png",
+        "threshold": 20.0
+    },
+    {
+        "type_name": "social_follower",
+        "type": "social",
+        "category": "",
+        "level": 3,
+        "name": "Sosyal Etkileyici",
+        "description": "50 takipçiye ulaştı.",
+        "image_url": "/static/images/badges/popular_player_3.png",
+        "threshold": 50.0
+    },
+    {
+        "type_name": "social_follower",
+        "type": "social",
+        "category": "",
+        "level": 4,
+        "name": "Topluluk Lideri",
+        "description": "100 takipçiye ulaştı.",
+        "image_url": "/static/images/badges/popular_player_4.png",
+        "threshold": 100.0
+    },
+    {
+        "type_name": "social_follower",
+        "type": "social",
+        "category": "",
+        "level": 5,
+        "name": "Fenomen",
+        "description": "250 takipçiye ulaştı.",
+        "image_url": "/static/images/badges/popular_player_5.png",
+        "threshold": 250.0
+    },
+
+    {
+        "type_name": "social_share",
+        "type": "social",
+        "category": "",
+        "level": 1,
+        "name": "Paylaşımcı Ruh I",
+        "description": "3 kez quiz sonucunu/profili paylaştı.",
+        "image_url": "/static/images/badges/sharing_spirit_1.png",
+        "threshold": 3.0
+    },
+    {
+        "type_name": "social_share",
+        "type": "social",
+        "category": "",
+        "level": 2,
+        "name": "Paylaşımcı Ruh II",
+        "description": "10 kez quiz sonucunu/profili paylaştı.",
+        "image_url": "/static/images/badges/sharing_spirit_2.png",
+        "threshold": 10.0
+    },
+    {
+        "type_name": "social_share",
+        "type": "social",
+        "category": "",
+        "level": 3,
+        "name": "Sosyal Elçi",
+        "description": "25 kez quiz sonucunu/profili paylaştı.",
+        "image_url": "/static/images/badges/sharing_spirit_3.png",
+        "threshold": 25.0
+    },
+    {
+        "type_name": "social_share",
+        "type": "social",
+        "category": "",
+        "level": 4,
+        "name": "Marka Savunucusu",
+        "description": "50 kez quiz sonucunu/profili paylaştı.",
+        "image_url": "/static/images/badges/sharing_spirit_4.png",
+        "threshold": 50.0
+    },
+    {
+        "type_name": "social_share",
+        "type": "social",
+        "category": "",
+        "level": 5,
+        "name": "Viral Kâşif",
+        "description": "100 kez quiz sonucunu/profili paylaştı.",
+        "image_url": "/static/images/badges/sharing_spirit_5.png",
+        "threshold": 100.0
+    }
+]

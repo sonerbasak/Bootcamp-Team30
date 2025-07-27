@@ -3,123 +3,11 @@
 import sqlite3
 from typing import List, Dict, Optional
 from datetime import datetime
-from functions.database.connections import get_db_connection
+from functions.database.connections import get_db_connection # BU SATIR KALIYOR
 from functions.config import settings
-
-# --- TABLO OLUŞTURMA FONKSİYONLARI ---
-def create_initial_tables():
-    """
-    Uygulama başladığında gerekli tüm veritabanı tablolarını oluşturur.
-    Tablolar zaten varsa tekrar oluşturmaz.
-    """
-    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
-        cursor = conn.cursor()
-
-        # users tablosu - Artık genel quiz istatistik sütunları YOK
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT NOT NULL UNIQUE,
-                email TEXT NOT NULL UNIQUE,
-                password_hash TEXT NOT NULL,
-                bio TEXT DEFAULT 'Merhaba! GeoAI kullanıcısıyım.',
-                profile_picture_url TEXT DEFAULT '/static/images/sample_user.png',
-                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-            )
-        """)
-
-        # messages tablosu
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS messages (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                sender_id INTEGER NOT NULL,
-                receiver_id INTEGER NOT NULL,
-                content TEXT NOT NULL,
-                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-                FOREIGN KEY (sender_id) REFERENCES users(id) ON DELETE CASCADE,
-                FOREIGN KEY (receiver_id) REFERENCES users(id) ON DELETE CASCADE
-            )
-        """)
-        
-        # user_activities tablosu
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS user_activities (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                user_id INTEGER NOT NULL,
-                activity_description TEXT NOT NULL,
-                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-                FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-            )
-        """)
-
-        # followers tablosu
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS followers (
-                follower_id INTEGER NOT NULL,
-                followed_id INTEGER NOT NULL,
-                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-                PRIMARY KEY (follower_id, followed_id),
-                FOREIGN KEY (follower_id) REFERENCES users(id) ON DELETE CASCADE,
-                FOREIGN KEY (followed_id) REFERENCES users(id) ON DELETE CASCADE
-            )
-        """)
-        conn.commit()
-
-    with get_db_connection(settings.QUIZ_DATABASE_FILE) as conn:
-        cursor = conn.cursor()
-        # wrong_questions tablosu (Quiz hata sorguları için)
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS wrong_questions (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                user_id INTEGER NOT NULL,
-                city TEXT NOT NULL,
-                category TEXT NOT NULL,
-                question_text TEXT NOT NULL,
-                option_a TEXT,
-                option_b TEXT,
-                option_c TEXT,
-                option_d TEXT,
-                correct_answer_letter TEXT NOT NULL,
-                user_answer_letter TEXT NOT NULL,
-                timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-                FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-            )
-        """)
-        conn.commit()
-
-    # QUIZ_STATS_DATABASE_FILE İÇİN TABLOLAR
-    with get_db_connection(settings.QUIZ_STATS_DATABASE_FILE) as conn:
-        cursor = conn.cursor()
-        # quiz_summary tablosu
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS quiz_summary (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                user_id INTEGER NOT NULL,
-                quiz_type TEXT NOT NULL,
-                quiz_name TEXT,
-                total_questions INTEGER NOT NULL,
-                correct_answers INTEGER NOT NULL,
-                score INTEGER NOT NULL,
-                completed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-            )
-        """)
-        
-        # category_stats tablosu
-        cursor.execute("""
-            CREATE TABLE IF NOT EXISTS category_stats (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                user_id INTEGER NOT NULL,
-                category_name TEXT NOT NULL,
-                correct_count INTEGER DEFAULT 0,
-                wrong_count INTEGER DEFAULT 0,
-                last_updated DATETIME DEFAULT CURRENT_TIMESTAMP,
-                UNIQUE(user_id, category_name),
-                FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-            )
-        """)
-        conn.commit()
-
+import json
+import logging
+from functions.services.badge_service import badge_service
 
 # --- KULLANICI SORGULARI ---
 def get_user_by_username(username: str) -> Optional[Dict]:
@@ -127,7 +15,7 @@ def get_user_by_username(username: str) -> Optional[Dict]:
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
         cursor.execute("""
-            SELECT id, username, email, password_hash, bio, profile_picture_url, created_at
+            SELECT id, username, email, password_hash, bio, profile_picture_url, created_at, displayed_badge_ids
             FROM users
             WHERE username = ?
         """, (username,))
@@ -141,10 +29,10 @@ def get_user_by_username(username: str) -> Optional[Dict]:
             "password_hash": user_row["password_hash"],
             "bio": user_row["bio"],
             "profile_picture_url": user_row["profile_picture_url"],
-            "created_at": user_row["created_at"]
+            "created_at": user_row["created_at"],
+            "displayed_badge_ids": json.loads(user_row["displayed_badge_ids"]) if user_row["displayed_badge_ids"] else [] 
         }
         
-        # Kullanıcının genel quiz istatistiklerini al ve ekle
         overall_stats = get_user_overall_quiz_stats(user_data["id"])
         user_data.update(overall_stats)
         
@@ -156,7 +44,7 @@ def get_user_by_id(user_id: int) -> Optional[Dict]:
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
         cursor.execute("""
-            SELECT id, username, email, bio, profile_picture_url, created_at
+            SELECT id, username, email, bio, profile_picture_url, created_at, displayed_badge_ids
             FROM users
             WHERE id = ?
         """, (user_id,))
@@ -169,10 +57,10 @@ def get_user_by_id(user_id: int) -> Optional[Dict]:
             "email": user_row["email"],
             "bio": user_row["bio"],
             "profile_picture_url": user_row["profile_picture_url"],
-            "created_at": user_row["created_at"]
+            "created_at": user_row["created_at"],
+            "displayed_badge_ids": json.loads(user_row["displayed_badge_ids"]) if user_row["displayed_badge_ids"] else [] 
         }
 
-        # Kullanıcının genel quiz istatistiklerini al ve ekle
         overall_stats = get_user_overall_quiz_stats(user_data["id"])
         user_data.update(overall_stats)
 
@@ -184,9 +72,9 @@ def create_user(username: str, email: str, password_hash: str) -> int:
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
         cursor.execute("""
-            INSERT INTO users (username, email, password_hash, bio, profile_picture_url)
-            VALUES (?, ?, ?, ?, ?)
-        """, (username, email, password_hash, "Merhaba! GeoAI kullanıcısıyım.", "/static/images/sample_user.png"))
+            INSERT INTO users (username, email, password_hash, bio, profile_picture_url, displayed_badge_ids)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (username, email, password_hash, "Merhaba! GeoAI kullanıcısıyım.", "/static/images/sample_user.png", '[]')) 
         conn.commit()
         return cursor.lastrowid
 
@@ -194,20 +82,56 @@ def create_user(username: str, email: str, password_hash: str) -> int:
 def follow_user(follower_id: int, followed_id: int) -> bool:
     """Bir kullanıcının başka bir kullanıcıyı takip etmesini sağlar."""
     if follower_id == followed_id:
+        logging.warning(f"Kullanıcı {follower_id} kendini takip etmeye çalıştı.")
         return False
+
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
         try:
+            # Check if already following to prevent IntegrityError on INSERT
+            # PRIMARY KEY (follower_id, followed_id) sayesinde,
+            # eğer zaten takip ediliyorsa INSERT işlemi IntegrityError verecektir.
+            # Bu SELECT kontrolü aslında o hatayı önceden yakalar.
+            cursor.execute("SELECT 1 FROM followers WHERE follower_id = ? AND followed_id = ?", (follower_id, followed_id))
+            if cursor.fetchone():
+                logging.warning(f"Kullanıcı {follower_id} zaten kullanıcı {followed_id} kişisini takip ediyor.")
+                return False
+
+            # 1. Takip ilişkisini followers tablosuna ekle
             cursor.execute("INSERT INTO followers (follower_id, followed_id) VALUES (?, ?)", (follower_id, followed_id))
-            conn.commit()
-            # Takip aktivitesi ekle
+            
+            # 2. Takip edilen kullanıcının social_followers sayısını users tablosunda güncelle
+            cursor.execute("SELECT COUNT(*) FROM followers WHERE followed_id = ?", (followed_id,))
+            current_followers = cursor.fetchone()[0]
+            
+            cursor.execute("UPDATE users SET social_followers = ? WHERE id = ?", (current_followers, followed_id))
+            
+            conn.commit() # Tüm değişiklikleri kaydet
+
+            logging.info(f"Kullanıcı {follower_id} kişisi kullanıcı {followed_id} kişisini takip etti. Güncel takipçi sayısı: {current_followers}")
+
+            # Kullanıcı etkinliği ekle
             follower_user_data = get_user_by_id(follower_id)
             followed_user_data = get_user_by_id(followed_id)
             if follower_user_data and followed_user_data:
                 add_user_activity(follower_id, f"{follower_user_data['username']} kişisi {followed_user_data['username']} kişisini takip etmeye başladı.")
+            
+            # 3. Rozet kontrolünü çağır
+            # badge_service.check_and_award_badges metodu SADECE user_id bekler.
+            # Diğer tüm verileri (takipçi sayısı, rozet tipi vb.) kendi içinde çeker.
+            badge_service.check_and_award_badges(followed_id) # Buradaki çağrı düzeltildi!
+            
             return True
         except sqlite3.IntegrityError:
+            # Bu blok, eğer yukarıdaki SELECT kontrolü bir şekilde atlanırsa
+            # veya aynı anda iki istek gelirse devreye girer.
+            logging.warning(f"Kullanıcı {follower_id} zaten kullanıcı {followed_id} kişisini takip ediyor. (IntegrityError)")
             return False
+        except Exception as e:
+            logging.error(f"Takip işlemi sırasında hata oluştu: {e}")
+            conn.rollback() # Hata durumunda değişiklikleri geri al
+            return False
+
 
 def unfollow_user(follower_id: int, followed_id: int) -> bool:
     """Bir kullanıcının başka bir kullanıcıyı takibi bırakmasını sağlar."""
@@ -216,7 +140,6 @@ def unfollow_user(follower_id: int, followed_id: int) -> bool:
         cursor.execute("DELETE FROM followers WHERE follower_id = ? AND followed_id = ?", (follower_id, followed_id))
         conn.commit()
         if cursor.rowcount > 0:
-            # Takip bırakma aktivitesi ekle
             follower_user_data = get_user_by_id(follower_id)
             followed_user_data = get_user_by_id(followed_id)
             if follower_user_data and followed_user_data:
@@ -286,6 +209,16 @@ def update_user_profile(user_id: int, bio: Optional[str] = None, profile_picture
             add_user_activity(user_id, "Profilini güncelledi.")
             return True
         return False
+
+def update_displayed_badges(user_id: int, badge_ids: List[int]) -> bool:
+    """Kullanıcının profilinde gösterilecek rozetleri günceller."""
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        # Rozet ID'lerini JSON string olarak sakla
+        badge_ids_json = json.dumps(badge_ids)
+        cursor.execute("UPDATE users SET displayed_badge_ids = ? WHERE id = ?", (badge_ids_json, user_id))
+        conn.commit()
+        return cursor.rowcount > 0
 
 # --- QUIZ HATA SORGULARI ---
 def save_wrong_question_to_db(
@@ -386,6 +319,7 @@ def get_user_conversations(user_id: int) -> List[Dict]:
 # --- PROFİL AKTİVİTE SORGULARI ---
 def get_user_activities(user_id: int) -> List[Dict]:
     """Belirli bir kullanıcının son aktivitelerini getirir."""
+    activities = []
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
         cursor.execute(
@@ -393,7 +327,18 @@ def get_user_activities(user_id: int) -> List[Dict]:
             (user_id,)
         )
         rows = cursor.fetchall()
-        return [dict(row) for row in rows]
+        for row in rows:
+            timestamp_str = row['timestamp']
+            try:
+                dt_object = datetime.strptime(timestamp_str, '%Y-%m-%d %H:%M:%S')
+            except ValueError:
+                dt_object = timestamp_str # Hata durumunda string olarak bırak
+            
+            activities.append({
+                "activity_description": row['activity_description'],
+                "timestamp": dt_object 
+            })
+    return activities
 
 def add_user_activity(user_id: int, description: str) -> None:
     """Kullanıcı için yeni bir aktivite kaydeder."""
@@ -411,26 +356,124 @@ def search_users_by_username(search_term: str) -> List[Dict]:
         cursor = conn.cursor()
         cursor.execute("""
             SELECT
-                id, username, bio, profile_picture_url
+                id, username, email, bio, profile_picture_url, displayed_badge_ids -- 'email' BURAYA EKLENDİ!
             FROM users
             WHERE LOWER(username) LIKE ?
             ORDER BY username ASC
         """, (f"%{search_term.lower()}%",))
         rows = cursor.fetchall()
-        
+
         results = []
         for row in rows:
             user_data = {
                 "id": row["id"],
                 "username": row["username"],
+                "email": row["email"], # 'email' veriyi de sözlüğe ekleyin!
                 "bio": row["bio"],
-                "profile_picture_url": row["profile_picture_url"]
+                "profile_picture_url": row["profile_picture_url"],
+                "displayed_badge_ids": json.loads(row["displayed_badge_ids"]) if row["displayed_badge_ids"] else []
             }
-            # Arama sonuçlarına da genel quiz istatistiklerini ekleyelim
             overall_stats = get_user_overall_quiz_stats(user_data["id"])
             user_data.update(overall_stats)
             results.append(user_data)
         return results
+    
+# --- ROZET SORGULARI ---
+def get_user_badges(user_id: int) -> List[Dict]:
+    """Kullanıcının kazandığı rozetleri ve detaylarını getirir."""
+    badges = []
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT 
+                ub.achieved_at,
+                bt.id AS badge_id,
+                bt.name,
+                bt.description,
+                bt.image_url,
+                bt.type AS badge_type,
+                bt.threshold
+            FROM user_badges ub
+            JOIN badge_types bt ON ub.badge_id = bt.id
+            WHERE ub.user_id = ?
+            ORDER BY ub.achieved_at DESC
+        """, (user_id,))
+        rows = cursor.fetchall()
+        for row in rows:
+            badges.append({
+                "achieved_at": row["achieved_at"],
+                "badge_info": { 
+                    "id": row["badge_id"],
+                    "name": row["name"],
+                    "description": row["description"],
+                    "image_url": row["image_url"],
+                    "type": row["badge_type"],
+                    "threshold": row["threshold"]
+                }
+            })
+    return badges
+
+def add_user_badge(user_id: int, badge_id: int) -> bool:
+    """Bir kullanıcıya rozet atar."""
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        try:
+            cursor.execute("INSERT INTO user_badges (user_id, badge_id, achieved_at) VALUES (?, ?, CURRENT_TIMESTAMP)", (user_id, badge_id))
+            conn.commit()
+            return True
+        except sqlite3.IntegrityError:
+            return False
+
+def get_badge_by_id(badge_id: int) -> Optional[Dict]:
+    """ID'ye göre rozet bilgilerini getirir."""
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT id, name, description, image_url, type, threshold FROM badge_types WHERE id = ?", (badge_id,))
+        row = cursor.fetchone()
+        if row:
+            return dict(row)
+        return None
+
+def get_badge_type_by_name_and_threshold(badge_type_name: str, threshold: float, category: Optional[str] = None) -> Optional[Dict]:
+    """
+    Tipe (yani badges.json'daki type_name), eşik değerine ve isteğe bağlı olarak kategoriye göre rozet bilgilerini getirir.
+    """
+    with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        
+        # 'name' sütununda arama yapıyoruz, 'type' değil (badges.json'daki type_name ile eşleşmeli)
+        query = "SELECT id, name, description, image_url, type, threshold, category FROM badge_types WHERE name = ? AND threshold = ?"
+        params = [badge_type_name, threshold] # Listeye çevirdim, append yapabilmek için
+
+        # Kategori parametresini kontrol et ve sorguya ekle
+        # Eğer category dolu bir string ise (örn: "Tarih")
+        if category is not None and category != "":
+            query += " AND category = ?"
+            params.append(category)
+        else:
+            # Eğer 'category' parametresi boş string veya None ise (örn: daily_login_streak gibi)
+            # veritabanında 'category' sütunu boş string ('') olan kayıtları ararız.
+            # badges.json'da boş kategoriler boş string olarak kaydedildiği için bu doğru eşleşmeyi sağlar.
+            query += " AND category = ?"
+            params.append("") # Boş string parametresini ekliyoruz
+
+        logging.debug(f"Executing query: {query} with params: {params}") # Debug amaçlı log
+
+        try:
+            cursor.execute(query, tuple(params)) # listeyi tuple'a çevirerek execute et
+        except Exception as e:
+            logging.error(f"Sorgu yürütülürken hata oluştu: {query} - Parametreler: {params} - Hata: {e}")
+            return None
+
+        row = cursor.fetchone()
+        if row:
+            # sqlite3.Row objesini Dict'e çevirme
+            columns = [description[0] for description in cursor.description]
+            found_badge = dict(zip(columns, row))
+            logging.debug(f"Rozet bulundu: {found_badge['name']} (Eşik: {found_badge['threshold']}, Kategori: {found_badge.get('category', 'Yok')})")
+            return found_badge
+        logging.debug(f"Rozet bulunamadı: type_name='{badge_type_name}', threshold={threshold}, category='{category}'") # Debug amaçlı log
+        return None
 
 # --- QUIZ İSTATİSTİK SORGULARI (quiz_stats.db ile çalışır) ---
 
@@ -446,7 +489,6 @@ def add_quiz_summary(user_id: int, quiz_type: str, quiz_name: str, total_questio
             (user_id, quiz_type, quiz_name, total_questions, correct_answers, score)
         )
         conn.commit()
-    # Quiz tamamlandığında bir aktivite ekleyelim
     add_user_activity(user_id, f"'{quiz_name}' ({quiz_type}) quizini tamamladı ve {score} puan kazandı.")
 
 
@@ -534,7 +576,6 @@ def get_user_category_stats(user_id: int) -> List[Dict]:
 
 def get_user_overall_quiz_stats(user_id: int) -> Dict[str, int]:
     """Bir kullanıcının tüm quizlerdeki genel istatistiklerini hesaplar ve döndürür."""
-    # FIX: Use 'with' statement to properly get the connection object
     with get_db_connection(settings.QUIZ_STATS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
         
@@ -561,8 +602,6 @@ def get_user_overall_quiz_stats(user_id: int) -> Dict[str, int]:
             (user_id,)
         )
         highest_score = cursor.fetchone()[0] or 0
-
-    # No need for conn.close() here, the 'with' statement handles it automatically
     
     return {
         "total_quizzes_completed": total_quizzes_completed,

@@ -6,10 +6,27 @@
     <title>{{ profile_user.username }}'ın Profili - GeoAI</title>
     <link rel="icon" type="image/fav-ico" href="{{ url_for('static', path='images/fav.ico') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../static/css/social-style.css" />
-    {# <style> etiketini buradan kaldırdık #}
+    <link rel="stylesheet" href="{{ url_for('static', path='css/social-style.css') }}" />
 </head>
-<body class="profile-page"> {# body'ye özel sınıf ekledik #}
+<body class="profile-page">
+    {# Jinja2 değişkenlerini JavaScript'e aktaran script bloğu #}
+    <script>
+        // Bu değişkenler FastAPI tarafından Jinja2 şablonuna aktarılmalıdır.
+        // Eğer profile_user objesi yoksa veya ilgili alanlar boşsa güvenli varsayılanlar kullanılır.
+        window.CURRENT_PROFILE_USERNAME = "{{ profile_user.username | default('') }}";
+        window.STATIC_URLS = {
+            sampleUserImage: "{{ url_for('static', path='images/sample_user.png') }}",
+            userProfileTemplate: "{{ url_for('user_profile', username='_USERNAME_PLACEHOLDER_') }}"
+        };
+        // Kullanıcının oturum açıp açmadığını ve profilin sahibinin kendisi olup olmadığını kontrol edin
+        window.IS_MY_PROFILE = {{ 'true' if user and user.id == profile_user.id else 'false' }};
+        
+        // Rozet verilerini JSON olarak güvenli bir şekilde aktarın
+        // profile_user.achieved_badges ve profile_user.displayed_badge_ids FastAPI tarafından gönderilmelidir
+        window.ACHIEVED_BADGES = {{ profile_user.achieved_badges | tojson | safe }};
+        window.DISPLAYED_BADGE_IDS = {{ profile_user.displayed_badge_ids | tojson | safe }};
+    </script>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url_for('read_root') }}">GeoAI</a>
@@ -68,10 +85,11 @@
     </div>
 
 
-    <div class="container mt-4 profile-content"> {# Ana container'a özel sınıf ekledik #}
+    <div class="container mt-4 profile-content">
         <div class="card shadow-sm">
             <div class="profile-header">
-                    <img src="{{ profile_user.profile_picture_url }}" alt="Profil Resmi" class="profile-avatar" id="profileImage">                <div>
+                <img src="{{ profile_user.profile_picture_url }}" alt="Profil Resmi" class="profile-avatar" id="profileImage">
+                <div>
                     <h2 class="mb-0">{{ profile_user.username }}</h2>
                     <p class="text-muted">{{ profile_user.email }}</p>
 
@@ -85,7 +103,8 @@
 
                         {% if user and user.id == profile_user.id %}
                             <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editProfileModal">Profili Düzenle</button>
-                        {% elif user %} {% if is_following_user %}
+                        {% elif user %}
+                            {% if is_following_user %}
                                 <button class="btn btn-sm btn-danger" id="unfollowButton">Takibi Bırak</button>
                             {% else %}
                                 <button class="btn btn-sm btn-success" id="followButton">Takip Et</button>
@@ -97,6 +116,28 @@
             <div class="card-body">
                 <div class="profile-bio">
                     <p id="userBio">{{ profile_user.bio or "Merhaba! Coğrafya ve AI quizleri ile ilgileniyorum. Yeni şeyler öğrenmeyi ve kendimi geliştirmeyi seviyorum." }}</p>
+                </div>
+
+                <h4 class="section-header mt-4">Sergilenen Rozetler</h4>
+                <div id="displayedBadges" class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+                    {% if profile_user.displayed_badge_ids %}
+                        {% for badge_id in profile_user.displayed_badge_ids %}
+                            {% set found_badge = none %}
+                            {% for achieved_badge in profile_user.achieved_badges %}
+                                {% if achieved_badge.badge_info.id == badge_id %}
+                                    {% set found_badge = achieved_badge.badge_info %}
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if found_badge %}
+                                <div class="badge-item text-center" data-badge-id="{{ found_badge.id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ found_badge.name }}: {{ found_badge.description }}">
+                                    <img src="{{ found_badge.image_url }}" alt="{{ found_badge.name }}" class="img-fluid rounded-circle" style="width: 50px; height: 50px; object-fit: contain;">
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <p>Sergilenecek rozet yok.</p>
+                    {% endif %}
                 </div>
 
                 <h4 class="section-header mt-4">İstatistikler</h4>
@@ -123,14 +164,28 @@
                 <ul class="list-group list-group-flush">
                     {% if profile_user.recent_activities %}
                         {% for activity in profile_user.recent_activities %}
-                            <li class="list-group-item">{{ activity.activity_description }} - <small class="text-muted">{{ activity.timestamp }}</small></li>
+                            <li class="list-group-item">{{ activity.activity_description }} - <small class="text-muted">{{ activity.timestamp.strftime('%Y-%m-%d %H:%M') }}</small></li>
                         {% endfor %}
                     {% else %}
                         <li class="list-group-item text-muted">Henüz bir aktivite bulunmamaktadır.</li>
                     {% endif %}
                 </ul>
 
-                {# YENİ EKLENEN KISIM: Önerilen Arkadaşlar #}
+                <h4 class="section-header mt-4">Kazanılan Tüm Rozetler</h4>
+                <div id="achievedBadgesList" class="d-flex flex-wrap justify-content-start gap-3">
+                    {% if profile_user.achieved_badges %}
+                        {% for badge in profile_user.achieved_badges %}
+                            <div class="badge-item text-center" data-badge-id="{{ badge.badge_info.id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ badge.badge_info.name }}: {{ badge.badge_info.description }}">
+                                <img src="{{ badge.badge_info.image_url }}" alt="{{ badge.badge_info.name }}" class="img-fluid rounded-circle" style="width: 70px; height: 70px; object-fit: contain;">
+                                <small class="d-block">{{ badge.badge_info.name }}</small>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>Henüz rozet kazanılmamış.</p>
+                    {% endif %}
+                </div>
+
+                {# Önerilen Arkadaşlar #}
                 {% if user and user.id == profile_user.id and recommended_friends %}
                 <h4 class="section-header mt-4">Önerilen Arkadaşlar</h4>
                 <div class="recommended-friends-section">
@@ -138,93 +193,102 @@
                         {% for rec_user in recommended_friends %}
                         <li class="list-group-item">
                             <div class="user-info">
-                                <img src="{{ rec_user.profile_picture_url or '/static/images/sample_user.png' }}" alt="{{ rec_user.username }}" class="img-fluid">
+                                <img src="{{ rec_user.profile_picture_url or url_for('static', path='images/sample_user.png') }}" alt="{{ rec_user.username }}" class="img-fluid">
                                 <a href="{{ url_for('user_profile', username=rec_user.username) }}">{{ rec_user.username }}</a>
-                                {% if rec_user.similarity %}
-                                    <small class="text-muted ms-2">(Benzerlik: {{ rec_user.similarity }})</small>
+                                {% if rec_user.similarity is not none %}
+                                    <small class="text-muted ms-2">(Benzerlik: {{ rec_user.similarity|round(2) }})</small>
                                 {% endif %}
                             </div>
                             {% if rec_user.is_following %}
-                                <button class="btn btn-sm btn-danger unfollow-btn" data-user-id="{{ rec_user.id }}">Takibi Bırak</button>
+                                <button class="btn btn-sm btn-danger unfollow-btn" data-user-id="{{ rec_user.id }}" data-username="{{ rec_user.username }}">Takibi Bırak</button>
                             {% else %}
-                                <button class="btn btn-sm btn-success follow-btn" data-user-id="{{ rec_user.id }}">Takip Et</button>
+                                <button class="btn btn-sm btn-success follow-btn" data-user-id="{{ rec_user.id }}" data-username="{{ rec_user.username }}">Takip Et</button>
                             {% endif %}
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
                 {% endif %}
-                {# YENİ EKLENEN KISIM SONU #}
 
             </div>
         </div>
     </div>
 
-    <div class="modal" id="followersModal" tabindex="-1" aria-labelledby="followersModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    {# Edit Profile Modal #}
+    <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="followersModalLabel">{{ profile_user.username }}'ın Takipçileri</h5>
+                    <h5 class="modal-title" id="editProfileModalLabel">Profilini Düzenle</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <ul class="list-group list-group-flush" id="followersList">
-                        <li class="list-group-item text-muted">Yükleniyor...</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="followingModal" tabindex="-1" aria-labelledby="followingModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="followingModalLabel">{{ profile_user.username }}'ın Takip Ettikleri</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <ul class="list-group list-group-flush" id="followingList">
-                        <li class="list-group-item text-muted">Yükleniyor...</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editProfileModalLabel">Profili Düzenle</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="editProfileForm" enctype="multipart/form-data">
+                    <form id="editProfileForm">
+                        <div class="mb-3 text-center">
+                            <label for="profilePictureUpload" class="form-label d-block">Profil Resmi</label>
+                            <img id="currentProfilePic" src="{{ profile_user.profile_picture_url }}" alt="Mevcut Profil Resmi" class="rounded-circle mb-2" style="width: 100px; height: 100px; object-fit: cover; cursor: pointer;">
+                            <input type="file" class="form-control" id="profilePictureUpload" accept="image/*">
+                        </div>
                         <div class="mb-3">
-                            <label for="editBio" class="form-label">Biyografi</label>
+                            <label for="editBio" class="form-label">Biyo</label>
                             <textarea class="form-control" id="editBio" rows="3">{{ profile_user.bio or "" }}</textarea>
                         </div>
 
-                        {# YENİ: Profil Fotoğrafı Yükleme Alanı #}
                         <div class="mb-3">
-                            <label for="profilePictureUpload" class="form-label">Profil Fotoğrafı Güncelle</label>
-                            <input class="form-control" type="file" id="profilePictureUpload" accept="image/*">
-                            <small class="form-text text-muted">Sadece görsel dosyaları (.jpg, .png vb.) kabul edilir.</small>
+                            <label class="form-label">Sergilenecek Rozetleri Seç (En Fazla 5)</label>
+                            <div id="availableBadgesContainer" class="d-flex flex-wrap gap-2 border p-2 rounded" style="max-height: 250px; overflow-y: auto;">
+                                {# Rozetler buraya JavaScript ile yüklenecek #}
+                            </div>
+                            <input type="hidden" id="selectedBadgeIdsInput" name="displayed_badge_ids">
                         </div>
-                        {# YENİ KOD SONU #}
-
-                        <button type="submit" class="btn btn-primary">Kaydet</button>
-                        <div id="editProfileMessage" class="mt-2"></div>
+                        
+                        <div id="editProfileMessage" class="mt-3"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+    {# Followers Modal #}
+    <div class="modal fade" id="followersModal" tabindex="-1" aria-labelledby="followersModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="followersModalLabel">Takipçiler</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group" id="followersList">
+                        {# Followers will be loaded here by JavaScript #}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    {# Following Modal #}
+    <div class="modal fade" id="followingModal" tabindex="-1" aria-labelledby="followingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="followingModalLabel">Takip Edilenler</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group" id="followingList">
+                        {# Following will be loaded here by JavaScript #}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url_for('static', path='js/profile-script.js') }}"></script>
 </body>
 </html>

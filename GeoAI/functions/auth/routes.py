@@ -3,6 +3,8 @@ from fastapi import APIRouter, Request, Form, Depends, status, HTTPException, Up
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from typing import Optional, List, Dict
+from datetime import datetime # Sadece bir kez import edildi
+import logging # Loglama için ekledim, isterseniz kullanabilirsiniz
 
 # Dosya yollarını yönetmek için Path, dosya kopyalamak için shutil
 from pathlib import Path
@@ -13,9 +15,9 @@ import shutil # Dosya kopyalamak için
 from functions.database.queries import (
     get_user_by_username, create_user, get_user_by_id, search_users_by_username,
     follow_user, unfollow_user, is_following, get_followers, get_following,
-    update_user_profile, get_user_activities, # db_queries'den doğrudan alabileceğimiz fonksiyonlar
-    get_user_category_stats, # Quiz istatistikleri için bu fonksiyon da gerekli
-    get_user_quiz_summaries # Quiz özetleri için bu fonksiyon da gerekli
+    update_user_profile, get_user_activities, get_user_badges, 
+    get_user_category_stats, 
+    get_user_quiz_summaries 
 )
 from functions.auth.services import hash_password, verify_password, set_auth_cookies, clear_auth_cookies
 from functions.auth.dependencies import require_auth, CurrentUser
@@ -25,7 +27,6 @@ from functions.ml.recommendations import get_recommended_friends_kmeans
 
 # --- Pydantic Modelleri ---
 from pydantic import BaseModel, EmailStr
-from datetime import datetime
 
 class ActivityResponse(BaseModel):
     activity_description: str
@@ -137,18 +138,31 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
     if current_user and not is_my_profile:
         is_following_user = is_following(current_user.id, profile_user["id"])
 
+    user_id = profile_user["id"] 
+    
     # Kullanıcının quiz istatistiklerini ve özetlerini al
-    # Bu fonksiyonlar functions/database/queries.py içinde olmalı
-    user_id = profile_user["id"] # Profilini görüntülediğimiz kullanıcının ID'si
     category_stats = get_user_category_stats(user_id)
     quiz_summaries = get_user_quiz_summaries(user_id)
 
     # Toplam istatistikleri hesapla
-    total_quizzes_completed = len(quiz_summaries) # Her bir özet bir quiz ise
+    total_quizzes_completed = len(quiz_summaries) 
     total_correct_answers = sum(s['correct_answers'] for s in quiz_summaries)
     total_score = sum(s['score'] for s in quiz_summaries)
     highest_score = max(s['score'] for s in quiz_summaries) if quiz_summaries else 0
 
+    # Kullanıcının aktivitelerini al (queries.py'deki dönüşüm zaten yapılmış olmalı)
+    recent_activities = get_user_activities(profile_user["id"])
+
+    # KULLANICININ ROZETLERİNİ AL VE PROFİL VERİSİNE EKLE
+    achieved_badges = get_user_badges(user_id) # Yeni eklenen kısım
+    
+    # Veritabanından çekilen displayed_badge_ids'i almak için kullanıcı objesini güncelleyin
+    # Bunu profile_user dict'inize kaydettiğinizden emin olun.
+    # get_user_by_username veya update_user_profile fonksiyonlarınızın
+    # 'displayed_badge_ids' sütununu çekip dict'e eklediğinden emin olun.
+    # Eğer eklemediyseniz, manuel olarak çekmeniz gerekecek.
+    # Şimdilik, profile_user'da bu alanın olduğunu varsayıyorum:
+    displayed_badge_ids = profile_user.get("displayed_badge_ids", []) # Varsayılan boş liste
 
     profile_user_data = {
         "id": profile_user["id"],
@@ -156,11 +170,13 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
         "email": profile_user["email"],
         "bio": profile_user.get("bio", "Merhaba! Coğrafya ve AI quizleri ile ilgileniyorum. Yeni şeyler öğrenmeyi ve kendimi geliştirmeyi seviyorum."),
         "profile_picture_url": profile_user.get("profile_picture_url", "/static/images/sample_user.png"),
-        "total_quizzes_completed": total_quizzes_completed, # Artık hesaplanan değerler kullanılıyor
+        "total_quizzes_completed": total_quizzes_completed, 
         "total_correct_answers": total_correct_answers,
         "total_score": total_score,
         "highest_score": highest_score,
-        "recent_activities": get_user_activities(profile_user["id"])
+        "recent_activities": recent_activities, # Artık bu datetime objeleri içeriyor
+        "achieved_badges": achieved_badges, # Kazanılan tüm rozetleri ekle
+        "displayed_badge_ids": displayed_badge_ids # Sergilenen rozet ID'lerini ekle
     }
 
     followers_count = len(get_followers(profile_user["id"]))
@@ -169,8 +185,8 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
     # Sadece kendi profilini görüntülerken arkadaş önerilerini göster
     recommended_friends = []
     if is_my_profile:
-        # Arkadaş önerilerini K-Means fonksiyonunu çağırarak al
-        # num_clusters değerini kullanıcı sayınıza ve veri yapınıza göre ayarlayabilirsiniz.
+        # get_recommended_friends_kmeans fonksiyonunun düzgün çalıştığından ve
+        # current_user.id'ye erişim sağladığından emin olun.
         recommended_friends = get_recommended_friends_kmeans(
             current_user_id=current_user.id, 
             num_recommendations=5, 
@@ -182,14 +198,14 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
         {
             "request": request,
             "profile_user": profile_user_data,
-            "user": current_user,
+            "user": current_user, # `user` yerine `current_user` kullandığınızdan emin olun
             "is_my_profile": is_my_profile,
             "is_following_user": is_following_user,
             "followers_count": followers_count,
             "following_count": following_count,
-            "category_stats": category_stats, # Kategori istatistiklerini şablona gönder
-            "quiz_summaries": quiz_summaries, # Quiz özetlerini şablona gönder
-            "recommended_friends": recommended_friends # Arkadaş önerilerini şablona gönder
+            "category_stats": category_stats, 
+            "quiz_summaries": quiz_summaries, 
+            "recommended_friends": recommended_friends 
         }
     )
 
