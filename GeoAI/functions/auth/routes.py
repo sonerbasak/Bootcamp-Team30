@@ -13,13 +13,17 @@ import shutil # Dosya kopyalamak için
 from functions.database.queries import (
     get_user_by_username, create_user, get_user_by_id, search_users_by_username,
     follow_user, unfollow_user, is_following, get_followers, get_following,
-    update_user_profile, get_user_activities
+    update_user_profile, get_user_activities, # db_queries'den doğrudan alabileceğimiz fonksiyonlar
+    get_user_category_stats, # Quiz istatistikleri için bu fonksiyon da gerekli
+    get_user_quiz_summaries # Quiz özetleri için bu fonksiyon da gerekli
 )
 from functions.auth.services import hash_password, verify_password, set_auth_cookies, clear_auth_cookies
 from functions.auth.dependencies import require_auth, CurrentUser
 
+# --- ML tabanlı öneri fonksiyonunu import ediyoruz ---
+from functions.ml.recommendations import get_recommended_friends_kmeans
+
 # --- Pydantic Modelleri ---
-# Eğer app/schemas.py gibi başka bir dosyanız yoksa ve modeller burada tanımlıysa, burası doğru yer.
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
 
@@ -48,8 +52,9 @@ class UserResponse(BaseModel):
 router = APIRouter(tags=["Auth"])
 templates = Jinja2Templates(directory="templates")
 
+# --- Statik Dosya Yükleme Dizini ---
 UPLOAD_DIR = Path("static/uploads/profile_pictures")
-UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True) # Dizin yoksa oluştur
 
 @router.get("/login", response_class=HTMLResponse, name="login_page")
 async def login_page(request: Request, current_user: CurrentUser = Depends(require_auth)):
@@ -132,21 +137,45 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
     if current_user and not is_my_profile:
         is_following_user = is_following(current_user.id, profile_user["id"])
 
+    # Kullanıcının quiz istatistiklerini ve özetlerini al
+    # Bu fonksiyonlar functions/database/queries.py içinde olmalı
+    user_id = profile_user["id"] # Profilini görüntülediğimiz kullanıcının ID'si
+    category_stats = get_user_category_stats(user_id)
+    quiz_summaries = get_user_quiz_summaries(user_id)
+
+    # Toplam istatistikleri hesapla
+    total_quizzes_completed = len(quiz_summaries) # Her bir özet bir quiz ise
+    total_correct_answers = sum(s['correct_answers'] for s in quiz_summaries)
+    total_score = sum(s['score'] for s in quiz_summaries)
+    highest_score = max(s['score'] for s in quiz_summaries) if quiz_summaries else 0
+
+
     profile_user_data = {
         "id": profile_user["id"],
         "username": profile_user["username"],
         "email": profile_user["email"],
         "bio": profile_user.get("bio", "Merhaba! Coğrafya ve AI quizleri ile ilgileniyorum. Yeni şeyler öğrenmeyi ve kendimi geliştirmeyi seviyorum."),
         "profile_picture_url": profile_user.get("profile_picture_url", "/static/images/sample_user.png"),
-        "total_quizzes_completed": profile_user.get("total_quizzes_completed", 0),
-        "total_correct_answers": profile_user.get("total_correct_answers", 0),
-        "total_score": profile_user.get("total_score", 0),
-        "highest_score": profile_user.get("highest_score", 0),
+        "total_quizzes_completed": total_quizzes_completed, # Artık hesaplanan değerler kullanılıyor
+        "total_correct_answers": total_correct_answers,
+        "total_score": total_score,
+        "highest_score": highest_score,
         "recent_activities": get_user_activities(profile_user["id"])
     }
 
     followers_count = len(get_followers(profile_user["id"]))
     following_count = len(get_following(profile_user["id"]))
+
+    # Sadece kendi profilini görüntülerken arkadaş önerilerini göster
+    recommended_friends = []
+    if is_my_profile:
+        # Arkadaş önerilerini K-Means fonksiyonunu çağırarak al
+        # num_clusters değerini kullanıcı sayınıza ve veri yapınıza göre ayarlayabilirsiniz.
+        recommended_friends = get_recommended_friends_kmeans(
+            current_user_id=current_user.id, 
+            num_recommendations=5, 
+            num_clusters=5 
+        )
 
     return templates.TemplateResponse(
         "social/profile.html",
@@ -157,7 +186,10 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
             "is_my_profile": is_my_profile,
             "is_following_user": is_following_user,
             "followers_count": followers_count,
-            "following_count": following_count
+            "following_count": following_count,
+            "category_stats": category_stats, # Kategori istatistiklerini şablona gönder
+            "quiz_summaries": quiz_summaries, # Quiz özetlerini şablona gönder
+            "recommended_friends": recommended_friends # Arkadaş önerilerini şablona gönder
         }
     )
 
@@ -267,7 +299,8 @@ async def api_edit_profile(
                 shutil.copyfileobj(profile_picture.file, buffer)
             
             old_picture_url = user_data.get("profile_picture_url")
-            if old_picture_url and old_picture_url.startswith("/static/uploads/profile_pictures/"):
+            # Varsayılan resim değilse ve eski resim yükleme dizinindeyse sil
+            if old_picture_url and old_picture_url != "/static/images/sample_user.png" and old_picture_url.startswith("/static/uploads/profile_pictures/"):
                 old_file_name = old_picture_url.split('/')[-1]
                 old_picture_full_path = UPLOAD_DIR / old_file_name
                 if old_picture_full_path.exists() and old_picture_full_path.is_file():
@@ -287,19 +320,32 @@ async def api_edit_profile(
     ):
         updated_user_data = get_user_by_id(current_user.id)
         
+        # Kullanıcının quiz istatistiklerini ve özetlerini al
+        updated_total_quizzes_completed = updated_user_data.get("total_quizzes_completed", 0) # Eğer doğrudan DB'den geliyorsa
+        updated_total_correct_answers = updated_user_data.get("total_correct_answers", 0) # Eğer doğrudan DB'den geliyorsa
+        updated_total_score = updated_user_data.get("total_score", 0) # Eğer doğrudan DB'den geliyorsa
+        updated_highest_score = updated_user_data.get("highest_score", 0) # Eğer doğrudan DB'den geliyorsa
+
+        # Eğer bu istatistikler `get_user_by_id` içinde gelmiyorsa, onları ayrıca çekmelisiniz.
+        # Örneğin:
+        quiz_summaries_after_update = get_user_quiz_summaries(current_user.id)
+        updated_total_quizzes_completed = len(quiz_summaries_after_update)
+        updated_total_correct_answers = sum(s['correct_answers'] for s in quiz_summaries_after_update)
+        updated_total_score = sum(s['score'] for s in quiz_summaries_after_update)
+        updated_highest_score = max(s['score'] for s in quiz_summaries_after_update) if quiz_summaries_after_update else 0
+
+
         return UserResponse(
             id=updated_user_data["id"],
             username=updated_user_data["username"],
             email=updated_user_data["email"],
             bio=updated_user_data.get("bio", None),
             profile_picture_url=updated_user_data.get("profile_picture_url", "/static/images/sample_user.png"),
-            total_quizzes_completed=updated_user_data.get("total_quizzes_completed", 0),
-            total_correct_answers=updated_user_data.get("total_correct_answers", 0),
-            total_score=updated_user_data.get("total_score", 0),
-            highest_score=updated_user_data.get("highest_score", 0),
-            recent_activities=[]
+            total_quizzes_completed=updated_total_quizzes_completed,
+            total_correct_answers=updated_total_correct_answers,
+            total_score=updated_total_score,
+            highest_score=updated_highest_score,
+            recent_activities=[] # Aktivite listesi burada gönderilmez, ayrı bir endpoint'ten alınır
         )
     else:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Profil güncellenemedi veya hiçbir değişiklik yapılmadı.")
-    
-    

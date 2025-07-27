@@ -570,3 +570,57 @@ def get_user_overall_quiz_stats(user_id: int) -> Dict[str, int]:
         "total_score": total_score,
         "highest_score": highest_score
     }
+
+def get_user_category_success_rates(user_id: int) -> Dict[str, float]:
+    """
+    Belirli bir kullanıcının her kategori için doğru cevap oranlarını (0.0 ile 1.0 arası) döndürür.
+    Henüz soru çözülmemiş kategoriler için 0.0 döndürür.
+    """
+    with get_db_connection(settings.QUIZ_STATS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT category_name, correct_count, wrong_count
+            FROM category_stats
+            WHERE user_id = ?
+        """, (user_id,))
+        
+        category_rates = {}
+        for row in cursor.fetchall():
+            category_name = row["category_name"]
+            correct_count = row["correct_count"]
+            wrong_count = row["wrong_count"]
+            
+            total_questions = correct_count + wrong_count
+            if total_questions > 0:
+                category_rates[category_name] = correct_count / total_questions
+            else:
+                category_rates[category_name] = 0.0 # Henüz bu kategoride soru çözülmemiş
+    return category_rates
+
+def get_all_users_category_data() -> (Dict[int, List[float]], List[str]):
+    """
+    Tüm kullanıcıların kategori bazındaki başarı oranlarını içeren vektörleri döndürür.
+    Öneri sistemi için kullanılır.
+    """
+    with get_db_connection(settings.QUIZ_STATS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+
+        # 1. Tüm benzersiz kategori isimlerini al (tutarlılık için sıralı)
+        cursor.execute("SELECT DISTINCT category_name FROM category_stats ORDER BY category_name ASC")
+        all_categories = [row["category_name"] for row in cursor.fetchall()]
+
+        # 2. Tüm benzersiz kullanıcı ID'lerini al
+        cursor.execute("SELECT DISTINCT user_id FROM category_stats")
+        all_user_ids = [row["user_id"] for row in cursor.fetchall()]
+
+        all_users_category_vectors = {}
+        for user_id in all_user_ids:
+            # Her kullanıcı için kategori başarı oranlarını al
+            user_category_rates = get_user_category_success_rates(user_id)
+            
+            # Tüm kategorileri içeren bir vektör oluştur
+            # Kullanıcının veri girmediği kategoriler için 0.0 kullan
+            user_vector = [user_category_rates.get(cat, 0.0) for cat in all_categories]
+            all_users_category_vectors[user_id] = user_vector
+    
+    return all_users_category_vectors, all_categories
