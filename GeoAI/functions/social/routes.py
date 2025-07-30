@@ -62,6 +62,26 @@ class CategoryStatResponse(BaseModel):
     class Config:
         from_attributes = True
 
+class PostCreate(BaseModel):
+    content: str
+    image_url: Optional[str] = None 
+    topic: Optional[str] = None
+
+class PostResponse(BaseModel):
+    id: int
+    user_id: int
+    username: str # Post sahibinin kullanıcı adı
+    profile_picture_url: str # Post sahibinin profil resmi URL'si
+    content: str
+    timestamp: datetime  # Post oluşturulma zamanı
+    image_url: Optional[str] = None
+    topic: str
+
+    class Config:
+        from_attributes = True
+        # Datetime objelerini otomatik olarak ISO formatına çevirmek için
+        json_encoders = {datetime: lambda dt: dt.isoformat()}
+
 # --- HTML SAYFA ROTLARI ---
 
 @router.get("/social-feed", response_class=HTMLResponse, name="social_feed_page")
@@ -376,3 +396,125 @@ async def remove_follower_api(
     else:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Takipçiyi çıkarma işlemi başarısız oldu.")
 
+# --- YENİ EKLENEN API ROTLARI ---
+@router.get("/api/posts", response_model=List[PostResponse], name="get_posts_api")
+async def get_posts_api(
+    request: Request,
+    limit: int = 10,
+    offset: int = 0,
+    topic: Optional[str] = "Tümü",
+    current_user: CurrentUser = Depends(require_auth)
+):
+    """Sosyal akış gönderilerini listeler."""
+    if not current_user:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Giriş yapmalısınız.")
+
+    posts = db_queries.get_posts(limit=limit, offset=offset, topic=topic)
+
+    formatted_posts = []
+    for post in posts:
+        user_data = db_queries.get_user_by_id(post['user_id'])
+        if user_data:
+            formatted_posts.append(PostResponse(
+                id=post['id'],
+                user_id=post['user_id'],
+                username=user_data.get('username', 'Bilinmeyen Kullanıcı'),
+                profile_picture_url=user_data.get('profile_picture_url', "/static/images/sample_user.png"),
+                content=post['content'],
+                timestamp=post['timestamp'], # BURASI: format_time_ago fonksiyonunu kullanın
+                image_url=post.get('image_url'),
+                topic=post.get('topic', 'Genel'),
+                likes=post.get('likes', 0), # Eğer likes/comments sütunları varsa
+                comments=post.get('comments', 0)
+            ))
+        else:
+            # Kullanıcı bulunamazsa varsayılan bilgilerle ekle
+            formatted_posts.append(PostResponse(
+                id=post['id'],
+                user_id=post['user_id'],
+                username='Bilinmeyen Kullanıcı',
+                profile_picture_url="/static/images/sample_user.png",
+                content=post['content'],
+                timestamp=db_queries.format_time_ago(post['timestamp']), # BURASI: format_time_ago fonksiyonunu kullanın
+                image_url=post.get('image_url'),
+                topic=post.get('topic', 'Genel'),
+                likes=post.get('likes', 0),
+                comments=post.get('comments', 0)
+            ))
+
+    return formatted_posts
+
+
+@router.post("/api/posts", response_model=PostResponse, status_code=status.HTTP_201_CREATED, name="create_post_api")
+async def create_post_api(
+    content: str = Form(...), # Form veri olarak içeriği al
+    topic: Optional[str] = Form("Genel"), # Form veri olarak konuyu al, isteğe bağlı yapıldı
+    image: Optional[UploadFile] = File(None), # Dosya yüklemesi için UploadFile kullanın
+    current_user: CurrentUser = Depends(require_auth)
+):
+    """Yeni bir sosyal akış gönderisi oluşturur."""
+    if not current_user:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Giriş yapmalısınız.")
+
+    if not content.strip(): # post_data.content yerine doğrudan content kullanıyoruz
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Gönderi içeriği boş olamaz.")
+
+    image_url = None
+    if image:
+        try:
+            upload_dir = Path("static/images/posts") # Görseli kaydedeceğiniz klasör
+            upload_dir.mkdir(parents=True, exist_ok=True) # Klasörü yoksa oluştur
+
+            file_extension = Path(image.filename).suffix.lower()
+            if file_extension not in [".jpg", ".jpeg", ".png", ".gif"]:
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Sadece JPG, JPEG, PNG veya GIF formatında görseller yüklenebilir.")
+
+            # Benzersiz dosya adı oluştur
+            image_filename = f"{uuid.uuid4()}{file_extension}"
+            file_path = upload_dir / image_filename
+
+            # Dosyayı sunucuya kaydet
+            with open(file_path, "wb") as buffer:
+                while contents := await image.read(1024 * 1024): # 1MB'lık parçalar halinde oku
+                    buffer.write(contents)
+            
+            image_url = f"/static/images/posts/{image_filename}" # Frontend'in erişebileceği URL
+
+        except Exception as e:
+            # Dosya yükleme hatasını yakala ve daha açıklayıcı bir mesajla döndür
+            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Görsel yüklenirken bir hata oluştu: {e}")
+
+    # db_queries.create_post fonksiyonunu çağır
+    new_post_id = db_queries.create_post(
+        user_id=current_user.id,
+        content=content, # content doğrudan kullanılıyor
+        image_url=image_url, # image_url kullanılıyor
+        topic=topic # topic doğrudan kullanılıyor
+    )
+
+    if not new_post_id:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Gönderi oluşturulurken bir hata oluştu.")
+
+    # Oluşturulan postu döndürmek için veritabanından tekrar çekin
+    created_post_data = db_queries.get_post_by_id(new_post_id)
+    if not created_post_data:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Oluşturulan gönderi bulunamadı.")
+    
+    # PostResponse modeli için gerekli kullanıcı bilgilerini ekleyin
+    post_owner_data = db_queries.get_user_by_id(created_post_data['user_id'])
+    if not post_owner_data:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Gönderi sahibinin bilgileri bulunamadı.")
+
+    # created_post_data'yı PostResponse modeline uygun hale getir
+    final_post_response = PostResponse(
+        id=created_post_data['id'],
+        user_id=created_post_data['user_id'],
+        username=post_owner_data.get('username', 'Bilinmeyen Kullanıcı'),
+        profile_picture_url=post_owner_data.get('profile_picture_url', "/static/images/sample_user.png"),
+        content=created_post_data['content'],
+        timestamp=created_post_data['timestamp'],
+        image_url=created_post_data.get('image_url'),
+        topic=created_post_data.get('topic', 'Genel')
+    )
+    
+    return final_post_response

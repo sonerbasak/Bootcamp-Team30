@@ -700,3 +700,122 @@ def check_if_user_follows(follower_id: int, followed_id: int) -> bool:
         except sqlite3.Error as e:
             print(f"Database error during check_if_user_follows: {e}")
             return False
+
+
+# --- Yeni Post Sorguları ---
+def create_post(user_id: int, content: str, topic: str, image_url: Optional[str] = None) -> int:
+    """Yeni bir gönderi ekler."""
+    try:
+        # Burada settings.POSTS_DATABASE_FILE kullanıldığından emin olun
+        with get_db_connection(settings.POSTS_DATABASE_FILE) as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                INSERT INTO posts (user_id, content, image_url, topic, created_at)
+                VALUES (?, ?, ?, ?, ?)
+            """, (user_id, content, image_url, topic, datetime.now().isoformat())) # created_at eklendi
+            conn.commit()
+            return cursor.lastrowid
+    except sqlite3.Error as e:
+        print(f"Gönderi eklenirken hata: {e}")
+        return 0 # Hata durumunda 0 döndür veya hata fırlat
+
+
+def get_posts(limit: int = 10, offset: int = 0, topic: Optional[str] = None) -> List[Dict]:
+    """Belirli bir limitte ve ofsette gönderileri getirir, isteğe bağlı olarak konuya göre filtreler."""
+    query = """
+        SELECT
+            id, user_id, content, image_url, topic,
+            created_at AS timestamp, -- BURASI ÖNEMLİ: created_at'ı timestamp olarak adlandırıyoruz
+            likes, comments
+        FROM posts
+    """
+
+    params = []
+    if topic and topic != "Tümü":
+        query += " WHERE topic = ?"
+        params.append(topic)
+
+    query += " ORDER BY created_at DESC LIMIT ? OFFSET ?"
+    params.extend([limit, offset])
+
+    try:
+        with get_db_connection(settings.POSTS_DATABASE_FILE) as conn:
+            cursor = conn.cursor()
+            cursor.execute(query, tuple(params))
+            posts = cursor.fetchall()
+        
+        return [dict(post) for post in posts] # Artık 'timestamp' anahtarı burada olacak
+    except sqlite3.Error as e:
+        print(f"Gönderiler çekilirken hata (posts.db): {e}")
+        return []
+
+# Not: format_time_ago yardımcı bir fonksiyondur, db_queries içinde kalabilir.
+def format_time_ago(timestamp_str: str) -> str:
+    """Veritabanından gelen zaman damgasını 'x zaman önce' formatına dönüştürür."""
+    try:
+        # ISO formatından parse etmeye çalışın, saniye hassasiyeti olmasa da çalışmalı
+        post_time = datetime.fromisoformat(timestamp_str)
+    except ValueError:
+        try:
+            # Veya belirli bir YYYY-MM-DD HH:MM:SS formatı
+            post_time = datetime.strptime(timestamp_str, '%Y-%m-%d %H:%M:%S')
+        except ValueError:
+            # Hata durumunda doğrudan zaman damgasını döndür
+            return timestamp_str 
+    
+    now = datetime.now()
+    diff = now - post_time
+
+    seconds = int(diff.total_seconds())
+
+    if seconds < 60:
+        return "şimdi"
+    elif seconds < 3600: # 60 dakika (1 saat)
+        return f"{seconds // 60} dakika önce"
+    elif seconds < 86400: # 24 saat (1 gün)
+        return f"{seconds // 3600} saat önce"
+    elif seconds < 604800: # 7 gün (1 hafta)
+        return f"{seconds // 86400} gün önce"
+    elif seconds < 2592000: # Yaklaşık 30 gün (1 ay)
+        return f"{seconds // 604800} hafta önce"
+    elif seconds < 31536000: # Yaklaşık 365 gün (1 yıl)
+        return f"{seconds // 2592000} ay önce"
+    else:
+        return f"{seconds // 31536000} yıl önce"
+
+
+def search_users(query: str, limit: int = 5) -> List[Dict]:
+    """Kullanıcı adında arama yapan fonksiyon."""
+    try:
+        # Burada settings.USERS_DATABASE_FILE kullanıldığından emin olun
+        with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT id, username, profile_picture_url
+                FROM users
+                WHERE username LIKE ?
+                LIMIT ?
+            """, (f'%{query}%', limit))
+            users = cursor.fetchall()
+        return [dict(u) for u in users]
+    except sqlite3.Error as e:
+        print(f"Kullanıcı aranırken hata (users.db): {e}")
+        return []
+
+def get_post_by_id(post_id: int) -> Optional[Dict]:
+    """Belirli bir ID'ye sahip gönderiyi getirir."""
+    try:
+        with get_db_connection(settings.POSTS_DATABASE_FILE) as conn: # posts.db'ye bağlandığından emin olun
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT id, user_id, content, image_url, topic, created_at as timestamp, likes, comments
+                FROM posts
+                WHERE id = ?
+            """, (post_id,))
+            post = cursor.fetchone()
+            if post:
+                return dict(post)
+            return None
+    except sqlite3.Error as e:
+        print(f"Gönderi ID'ye göre çekilirken hata: {e}")
+        return None

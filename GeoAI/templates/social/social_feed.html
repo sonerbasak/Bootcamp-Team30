@@ -21,25 +21,24 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Türkiye Haritası</a>
+                        <a class="nav-link" href="{{ url_for('read_root') }}">Türkiye Haritası</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Dünya Haritası</a>
+                        <a class="nav-link" href="{{ url_for('world_page') }}">Dünya Haritası</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Yanlış Cevaplarım</a>
+                        <a class="nav-link" href="{{ url_for('serve_wrong_questions_page') }}?type=wrong-questions">Yanlış Cevaplarım</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Genel Kültür Testi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('serve_wrong_questions_page') }}">Genel Kültür Testi</a></li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Sosyal Akış</a>
+                        <a class="nav-link" href="{{ url_for('social_feed_page') }}">Sosyal Akış</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Mesajlar</a>
+                        <a class="nav-link" href="{{ url_for('message_list') }}">Mesajlar</a>
                     </li>
                 </ul>
                 
-                <form class="d-flex" onsubmit="event.preventDefault();">
-                    <div class="input-group">
+                <form class="d-flex" onsubmit="event.preventDefault();"> <div class="input-group">
                         <input type="text" class="form-control" id="navbarUserSearchInput" placeholder="Kullanıcı ara..." aria-label="Kullanıcı ara">
                         <button class="btn btn-outline-success" type="button" id="navbarSearchUserButton">🔍</button>
                     </div>
@@ -47,12 +46,17 @@
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Kullanıcı Adı
+                            {% if user %}{{ user.username }}{% else %}Misafir{% endif %}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Profilim</a></li>
+                            {% if user %}
+                            <li><a class="dropdown-item" href="{{ url_for('user_profile', username=user.username) }}">Profilim</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Çıkış Yap</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('logout_user') }}">Çıkış Yap</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="{{ url_for('login_page') }}">Giriş Yap</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('register_page') }}">Kayıt Ol</a></li>
+                            {% endif %}
                         </ul>
                     </li>
                 </ul>
@@ -72,7 +76,7 @@
             <div class="col-lg-4 col-md-5 mb-4">
                 <div class="card shadow-sm post-share-card h-100">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title mb-3 text-center">Ne düşünüyorsun, Kullanıcı Adı?</h5>
+                        <h5 class="card-title mb-3 text-center">Ne düşünüyorsun, {% if current_user %}{{ current_user.username }}{% else %}Misafir{% endif %}?</h5>
                         
                         <form id="postForm" enctype="multipart/form-data" class="d-flex flex-column flex-grow-1">
                             <div class="mb-3 flex-grow-1">
@@ -118,140 +122,9 @@
                     <button type="button" class="btn btn-outline-secondary btn-sm me-2 mb-2" data-topic="Genel Bilgiler">Genel Bilgiler</button>
                 </div>
                 <div id="postsContainer">
-                    <div class="card shadow-sm post-item-card mb-3" data-post-topic="Tarih">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="/static/images/tr.png" class="rounded-circle me-3 profile-pic" alt="Profil Resmi">
-                                <div>
-                                    <h6 class="mb-0 fw-bold post-username">Ayşe Yılmaz</h6>
-                                    <small class="text-muted post-time">1 saat önce</small>
-                                </div>
-                            </div>
-                            <p class="card-text post-content">
-                                Geçmişe yolculuk: Aspendos Antik Tiyatrosu'nun ihtişamı beni büyüledi. Bu yapının akustiği inanılmaz!
-                            </p>
-                            <img src="https://via.placeholder.com/600x400/FF5733/FFFFFF?text=Aspendos+Antik+Tiyatrosu" class="img-fluid rounded mb-3 post-image" alt="Gönderi Görseli">
-                            <div class="post-actions d-flex justify-content-around mt-3 pt-3 border-top">
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="far fa-heart me-1"></i> Beğen
-                                </button>
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="far fa-comment me-1"></i> Yorum Yap
-                                </button>
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="fas fa-share me-1"></i> Paylaş
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card shadow-sm post-item-card mb-3" data-post-topic="Doğal Güzellikler">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="https://via.placeholder.com/50/336699/FFFFFF?text=MZ" class="rounded-circle me-3 profile-pic" alt="Profil Resmi">
-                                <div>
-                                    <h6 class="mb-0 fw-bold post-username">Mehmet Zengin</h6>
-                                    <small class="text-muted post-time">3 saat önce</small>
-                                </div>
-                            </div>
-                            <p class="card-text post-content">
-                                Kapadokya'nın peribacaları gün batımında bir başka güzel oluyor. Türkiye'nin cennet köşelerinden!
-                            </p>
-                            <img src="https://via.placeholder.com/600x400/3399FF/FFFFFF?text=Kapadokya+Günbatımı" class="img-fluid rounded mb-3 post-image" alt="Gönderi Görseli">
-                            <div class="post-actions d-flex justify-content-around mt-3 pt-3 border-top">
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="far fa-heart me-1"></i> Beğen
-                                </button>
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="far fa-comment me-1"></i> Yorum Yap
-                                </button>
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="fas fa-share me-1"></i> Paylaş
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card shadow-sm post-item-card mb-3" data-post-topic="Tarım ve Yemekler">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="https://via.placeholder.com/50/CC6633/FFFFFF?text=ES" class="rounded-circle me-3 profile-pic" alt="Profil Resmi">
-                                <div>
-                                    <h6 class="mb-0 fw-bold post-username">Elif Solmaz</h6>
-                                    <small class="text-muted post-time">Dün</small>
-                                </div>
-                            </div>
-                            <p class="card-text post-content">
-                                Gaziantep'te yöresel lezzetleri denemek harikaydı! Baklava ve beyran çorbası favorim oldu.
-                            </p>
-                            <img src="https://via.placeholder.com/600x400/996633/FFFFFF?text=Gaziantep+Yemekleri" class="img-fluid rounded mb-3 post-image" alt="Gönderi Görseli">
-                            <div class="post-actions d-flex justify-content-around mt-3 pt-3 border-top">
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="far fa-heart me-1"></i> Beğen
-                                </button>
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="far fa-comment me-1"></i> Yorum Yap
-                                </button>
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="fas fa-share me-1"></i> Paylaş
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card shadow-sm post-item-card mb-3" data-post-topic="Genel Bilgiler">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="https://via.placeholder.com/50/66CC99/FFFFFF?text=KA" class="rounded-circle me-3 profile-pic" alt="Profil Resmi">
-                                <div>
-                                    <h6 class="mb-0 fw-bold post-username">Kaan Ateş</h6>
-                                    <small class="text-muted post-time">2 gün önce</small>
-                                </div>
-                            </div>
-                            <p class="card-text post-content">
-                                Türkiye'nin coğrafi konumu, birçok medeniyete ev sahipliği yapmasında önemli rol oynamış. Çok yönlü bir ülke!
-                            </p>
-                            <img src="https://via.placeholder.com/600x400/6699CC/FFFFFF?text=Türkiye+Haritası" class="img-fluid rounded mb-3 post-image" alt="Gönderi Görseli">
-                            <div class="post-actions d-flex justify-content-around mt-3 pt-3 border-top">
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="far fa-heart me-1"></i> Beğen
-                                </button>
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="far fa-comment me-1"></i> Yorum Yap
-                                </button>
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="fas fa-share me-1"></i> Paylaş
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card shadow-sm post-item-card mb-3" data-post-topic="Yapılar">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <img src="https://via.placeholder.com/50/9933CC/FFFFFF?text=DS" class="rounded-circle me-3 profile-pic" alt="Profil Resmi">
-                                <div>
-                                    <h6 class="mb-0 fw-bold post-username">Deniz Sönmez</h6>
-                                    <small class="text-muted post-time">3 gün önce</small>
-                                </div>
-                            </div>
-                            <p class="card-text post-content">
-                                Safranbolu evlerinin mimarisine hayran kaldım. Her biri adeta bir sanat eseri!
-                            </p>
-                            <img src="https://via.placeholder.com/600x400/CC66FF/FFFFFF?text=Safranbolu+Evleri" class="img-fluid rounded mb-3 post-image" alt="Gönderi Görseli">
-                            <div class="post-actions d-flex justify-content-around mt-3 pt-3 border-top">
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="far fa-heart me-1"></i> Beğen
-                                </button>
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="far fa-comment me-1"></i> Yorum Yap
-                                </button>
-                                <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                    <i class="fas fa-share me-1"></i> Paylaş
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center text-muted p-5 border rounded bg-white shadow-sm mt-3">
+                    <div class="text-center text-muted p-5 border rounded bg-white shadow-sm mt-3" id="loadingMorePosts">
                         <i class="fas fa-paper-plane fa-3x mb-3 text-primary"></i>
-                        <p class="fs-5">Daha fazla gönderi yükleniyor...</p>
+                        <p class="fs-5">Gönderiler yükleniyor...</p>
                     </div>
                 </div>
             </div>
@@ -268,59 +141,63 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Navbar arama çubuğu işlevselliği (sadece göstermelik)
             const searchInput = document.getElementById('navbarUserSearchInput');
             const searchButton = document.getElementById('navbarSearchUserButton');
             const searchResultsDiv = document.getElementById('userSearchResults');
 
-            if (searchButton) {
-                searchButton.addEventListener('click', function() {
-                    performSearch(searchInput.value);
-                });
-            }
+            let currentOffset = 0;
+            const limit = 5; // Her seferinde yüklenecek gönderi sayısı
+            let isLoadingPosts = false;
+            let currentTopicFilter = 'Tümü';
+            const loadingMessage = document.getElementById('loadingMorePosts');
 
-            if (searchInput) {
-                searchInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        performSearch(searchInput.value);
-                    }
-                });
-            }
-
-            function performSearch(query) {
+            // --- Kullanıcı Arama İşlevselliği ---
+            const performSearch = async (query) => {
                 if (query.length < 2) {
                     searchResultsDiv.innerHTML = '';
                     searchResultsDiv.classList.remove('active');
                     return;
                 }
 
-                // Simüle edilmiş arama sonuçları
-                const dummyResults = [
-                    { username: 'ayseyilmaz', profile_picture_url: 'https://via.placeholder.com/30/FF5733/FFFFFF?text=AY', url: '#' },
-                    { username: 'mehmetzengin', profile_picture_url: 'https://via.placeholder.com/30/336699/FFFFFF?text=MZ', url: '#' },
-                    { username: 'elifsolmaz', profile_picture_url: 'https://via.placeholder.com/30/CC6633/FFFFFF?text=ES', url: '#' },
-                    { username: 'kaanates', profile_picture_url: 'https://via.placeholder.com/30/66CC99/FFFFFF?text=KA', url: '#' },
-                    { username: 'denizsönmez', profile_picture_url: 'https://via.placeholder.com/30/9933CC/FFFFFF?text=DS', url: '#' }
-                ];
+                try {
+                    const response = await fetch(`/api/search_users?q=${encodeURIComponent(query)}`);
+                    const users = await response.json();
 
-                const filteredResults = dummyResults.filter(user => user.username.toLowerCase().includes(query.toLowerCase()));
-
-                if (filteredResults.length > 0) {
-                    let resultsHtml = '';
-                    filteredResults.forEach(user => {
-                        resultsHtml += `
-                            <a href="${user.url}" class="list-group-item list-group-item-action d-flex align-items-center">
-                                <img src="${user.profile_picture_url}" alt="${user.username}" class="rounded-circle me-2" style="width: 30px; height: 30px;">
-                                ${user.username}
-                            </a>
-                        `;
-                    });
-                    searchResultsDiv.innerHTML = resultsHtml;
-                    searchResultsDiv.classList.add('active');
-                } else {
-                    searchResultsDiv.innerHTML = '<div class="list-group-item text-muted">Kullanıcı bulunamadı.</div>';
+                    if (users.length > 0) {
+                        let resultsHtml = '';
+                        users.forEach(user => {
+                            const profilePic = user.profile_picture_url || 'https://via.placeholder.com/30/CCCCCC/FFFFFF?text=KU'; // Varsayılan resim
+                            resultsHtml += `
+                                <a href="/profile/${user.id}" class="list-group-item list-group-item-action d-flex align-items-center">
+                                    <img src="${profilePic}" alt="${user.username}" class="rounded-circle me-2" style="width: 30px; height: 30px;">
+                                    ${user.username}
+                                </a>
+                            `;
+                        });
+                        searchResultsDiv.innerHTML = resultsHtml;
+                        searchResultsDiv.classList.add('active');
+                    } else {
+                        searchResultsDiv.innerHTML = '<div class="list-group-item text-muted">Kullanıcı bulunamadı.</div>';
+                        searchResultsDiv.classList.add('active');
+                    }
+                } catch (error) {
+                    console.error('Kullanıcı arama hatası:', error);
+                    searchResultsDiv.innerHTML = '<div class="list-group-item text-danger">Arama sırasında bir hata oluştu.</div>';
                     searchResultsDiv.classList.add('active');
                 }
+            };
+
+            if (searchButton) {
+                searchButton.addEventListener('click', () => performSearch(searchInput.value));
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', () => performSearch(searchInput.value));
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault(); // Form submitini engelle
+                    }
+                });
             }
 
             document.addEventListener('click', function(event) {
@@ -330,11 +207,10 @@
                 }
             });
 
-            // --- Konu Filtreleme ve Gönderi Oluşturma İşlevselliği (Sadece Göstermelik) ---
-
+            // --- Gönderi Oluşturma İşlevselliği ---
             const postForm = document.getElementById('postForm');
             const postContent = document.getElementById('postContent');
-            const postTopic = document.getElementById('postTopic'); // Konu select kutusu
+            const postTopic = document.getElementById('postTopic');
             const postImage = document.getElementById('postImage');
             const imagePreview = document.getElementById('imagePreview');
             const imagePreviewImg = imagePreview.querySelector('img');
@@ -342,7 +218,6 @@
             const postsContainer = document.getElementById('postsContainer');
             const topicFilterButtons = document.querySelectorAll('.topic-filter-buttons .btn');
 
-            // Görsel önizleme ve kaldırma
             postImage.addEventListener('change', function() {
                 if (this.files && this.files[0]) {
                     const reader = new FileReader();
@@ -358,17 +233,16 @@
             });
 
             removeImageBtn.addEventListener('click', function() {
-                postImage.value = ''; // Input'u sıfırla
+                postImage.value = '';
                 imagePreview.classList.add('d-none');
                 imagePreviewImg.src = '#';
             });
 
-            // Yeni gönderi oluşturma (sadece göstermelik, gerçek kayıt yok)
-            postForm.addEventListener('submit', function(e) {
+            postForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
 
                 const content = postContent.value.trim();
-                const topic = postTopic.value; 
+                const topic = postTopic.value;
                 const imageFile = postImage.files[0];
 
                 if (!content && !imageFile) {
@@ -380,67 +254,81 @@
                     return;
                 }
 
-                console.log('Yeni Gönderi (Göstermelik):', { content, topic, imageFile: imageFile ? imageFile.name : 'Yok' });
-                
-                // Örnek bir post kartı oluştur
-                const newPostCard = createPostCard(
-                    'Şu Anki Kullanıcı', // Bu kısım dinamik kullanıcı adını simüle eder
-                    content,
-                    imageFile ? URL.createObjectURL(imageFile) : null,
-                    'Şimdi',
-                    topic 
-                );
-                postsContainer.prepend(newPostCard); // En üste ekle
-
-                // Formu temizle
-                postContent.value = '';
-                postTopic.value = ''; 
-                postImage.value = '';
-                imagePreview.classList.add('d-none');
-                imagePreviewImg.src = '#';
-                
-                // "Daha fazla gönderi yükleniyor..." mesajını gizle
-                const placeholderMessage = postsContainer.querySelector('.text-center.text-muted');
-                if (placeholderMessage) {
-                    placeholderMessage.style.display = 'none';
+                const formData = new FormData();
+                formData.append('content', content);
+                formData.append('topic', topic);
+                if (imageFile) {
+                    formData.append('image', imageFile);
                 }
-                
-                // Yeni gönderi eklendiğinde "Tümü" filtresini otomatik olarak aktif yap
-                // ve tüm gönderileri görünür hale getir.
-                const allButton = document.querySelector('.topic-filter-buttons .btn[data-topic="Tümü"]');
-                if (allButton) {
-                    allButton.click(); // 'Tümü' butonuna tıklama simülasyonu
+
+                try {
+                    const response = await fetch('/api/posts', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        const newPost = await response.json();
+                        const newPostCard = createPostCard(newPost);
+                        postsContainer.prepend(newPostCard);
+
+                        postContent.value = '';
+                        postTopic.value = '';
+                        postImage.value = '';
+                        imagePreview.classList.add('d-none');
+                        imagePreviewImg.src = '#';
+                        
+                        // "Daha fazla gönderi yükleniyor..." mesajını gizle veya en sona taşı
+                        if (loadingMessage) {
+                            loadingMessage.style.display = 'none';
+                        }
+                        
+                        // Yeni gönderi eklendiğinde "Tümü" filtresini otomatik olarak aktif yap
+                        document.querySelector('.topic-filter-buttons .btn[data-topic="Tümü"]').click();
+
+                    } else if (response.status === 401) {
+                        alert('Gönderi paylaşmak için giriş yapmalısınız.');
+                        window.location.href = '/login'; // Giriş sayfasına yönlendir
+                    } else {
+                        const errorData = await response.json();
+                        alert('Gönderi paylaşılırken bir hata oluştu: ' + (errorData.error || 'Bilinmeyen Hata'));
+                    }
+                } catch (error) {
+                    console.error('Gönderi hatası:', error);
+                    alert('Gönderi paylaşılırken bir ağ hatası oluştu.');
                 }
             });
 
             // Post kartı oluşturma fonksiyonu
-            function createPostCard(username, content, imageUrl, timeAgo, topic) {
+            function createPostCard(post) {
                 const cardDiv = document.createElement('div');
                 cardDiv.classList.add('card', 'shadow-sm', 'post-item-card', 'mb-3');
-                cardDiv.dataset.postTopic = topic; // Konu bilgisini data attribute olarak ekle
+                cardDiv.dataset.postTopic = post.topic;
+
+                const profilePicUrl = post.profile_picture_url || 'https://via.placeholder.com/50/FFC107/FFFFFF?text=KU'; // Varsayılan profil resmi
 
                 let imageHtml = '';
-                if (imageUrl) {
-                    imageHtml = `<img src="${imageUrl}" class="img-fluid rounded mb-3 post-image" alt="Gönderi Görseli">`;
+                if (post.image_url) {
+                    imageHtml = `<img src="${post.image_url}" class="img-fluid rounded mb-3 post-image" alt="Gönderi Görseli">`;
                 }
 
                 cardDiv.innerHTML = `
                     <div class="card-body">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://via.placeholder.com/50/FFC107/FFFFFF?text=KU" class="rounded-circle me-3 profile-pic" alt="Profil Resmi">
+                            <img src="${profilePicUrl}" class="rounded-circle me-3 profile-pic" alt="Profil Resmi">
                             <div>
-                                <h6 class="mb-0 fw-bold post-username">${username}</h6>
-                                <small class="text-muted post-time">${timeAgo}</small>
+                                <h6 class="mb-0 fw-bold post-username">${post.username}</h6>
+                                <small class="text-muted post-time">${post.created_at}</small>
                             </div>
                         </div>
-                        <p class="card-text post-content">${content}</p>
+                        <p class="card-text post-content">${post.content}</p>
                         ${imageHtml}
                         <div class="post-actions d-flex justify-content-around mt-3 pt-3 border-top">
                             <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                <i class="far fa-heart me-1"></i> Beğen
+                                <i class="far fa-heart me-1"></i> Beğen (${post.likes || 0})
                             </button>
                             <button class="btn btn-sm btn-outline-secondary post-action-btn">
-                                <i class="far fa-comment me-1"></i> Yorum Yap
+                                <i class="far fa-comment me-1"></i> Yorum Yap (${post.comments || 0})
                             </button>
                             <button class="btn btn-sm btn-outline-secondary post-action-btn">
                                 <i class="fas fa-share me-1"></i> Paylaş
@@ -451,33 +339,75 @@
                 return cardDiv;
             }
 
+            // --- Gönderileri Yükleme ve Filtreleme İşlevselliği ---
+            async function loadPosts(reset = false) {
+                if (isLoadingPosts) return;
+                isLoadingPosts = true;
+                loadingMessage.style.display = 'block'; // Yükleniyor mesajını göster
+
+                if (reset) {
+                    postsContainer.innerHTML = ''; // Yeni filtrede eski gönderileri temizle
+                    currentOffset = 0;
+                }
+
+                const url = `/api/posts?limit=${limit}&offset=${currentOffset}&topic=${encodeURIComponent(currentTopicFilter)}`;
+                
+                try {
+                    const response = await fetch(url);
+                    const posts = await response.json();
+
+                    if (posts.length > 0) {
+                        posts.forEach(post => {
+                            postsContainer.appendChild(createPostCard(post));
+                        });
+                        currentOffset += posts.length;
+                    } else {
+                        // Daha fazla gönderi yoksa mesajı güncelle
+                        loadingMessage.querySelector('p').textContent = 'Gösterilecek başka gönderi yok.';
+                        // Veya mesajı tamamen kaldırabilirsiniz: loadingMessage.style.display = 'none';
+                    }
+                } catch (error) {
+                    console.error('Gönderiler yüklenirken hata oluştu:', error);
+                    loadingMessage.querySelector('p').textContent = 'Gönderiler yüklenirken bir hata oluştu.';
+                    loadingMessage.querySelector('i').classList.remove('text-primary');
+                    loadingMessage.querySelector('i').classList.add('text-danger');
+
+                } finally {
+                    isLoadingPosts = false;
+                    // Eğer gönderi yüklendiyse ve başka gönderi yoksa gizle
+                    if(currentOffset > 0 && postsContainer.children.length > currentOffset) { // Basit bir kontrol
+                         loadingMessage.style.display = 'none';
+                    } else if (posts.length === 0 && currentOffset === 0) { // İlk yüklemede hiç gönderi yoksa
+                         loadingMessage.querySelector('p').textContent = 'Henüz hiç gönderi bulunmamaktadır.';
+                    }
+                    if (posts.length === 0 && currentOffset > 0){ // Son gönderiler yüklendi ve daha yoksa
+                        loadingMessage.querySelector('p').textContent = 'Tüm gönderiler yüklendi.';
+                    }
+                    
+                }
+            }
+
             // Konu filtreleme işlevselliği
             topicFilterButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // Tüm butonlardan active sınıfını kaldır
                     topicFilterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Tıklanan butona active sınıfını ekle
                     this.classList.add('active');
 
-                    const selectedTopic = this.dataset.topic; 
-                    const allPosts = document.querySelectorAll('.post-item-card');
-
-                    allPosts.forEach(post => {
-                        const postTopic = post.dataset.postTopic; 
-                        if (selectedTopic === 'Tümü' || postTopic === selectedTopic) {
-                            post.style.display = 'block'; 
-                        } else {
-                            post.style.display = 'none'; 
-                        }
-                    });
+                    currentTopicFilter = this.dataset.topic;
+                    loadPosts(true); // Filtre değiştiğinde gönderileri sıfırla ve yeniden yükle
                 });
             });
 
-            // Sayfa yüklendiğinde tüm postları göster ve "Tümü" butonunu aktif yap
-            const allButtonOnLoad = document.querySelector('.topic-filter-buttons .btn[data-topic="Tümü"]');
-            if (allButtonOnLoad) {
-                allButtonOnLoad.click(); // Sayfa yüklendiğinde "Tümü" butonuna tıkla
-            }
+            // Sayfa yüklendiğinde ilk gönderileri yükle
+            loadPosts(true); 
+
+            // Scroll ile daha fazla gönderi yükleme
+            window.addEventListener('scroll', () => {
+                const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+                if (scrollTop + clientHeight >= scrollHeight - 500 && !isLoadingPosts) { // Sayfanın altına 500px kala yükle
+                    loadPosts();
+                }
+            });
         });
     </script>
     <style>

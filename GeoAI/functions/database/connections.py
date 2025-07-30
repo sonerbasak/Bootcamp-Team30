@@ -228,6 +228,25 @@ def init_dbs():
         conn.commit()
         logging.info("quiz_stats.db tabloları başlatıldı/güncellendi.")
 
+    # posts.db için tablo oluşturma 
+    with get_db_connection(settings.POSTS_DATABASE_FILE) as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS posts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                content TEXT NOT NULL,
+                image_url TEXT,
+                topic TEXT NOT NULL,
+                created_at TEXT NOT NULL ,
+                likes INTEGER DEFAULT 0,
+                comments INTEGER DEFAULT 0,
+                FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+            )
+        """)
+        conn.commit()
+        logging.info("posts.db tabloları başlatıldı/güncellendi.")
+
     # Tüm tablolar oluşturulduktan sonra rozet tiplerini ekle
     insert_initial_badge_types() # Doğrudan buradaki fonksiyonu çağırıyoruz
     logging.info("İlk rozet tipleri yüklendi (eğer yoktularsa).")
