@@ -380,37 +380,66 @@ def search_users_by_username(search_term: str) -> List[Dict]:
     
 # --- ROZET SORGULARI ---
 def get_user_badges(user_id: int) -> List[Dict]:
-    """Kullanıcının kazandığı rozetleri ve detaylarını getirir."""
+    """
+    Kullanıcının kazandığı rozetleri ve detaylarını getirir.
+    Her rozet tipi (name) ve kategori için (category), sadece kullanıcının ulaştığı en yüksek eşiğe sahip rozeti döndürür.
+    """
     badges = []
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
         cursor.execute("""
-            SELECT 
+            SELECT
                 ub.achieved_at,
                 bt.id AS badge_id,
                 bt.name,
                 bt.description,
                 bt.image_url,
                 bt.type AS badge_type,
-                bt.threshold
+                bt.threshold,
+                bt.category
             FROM user_badges ub
             JOIN badge_types bt ON ub.badge_id = bt.id
             WHERE ub.user_id = ?
-            ORDER BY ub.achieved_at DESC
-        """, (user_id,))
+            AND bt.threshold = ( -- Her bir rozet tipi ve kategori için en yüksek eşik değerini bul
+                SELECT MAX(bt2.threshold)
+                FROM user_badges ub2
+                JOIN badge_types bt2 ON ub2.badge_id = bt2.id
+                WHERE ub2.user_id = ? AND bt2.name = bt.name AND bt2.category = bt.category
+            )
+            ORDER BY bt.category ASC, bt.name ASC, bt.threshold DESC -- Rozetleri kategori, isim ve eşiğe göre sırala
+        """, (user_id, user_id)) # İki kez user_id parametresini geçiyoruz
+        
         rows = cursor.fetchall()
+        
+        # Sonuçları filtrelemek için bir set kullanacağız.
+        # Her bir 'name' ve 'category' kombinasyonu için sadece en yüksek eşiğe sahip olanı alacağız.
+        # SQL sorgusu bunu zaten hallediyor olmalı, ancak yine de Python tarafında ekstra bir kontrol ekleyelim
+        # eğer veritabanı sorgusu beklenen sonucu tam olarak vermezse.
+        seen_badges = set()
         for row in rows:
+            badge_name = row["name"]
+            badge_category = row["category"] # category sütunu ekledik
+            
+            # Bu kombinasyon (name, category) için zaten daha yüksek bir eşik görüldüyse atla
+            # Ancak, SQL sorgusu zaten en yüksek eşiği getireceği için bu kısım çoğunlukla gereksizdir.
+            # Yine de, mantıksal sağlamlık için bırakılabilir.
+            if (badge_name, badge_category) in seen_badges:
+                continue
+            
             badges.append({
                 "achieved_at": row["achieved_at"],
-                "badge_info": { 
+                "badge_info": {
                     "id": row["badge_id"],
                     "name": row["name"],
                     "description": row["description"],
                     "image_url": row["image_url"],
                     "type": row["badge_type"],
-                    "threshold": row["threshold"]
+                    "threshold": row["threshold"],
+                    "category": row["category"] # category bilgisini de ekleyelim
                 }
             })
+            seen_badges.add((badge_name, badge_category))
+            
     return badges
 
 def add_user_badge(user_id: int, badge_id: int) -> bool:
