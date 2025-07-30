@@ -528,7 +528,7 @@
     "FamousPersonalities": ["Miralem Pjanić (Futbolcu)", "Emir Kusturica (Yönetmen)"]
   },
   {
-    "name": "Botswana",
+    "name": "Botsvana",
     "CountryFlag/Image": "static/images/flags/bw.png",
     "Capital": "Gaborone",
     "GeographyAndClimate": "Güney Afrika'da denize kıyısı olmayan bir ülkedir. Büyük kısmı Kalahari Çölü ile kaplıdır. Kuzeyde Okavango Deltası gibi sulak alanlar bulunur. Yarı kurak iklime sahiptir, yazlar sıcak, kışlar ılıman ve kuraktır.",
@@ -880,7 +880,7 @@
     "FamousPersonalities": ["Albert Pujols (Beyzbol Oyuncusu)", "Juan Luis Guerra (Müzisyen)"]
   },
   {
-    "name": "Ekvator",
+    "name": "Ekvador",
     "CountryFlag/Image": "static/images/flags/ec.png",
     "Capital": "Quito",
     "GeographyAndClimate": "Güney Amerika'da, Büyük Okyanus'a kıyısı olan bir ülkedir. Adını ekvatordan alır. Batıda Pasifik kıyısı, orta kesimde And Dağları ve doğuda Amazon yağmur ormanları bulunur. İklimi rakıma ve bölgeye göre tropikalden dağ iklimine kadar çeşitlilik gösterir.",
@@ -1606,28 +1606,6 @@
     "FamousPersonalities": ["Saddam Hüseyin (eski devlet başkanı)", "Zaha Hadid (mimar - Irak doğumlu)"]
   },
   {
-    "name": "İngiltere",
-    "CountryFlag/Image": "static/images/flags/gb-eng.png",
-    "Capital": "Londra",
-    "GeographyAndClimate": "Büyük Britanya adasının güneyini kaplar. Çoğunlukla alçak tepeler ve düzlüklerden oluşur. Ilıman okyanus iklimi hakimdir; dört mevsimi belirgin, ancak değişken ve her mevsim yağışlıdır.",
-    "History": "Roma İmparatorluğu'nun bir parçası olmuş, Anglosakson krallıklar dönemini yaşamış, Norman fethiyle birleşmiş, büyük bir deniz gücü ve küresel bir imparatorluk kurmuş, endüstri devrimine öncülük etmiştir.",
-    "InternationalRelations": "Birleşik Krallık'ın bir parçası olarak BM Güvenlik Konseyi daimi üyesi, NATO, G7, G20, İngiliz Milletler Topluluğu üyesi.",
-    "Area": "130,395 km²",
-    "Population": "Yaklaşık 56.5 milyon",
-    "OfficialLanguage(s)": ["İngilizce"],
-    "Currency": "Sterlin (£)",
-    "FamousDishes": ["Fish and Chips", "Roast Dinner (Pazar yemeği)", "Shepherd's Pie", "Full English Breakfast"],
-    "MajorTouristAttractions": ["Buckingham Sarayı (Londra)", "Londra Kulesi", "Stonehenge", "Big Ben", "British Museum", "Lake District"],
-    "CulturalHighlights": "Shakespeare, The Beatles, Harry Potter, Premier League futbol, popüler müzik, köklü tiyatro geleneği, pub kültürü.",
-    "UniversitiesAndEducation": "Oxford Üniversitesi, Cambridge Üniversitesi, Imperial College London, UCL gibi dünyanın önde gelen üniversitelerine ev sahipliği yapar. Köklü ve saygın bir eğitim sistemi.",
-    "NaturalResources": ["Kömür", "Petrol", "Doğal gaz", "Kireçtaşı", "Tebeşir", "Kaya tuzu"],
-    "TravelTips": "Londra'da toplu taşıma ağı gelişmiştir. Tarihi şehirleri ve kırsal alanları keşfedin. Hava durumuna göre katmanlı giyinin. İngiliz pub kültürünü deneyimleyin.",
-    "MajorSports": ["Futbol", "Ragbi", "Kriket", "Tenis"],
-    "TypicalArchitecture": "Gotik katedraller, Tudor dönemi evleri, Viktorya dönemi teraslı evler, modern Londra gökdelenleri.",
-    "Wildlife": "Tilki, porsuk, kirpi, geyik, çeşitli kuş türleri. Kırsal alanlarda ve şehir parklarında yaygın.",
-    "FamousPersonalities": ["William Shakespeare (yazar)", "Kraliçe II. Elizabeth", "Sir Isaac Newton (bilim insanı)", "The Beatles (müzik grubu)"]
-  },
-  {
     "name": "İran",
     "CountryFlag/Image": "static/images/flags/ir.png",
     "Capital": "Tahran",
@@ -2090,7 +2068,7 @@
     "FamousPersonalities": ["Gabriel García Márquez (yazar)", "Shakira (şarkıcı)", "Juan Pablo Montoya (Formula 1 sürücüsü)", "Fernando Botero (ressam)"]
   },
   {
-    "name": "Kongo Cumhuriyeti",
+    "name": "Demokratik Kongo Cumhuriyeti",
     "CountryFlag/Image": "static/images/flags/cg.png",
     "Capital": "Brazzaville",
     "GeographyAndClimate": "Orta Afrika'da yer alır. Atlantik Okyanusu'na kısa bir kıyısı vardır. Kongo Havzası'nda yoğun ormanlık alanlar, savanlar ve kıyı ovaları bulunur. Ekvatoral iklim hakimdir; sıcak ve nemli, yıl boyu yağışlı.",
@@ -3367,7 +3345,7 @@
     "FamousPersonalities": ["Yerel olarak tanınmış kişiler bulunmaktadır."]
   },
   {
-    "name": "Senegal Cumhuriyeti",
+    "name": "Senegal",
     "CountryFlag/Image": "static/images/flags/sn.png",
     "Capital": "Dakar",
     "GeographyAndClimate": "Batı Afrika'da, Atlantik Okyanusu kıyısında yer alır. Büyük kısmı savan iklimine sahiptir, kuzeyde yarı çöl, güneyde daha yağışlıdır. Senegal Nehri ülkenin kuzey sınırını oluşturur.",
@@ -3411,7 +3389,7 @@
     "FamousPersonalities": ["James Mancham (ilk devlet başkanı)"]
   },
   {
-    "name": "Sırbistan Cumhuriyeti",
+    "name": "Sırbistan",
     "CountryFlag/Image": "static/images/flags/rs.png",
     "Capital": "Belgrad",
     "GeographyAndClimate": "Güneydoğu Avrupa'da, Balkan Yarımadası'nda denize kıyısı olmayan bir ülkedir. Kuzeyde verimli ovalar (Voyvodina), güneyde dağlık bölgeler (Dinar Alpleri) bulunur. Karasal iklime sahiptir, soğuk kışlar ve sıcak yazlar yaşanır.",
@@ -3433,7 +3411,7 @@
     "FamousPersonalities": ["Nikola Tesla (bilim insanı)", "Novak Đoković (tenisçi)", "Emir Kusturica (yönetmen)"]
   },
   {
-    "name": "Sierra Leone Cumhuriyeti",
+    "name": "Sierra Leone",
     "CountryFlag/Image": "static/images/flags/sl.png",
     "Capital": "Freetown",
     "GeographyAndClimate": "Batı Afrika'da, Atlantik Okyanusu kıyısında yer alır. Tropikal iklime sahiptir, yağışlı ve kuru mevsimleri bulunur. Kıyı ovaları, yaylalar ve dağlık bölgeler bulunur.",
@@ -3455,7 +3433,7 @@
     "FamousPersonalities": ["Ishmael Beah (yazar)", "Sia Tolno (şarkıcı)"]
   },
   {
-    "name": "Singapur Cumhuriyeti",
+    "name": "Singapur",
     "CountryFlag/Image": "static/images/flags/sg.png",
     "Capital": "Singapur",
     "GeographyAndClimate": "Güneydoğu Asya'da, Malay Yarımadası'nın ucunda yer alan bir ada şehir devleti ve ülkesidir. Tropikal yağmur ormanı iklimine sahiptir, yıl boyunca sıcak, nemli ve yağışlıdır.",
@@ -3477,7 +3455,7 @@
     "FamousPersonalities": ["Lee Kuan Yew (kurucu başbakan)"]
   },
   {
-    "name": "Slovakya Cumhuriyeti",
+    "name": "Slovakya",
     "CountryFlag/Image": "static/images/flags/sk.png",
     "Capital": "Bratislava",
     "GeographyAndClimate": "Orta Avrupa'da denize kıyısı olmayan bir ülkedir. Karpat Dağları'nın bir kısmı ve Tuna Nehri bulunur. Ilıman karasal iklime sahiptir, soğuk kışlar ve ılıman yazlar yaşanır.",
@@ -3499,7 +3477,7 @@
     "FamousPersonalities": ["Andy Warhol (sanatçı - Slovak kökenli)", "Milan Rastislav Štefánik (astronom, politikacı)"]
   },
   {
-    "name": "Slovenya Cumhuriyeti",
+    "name": "Slovenya",
     "CountryFlag/Image": "static/images/flags/si.png",
     "Capital": "Ljubljana",
     "GeographyAndClimate": "Orta Avrupa'da, Adriyatik Denizi'ne kıyısı olan bir ülkedir. Alp Dağları, Karst platosu ve Pannonian Ovası gibi çeşitli coğrafi özelliklere sahiptir. Alp, Akdeniz ve karasal iklimlerin karışımı görülür.",
@@ -3609,7 +3587,7 @@
     "FamousPersonalities": ["İbrahim El-Koni (yazar)"]
   },
   {
-    "name": "Surinam Cumhuriyeti",
+    "name": "Surinam",
     "CountryFlag/Image": "static/images/flags/sr.png",
     "Capital": "Paramaribo",
     "GeographyAndClimate": "Güney Amerika'nın kuzeydoğusunda, Atlantik Okyanusu kıyısında yer alır. Tropikal iklime sahiptir, yıl boyunca sıcak ve nemlidir. Ülkenin büyük kısmı yağmur ormanlarıyla kaplıdır.",
@@ -3653,7 +3631,7 @@
     "FamousPersonalities": ["Nizar Kabbani (şair)", "Adonis (şair)"]
   },
 {
-  "name": "Suudi Arabistan Krallığı",
+  "name": "Suudi Arabistan",
   "CountryFlag/Image": "static/images/flags/sa.png",
   "Capital": "Riyad",
   "GeographyAndClimate": "Orta Doğu'da, Arap Yarımadası'nın büyük bir kısmını kaplar. Kızıldeniz ve Basra Körfezi'ne kıyısı vardır. Büyük kısmı çöl ve yarı çöl iklimine sahiptir, çok sıcak ve kuraktır.",
@@ -3697,7 +3675,7 @@
   "FamousPersonalities": ["Çok fazla uluslararası üne sahip isim bulunmamaktadır."]
 },
 {
-  "name": "Eswatini Krallığı (eski adıyla Svaziland)",
+  "name": "Eswatini",
   "CountryFlag/Image": "static/images/flags/sz.png",
   "Capital": "Mbabane (idari), Lobamba (kraliyet ve yasama)",
   "GeographyAndClimate": "Güney Afrika'da, Güney Afrika ve Mozambik arasında denize kıyısı olmayan bir ülkedir. Dağlık bölgeler, yaylalar ve alçak savanlar bulunur. Subtropikalden ılıman iklime kadar değişir.",
@@ -3741,7 +3719,7 @@
   "FamousPersonalities": ["Pablo Neruda (Nobel ödüllü şair)", "Gabriela Mistral (Nobel ödüllü şair)", "Michelle Bachelet (eski devlet başkanı)"]
 },
 {
-  "name": "Tacikistan Cumhuriyeti",
+  "name": "Tacikistan",
   "CountryFlag/Image": "static/images/flags/tj.png",
   "Capital": "Duşanbe",
   "GeographyAndClimate": "Orta Asya'da, denize kıyısı olmayan bir ülkedir. Pamir Dağları'nın büyük bir kısmını kaplar. Yüksek rakımlı dağlık bölgelerde alp iklimi, daha alçak bölgelerde karasal iklim görülür.",
@@ -3785,7 +3763,7 @@
   "FamousPersonalities": ["Julius Nyerere (ilk devlet başkanı)", "Freddie Mercury (müzisyen - Zanzibar'da doğdu)"]
 },
 {
-  "name": "Tayland Krallığı",
+  "name": "Tayland",
   "CountryFlag/Image": "static/images/flags/th.png",
   "Capital": "Bangkok",
   "GeographyAndClimate": "Güneydoğu Asya'da yer alır. Kuzeyde dağlık, orta kesimde ovalık ve güneyde tropikal adalar bulunur. İklimi tropikal muson iklimidir; sıcak ve nemli, üç ana mevsimi vardır: sıcak, yağmurlu ve serin.",
@@ -3807,7 +3785,7 @@
   "FamousPersonalities": ["Bhumibol Adulyadej (eski kral)", "Tony Jaa (aktör)", "Lisa (Blackpink'ten)"]
 },
 {
-  "name": "Çin Cumhuriyeti (Tayvan)",
+  "name": "Çin Cumhuriyeti",
   "CountryFlag/Image": "static/images/flags/tw.png",
   "Capital": "Taipei",
   "GeographyAndClimate": "Pasifik Okyanusu'nda bir ada ülkesi. Doğusu dağlık, batısı ovalık. İklimi subtropikal; sıcak ve nemli yazlar, ılıman kışlar. Tayfunlar yaygındır.",
@@ -3829,7 +3807,7 @@
   "FamousPersonalities": ["Ang Lee (yönetmen)", "Jay Chou (şarkıcı)", "Tsai Ing-wen (eski cumhurbaşkanı)"]
 },
 {
-  "name": "Togo Cumhuriyeti",
+  "name": "Togo",
   "CountryFlag/Image": "static/images/flags/tg.png",
   "Capital": "Lomé",
   "GeographyAndClimate": "Batı Afrika'da, Gine Körfezi kıyısında yer alır. Güneyde kıyı ovası, kuzeyde tepelik araziler ve dağlar bulunur. İklimi tropikal; sıcak ve nemli, iki yağmur ve iki kurak mevsimi vardır.",
@@ -3851,7 +3829,7 @@
   "FamousPersonalities": ["Emmanuel Adebayor (futbolcu)", "Gnassingbé Eyadéma (eski cumhurbaşkanı)"]
 },
 {
-  "name": "Tonga Krallığı",
+  "name": "Tonga",
   "CountryFlag/Image": "static/images/flags/to.png",
   "Capital": "Nukuʻalofa",
   "GeographyAndClimate": "Güney Pasifik'te bir takımada ülkesi. Volkanik adalar ve mercan atollerinden oluşur. İklimi tropikal; sıcak ve nemli, kasırga mevsimi (Kasım-Nisan) bulunur.",
@@ -3895,7 +3873,7 @@
   "FamousPersonalities": ["V.S. Naipaul (Nobel ödüllü yazar)", "Nicki Minaj (şarkıcı)", "Dwight Yorke (futbolcu)"]
 },
 {
-  "name": "Tunus Cumhuriyeti",
+  "name": "Tunus",
   "CountryFlag/Image": "static/images/flags/tn.png",
   "Capital": "Tunus",
   "GeographyAndClimate": "Kuzey Afrika'da, Akdeniz kıyısında yer alır. Kuzeyde Atlas Dağları, orta kısımda kurak platolar ve güneyde Sahra Çölü bulunur. İklimi Akdeniz iklimidir; sıcak, kurak yazlar ve ılıman, yağışlı kışlar.",
@@ -3983,7 +3961,7 @@
     "FamousPersonalities": ["Saparmurat Niyazov (eski devlet başkanı)", "Gurbanguly Berdimuhamedow (eski devlet başkanı)"]
   },
   {
-    "name": "Uganda Cumhuriyeti",
+    "name": "Uganda",
     "CountryFlag/Image": "static/images/flags/ug.png",
     "Capital": "Kampala",
     "GeographyAndClimate": "Doğu Afrika'da, Büyük Rift Vadisi'nde yer alır. Bol su kaynaklarına sahiptir (Nil Nehri'nin kaynağı, Victoria Gölü). İklimi tropikal; ılıman sıcaklıklar ve iki yağmur mevsimi vardır.",
@@ -4027,7 +4005,7 @@
     "FamousPersonalities": ["Taras Shevchenko (şair)", "Vladimir Klitschko (boksör)", "Andriy Shevchenko (futbolcu)", "Volodymyr Zelenskyy (devlet başkanı)"]
   },
   {
-    "name": "Umman Sultanlığı",
+    "name": "Umman",
     "CountryFlag/Image": "static/images/flags/om.png",
     "Capital": "Maskat",
     "GeographyAndClimate": "Arap Yarımadası'nın güneydoğu kıyısında yer alır. Büyük bir kısmı çöl ve dağlık arazidir. Sahil şeridinde düzlükler bulunur. İklimi çöl iklimidir; çok sıcak ve kurak yazlar, ılıman kışlar.",
@@ -4071,7 +4049,7 @@
     "FamousPersonalities": ["José Mujica (eski cumhurbaşkanı)", "Luis Suárez (futbolcu)", "Diego Forlán (futbolcu)", "Jorge Drexler (şarkıcı)"]
   },
   {
-    "name": "Ürdün Haşimi Krallığı",
+    "name": "Ürdün",
     "CountryFlag/Image": "static/images/flags/jo.png",
     "Capital": "Amman",
     "GeographyAndClimate": "Orta Doğu'da, Ürdün Nehri'nin doğusunda yer alır. Büyük bir kısmı çöl ve yarı çöldür. Batıda Ürdün Rift Vadisi ve dağlık bölgeler bulunur. İklimi kurak ve yarı kurak; sıcak, kuru yazlar ve ılıman, yağışlı kışlar.",
@@ -4115,7 +4093,7 @@
     "FamousPersonalities": ["Küçük nüfusu nedeniyle uluslararası tanınmış 'ünlü' isimler azdır."]
   },
   {
-    "name": "Vanuatu Cumhuriyeti",
+    "name": "Vanuatu",
     "CountryFlag/Image": "static/images/flags/vu.png",
     "Capital": "Port Vila",
     "GeographyAndClimate": "Güney Pasifik'te, 80'den fazla adadan oluşan bir takımada ülkesi. Volkanik adalar, mercan kayalıkları ve yağmur ormanları bulunur. İklimi tropikal; sıcak, nemli ve yağışlı, kasırga mevsimi (Kasım-Nisan) bulunur.",
@@ -4137,7 +4115,7 @@
     "FamousPersonalities": ["Vanuatu'nun küçük nüfusu ve geleneksel yapısı nedeniyle uluslararası tanınmış 'ünlü' isimler azdır."]
   },
   {
-    "name": "Venezuela Bolivarcı Cumhuriyeti",
+    "name": "Venezuela",
     "CountryFlag/Image": "static/images/flags/ve.png",
     "Capital": "Caracas",
     "GeographyAndClimate": "Güney Amerika'nın kuzeyinde, Karayip Denizi kıyısında yer alır. And Dağları, Llanos (ovalık savanlar), Amazon yağmur ormanları ve kıyı ovaları bulunur. İklimi tropikal; sıcak ve nemli, ancak rakıma göre değişiklik gösterir.",
@@ -4159,7 +4137,7 @@
     "FamousPersonalities": ["Simón Bolívar (Latin Amerika'nın bağımsızlık lideri)", "Hugo Chávez (eski cumhurbaşkanı)", "Oscar D'León (salsa şarkıcısı)", "Miguel Cabrera (beyzbol oyuncusu)"]
   },
   {
-    "name": "Vietnam Sosyalist Cumhuriyeti",
+    "name": "Vietnam",
     "CountryFlag/Image": "static/images/flags/vn.png",
     "Capital": "Hanoi",
     "GeographyAndClimate": "Güneydoğu Asya'da, Çinhindi Yarımadası'nda yer alır. Uzun bir kıyı şeridine, deltalara (Kızıl Nehir, Mekong) ve dağlık bölgelere sahiptir. İklimi tropikal muson iklimidir; sıcak ve nemli, kuzeyde dört mevsim, güneyde iki mevsim belirgindir.",
@@ -4248,7 +4226,7 @@
     "FamousPersonalities": ["Yok"]
   },
   {
-    "name": "Yemen Cumhuriyeti",
+    "name": "Yemen",
     "CountryFlag/Image": "static/images/flags/ye.png",
     "Capital": "San'a (fiili olarak Aden)",
     "GeographyAndClimate": "Arap Yarımadası'nın güney ucunda yer alır. Batıda dağlık bölgeler, orta ve doğuda çöller bulunur. İklimi çeşitlidir: batıda ılıman, doğuda çöl iklimi.",
@@ -4314,7 +4292,7 @@
     "FamousPersonalities": ["Sir Edmund Hillary (Everest'e çıkan ilk insan)", "Peter Jackson (yönetmen)", "Lorde (şarkıcı)", "Jacinda Ardern (eski başbakan)"]
   },
   {
-    "name": "Helen Cumhuriyeti (Yunanistan)",
+    "name": "Yunanistan",
     "CountryFlag/Image": "static/images/flags/gr.png",
     "Capital": "Atina",
     "GeographyAndClimate": "Güneydoğu Avrupa'da, Balkan Yarımadası'nın güney ucunda yer alır. Çok sayıda ada, dağlık anakara ve uzun bir kıyı şeridine sahiptir. İklimi Akdeniz iklimidir; sıcak, kurak yazlar ve ılıman, yağışlı kışlar.",
@@ -4336,7 +4314,7 @@
     "FamousPersonalities": ["Büyük İskender (antik general)", "Platon (filozof)", "Aristoteles (filozof)", "El Greco (ressam)", "Nana Mouskouri (şarkıcı)"]
   },
   {
-    "name": "Zambiya Cumhuriyeti",
+    "name": "Zambiya",
     "CountryFlag/Image": "static/images/flags/zm.png",
     "Capital": "Lusaka",
     "GeographyAndClimate": "Güney Afrika'da denize kıyısı olmayan bir ülke. Çoğunlukla yüksek platolar ve savanlar bulunur. Zambezi Nehri ve Victoria Şelaleleri önemlidir. İklimi tropikal; sıcak, kuru ve yağmurlu mevsimleri vardır.",
@@ -4358,7 +4336,7 @@
     "FamousPersonalities": ["Kenneth Kaunda (ilk devlet başkanı)", "Dambisa Moyo (ekonomist)", "Kalusha Bwalya (futbolcu)"]
   },
   {
-    "name": "Zimbabve Cumhuriyeti",
+    "name": "Zimbabve",
     "CountryFlag/Image": "static/images/flags/zw.png",
     "Capital": "Harare",
     "GeographyAndClimate": "Güney Afrika'da denize kıyısı olmayan bir ülke. Yüksek platolar ve dağlık arazilerle karakterizedir. Zambezi Nehri kuzey sınırını oluşturur. İklimi tropikal; sıcak ve yağışlı yazlar, ılıman ve kuru kışlar.",
@@ -4378,5 +4356,137 @@
     "TypicalArchitecture": "Büyük Zimbabve'deki taş yapılar. Kolonyal dönemden kalma binalar. Modern şehirlerde betonarme yapılar.",
     "Wildlife": "Büyük Beşli (aslan, leopar, fil, gergedan, bufalo), zürafa, zebra, antilop türleri. Çok sayıda kuş türü. Zambezi Nehri'nde timsahlar ve su aygırları.",
     "FamousPersonalities": ["Robert Mugabe (eski devlet başkanı)", "Oliver Mtukudzi (müzisyen)", "Kirsty Coventry (yüzücü)"]
+  },
+  {
+    "name": "Antarktika",
+    "CountryFlag/Image": "static/images/flags/aq.png",
+    "Capital": "Yok (Çeşitli araştırma istasyonları var)",
+    "GeographyAndClimate": "Dünya'nın en güneyindeki kıta, yaklaşık %98'i buz tabakalarıyla kaplıdır. Ortalama kalınlığı 1,9 km olan buz örtüsü bulunur. Dünya'nın en soğuk, en kurak ve en rüzgarlı kıtasıdır. Kış sıcaklıkları -80°C'ye kadar düşebilir.",
+    "History": "1820'de keşfedildi. Kıta üzerindeki hak iddiaları, 1959 Antarktika Antlaşması ile askıya alındı ve kıta bilimsel araştırma ve barışçıl amaçlar için ayrıldı.",
+    "InternationalRelations": "Antarktika Antlaşması Sistemi ile yönetilir. Antlaşmayı imzalayan ülkeler (bilimsel araştırmalar yapanlar) kararlarda söz sahibidir. Askeri faaliyetler yasaktır.",
+    "Area": "14,200,000 km² (buz sahanlıkları dahil)",
+    "Population": "Mevsimsel olarak değişir (Yazın 5000'e kadar araştırmacı, kışın 1000'e kadar)",
+    "OfficialLanguage(s)": ["Yok (Çeşitli uluslararası diller kullanılır)"],
+    "Currency": "Yok (Araştırma istasyonlarında kendi ülkelerinin para birimleri kullanılır)",
+    "FamousDishes": ["Yok (Araştırma istasyonlarında kendi ülkelerinin mutfakları geçerlidir)"],
+    "MajorTouristAttractions": ["Antarktika Yarımadası", "Ross Denizi", "Amiraltepe Dağları", "McMurdo İstasyonu (en büyük araştırma istasyonu)"],
+    "CulturalHighlights": "Bilimsel keşif, uluslararası işbirliği ve çevresel koruma odaklı bir 'kültür'.",
+    "UniversitiesAndEducation": "Yok (Araştırma istasyonları dışında kalıcı bir eğitim sistemi bulunmaz)",
+    "NaturalResources": ["Kömür", "Demir", "Çeşitli hidrokarbonlar (petrol, doğalgaz - çıkarımı yasak)", "Tatlı su (buzullarda)"],
+    "TravelTips": "Sadece uzman tur operatörleriyle gidilebilir. Çevresel düzenlemelere sıkı sıkıya uyulmalıdır. Uygun giysiler ve ekipman hayati önem taşır. Yaban hayatı gözlemi için eşsiz bir yerdir.",
+    "MajorSports": ["Yok (Araştırma istasyonlarında boş zaman aktiviteleri)"],
+    "TypicalArchitecture": "Buz ve karla kaplı araziye uyumlu, izole ve yüksek teknoloji ürünü araştırma istasyonları.",
+    "Wildlife": "Penguenler (Adelie, İmparator), foklar (Yengeç Yiyen, Weddell, Leopar), balinalar (Mavi, Kambur), çeşitli deniz kuşları.",
+    "FamousPersonalities": ["Ernest Shackleton (Kâşif)", "Roald Amundsen (Kâşif)"]
+  },
+  {
+    "name": "Somaliland",
+    "CountryFlag/Image": "static/images/flags/sl.png",
+    "Capital": "Hargeisa",
+    "GeographyAndClimate": "Afrika Boynuzu'nda yer alır. Kuzeyde Aden Körfezi'ne kıyısı vardır. İç bölgelerde yarı kurak ve kurak araziler bulunur. İklimi sıcak ve kuraktır, kıyı bölgelerinde nem daha fazladır.",
+    "History": "Eski Britanya Somaliland'ı olup 1991'de Somali'den bağımsızlığını ilan etmiştir. Uluslararası alanda tanınmamasına rağmen, kendi hükümeti, para birimi ve ordusu ile fiilen bağımsız bir devlettir.",
+    "InternationalRelations": "Uluslararası tanınma arayışındadır. Etiyopya, Cibuti ve bazı Batılı ülkelerle gayri resmi diplomatik ve ticari ilişkiler yürütmektedir.",
+    "Area": "137,600 km² (yaklaşık)",
+    "Population": "Yaklaşık 5.7 milyon",
+    "OfficialLanguage(s)": ["Somalice", "Arapça", "İngilizce"],
+    "Currency": "Somaliland Şilini (SLSH)",
+    "FamousDishes": ["Canjeero (gözleme benzeri ekmek)", "Suqaar (kavrulmuş et)", "Bariis (pirinç yemekleri)", "Sambusa (börek benzeri)"],
+    "MajorTouristAttractions": ["Laas Geel (kaya sanatı mağaraları)", "Dağlık bölgeler", "Kıyı şeridi", "Hargeisa'daki camel market (deve pazarı)"],
+    "CulturalHighlights": "Somalice şiir geleneği, göçebe yaşam tarzının etkileri, güçlü kabile bağları ve İslami kültür.",
+    "UniversitiesAndEducation": "Hargeisa Üniversitesi, Amoud Üniversitesi gibi kurumlar bulunur. Eğitim sistemi gelişme aşamasındadır.",
+    "NaturalResources": ["Petrol (potansiyel)", "Doğalgaz (potansiyel)", "Kireçtaşı", "Jips", "Kıyı balıkçılığı"],
+    "TravelTips": "Güvenlik durumu değişebilir, seyahat öncesi güncel bilgilere bakın. Yerel kültüre saygı gösterin. Vize gerekebilir.",
+    "MajorSports": ["Futbol"],
+    "TypicalArchitecture": "Daha çok yerel malzemelerle inşa edilmiş yapılar, şehirlerde ise kolonyal dönemden kalma binalar ve modern yapılar.",
+    "Wildlife": "Çeşitli antilop türleri, çitalar (nadir), babunlar ve kuş türleri.",
+    "FamousPersonalities": ["Hadraawi (Şair)", "Edna Adan Ismail (Eski Dışişleri Bakanı ve aktivist)"]
+  },
+  {
+    "name": "Güney Sudan",
+    "CountryFlag/Image": "static/images/flags/ss.png",
+    "Capital": "Juba",
+    "GeographyAndClimate": "Doğu Afrika'da yer alan denize kıyısı olmayan bir ülke. Nil Nehri'nin Beyaz Nil kolu geçer. Geniş savanlar, sulak alanlar (Sudd) ve dağlık bölgeler bulunur. İklimi tropikaldir, yağışlı ve kurak mevsimleri belirgindir.",
+    "History": "Uzun yıllar süren iç savaşların ardından 2011 yılında Sudan'dan ayrılarak bağımsızlığını kazanmıştır. Bağımsızlık sonrası da siyasi istikrarsızlık ve çatışmalar yaşanmıştır.",
+    "InternationalRelations": "Birleşmiş Milletler (BM), Afrika Birliği (AU) üyesidir. Bölgesel örgütlerle (IGAD) işbirliği içindedir. Çeşitli ülkelerden insani yardım almaktadır.",
+    "Area": "644,329 km²",
+    "Population": "Yaklaşık 12.3 milyon",
+    "OfficialLanguage(s)": ["İngilizce"],
+    "Currency": "Güney Sudan Sterlini (SSP)",
+    "FamousDishes": ["Kisa (fermente mısır ekmeği)", "Aseeda (darılı bir püre)", "Ful Medames (bakla yemeği)", "Et ve sebze güveçleri"],
+    "MajorTouristAttractions": ["Sudd Bataklığı (büyük bir sulak alan)", "Boma Ulusal Parkı", "Nimule Ulusal Parkı (vahşi yaşam)", "Juba'daki Nil Nehri manzaraları"],
+    "CulturalHighlights": "Zengin etnik çeşitlilik ve kabile kültürleri. Geleneksel danslar, müzikler, hikaye anlatımı ve el sanatları (boncuk işleri).",
+    "UniversitiesAndEducation": "Juba Üniversitesi, Rumbek Üniversitesi gibi yükseköğretim kurumları bulunmaktadır. Eğitim altyapısı gelişme aşamasındadır.",
+    "NaturalResources": ["Petrol (ülkenin ana kaynağı)", "Demir cevheri", "Bakır", "Krom cevheri", "Çinko", "Hidroelektrik potansiyeli"],
+    "TravelTips": "Güvenlik durumu kırılgan olabilir, seyahat uyarılarını kontrol edin. Sağlık önlemleri (sıtma) önemlidir. Kırsal alanlarda altyapı sınırlıdır.",
+    "MajorSports": ["Futbol", "Basketbol"],
+    "TypicalArchitecture": "Geleneksel kulübeler ve kırsal yapılar, şehir merkezlerinde ise modernleşen yapılar ve kolonyal dönemden kalma binalar.",
+    "Wildlife": "Filler, zürafalar, aslanlar, leoparlar, bufalolar, çeşitli antilop türleri ve kuşlar (özellikle Sudd'da).",
+    "FamousPersonalities": ["Luol Deng (Basketbolcu)"]
+  },
+  {
+    "name": "İngiltere",
+    "CountryFlag/Image": "static/images/flags/gb-eng.png",
+    "Capital": "Londra",
+    "GeographyAndClimate": "Büyük Britanya adasının güney kısmını kaplar. Geniş ovalar, tepelik bölgeler ve kıyı şeritleri bulunur. Ilıman deniz iklimine sahiptir, yazlar ılık, kışlar ılıman ve nemli geçer, dört mevsim yağış alır.",
+    "History": "Keltler, Romalılar, Saksonlar ve Normanlar tarafından şekillendirilmiş zengin bir tarihe sahiptir. Büyük Britanya ve Birleşik Krallık'ın önemli bir parçasıdır. Parlamenter demokrasi ve sanayi devriminin beşiğidir.",
+    "InternationalRelations": "Birleşik Krallık'ın bir parçası olarak uluslararası ilişkilerde önemli bir rol oynar. Birleşmiş Milletler Güvenlik Konseyi daimi üyesi, NATO, G7, G20 gibi birçok uluslararası örgütün kurucu üyesidir.",
+    "Area": "130,395 km²",
+    "Population": "Yaklaşık 56.5 milyon",
+    "OfficialLanguage(s)": ["İngilizce"],
+    "Currency": "Sterlin (£) (GBP)",
+    "FamousDishes": ["Fish and Chips (balık ve patates kızartması)", "Sunday Roast (pazar yemeği)", "Shepherd's Pie (çoban turtası)", "Full English Breakfast (tam İngiliz kahvaltısı)"],
+    "MajorTouristAttractions": ["Londra Kulesi", "Buckingham Sarayı", "British Museum", "Stonehenge", "Lake District (Göl Bölgesi)", "Manchester, Liverpool gibi şehirler"],
+    "CulturalHighlights": "Dünya edebiyatı (Shakespeare), müzik (Beatles), sanat, tiyatro, futbol ve popüler kültürde küresel etki. Zengin pub kültürü ve çay saati geleneği.",
+    "UniversitiesAndEducation": "Oxford Üniversitesi, Cambridge Üniversitesi, Imperial College London, London School of Economics gibi dünyaca ünlü üniversitelere ev sahipliği yapar. Köklü bir eğitim sistemine sahiptir.",
+    "NaturalResources": ["Petrol (Kuzey Denizi)", "Doğalgaz (Kuzey Denizi)", "Kömür (azalan)", "Kireçtaşı", "Kil"],
+    "TravelTips": "Londra'daki tarihi ve kültürel mekanları keşfedin. Kırsal bölgelerin tadını çıkarın. Toplu taşıma yaygındır. Hava durumu değişken olabilir.",
+    "MajorSports": ["Futbol", "Kriket", "Ragbi", "Tenis"],
+    "TypicalArchitecture": "Gotik katedraller, Tudor dönemi evleri, Viktorya dönemi teras evler, Gürcü tarzı şehir planlaması ve modern gökdelenler.",
+    "Wildlife": "Geyikler, tilkiler, porsuklar, sincaplar, çeşitli kuş türleri (özellikle kırsal ve ormanlık alanlarda).",
+    "FamousPersonalities": ["William Shakespeare (Yazar)", "Queen Elizabeth II (Kraliçe)", "Sir Isaac Newton (Bilim İnsanı)", "David Beckham (Futbolcu)"]
+  },
+  {
+    "name": "Güney Kıbrıs Rum Cumhuriyeti",
+    "CountryFlag/Image": "static/images/flags/cy.png",
+    "Capital": "Lefkoşa (Nicosia)",
+    "GeographyAndClimate": "Akdeniz'in doğusunda yer alan bir ada ülkesidir. Orta kısmında Trodos Dağları, kuzeyde Beşparmak Dağları bulunur. Kıyılarda geniş düzlükler mevcuttur. Akdeniz iklimine sahiptir; yazları sıcak ve kurak, kışları ılıman ve yağışlı geçer.",
+    "History": "Antik Yunan ve Roma dönemlerinden günümüze uzanan zengin bir tarihe sahiptir. Osmanlı ve İngiliz egemenliğinden sonra 1960'ta bağımsızlığını kazanmıştır. 1974'te adanın bölünmesiyle günümüzdeki siyasi yapısı oluşmuştur.",
+    "InternationalRelations": "Avrupa Birliği (AB), Birleşmiş Milletler (BM), Avrupa Konseyi üyesidir. Yunanistan ile yakın ilişkilere sahiptir. Bölgesel enerji işbirliği konusunda aktif rol oynamaktadır.",
+    "Area": "9,251 km² (tamamı)",
+    "Population": "Yaklaşık 1.2 milyon (güney kısmı)",
+    "OfficialLanguage(s)": ["Yunanca", "Türkçe (Kuzeyde yaygın)"],
+    "Currency": "Euro (€) (EUR)",
+    "FamousDishes": ["Halloumi (Hellim peyniri)", "Souvlaki (şiş kebap)", "Kleftiko (tandırda kuzu)", "Meze (çeşitli başlangıçlar)"],
+    "MajorTouristAttractions": ["Baf Arkeoloji Parkı (UNESCO)", "Aya Napa (plajlar ve eğlence)", "Larnaka Tuz Gölü", "Trodos Dağları (doğa ve kiliseler - UNESCO)", "Girne Limanı (Kuzey Kıbrıs'ta)"],
+    "CulturalHighlights": "Antik Yunan ve Bizans mirası, Hristiyan Ortodoks kültürü, geleneksel müzik ve danslar, zengin şarap kültürü.",
+    "UniversitiesAndEducation": "Kıbrıs Üniversitesi, Kıbrıs Teknoloji Üniversitesi gibi önemli yükseköğretim kurumlarına sahiptir. Eğitim sistemi AB standartlarındadır.",
+    "NaturalResources": ["Bakır", "Pirit", "Asbest", "Jips", "Tuz", "Deniz kıyısı turizmi", "Kıyı açığı doğalgaz (potansiyel)"],
+    "TravelTips": "Antik kalıntıları, güzel plajları ve dağ köylerini keşfedin. Adanın bölünmüşlüğünü göz önünde bulundurun. Trafik sol şeritten akar.",
+    "MajorSports": ["Futbol", "Basketbol"],
+    "TypicalArchitecture": "Antik Roma ve Bizans kalıntıları, Gotik ve Venedik mimarisi, Osmanlı dönemi eserleri, İngiliz kolonyal evler ve modern yapılar.",
+    "Wildlife": "Muflon (yaban koyunu), tilkiler, yılanlar, kertenkeleler ve göçmen kuşlar.",
+    "FamousPersonalities": ["Markos Baghdatis (Tenisçi)", "Anna Vissi (Şarkıcı)"]
+  },
+    {
+    "name": "Türkiye",
+    "CountryFlag/Image": "static/images/flags/tr.png",
+    "Capital": "Ankara",
+    "GeographyAndClimate": "Batı Asya ve Doğu Avrupa'da yer alan kıtalararası bir ülkedir. Üç tarafı denizlerle çevrilidir: Akdeniz, Ege Denizi ve Karadeniz. Çeşitli coğrafi bölgeleri (dağlar, platolar, kıyı ovaları) ve çeşitli iklim tipleri (Akdeniz, Karasal, Karadeniz) bulunur. Yazlar sıcak ve kurak, kışlar soğuk ve kar yağışlıdır, ancak kıyı bölgeleri daha ılımandır.",
+    "History": "Anadolu, birçok antik medeniyetin (Hititler, Frigler, Lidyalılar, Persler, Romalılar, Bizanslılar) beşiği olmuştur. Selçuklu ve Osmanlı İmparatorlukları'nın merkezidir. Türkiye Cumhuriyeti, 1923 yılında Mustafa Kemal Atatürk liderliğinde kurulmuştur.",
+    "InternationalRelations": "Birleşmiş Milletler (BM), NATO, G20, Avrupa Konseyi, Ekonomik İşbirliği ve Kalkınma Örgütü (OECD) üyesidir. Avrupa Birliği'ne (AB) tam üyelik adayıdır. Bölgesinde ve uluslararası alanda aktif bir dış politika izlemektedir.",
+    "Area": "783,562 km²",
+    "Population": "Yaklaşık 85 milyon",
+    "OfficialLanguage(s)": ["Türkçe"],
+    "Currency": "Türk Lirası (₺) (TRY)",
+    "FamousDishes": ["Kebap (çeşitli türleri)", "Döner", "Mantı", "Baklava", "Türk Kahvesi", "Türk Lokumu"],
+    "MajorTouristAttractions": ["Ayasofya", "Sultanahmet Camii", "Topkapı Sarayı (İstanbul)", "Kapadokya (Peri Bacaları)", "Pamukkale (Travertenler)", "Efes Antik Kenti"],
+    "CulturalHighlights": "Doğu ve Batı kültürlerinin sentezi. Zengin halk müziği ve dansları, geleneksel el sanatları (halıcılık, çinicilik), misafirperverlik, çay ve kahve kültürü.",
+    "UniversitiesAndEducation": "Boğaziçi Üniversitesi, Orta Doğu Teknik Üniversitesi (ODTÜ), İstanbul Teknik Üniversitesi (İTÜ), Hacettepe Üniversitesi gibi birçok saygın üniversiteye sahiptir. Eğitim sistemi geniş bir ağa yayılmıştır.",
+    "NaturalResources": ["Bor mineralleri (dünya rezervlerinin büyük kısmı)", "Kömür", "Krom", "Bakır", "Demir cevheri", "Su kaynakları", "Jeotermal enerji"],
+    "TravelTips": "İstanbul'un tarihi ve kültürel zenginliklerini keşfedin. Ege ve Akdeniz kıyılarında tatil yapın. Kapadokya'da balon turuna katılın. Yerel pazarları ve mutfağı deneyimleyin. Misafirperver insanlarla tanışın.",
+    "MajorSports": ["Futbol", "Basketbol", "Voleybol", "Güreş"],
+    "TypicalArchitecture": "Selçuklu ve Osmanlı dönemi camileri, medreseleri, köprüleri, kervansarayları, sarayları ve modern mimari örnekleri.",
+    "Wildlife": "Kurtlar, ayılar, vaşaklar, yaban domuzları, karacalar, çeşitli kuş türleri (özellikle göçmen kuşlar için önemli bir geçiş noktası).",
+    "FamousPersonalities": ["Mustafa Kemal Atatürk (Türkiye Cumhuriyeti'nin Kurucusu)", "Nazım Hikmet (Şair)", "Orhan Pamuk (Nobel Edebiyat Ödüllü Yazar)", "Aziz Sancar (Nobel Kimya Ödüllü Bilim İnsanı)"]
   }
 ]
