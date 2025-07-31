@@ -32,7 +32,7 @@ def insert_initial_badge_types():
     varsayılan rozet tiplerini veritabanına ekler.
     Rozet tanımlarını 'data/badges.json' dosyasından okur.
     """
-    badge_file_path = settings.BADGES_JSON_PATH # settings'ten doğrudan yolu al
+    badge_file_path = settings.BADGES_JSON_PATH
 
     initial_badges = []
     try:
@@ -61,27 +61,33 @@ def insert_initial_badge_types():
 
             for badge in initial_badges:
                 try:
-                    # 'id' alanı AUTOINCREMENT olduğu için INSERT sorgusundan çıkarıldı.
-                    # 'name' sütununa badges.json'daki 'type_name' değerini kaydediyoruz.
-                    # 'category' sütununu ekledik ve .get() kullanarak yoksa boş string atadık.
+                    # JSON'daki alanlar veritabanı şemasındaki sütunlarla eşleşiyor varsayımıyla
+                    # INSERT sorgusunu oluşturuyoruz.
                     cursor.execute("""
-                        INSERT INTO badge_types (name, description, image_url, type, threshold, category)
-                        VALUES (?, ?, ?, ?, ?, ?)
-                    """, (badge["type_name"], badge["description"], badge["image_url"],
-                          badge["type"], float(badge["threshold"]), badge.get("category", "")))
-                    # Debug amaçlı ek log:
-                    logging.debug(f"Veritabanına eklendi: Name='{badge['type_name']}', Category='{badge.get('category', '')}', Threshold={badge['threshold']}")
+                        INSERT INTO badge_types (type_name, type, category, level, name, description, image_url, threshold)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                    """, (
+                        badge.get("type_name", None),
+                        badge.get("type", None),
+                        badge.get("category", None),
+                        badge.get("level", None),
+                        badge.get("name", None),
+                        badge.get("description", None),
+                        badge.get("image_url", None),
+                        badge.get("threshold", 0.0)
+                    ))
+                    logging.debug(f"Veritabanına eklendi: {badge['type_name']}")
 
-                except sqlite3.IntegrityError as e:
-                    # Bu uyarı artık görülmemeli, çünkü UNIQUE kısıtlamasını değiştirdik.
-                    logging.warning(f"Rozet eklenirken UNIQUE kısıtlama hatası (Bu artık görülmemeli!): {badge.get('type_name', 'Bilinmeyen Rozet')} - {e}")
                 except KeyError as e:
                     logging.error(f"Rozet tanımında eksik alan var: {e}. Rozet: {badge}")
+                except Exception as e:
+                    logging.error(f"Rozet eklenirken beklenmeyen bir hata oluştu: {e}. Rozet: {badge}")
+
             conn.commit()
             logging.info(f"{len(initial_badges)} adet başlangıç rozet tipi başarıyla eklendi.")
         else:
             logging.info("badge_types tablosu dolu, başlangıç rozetleri eklenmiyor.")
-
+            
 def init_dbs():
     logging.info("Veritabanları başlatılıyor...")
 
@@ -109,14 +115,15 @@ def init_dbs():
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS badge_types (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,          -- ARTIK 'UNIQUE' KISITLAMASI BURADA YOK!
-                description TEXT NOT NULL,
-                image_url TEXT NOT NULL,
-                type TEXT NOT NULL,          -- Bu sütun badges.json'daki 'type' (engagement, quiz_stats vb.) için kullanılacak
-                threshold REAL DEFAULT 0,
+                type_name TEXT NOT NULL,
+                type TEXT NOT NULL,
                 category TEXT,
-                -- YENİ UNIQUE KISITLAMA EKLEYİN: name, threshold ve category kombinasyonu benzersiz olsun.
-                UNIQUE (name, threshold, category)
+                level INTEGER,
+                name TEXT NOT NULL,
+                description TEXT,
+                image_url TEXT,
+                threshold REAL DEFAULT 0,
+                UNIQUE (type_name, name, category, level)
             )
         """)
 

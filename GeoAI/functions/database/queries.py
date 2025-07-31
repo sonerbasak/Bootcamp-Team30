@@ -382,7 +382,7 @@ def search_users_by_username(search_term: str) -> List[Dict]:
 def get_user_badges(user_id: int) -> List[Dict]:
     """
     Kullanıcının kazandığı rozetleri ve detaylarını getirir.
-    Her rozet tipi (name) ve kategori için (category), sadece kullanıcının ulaştığı en yüksek eşiğe sahip rozeti döndürür.
+    Her rozet tipi (type_name) ve kategori için, sadece kullanıcının ulaştığı en yüksek seviyeye sahip rozeti döndürür.
     """
     badges = []
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
@@ -391,54 +391,43 @@ def get_user_badges(user_id: int) -> List[Dict]:
             SELECT
                 ub.achieved_at,
                 bt.id AS badge_id,
+                bt.type_name,
                 bt.name,
                 bt.description,
                 bt.image_url,
                 bt.type AS badge_type,
                 bt.threshold,
-                bt.category
+                bt.category,
+                bt.level
             FROM user_badges ub
             JOIN badge_types bt ON ub.badge_id = bt.id
             WHERE ub.user_id = ?
-            AND bt.threshold = ( -- Her bir rozet tipi ve kategori için en yüksek eşik değerini bul
-                SELECT MAX(bt2.threshold)
+            AND bt.level = ( -- Her bir rozet tipi ve kategori için en yüksek seviyeyi bul
+                SELECT MAX(bt2.level)
                 FROM user_badges ub2
                 JOIN badge_types bt2 ON ub2.badge_id = bt2.id
-                WHERE ub2.user_id = ? AND bt2.name = bt.name AND bt2.category = bt.category
+                WHERE ub2.user_id = ? AND bt2.type_name = bt.type_name AND bt2.category = bt.category
             )
-            ORDER BY bt.category ASC, bt.name ASC, bt.threshold DESC -- Rozetleri kategori, isim ve eşiğe göre sırala
-        """, (user_id, user_id)) # İki kez user_id parametresini geçiyoruz
+            ORDER BY bt.category ASC, bt.name ASC, bt.level DESC
+        """, (user_id, user_id))
         
         rows = cursor.fetchall()
         
-        # Sonuçları filtrelemek için bir set kullanacağız.
-        # Her bir 'name' ve 'category' kombinasyonu için sadece en yüksek eşiğe sahip olanı alacağız.
-        # SQL sorgusu bunu zaten hallediyor olmalı, ancak yine de Python tarafında ekstra bir kontrol ekleyelim
-        # eğer veritabanı sorgusu beklenen sonucu tam olarak vermezse.
-        seen_badges = set()
         for row in rows:
-            badge_name = row["name"]
-            badge_category = row["category"] # category sütunu ekledik
-            
-            # Bu kombinasyon (name, category) için zaten daha yüksek bir eşik görüldüyse atla
-            # Ancak, SQL sorgusu zaten en yüksek eşiği getireceği için bu kısım çoğunlukla gereksizdir.
-            # Yine de, mantıksal sağlamlık için bırakılabilir.
-            if (badge_name, badge_category) in seen_badges:
-                continue
-            
             badges.append({
                 "achieved_at": row["achieved_at"],
                 "badge_info": {
                     "id": row["badge_id"],
+                    "type_name": row["type_name"],
                     "name": row["name"],
                     "description": row["description"],
                     "image_url": row["image_url"],
                     "type": row["badge_type"],
                     "threshold": row["threshold"],
-                    "category": row["category"] # category bilgisini de ekleyelim
+                    "category": row["category"],
+                    "level": row["level"]
                 }
             })
-            seen_badges.add((badge_name, badge_category))
             
     return badges
 
@@ -457,53 +446,73 @@ def get_badge_by_id(badge_id: int) -> Optional[Dict]:
     """ID'ye göre rozet bilgilerini getirir."""
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
-        cursor.execute("SELECT id, name, description, image_url, type, threshold FROM badge_types WHERE id = ?", (badge_id,))
+        cursor.execute("""
+            SELECT 
+                id, 
+                type_name, 
+                name, 
+                description, 
+                image_url, 
+                type, 
+                threshold,
+                category,
+                level
+            FROM badge_types 
+            WHERE id = ?
+        """, (badge_id,))
         row = cursor.fetchone()
         if row:
             return dict(row)
         return None
-
+    
 def get_badge_type_by_name_and_threshold(badge_type_name: str, threshold: float, category: Optional[str] = None) -> Optional[Dict]:
     """
     Tipe (yani badges.json'daki type_name), eşik değerine ve isteğe bağlı olarak kategoriye göre rozet bilgilerini getirir.
     """
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
-        
-        # 'name' sütununda arama yapıyoruz, 'type' değil (badges.json'daki type_name ile eşleşmeli)
-        query = "SELECT id, name, description, image_url, type, threshold, category FROM badge_types WHERE name = ? AND threshold = ?"
-        params = [badge_type_name, threshold] # Listeye çevirdim, append yapabilmek için
+
+        # Doğru sütun adı: 'type_name'
+        query = """
+            SELECT 
+                id, 
+                type_name, 
+                name, 
+                description, 
+                image_url, 
+                type, 
+                threshold, 
+                category, 
+                level 
+            FROM badge_types 
+            WHERE type_name = ? AND threshold = ?
+        """
+        params = [badge_type_name, threshold]
 
         # Kategori parametresini kontrol et ve sorguya ekle
-        # Eğer category dolu bir string ise (örn: "Tarih")
         if category is not None and category != "":
             query += " AND category = ?"
             params.append(category)
         else:
-            # Eğer 'category' parametresi boş string veya None ise (örn: daily_login_streak gibi)
-            # veritabanında 'category' sütunu boş string ('') olan kayıtları ararız.
-            # badges.json'da boş kategoriler boş string olarak kaydedildiği için bu doğru eşleşmeyi sağlar.
-            query += " AND category = ?"
-            params.append("") # Boş string parametresini ekliyoruz
+            query += " AND (category IS NULL OR category = '')"
 
-        logging.debug(f"Executing query: {query} with params: {params}") # Debug amaçlı log
+        logging.debug(f"Executing query: {query} with params: {params}")
 
         try:
-            cursor.execute(query, tuple(params)) # listeyi tuple'a çevirerek execute et
+            cursor.execute(query, tuple(params))
         except Exception as e:
             logging.error(f"Sorgu yürütülürken hata oluştu: {query} - Parametreler: {params} - Hata: {e}")
             return None
 
         row = cursor.fetchone()
         if row:
-            # sqlite3.Row objesini Dict'e çevirme
             columns = [description[0] for description in cursor.description]
             found_badge = dict(zip(columns, row))
             logging.debug(f"Rozet bulundu: {found_badge['name']} (Eşik: {found_badge['threshold']}, Kategori: {found_badge.get('category', 'Yok')})")
             return found_badge
-        logging.debug(f"Rozet bulunamadı: type_name='{badge_type_name}', threshold={threshold}, category='{category}'") # Debug amaçlı log
+        
+        logging.debug(f"Rozet bulunamadı: type_name='{badge_type_name}', threshold={threshold}, category='{category}'")
         return None
-
 # --- QUIZ İSTATİSTİK SORGULARI (quiz_stats.db ile çalışır) ---
 
 def add_quiz_summary(user_id: int, quiz_type: str, quiz_name: str, total_questions: int, correct_answers: int, score: int) -> None:
