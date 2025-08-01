@@ -1,4 +1,3 @@
-# functions/quiz/routes.py
 from fastapi import APIRouter, Request, Query, HTTPException, status, Depends, Form
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
@@ -14,15 +13,11 @@ from functions.database.queries import (
     delete_wrong_questions_from_db,
     add_quiz_summary,
     update_category_stats,
-    get_user_overall_quiz_stats, # <-- BU SATIRI GÜNCELLEDİK!
-    # get_user_total_quizzes_completed, # <-- BU SATIRI KALDIRDIK
-    # get_user_correct_answers_count, # <-- BU SATIRI KALDIRDIK
-    # get_user_badges, # <-- BU SATIRI KALDIRDIK (badge_service kullanacak)
-    # get_badge_type_by_name_and_threshold # <-- BU SATIRI KALDIRDIK (badge_service kullanacak)
+    get_user_overall_quiz_stats,
 )
 from functions.quiz.services import generate_quiz_from_gemini
 from functions.database import queries as db_queries
-from functions.services.badge_service import badge_service # <-- badge_service'ı import ettik!
+from functions.services.badge_service import badge_service 
 
 router = APIRouter(tags=["Quiz"])
 templates = Jinja2Templates(directory="templates")
@@ -55,7 +50,7 @@ class QuizAnswer(BaseModel):
 class QuizResultRequest(BaseModel):
     answers: List[QuizAnswer]
 
-# KULLANICI İSTATİSTİKLERİNİ GÜNCELLEYEN ROTA
+
 @router.post("/api/submit-quiz-results", name="submit_quiz_results")
 async def submit_quiz_results(request: Request, quiz_results: QuizResultRequest, current_user: CurrentUser = Depends(require_auth)):
     if not current_user:
@@ -109,24 +104,16 @@ async def submit_quiz_results(request: Request, quiz_results: QuizResultRequest,
         score=score_earned
     )
 
-    # Eğer tekrar çözme modunda doğru cevaplanan yanlış sorular varsa, bunları veritabanından sil
+    
     if correctly_answered_wrong_question_ids:
         db_queries.delete_wrong_questions_from_db(user_id, correctly_answered_wrong_question_ids)
 
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # YENİ EKLENEN KISIM: ROZET KAZANMA MANTIĞI İÇİN badge_service KULLANIMI
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-    # Quiz istatistikleri kaydedildikten sonra rozetleri kontrol et ve ver.
-    # badge_service içindeki logic, get_user_overall_quiz_stats gibi fonksiyonları çağırarak
-    # güncel istatistikleri alacak.
     awarded_badges = badge_service.check_and_award_badges(user_id)
     if awarded_badges:
         print(f"DEBUG: Kullanıcı {user_id} şu rozetleri kazandı: {', '.join(awarded_badges)}")
     
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    # ROZET KAZANMA MANTIĞI SONU
-    # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
 
 
     return JSONResponse({
@@ -135,11 +122,11 @@ async def submit_quiz_results(request: Request, quiz_results: QuizResultRequest,
         "correct_answers": correct_answers_count,
         "score_earned": score_earned,
         "wrong_answers_count": len(wrong_answers_details),
-        "profile_updated": True, # Bu değer True ise, ön yüzde profilin güncellenmesi tetiklenebilir.
-        "newly_awarded_badges": awarded_badges # Yeni kazanılan rozetleri de döndürebiliriz
+        "profile_updated": True, 
+        "newly_awarded_badges": awarded_badges 
     })
 
-# Diğer rotalarınız burada devam ediyor...
+
 @router.get("/ai", name="ai_page")
 async def ai_page(request: Request, current_user: CurrentUser = Depends(require_auth)):
     if not current_user:

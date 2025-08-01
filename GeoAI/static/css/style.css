@@ -1,6 +1,3 @@
-/* style.css */
-
-/* --- Genel HTML, Body ve Harita Stilleri --- */
 html,
 body,
 #map {
@@ -18,7 +15,7 @@ body,
     position: fixed;
     background: #4db6ac;
     color: white;
-    font: bold 3rem sans-serif; /* Kısaltma: font-size, font-weight, font-family */
+    font: bold 3rem sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +36,7 @@ body,
     font-weight: 600;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     z-index: 1050;
-    animation: fadeOut 10s ease forwards 2s; /* Kısaltma: animation-delay ekledik */
+    animation: fadeOut 10s ease forwards 2s;
 }
 
 /* Ortak fadeOut animasyonu */
@@ -53,7 +50,7 @@ body,
     }
 }
 
-/* --- Leaflet Harita Bileşenleri --- */
+
 /* Tooltip */
 .leaflet-tooltip {
     background-color: #fff;
@@ -66,38 +63,35 @@ body,
     border: 3px solid #00bfa5;
 }
 
-/* --- Modal Stilleri (Bootstrap Modal Sınıflarını Kullanıyor) --- */
-/* Bu kural, modal gizliyken tıklama olaylarını tamamen engellemesini sağlar. */
+
 .modal:not(.show) {
-    pointer-events: none; /* Modal görünmüyorken hiçbir tıklama veya etkileşimi engelleme */
+    pointer-events: none;
 }
 
 .modal {
-    background-color: rgba(0, 0, 0, 0.688); /* Arka plan karartması */
-    /* Position, z-index, top, left, width, height Bootstrap tarafından yönetilir */
+    background-color: rgba(0, 0, 0, 0.688);
 }
 
 .modal-content {
     background-color: #fff;
     padding: 30px 20px;
     max-width: 700px;
-    text-align: center; /* İçerik metnini ortalamak için */
+    text-align: center;
     border-radius: 10px;
     color: #4db6ac;
     font-weight: bolder;
 }
 
-/* Modal butonları için flex düzeni */
+
 .modal-buttons {
     margin-top: 15px;
     display: flex;
-    justify-content: center; /* Butonları ortala */
+    justify-content: center;
     gap: 10px;
-    flex-wrap: wrap; /* Küçük ekranlarda sığmazsa alt satıra geçsin */
+    flex-wrap: wrap;
 }
 
-/* Kapatma ve AI Butonları için Ortak Stil */
-/* Not: Bootstrap'ın btn-close sınıfı zaten kapatma butonu stilini yönetir. */
+
 .close-btn,
 .ai-btn {
     border: none;
@@ -221,26 +215,23 @@ body,
 }
 
 /* Swiper Navigasyon Butonları (Ortak) */
-/* Eğer Swiper'ın kendi varsayılan butonlarını kullanıyorsanız, buradaki stilleri buna göre ayarlayın.
-   Bootstrap button sınıflarını kullandığınız için HTML'deki button'lara uygun stiller uygulandı. */
 .swiper-button-prev,
 .swiper-button-next {
-    background-color: transparent; /* Eğer Bootstrap'in butonlarınıza ek olarak kullanıyorsanız */
+    background-color: transparent;
     color: #004d40 !important;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    /* Konumlandırma ve boyutlandırma Bootstrap button sınıflarına bırakıldı */
 }
 
-/* Swiper'ın varsayılan içeriğini ezmek için */
+
 .swiper-button-prev::after {
-    content: 'prev'; /* Swiper'ın kendi okları için content */
+    content: 'prev';
     font-family: 'swiper-icons';
     font-size: 2.5rem;
 }
 .swiper-button-next::after {
-    content: 'next'; /* Swiper'ın kendi okları için content */
+    content: 'next';
     font-family: 'swiper-icons';
     font-size: 2.5rem;
 }
@@ -309,11 +300,11 @@ body,
     color: #004d40;
     font-size: 1rem;
     white-space: pre-wrap;
-    display: none; /* JavaScript ile kontrol edilecek */
+    display: none;
     transition: all 0.3s ease;
 }
 
-/* --- Geri Butonu --- */
+
 .back-button {
     position: fixed;
     left: 20px;
@@ -351,7 +342,7 @@ body,
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    min-height: 90vh; /* Minimum yüksekliği ekranın %70'i kadar yap */
+    min-height: 90vh;
 }
 
 .quiz-header {
@@ -375,19 +366,19 @@ body,
     margin-bottom: 20px;
 }
 
-/* Quiz içeriğini (sorular, seçenekler) ortala ve dikeyde esnek yap */
+
 .quiz-content {
-    flex-grow: 1; /* Mevcut alanı kaplamasını sağlar */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Dikeyde ortala */
-    align-items: center; /* Yatayda ortala */
-    text-align: center; /* Metinleri ortala */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 0px 20px;
-    position: relative; /* loading-overlay için */
+    position: relative;
 }
 
-/* Loading overlay */
+
 .loading-overlay {
     position: absolute;
     top: 0;
@@ -412,15 +403,15 @@ body,
     color: #00796b;
 }
 
-/* Swiper Quiz Stilleri (mySwiperQuiz ve mySwiperReviewQuiz birleştirildi) */
+/* Swiper Quiz Stilleri */
 .mySwiperQuiz,
 .mySwiperReviewQuiz {
     width: 100%;
-    min-height: 300px; /* Slaytların minimum yüksekliği */
+    min-height: 300px;
     margin: 0 auto;
     position: relative;
-    opacity: 0; /* Başlangıçta gizli, JS ile görünür yapılacak */
-    visibility: hidden; /* D-none ile birlikte kullanıldığında geçiş efekti sağlar */
+    opacity: 0;
+    visibility: hidden; 
     transition: visibility 0s, opacity 0.5s linear;
 }
 
@@ -464,7 +455,7 @@ body,
 }
 
 .quiz-slide .options label {
-    display: flex; /* İçeriği hizalamak için flex kullanıldı */
+    display: flex;
     align-items: center;
     font-size: 1rem;
     cursor: pointer;
@@ -472,8 +463,8 @@ body,
     padding: 8px 15px;
     border-radius: 8px;
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
-    width: 100%; /* Genişliği ayarla */
-    text-align: left; /* Metinleri sola hizala */
+    width: 100%;
+    text-align: left;
 }
 
 .quiz-slide .options label:hover {
@@ -489,16 +480,16 @@ body,
 
 /* --- Quiz Aksiyon Butonları --- */
 .quiz-actions {
-    margin-top: auto; /* Konteynerin alt kısmına iter */
-    padding: 15px; /* İç boşluk */
-    background-color: #ffffff; /* Hafif arka plan */
-    border-bottom-left-radius: 15px; /* Alt köşeleri yuvarla */
-    border-bottom-right-radius: 15px; /* Alt köşeleri yuvarla */
+    margin-top: auto;
+    padding: 15px;
+    background-color: #ffffff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     display: flex;
     justify-content: center;
     gap: 15px;
-    width: 100%; /* Kutu içinde tam genişlik */
-    box-sizing: border-box; /* Padding ve border genişliğe dahil */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .quiz-actions .btn {
@@ -579,7 +570,7 @@ body,
     margin-top: 20px;
 }
 
-/* Sonuçlar Konteyneri Genel Stili */
+
 .quiz-results-container {
     max-width: 800px;
     margin: 20px auto;
@@ -596,7 +587,7 @@ body,
     text-align: left;
 }
 
-/* Scrollbar stilleri */
+
 #quiz-results::-webkit-scrollbar,
 #quiz-review-results::-webkit-scrollbar,
 .quiz-slide .options::-webkit-scrollbar,
@@ -615,7 +606,6 @@ body,
 }
 
 /* --- Giriş/Kayıt Formu Stilleri --- */
-/* Genel body ayarları login.html ve register.html için */
 body.login-register-page {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -709,7 +699,7 @@ body.login-register-page {
     text-decoration: underline;
 }
 
-/* Hata ve Başarı Mesajları */
+
 .error-message,
 .success-message {
     padding: 10px 15px;
@@ -732,30 +722,30 @@ body.login-register-page {
     border: 1px solid #c3e6cb;
 }
 
-/* --- Kullanıcı Bilgisi ve Çıkış Butonu (Header Bar) --- */
+
 #header-bar {
-    position: fixed; /* sticky yerine fixed yaparak her zaman en üstte kalmasını sağlarız */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 1rem;
     z-index: 1000;
-    background-color: transparent; /* Gri arka planı kaldırıldı */
-    box-shadow: none; /* Gölge kaldırıldı */
+    background-color: transparent;
+    box-shadow: none;
     display: flex;
-    justify-content: flex-end; /* Sağ hizala */
+    justify-content: flex-end;
     align-items: center;
 }
 
 .user-info {
     font-size: 1.1rem;
-    color: #000; /* Yazı rengi siyah olarak ayarlandı, arka plan şeffaf olduğu için daha görünür olur */
+    color: #000;
     margin-right: 1rem;
     font-weight: bold;
 }
 
 .logout-btn {
-    background-color: #dc3545; /* Kırmızı renk */
+    background-color: #dc3545;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -779,10 +769,9 @@ body.login-register-page {
     transform: scale(1.2);
 }
 
-/* --- Küçük Ekranlar İçin Duyarlılık --- */
+
 @media (max-width: 768px) {
     .modal-content {
-        /* Flex stilleri kaldırıldığı için, burada sadece responsive padding/genişlik ayarlaması yeterli */
         padding: 20px 15px;
     }
 
@@ -814,7 +803,7 @@ body.login-register-page {
     }
 
     .quiz-title {
-        font-size: 1.8rem; /* Küçültülmüş başlık boyutu */
+        font-size: 1.8rem;
     }
 
     .quiz-slide .question-text {
@@ -826,13 +815,13 @@ body.login-register-page {
     }
 
     .quiz-actions {
-        flex-wrap: wrap; /* Butonların bir satıra sığmazsa alt satıra geçmesini sağlar */
-        gap: 10px; /* Butonlar arasındaki boşluğu azaltır */
-        padding: 10px; /* İç boşluğu azaltır */
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
     }
 
     .quiz-actions .btn {
-        width: calc(50% - 10px); /* İki sütunlu düzen için %50 genişlik, gap'i hesaba katar */
+        width: calc(50% - 10px);
         font-size: 0.9rem;
         padding: 10px 15px;
     }
@@ -848,13 +837,13 @@ body.login-register-page {
 
 @media (max-width: 480px) {
     .quiz-actions .btn {
-        width: 100%; /* Çok küçük ekranlarda butonları tek sütun yapar */
+        width: 100%;
     }
 }
 
 
 
-/* --- Profil Sayfası Özel Stilleri (Sadece bu sayfadan taşındı) --- */
+/* Profil sayfası için stil */
 .profile-header {
     background-color: #f8f9fa;
     padding: 20px;
@@ -893,20 +882,20 @@ body.login-register-page {
     border-bottom: 1px solid #e9ecef;
     padding-bottom: 5px;
 }
-/* Arama sonuçları için stil */
+
 #userSearchResults {
-    position: absolute; /* Navbar altına açılır liste gibi gelmesi için */
-    top: 100%; /* Navbar'ın hemen altına */
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    z-index: 1000; /* Diğer öğelerin üzerinde olması için */
-    max-height: 200px; 
+    z-index: 1000;
+    max-height: 200px;
     overflow-y: auto;
     border: 1px solid #ddd;
-    border-radius: 0 0 5px 5px; /* Sadece alt köşeleri yuvarla */
+    border-radius: 0 0 5px 5px;
     background-color: white;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    display: none; /* Başlangıçta gizli */
+    display: none;
 }
 .search-result-item {
     padding: 8px 10px;
@@ -919,26 +908,26 @@ body.login-register-page {
     text-decoration: none;
     color: #007bff;
     font-weight: bold;
-    display: block; /* Tüm alanı tıklanabilir yap */
+    display: block;
 }
 .search-result-item a:hover {
     text-decoration: underline;
-    background-color: #f8f9fa; /* Hover efekti */
+    background-color: #f8f9fa;
 }
-/* Navbar içinde arama inputu için stil */
+
 .navbar .form-control {
-    width: 200px; /* Genişliği ayarla */
+    width: 200px;
     margin-right: 10px;
 }
 .navbar .input-group {
-    position: relative; /* Arama sonuçları için konumlandırma bağlamı */
-    flex-wrap: nowrap; /* Bootstrap 5 flex-wrap özelliğini devre dışı bırakır */
+    position: relative;
+    flex-wrap: nowrap;
 }
-/* Yeni butonlar için düzenleme */
+
 .profile-actions {
     display: flex;
-    gap: 10px; /* Butonlar arasına boşluk */
-    margin-top: 10px; /* Genel bir üst boşluk */
+    gap: 10px;
+    margin-top: 10px;
 }
 #header-bar {
     position: fixed;

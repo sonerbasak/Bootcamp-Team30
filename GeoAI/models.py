@@ -1,16 +1,15 @@
-# models.py dosyanızda WrongAnswer modeli:
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from database import Base # Base'in tanımlı olduğundan emin olun
+from database import Base 
 
 class WrongAnswer(Base):
     __tablename__ = "wrong_answers"
 
     id = Column(Integer, primary_key=True, index=True)
-    question_id = Column(Integer, ForeignKey("questions.id"), unique=True) # unique=True eklenmeli!
+    question_id = Column(Integer, ForeignKey("questions.id"), unique=True)
     user_answer_letter = Column(String)
 
-    question = relationship("Question") # Question modeli ile ilişki
+    question = relationship("Question")
 
     def __repr__(self):
         return f"<WrongAnswer(id={self.id}, question_id={self.question_id})>"

@@ -1,9 +1,7 @@
-# functions/database/queries.py
-
 import sqlite3
 from typing import List, Dict, Optional
 from datetime import datetime
-from functions.database.connections import get_db_connection # BU SATIR KALIYOR
+from functions.database.connections import get_db_connection 
 from functions.config import settings
 import json
 import logging
@@ -88,48 +86,38 @@ def follow_user(follower_id: int, followed_id: int) -> bool:
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
         try:
-            # Check if already following to prevent IntegrityError on INSERT
-            # PRIMARY KEY (follower_id, followed_id) sayesinde,
-            # eğer zaten takip ediliyorsa INSERT işlemi IntegrityError verecektir.
-            # Bu SELECT kontrolü aslında o hatayı önceden yakalar.
             cursor.execute("SELECT 1 FROM followers WHERE follower_id = ? AND followed_id = ?", (follower_id, followed_id))
             if cursor.fetchone():
                 logging.warning(f"Kullanıcı {follower_id} zaten kullanıcı {followed_id} kişisini takip ediyor.")
                 return False
 
-            # 1. Takip ilişkisini followers tablosuna ekle
             cursor.execute("INSERT INTO followers (follower_id, followed_id) VALUES (?, ?)", (follower_id, followed_id))
             
-            # 2. Takip edilen kullanıcının social_followers sayısını users tablosunda güncelle
             cursor.execute("SELECT COUNT(*) FROM followers WHERE followed_id = ?", (followed_id,))
             current_followers = cursor.fetchone()[0]
             
             cursor.execute("UPDATE users SET social_followers = ? WHERE id = ?", (current_followers, followed_id))
             
-            conn.commit() # Tüm değişiklikleri kaydet
+            conn.commit() 
 
             logging.info(f"Kullanıcı {follower_id} kişisi kullanıcı {followed_id} kişisini takip etti. Güncel takipçi sayısı: {current_followers}")
 
-            # Kullanıcı etkinliği ekle
+            
             follower_user_data = get_user_by_id(follower_id)
             followed_user_data = get_user_by_id(followed_id)
             if follower_user_data and followed_user_data:
                 add_user_activity(follower_id, f"{follower_user_data['username']} kişisi {followed_user_data['username']} kişisini takip etmeye başladı.")
             
-            # 3. Rozet kontrolünü çağır
-            # badge_service.check_and_award_badges metodu SADECE user_id bekler.
-            # Diğer tüm verileri (takipçi sayısı, rozet tipi vb.) kendi içinde çeker.
-            badge_service.check_and_award_badges(followed_id) # Buradaki çağrı düzeltildi!
+
+            badge_service.check_and_award_badges(followed_id) 
             
             return True
         except sqlite3.IntegrityError:
-            # Bu blok, eğer yukarıdaki SELECT kontrolü bir şekilde atlanırsa
-            # veya aynı anda iki istek gelirse devreye girer.
             logging.warning(f"Kullanıcı {follower_id} zaten kullanıcı {followed_id} kişisini takip ediyor. (IntegrityError)")
             return False
         except Exception as e:
             logging.error(f"Takip işlemi sırasında hata oluştu: {e}")
-            conn.rollback() # Hata durumunda değişiklikleri geri al
+            conn.rollback() 
             return False
 
 
@@ -166,7 +154,7 @@ def get_followers(user_id: int) -> List[Dict]:
             ORDER BY u.username ASC
         """, (user_id,))
         rows = cursor.fetchall()
-        return [dict(row) for row in rows] # sqlite3.Row objelerini dict'e çevir
+        return [dict(row) for row in rows]
 
 def get_following(user_id: int) -> List[Dict]:
     """Belirli bir kullanıcının takip ettiklerini döndürür."""
@@ -180,7 +168,7 @@ def get_following(user_id: int) -> List[Dict]:
             ORDER BY u.username ASC
         """, (user_id,))
         rows = cursor.fetchall()
-        return [dict(row) for row in rows] # sqlite3.Row objelerini dict'e çevir
+        return [dict(row) for row in rows]
 
 def update_user_profile(user_id: int, bio: Optional[str] = None, profile_picture_url: Optional[str] = None) -> bool:
     """Kullanıcının biyografisini ve/veya profil fotoğrafını günceller."""
@@ -214,7 +202,6 @@ def update_displayed_badges(user_id: int, badge_ids: List[int]) -> bool:
     """Kullanıcının profilinde gösterilecek rozetleri günceller."""
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
-        # Rozet ID'lerini JSON string olarak sakla
         badge_ids_json = json.dumps(badge_ids)
         cursor.execute("UPDATE users SET displayed_badge_ids = ? WHERE id = ?", (badge_ids_json, user_id))
         conn.commit()
@@ -249,7 +236,7 @@ def get_wrong_questions_from_db(user_id: int) -> List[Dict]:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM wrong_questions WHERE user_id = ? ORDER BY timestamp DESC", (user_id,))
         rows = cursor.fetchall()
-        return [dict(row) for row in rows] # sqlite3.Row objelerini dict'e çevir
+        return [dict(row) for row in rows]
 
 def delete_wrong_questions_from_db(user_id: int, question_ids: List[int]) -> int:
     """Belirli yanlış soruları kullanıcının listesinden siler."""
@@ -282,7 +269,7 @@ def get_messages_between_users(user1_id: int, user2_id: int) -> List[Dict]:
             ORDER BY timestamp ASC
         """, (user1_id, user2_id, user2_id, user1_id))
         rows = cursor.fetchall()
-        return [dict(row) for row in rows] # sqlite3.Row objelerini dict'e çevir
+        return [dict(row) for row in rows] 
 
 def get_user_conversations(user_id: int) -> List[Dict]:
     """Kullanıcının mesajlaştığı tüm diğer kullanıcıları ve son mesajlarını getirir."""
@@ -332,7 +319,7 @@ def get_user_activities(user_id: int) -> List[Dict]:
             try:
                 dt_object = datetime.strptime(timestamp_str, '%Y-%m-%d %H:%M:%S')
             except ValueError:
-                dt_object = timestamp_str # Hata durumunda string olarak bırak
+                dt_object = timestamp_str
             
             activities.append({
                 "activity_description": row['activity_description'],
@@ -472,7 +459,6 @@ def get_badge_type_by_name_and_threshold(badge_type_name: str, threshold: float,
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
 
-        # Doğru sütun adı: 'type_name'
         query = """
             SELECT 
                 id, 
@@ -489,7 +475,7 @@ def get_badge_type_by_name_and_threshold(badge_type_name: str, threshold: float,
         """
         params = [badge_type_name, threshold]
 
-        # Kategori parametresini kontrol et ve sorguya ekle
+
         if category is not None and category != "":
             query += " AND category = ?"
             params.append(category)
@@ -682,21 +668,19 @@ def get_all_users_category_data() -> (Dict[int, List[float]], List[str]):
     with get_db_connection(settings.QUIZ_STATS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
 
-        # 1. Tüm benzersiz kategori isimlerini al (tutarlılık için sıralı)
+
         cursor.execute("SELECT DISTINCT category_name FROM category_stats ORDER BY category_name ASC")
         all_categories = [row["category_name"] for row in cursor.fetchall()]
 
-        # 2. Tüm benzersiz kullanıcı ID'lerini al
+
         cursor.execute("SELECT DISTINCT user_id FROM category_stats")
         all_user_ids = [row["user_id"] for row in cursor.fetchall()]
 
         all_users_category_vectors = {}
         for user_id in all_user_ids:
-            # Her kullanıcı için kategori başarı oranlarını al
+
             user_category_rates = get_user_category_success_rates(user_id)
             
-            # Tüm kategorileri içeren bir vektör oluştur
-            # Kullanıcının veri girmediği kategoriler için 0.0 kullan
             user_vector = [user_category_rates.get(cat, 0.0) for cat in all_categories]
             all_users_category_vectors[user_id] = user_vector
     
@@ -707,16 +691,16 @@ def remove_follower_relationship(follower_id: int, followed_id: int) -> bool:
     Belirtilen 'follower_id'nin, 'followed_id'yi takip etme ilişkisini siler.
     Yani, bir takipçiyi kendi takipçi listenizden çıkarır.
     """
-    # get_db_connection'a settings.USERS_DATABASE_FILE'ı iletin
+
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
         try:
             cursor.execute(
-                "DELETE FROM followers WHERE follower_id = ? AND followed_id = ?", # "follows" yerine "followers"
+                "DELETE FROM followers WHERE follower_id = ? AND followed_id = ?",
                 (follower_id, followed_id)
             )
             conn.commit()
-            return cursor.rowcount > 0 # Silme işlemi başarılı olduysa True döndürür
+            return cursor.rowcount > 0 
         except sqlite3.Error as e:
             print(f"Database error during remove_follower_relationship: {e}")
             conn.rollback()
@@ -726,12 +710,12 @@ def check_if_user_follows(follower_id: int, followed_id: int) -> bool:
     """
     Bir kullanıcının başka bir kullanıcıyı takip edip etmediğini kontrol eder.
     """
-    # get_db_connection'a settings.USERS_DATABASE_FILE'ı iletin
+
     with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
         cursor = conn.cursor()
         try:
             cursor.execute(
-                "SELECT 1 FROM followers WHERE follower_id = ? AND followed_id = ?", # "follows" yerine "followers"
+                "SELECT 1 FROM followers WHERE follower_id = ? AND followed_id = ?", 
                 (follower_id, followed_id)
             )
             return cursor.fetchone() is not None
@@ -740,22 +724,21 @@ def check_if_user_follows(follower_id: int, followed_id: int) -> bool:
             return False
 
 
-# --- Yeni Post Sorguları ---
+
 def create_post(user_id: int, content: str, topic: str, image_url: Optional[str] = None) -> int:
     """Yeni bir gönderi ekler."""
     try:
-        # Burada settings.POSTS_DATABASE_FILE kullanıldığından emin olun
         with get_db_connection(settings.POSTS_DATABASE_FILE) as conn:
             cursor = conn.cursor()
             cursor.execute("""
                 INSERT INTO posts (user_id, content, image_url, topic, created_at)
                 VALUES (?, ?, ?, ?, ?)
-            """, (user_id, content, image_url, topic, datetime.now().isoformat())) # created_at eklendi
+            """, (user_id, content, image_url, topic, datetime.now().isoformat())) 
             conn.commit()
             return cursor.lastrowid
     except sqlite3.Error as e:
         print(f"Gönderi eklenirken hata: {e}")
-        return 0 # Hata durumunda 0 döndür veya hata fırlat
+        return 0 
 
 
 def get_posts(limit: int = 10, offset: int = 0, topic: Optional[str] = None) -> List[Dict]:
@@ -782,7 +765,7 @@ def get_posts(limit: int = 10, offset: int = 0, topic: Optional[str] = None) -> 
             cursor.execute(query, tuple(params))
             posts = cursor.fetchall()
         
-        # Dönüş değeri olarak `created_at` anahtarı olan sözlükler dönecektir
+
         return [dict(post) for post in posts]
     except sqlite3.Error as e:
         print(f"Gönderiler çekilirken hata (posts.db): {e}")
@@ -795,29 +778,29 @@ def format_time_ago(timestamp_str: Optional[str]) -> str:
     try:
         post_time = datetime.fromisoformat(timestamp_str)
     except ValueError:
-        # Hata durumunda, formatlanmamış stringi veya bir hata mesajını döndür
+
         return "Geçersiz tarih"
     now = datetime.now()
     diff = now - post_time
 
     seconds = int(diff.total_seconds())
 
-    # Tekil/çoğul durumları dikkate alarak daha okunabilir ifadeler kullanıyoruz
+
     if seconds < 60:
         return "az önce"
-    elif seconds < 3600:  # 1 saat
+    elif seconds < 3600:  
         minutes = seconds // 60
         return f"{minutes} dakika önce"
-    elif seconds < 86400:  # 1 gün
+    elif seconds < 86400:  
         hours = seconds // 3600
         return f"{hours} saat önce"
-    elif seconds < 604800:  # 7 gün (1 hafta)
+    elif seconds < 604800:  
         days = seconds // 86400
         return f"{days} gün önce"
-    elif seconds < 2592000:  # Yaklaşık 30 gün (1 ay)
+    elif seconds < 2592000:  
         weeks = seconds // 604800
         return f"{weeks} hafta önce"
-    elif seconds < 31536000:  # Yaklaşık 365 gün (1 yıl)
+    elif seconds < 31536000:  
         months = seconds // 2592000
         return f"{months} ay önce"
     else:
@@ -828,7 +811,7 @@ def format_time_ago(timestamp_str: Optional[str]) -> str:
 def search_users(query: str, limit: int = 5) -> List[Dict]:
     """Kullanıcı adında arama yapan fonksiyon."""
     try:
-        # Burada settings.USERS_DATABASE_FILE kullanıldığından emin olun
+        
         with get_db_connection(settings.USERS_DATABASE_FILE) as conn:
             cursor = conn.cursor()
             cursor.execute("""
@@ -846,7 +829,7 @@ def search_users(query: str, limit: int = 5) -> List[Dict]:
 def get_post_by_id(post_id: int) -> Optional[Dict]:
     """Belirli bir ID'ye sahip gönderiyi getirir."""
     try:
-        with get_db_connection(settings.POSTS_DATABASE_FILE) as conn: # posts.db'ye bağlandığından emin olun
+        with get_db_connection(settings.POSTS_DATABASE_FILE) as conn:
             cursor = conn.cursor()
             cursor.execute("""
                 SELECT id, user_id, content, image_url, topic, created_at as timestamp, likes, comments

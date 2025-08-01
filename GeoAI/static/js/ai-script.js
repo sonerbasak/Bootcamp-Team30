@@ -1,12 +1,9 @@
-// js/ai-script.js
-
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    // URL'den 'type' ve 'name' parametrelerini alıyoruz
     const quizTypeFromURL = getQueryParam("type");
     const quizNameFromURL = getQueryParam("name");
 

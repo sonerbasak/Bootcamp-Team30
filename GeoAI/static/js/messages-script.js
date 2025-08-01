@@ -1,4 +1,3 @@
-// GeoAI/static/js/messages-script.js
 document.addEventListener('DOMContentLoaded', function() {
     const conversationItemsContainer = document.getElementById('conversationItems');
     const chatHeader = document.getElementById('chatHeader');
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navbarSearchUserButton.addEventListener('click', function() {
             const searchTerm = navbarUserSearchInput.value.trim();
             if (searchTerm) {
-                window.location.href = `/profile/${searchTerm}`; // Kullanıcı profiline yönlendir
+                window.location.href = `/profile/${searchTerm}`;
             }
         });
 
@@ -45,11 +44,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function attachConversationItemListeners() {
         document.querySelectorAll('.conversation-item').forEach(item => {
             item.addEventListener('click', function() {
-                // Önceki aktif öğeyi temizle
+                
                 document.querySelectorAll('.conversation-item.active').forEach(activeItem => {
                     activeItem.classList.remove('active');
                 });
-                // Yeni aktif öğeyi ayarla
+                
                 item.classList.add('active');
 
                 selectedOtherUserId = item.dataset.otherUserId;
@@ -59,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 selectedOtherProfilePic = profilePic;
 
                 updateChatHeader(username, profilePic);
-                messageInputArea.classList.remove('d-none'); // Mesaj giriş alanını göster
+                messageInputArea.classList.remove('d-none'); 
                 loadMessages(selectedOtherUserId);
             });
         });
@@ -90,27 +89,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mesajları göster
     function displayMessages(messages) {
-        chatMessages.innerHTML = ''; // Önceki mesajları temizle
+        chatMessages.innerHTML = '';
         if (messages.length === 0) {
             chatMessages.innerHTML = '<p class="text-center text-muted">Bu sohbet için henüz mesaj yok.</p>';
             return;
         }
 
-        // Mesajları tersten döngüye alarak eskiden yeniye doğru sırala
+       
         messages.forEach(msg => {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message-bubble');
-            if (msg.sender_id === currentUserId) { // currentUserId global olarak Jinja2'den geliyor
+            if (msg.sender_id === currentUserId) {
                 messageDiv.classList.add('sent');
-                messageDiv.style.marginLeft = 'auto'; // Sağa hizala
+                messageDiv.style.marginLeft = 'auto';
             } else {
                 messageDiv.classList.add('received');
-                messageDiv.style.marginRight = 'auto'; // Sola hizala
+                messageDiv.style.marginRight = 'auto';
             }
             messageDiv.textContent = msg.content;
-            chatMessages.prepend(messageDiv); // Yeni mesajları en üste ekle (flex-direction-reverse ile aşağıda görünür)
+            chatMessages.prepend(messageDiv);
         });
-        chatMessages.scrollTop = chatMessages.scrollHeight; // En alta kaydır
+        chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
     // Mesaj gönderme işlevi
@@ -137,10 +136,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const responseData = await response.json();
 
-            // Mesaj gönderildikten sonra sohbeti yeniden yükle
-            if (selectedOtherUserId == receiverId) { // Eğer mevcut sohbetse
+            
+            if (selectedOtherUserId == receiverId) {
                 loadMessages(receiverId);
-            } else { // Yeni başlatılan bir sohbetse, konuşmalar listesini güncelle
+            } else { 
                  updateConversationsList();
             }
             return true;
@@ -149,8 +148,8 @@ document.addEventListener('DOMContentLoaded', function() {
             alert(`Mesaj gönderilemedi: ${error.message}`);
             return false;
         } finally {
-            messageInput.value = ''; // Mesaj kutusunu temizle
-            newMessageContent.value = ''; // Yeni mesaj modalı kutusunu temizle
+            messageInput.value = '';
+            newMessageContent.value = '';
         }
     }
 
@@ -162,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error('Konuşmalar yüklenirken hata oluştu.');
             }
             const conversations = await response.json();
-            conversationItemsContainer.innerHTML = ''; // Mevcut listeyi temizle
+            conversationItemsContainer.innerHTML = '';
 
             if (conversations.length === 0) {
                 conversationItemsContainer.innerHTML = '<p class="p-3 text-muted">Henüz hiç mesajınız yok.</p>';
@@ -174,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 conversationItem.classList.add('d-flex', 'align-items-center', 'conversation-item');
                 conversationItem.dataset.otherUserId = conv.other_user_id;
 
-                // Tarih formatını ayarla
+                
                 let lastMessageTime = new Date(conv.last_message_timestamp);
                 let timeString = lastMessageTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 let dateString = lastMessageTime.toLocaleDateString();
@@ -188,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
                 conversationItemsContainer.appendChild(conversationItem);
             });
-            attachConversationItemListeners(); // Yeni eklenen öğelere olay dinleyicilerini tekrar ata
+            attachConversationItemListeners(); 
         } catch (error) {
             console.error('Konuşma listesi güncellenirken hata:');
         }
@@ -210,17 +209,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Sayfa yüklendiğinde mevcut konuşmaları göster ve dinleyicileri ata
+
     attachConversationItemListeners();
 
-    // --- Yeni Mesaj Modalı İşlevselliği ---
 
-    let searchTimeout = null; // Arama gecikmesi için
+    let searchTimeout = null; 
     userSearchInput.addEventListener('input', function() {
         clearTimeout(searchTimeout);
         const searchTerm = userSearchInput.value.trim();
-        if (searchTerm.length > 2) { // 2 karakterden fazla girilirse ara
-            searchTimeout = setTimeout(() => searchUsers(searchTerm), 300); // 300ms gecikme
+        if (searchTerm.length > 2) { 
+            searchTimeout = setTimeout(() => searchUsers(searchTerm), 300); 
         } else {
             searchResults.innerHTML = '';
         }
@@ -248,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         users.forEach(user => {
-            // Mevcut kullanıcıyı arama sonuçlarında gösterme
+            
             if (user.id === currentUserId) {
                 return; 
             }
@@ -266,8 +264,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 selectedNewMessageUserId.value = user.id;
                 selectedUsernameDisplay.textContent = user.username;
                 selectedUserContainer.style.display = 'block';
-                searchResults.innerHTML = ''; // Arama sonuçlarını temizle
-                userSearchInput.value = ''; // Arama kutusunu temizle
+                searchResults.innerHTML = '';
+                userSearchInput.value = '';
             });
             searchResults.appendChild(userItem);
         });
@@ -284,18 +282,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const success = await sendMessage(receiverId, content);
         if (success) {
-            newMessageModal.hide(); // Modalı kapat
-            // Yeni başlatılan sohbeti hemen seç ve mesajları yükle
+            newMessageModal.hide();
+            
             selectedOtherUserId = receiverId;
             selectedOtherUsername = selectedUsernameDisplay.textContent;
-            // Profil resmini de bulup ayarlamak gerekebilir, şimdilik varsayılan veya boş bırakılabilir
-            selectedOtherProfilePic = '/static/images/sample_user.png'; // Varsayılan bir resim kullan
+            
+            selectedOtherProfilePic = '/static/images/sample_user.png';
             
             updateChatHeader(selectedOtherUsername, selectedOtherProfilePic);
             messageInputArea.classList.remove('d-none');
             loadMessages(selectedOtherUserId);
             
-            // Modal kapandıktan sonra temizlik
+           
             userSearchInput.value = '';
             searchResults.innerHTML = '';
             selectedUserContainer.style.display = 'none';

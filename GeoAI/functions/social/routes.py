@@ -1,10 +1,9 @@
-# GeoAI/functions/social/routes.py
 from fastapi import APIRouter, Request, Form, HTTPException, status, Depends, UploadFile, File
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from typing import Optional, List, Dict, Any
 from functions.auth.dependencies import CurrentUser, require_auth
-from functions.database import queries as db_queries # db_queries import edildi
+from functions.database import queries as db_queries
 from functions.config import settings
 import uuid
 import os
@@ -30,14 +29,10 @@ class UserResponse(BaseModel):
     email: EmailStr
     bio: Optional[str] = None
     profile_picture_url: str = "/static/images/sample_user.png"
-    # Genel quiz istatistikleri, artık doğrudan queries.py'den gelen dict'e eklenecek
     total_quizzes_completed: int
     total_correct_answers: int
     total_score: int
     highest_score: int
-    # recent_activities doğrudan HTML template'ine gönderildiği için burada zorunlu değil
-    # ancak API yanıtları için tutmak istersen uncomment edebilirsin:
-    # recent_activities: List[ActivityResponse] = [] 
     
     class Config:
         from_attributes = True
@@ -70,8 +65,8 @@ class PostCreate(BaseModel):
 class PostResponse(BaseModel):
     id: int
     user_id: int
-    username: str # Post sahibinin kullanıcı adı
-    profile_picture_url: str # Post sahibinin profil resmi URL'si
+    username: str
+    profile_picture_url: str
     content: str
     created_at: str
     image_url: Optional[str] = None
@@ -79,7 +74,6 @@ class PostResponse(BaseModel):
 
     class Config:
         from_attributes = True
-        # Datetime objelerini otomatik olarak ISO formatına çevirmek için
         json_encoders = {datetime: lambda dt: dt.isoformat()}
 
 # --- HTML SAYFA ROTLARI ---
@@ -103,19 +97,17 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
     
     profile_user = profile_user_data 
 
-    # Takipçi ve Takip Edilenler listelerini çekin
-    # Her bir kullanıcı için 'is_followed_by_current_user' bilgisini ekleyin
+
     raw_followers = db_queries.get_followers(profile_user['id'])
     followers_with_status = []
     for follower in raw_followers:
-        follower_data = db_queries.get_user_by_id(follower['follower_id']) # Takipçinin tam bilgilerini al
+        follower_data = db_queries.get_user_by_id(follower['follower_id'])
         if follower_data:
-            # Oturum açmış kullanıcı, bu takipçiyi takip ediyor mu?
             is_followed_by_current_user = False
             if current_user and current_user.id:
                 is_followed_by_current_user = db_queries.is_following(current_user.id, follower_data['id'])
             
-            # Burada 'id' alanını da döndürüyoruz, JavaScript'te currentUserId ile karşılaştırmak için önemli
+
             followers_with_status.append({
                 "id": follower_data['id'],
                 "username": follower_data['username'],
@@ -127,9 +119,8 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
     raw_following = db_queries.get_following(profile_user['id'])
     following_with_status = []
     for followed in raw_following:
-        followed_data = db_queries.get_user_by_id(followed['followed_id']) # Takip edilenin tam bilgilerini al
+        followed_data = db_queries.get_user_by_id(followed['followed_id']) 
         if followed_data:
-            # Oturum açmış kullanıcı, bu takip edileni takip ediyor mu? (Bu zaten true olmalı, ama tutarlılık için)
             is_followed_by_current_user = False
             if current_user and current_user.id:
                 is_followed_by_current_user = db_queries.is_following(current_user.id, followed_data['id'])
@@ -165,9 +156,6 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
             "is_following_user": is_following_user,
             "quiz_summaries": quiz_summaries, 
             "category_stats": category_stats,
-            # Bu listeleri JavaScript'e JSON API aracılığıyla göndereceğiz, doğrudan template'e değil.
-            # "followers_list": followers_with_status,
-            # "following_list": following_with_status,
         }
     )
 
@@ -193,8 +181,7 @@ async def search_users(search_term: str) -> List[UserResponse]:
     if not search_term:
         return []
     users = db_queries.search_users_by_username(search_term)
-    # db_queries.search_users_by_username zaten istatistikleri döndürüyor
-    return users # Pydantic otomatik olarak listeyi doğrular
+    return users 
 
 @router.post("/api/follow/{followed_id}", name="follow_user_api")
 async def follow_user_api(followed_id: int, current_user: CurrentUser = Depends(require_auth)):
@@ -257,7 +244,6 @@ async def edit_profile_api(
                     buffer.write(chunk)
             
             old_picture_url = user_data.get("profile_picture_url")
-            # Yalnızca önceden yüklenmiş bir dosya ise sil
             if old_picture_url and old_picture_url.startswith("/static/uploads/profile_pictures/"):
                 old_file_name = old_picture_url.split('/')[-1]
                 old_picture_full_path = upload_dir / old_file_name
@@ -267,7 +253,6 @@ async def edit_profile_api(
             updated_profile_picture_url = f"/static/uploads/profile_pictures/{file_name}"
 
         except Exception as e:
-            # Yükleme hatası durumunda kısmen yüklenmiş dosyayı temizle
             if file_path.exists():
                 os.remove(file_path)
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Profil fotoğrafı yüklenirken hata: {e}")
@@ -280,7 +265,6 @@ async def edit_profile_api(
 
     if success:
         updated_user_data = db_queries.get_user_by_id(current_user.id)
-        # updated_user_data zaten genel istatistikleri içeriyor
         updated_user_data['recent_activities'] = db_queries.get_user_activities(current_user.id)
         return UserResponse(**updated_user_data)
     
@@ -294,14 +278,12 @@ async def get_messages_api(other_user_id: int, current_user: CurrentUser = Depen
     
     messages = db_queries.get_messages_between_users(current_user.id, other_user_id)
     
-    # Gönderici ve alıcı bilgilerini toplamak için
-    # Performans için, ilgili tüm kullanıcıların bilgilerini tek seferde çekip bir map oluşturmak daha iyi.
+
     all_involved_user_ids = set()
     for msg in messages:
         all_involved_user_ids.add(msg['sender_id'])
-        # other_user_id de listeye eklendiğinden emin olun (mesajlarda receiver_id olarak gelir)
         all_involved_user_ids.add(other_user_id) 
-        all_involved_user_ids.add(current_user.id) # current_user da gerekebilir
+        all_involved_user_ids.add(current_user.id) 
 
     user_info_map = {}
     for user_id in all_involved_user_ids:
@@ -321,13 +303,12 @@ async def get_messages_api(other_user_id: int, current_user: CurrentUser = Depen
             "sender_id": msg['sender_id'],
             "receiver_id": msg['receiver_id'],
             "content": msg['content'],
-            # Timestamp'ı kontrol et ve ISO formatına çevir
             "timestamp": msg['timestamp'].isoformat() if isinstance(msg.get('timestamp'), datetime) else str(msg['timestamp']),
             "sender_username": sender_info.get("username", "Bilinmeyen Kullanıcı"),
             "sender_profile_picture_url": sender_info.get("profile_picture_url", "/static/images/sample_user.png")
         })
     
-    return formatted_messages # Güncellenmiş listeyi döndür
+    return formatted_messages 
 
 @router.post("/api/messages/send", response_class=JSONResponse, name="send_message_api")
 async def send_message_api(receiver_id: int = Form(...), content: str = Form(...), current_user: CurrentUser = Depends(require_auth)):
@@ -352,7 +333,7 @@ async def get_conversations_api(current_user: CurrentUser = Depends(require_auth
     
     conversations = db_queries.get_user_conversations(current_user.id)
     
-    # Datetime objelerini ISO formatına çevir (JSON serileştirme için)
+
     for conv in conversations:
         if isinstance(conv.get('last_message_timestamp'), datetime):
             conv['last_message_timestamp'] = conv['last_message_timestamp'].isoformat()
@@ -371,24 +352,23 @@ async def remove_follower_api(
     if not current_user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Giriş yapmalısınız.")
 
-    # Kendi kendinizi takipçi listenizden çıkaramazsınız
+
     if follower_username == current_user.username:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Kendinizi takipçilerinizden çıkaramazsınız.")
 
-    # Çıkarılacak takipçinin bilgilerini al
+
     follower_data = db_queries.get_user_by_username(follower_username)
     if not follower_data:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Takipçi bulunamadı.")
     
     follower_id = follower_data['id']
 
-    # Bu kullanıcının gerçekten current_user'ı takip ettiğinden emin olalım
-    # (yani follower_id, current_user.id'yi takip ediyor mu?)
+
     is_following_me = db_queries.check_if_user_follows(follower_id, current_user.id)
     if not is_following_me:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"{follower_username} zaten sizi takip etmiyor.")
 
-    # Takip ilişkisini kaldır
+
     success = db_queries.remove_follower_relationship(follower_id=follower_id, followed_id=current_user.id)
 
     if success:
@@ -415,7 +395,7 @@ async def get_posts_api(
     for post in posts:
         user_data = db_queries.get_user_by_id(post['user_id'])
         
-        # created_at değerini burada bir kere dönüştürüp her iki durumda da kullanıyoruz
+
         formatted_time = db_queries.format_time_ago(post['created_at'])
         
         if user_data:
@@ -425,21 +405,20 @@ async def get_posts_api(
                 username=user_data.get('username', 'Bilinmeyen Kullanıcı'),
                 profile_picture_url=user_data.get('profile_picture_url', "/static/images/sample_user.png"),
                 content=post['content'],
-                created_at=formatted_time, # Dönüştürülmüş değeri kullan
+                created_at=formatted_time,
                 image_url=post.get('image_url'),
                 topic=post.get('topic', 'Genel'),
                 likes=post.get('likes', 0),
                 comments=post.get('comments', 0)
             ))
         else:
-            # Kullanıcı bulunamazsa varsayılan bilgilerle ekle
             formatted_posts.append(PostResponse(
                 id=post['id'],
                 user_id=post['user_id'],
                 username='Bilinmeyen Kullanıcı',
                 profile_picture_url="/static/images/sample_user.png",
                 content=post['content'],
-                created_at=formatted_time, # Dönüştürülmüş değeri kullan
+                created_at=formatted_time,
                 image_url=post.get('image_url'),
                 topic=post.get('topic', 'Genel'),
                 likes=post.get('likes', 0),
@@ -450,72 +429,69 @@ async def get_posts_api(
 
 @router.post("/api/posts", response_model=PostResponse, status_code=status.HTTP_201_CREATED, name="create_post_api")
 async def create_post_api(
-    content: str = Form(...), # Form veri olarak içeriği al
-    topic: Optional[str] = Form("Genel"), # Form veri olarak konuyu al, isteğe bağlı yapıldı
-    image: Optional[UploadFile] = File(None), # Dosya yüklemesi için UploadFile kullanın
+    content: str = Form(...),
+    topic: Optional[str] = Form("Genel"),
+    image: Optional[UploadFile] = File(None),
     current_user: CurrentUser = Depends(require_auth)
 ):
     """Yeni bir sosyal akış gönderisi oluşturur."""
     if not current_user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Giriş yapmalısınız.")
 
-    if not content.strip(): # post_data.content yerine doğrudan content kullanıyoruz
+    if not content.strip():
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Gönderi içeriği boş olamaz.")
 
     image_url = None
     if image:
         try:
-            upload_dir = Path("static/images/posts") # Görseli kaydedeceğiniz klasör
-            upload_dir.mkdir(parents=True, exist_ok=True) # Klasörü yoksa oluştur
+            upload_dir = Path("static/images/posts")
+            upload_dir.mkdir(parents=True, exist_ok=True)
 
             file_extension = Path(image.filename).suffix.lower()
             if file_extension not in [".jpg", ".jpeg", ".png", ".gif"]:
                 raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Sadece JPG, JPEG, PNG veya GIF formatında görseller yüklenebilir.")
 
-            # Benzersiz dosya adı oluştur
+
             image_filename = f"{uuid.uuid4()}{file_extension}"
             file_path = upload_dir / image_filename
 
-            # Dosyayı sunucuya kaydet
+
             with open(file_path, "wb") as buffer:
-                while contents := await image.read(1024 * 1024): # 1MB'lık parçalar halinde oku
+                while contents := await image.read(1024 * 1024):
                     buffer.write(contents)
             
-            image_url = f"/static/images/posts/{image_filename}" # Frontend'in erişebileceği URL
+            image_url = f"/static/images/posts/{image_filename}"
 
         except Exception as e:
-            # Dosya yükleme hatasını yakala ve daha açıklayıcı bir mesajla döndür
             raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Görsel yüklenirken bir hata oluştu: {e}")
 
-    # db_queries.create_post fonksiyonunu çağır
+
     new_post_id = db_queries.create_post(
         user_id=current_user.id,
-        content=content, # content doğrudan kullanılıyor
-        image_url=image_url, # image_url kullanılıyor
-        topic=topic # topic doğrudan kullanılıyor
+        content=content,
+        image_url=image_url,
+        topic=topic
     )
 
     if not new_post_id:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Gönderi oluşturulurken bir hata oluştu.")
 
-    # Oluşturulan postu döndürmek için veritabanından tekrar çekin
     created_post_data = db_queries.get_post_by_id(new_post_id)
     if not created_post_data:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Oluşturulan gönderi bulunamadı.")
     
-    # PostResponse modeli için gerekli kullanıcı bilgilerini ekleyin
     post_owner_data = db_queries.get_user_by_id(created_post_data['user_id'])
     if not post_owner_data:
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Gönderi sahibinin bilgileri bulunamadı.")
 
-    # created_post_data'yı PostResponse modeline uygun hale getir
+    
     final_post_response = PostResponse(
         id=created_post_data['id'],
         user_id=created_post_data['user_id'],
         username=post_owner_data.get('username', 'Bilinmeyen Kullanıcı'),
         profile_picture_url=post_owner_data.get('profile_picture_url', "/static/images/sample_user.png"),
         content=created_post_data['content'],
-        timestamp=created_post_data['timestamp'],
+        created_at=created_post_data['timestamp'],
         image_url=created_post_data.get('image_url'),
         topic=created_post_data.get('topic', 'Genel')
     )

@@ -3,9 +3,6 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 
-// ==========================
-// HARİTA SAYFASI KODLARI (index.html)
-// ==========================
 
 // Harita oluşturuluyor
 const map = L.map("map").setView([39, 35], 6);
@@ -18,8 +15,8 @@ L.tileLayer(
     }
 ).addTo(map);
 
-// Değişkenler
-let illerBilgi = []; // Bu dizi, fetch ile doldurulacak
+
+let illerBilgi = [];
 let swiperInstance = null;
 const modal = document.getElementById("modal");
 
@@ -29,7 +26,7 @@ Promise.all([
     fetch("/data/tr-geo.json").then((res) => res.json()),
 ])
     .then(([illerData, geoJsonData]) => {
-        illerBilgi = illerData; // illerBilgi artık global olarak erişilebilir
+        illerBilgi = illerData; 
 
         const illerLayer = L.geoJSON(geoJsonData, {
             style: {
@@ -65,7 +62,7 @@ Promise.all([
     })
     .catch((err) => console.error("Veri yüklenirken hata:"));
 
-// İl modalı aç
+// İl modalı
 function openIlModal(ilAdi) {
     const ilVerisi = illerBilgi.find(
         (i) => i.name.trim().toLowerCase() === ilAdi.trim().toLowerCase()
@@ -118,7 +115,7 @@ function openIlModal(ilAdi) {
 
     // Swiper'ı başlat
     if (swiperInstance) swiperInstance.destroy(true, true);
-    if (ilVerisi) { // Sadece il verisi varsa Swiper'ı başlat
+    if (ilVerisi) { 
         swiperInstance = new Swiper(".mySwiper", {
             effect: "cards",
             grabCursor: true,
@@ -205,8 +202,8 @@ function selectRandomCity() {
 const randomCityLink = document.getElementById('randomCityLink');
 if (randomCityLink) {
     randomCityLink.addEventListener('click', function(event) {
-        event.preventDefault(); // Linkin varsayılan tıklama davranışını engeller (sayfa yenileme)
-        selectRandomCity(); // Artık tanımlanmış olan fonksiyonu çağır
+        event.preventDefault();
+        selectRandomCity();
     });
 }
 
@@ -214,5 +211,3 @@ if (randomCityLink) {
 window.closeModal = closeModal;
 window.slidePrev = slidePrev;
 window.slideNext = slideNext;
-// openIlModal'ı da dışa aktarabilirsiniz, ancak şu an için direkt çağrılıyor.
-// window.openIlModal = openIlModal;

@@ -1,6 +1,3 @@
-/* social-style.css */
-
-/* Genel HTML & Body Ayarları */
 html, body {
     font-family: 'Segoe UI', 'Montserrat', sans-serif;
     background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
@@ -12,11 +9,11 @@ html, body {
     overflow-x: hidden;
 }
 
-/* Navbar Stilleri */
+
 .navbar {
     background-color: #f8f9fa !important;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky; /* Fixed yerine sticky daha esnek olabilir */
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -76,13 +73,13 @@ html, body {
     color: #00796b;
 }
 
-/* Navbar arama sonuçları için stil */
+
 #userSearchResults {
     position: absolute;
-    top: 100%; /* Navbar'ın hemen altına */
-    right: 0; /* Arama kutusuyla hizalı */
-    width: 100%; /* Genişliği arama kutusuyla eşleşebilir */
-    max-width: 250px; /* Maksimum genişlik */
+    top: 100%;
+    right: 0;
+    width: 100%;
+    max-width: 250px;
     z-index: 1050;
     background-color: white;
     border-radius: 8px;
@@ -90,7 +87,7 @@ html, body {
     overflow: hidden;
     max-height: 300px;
     overflow-y: auto;
-    transform: translateX(calc(100% - 250px)); /* Sağa hizalama için */
+    transform: translateX(calc(100% - 250px));
 }
 
 
@@ -123,15 +120,15 @@ html, body {
 }
 
 
-/* Genel İçerik Boşluğu */
+
 .container-fluid.mt-4 {
-    margin-top: 70px !important; /* Navbar'ın altında boşluk bırakmak için */
-    flex-grow: 1; /* İçeriğin kalan yüksekliği doldurmasını sağlar */
-    padding-bottom: 20px; /* Alt boşluk */
+    margin-top: 70px !important;
+    flex-grow: 1;
+    padding-bottom: 20px;
 }
 
 
-/* Profil Sayfasına Özgü Stiller */
+
 .card.shadow-sm {
     background-color: #ffffff;
     border-radius: 15px;
@@ -310,7 +307,7 @@ html, body {
     color: #78909c !important;
 }
 
-/* Önerilen Arkadaşlar Bölümü */
+
 .recommended-friends-section .list-group-item {
     display: flex;
     align-items: center;
@@ -329,7 +326,7 @@ html, body {
 }
 
 
-/* Modallar */
+
 .modal-content {
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -371,7 +368,7 @@ html, body {
     border: 1px solid #e0f2f1;
 }
 
-/* Edit Profile Modal */
+
 #editProfileModal .form-label {
     font-weight: 600;
     color: #004d40;
@@ -399,22 +396,19 @@ html, body {
     border-color: #004d40;
 }
 
-/* Mesajlaşma Sayfası Özgü Stiller */
-/* Ana konteyner Bootstrap'ın .container-fluid ve .mt-4 sınıflarını kullanır. */
-/* Ekstra padding-top'a gerek yok, .mt-4 zaten yukarıdan boşluk sağlar. */
 
 .conversations-list {
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    height: calc(100vh - 120px); /* Navbar ve alt boşluk dikkate alındı */
+    height: calc(100vh - 120px);
     overflow-y: auto;
     border-right: none;
     padding: 0;
     display: flex;
     flex-direction: column;
     border: #00bfa5 1px solid;
-    margin-right: 10px; /* Sağdaki sohbet alanından boşluk */
+    margin-right: 10px;
 }
 
 .chat-container {
@@ -422,8 +416,8 @@ html, body {
     border-radius: 12px;
     padding: 0;
     display: flex;
-    flex-direction: column; /* İçeriğin dikey hizalanması için */
-    height: calc(100vh - 120px); /* Sol tarafla aynı yükseklik */
+    flex-direction: column;
+    height: calc(100vh - 120px);
 }
 
 .conversations-list .border-bottom {
@@ -452,7 +446,7 @@ html, body {
     padding: 12px 15px;
     border-bottom: 1px solid #f1fdfc;
     transition: background-color 0.2s ease, transform 0.1s ease;
-    display: flex; /* İçindeki resim ve metni yan yana hizalar */
+    display: flex;
     align-items: center;
 }
 
@@ -488,17 +482,16 @@ html, body {
     object-fit: cover;
     margin-right: 12px;
     border: 2px solid #00bfa5;
-    flex-shrink: 0; /* Küçülmesini engeller */
+    flex-shrink: 0;
 }
 
 .chat-area {
     background-color: #ffffff;
     border-radius: 12px;
-    /* chat-container içinde zaten shadow var, gereksiz */
-    flex-grow: 1; /* Mevcut alanı doldurmasını sağlar */
+    flex-grow: 1;
     overflow-y: auto;
     display: flex;
-    flex-direction: column-reverse; /* En yeni mesajların altta görünmesi için */
+    flex-direction: column-reverse;
     padding: 15px;
 }
 
@@ -509,7 +502,7 @@ html, body {
     border-top-right-radius: 12px;
     margin: 0;
     padding: 15px !important;
-    flex-shrink: 0; /* Küçülmesini engeller */
+    flex-shrink: 0;
 }
 
 #chatHeader h5 {
@@ -686,7 +679,7 @@ html, body {
     box-shadow: 0 4px 12px rgba(96, 125, 139, 0.3);
 }
 
-/* Scrollbar Stilleri */
+
 .conversations-list::-webkit-scrollbar,
 .chat-area::-webkit-scrollbar,
 .search-results-list::-webkit-scrollbar,
@@ -709,34 +702,29 @@ body::-webkit-scrollbar-track {
     background-color: #f1fdfc;
 }
 
-/* Responsive Düzenlemeler */
+
 @media (max-width: 768px) {
-    /* Genel mobile ayarlar */
-    /* body { padding-top: 60px; Bu, .container-fluid.mt-4 ile çakışabilir. */
-    /* .container-fluid.mt-4 zaten üstten boşluk verecektir. */
-    /* Sadece navbar'ın mobile yüksekliği farklıysa burada ayarlanabilir. */
     .navbar {
-        position: fixed; /* Mobilde sabit kalması için */
+        position: fixed;
     }
 
-    /* Mesajlar Sayfası */
-    .container-fluid.mt-4 { /* Ana mesaj container'ı */
+    .container-fluid.mt-4 {
         padding: 10px;
-        margin-top: 60px !important; /* Navbar'ın mobile yüksekliğine göre ayarla */
+        margin-top: 60px !important;
     }
 
     .row {
-        flex-direction: column; /* Mobil cihazlarda sütunları alt alta sırala */
+        flex-direction: column;
     }
 
     .conversations-list, .chat-container {
-        height: auto; /* Yüksekliği otomatik ayarla */
-        margin: 0; /* Marginleri sıfırla */
-        width: 100%; /* Tam genişlikte olsunlar */
-        margin-bottom: 15px; /* Aralarında boşluk bırak */
+        height: auto;
+        margin: 0;
+        width: 100%;
+        margin-bottom: 15px;
     }
 
-    /* Mobilde sohbet alanı önce, konuşmalar listesi sonra gelsin */
+    
     .conversations-list {
         order: 2;
     }
@@ -770,7 +758,7 @@ body::-webkit-scrollbar-track {
         padding: 10px;
     }
 
-    /* Profil Sayfası */
+    
     .profile-header {
         flex-direction: column;
         text-align: center;

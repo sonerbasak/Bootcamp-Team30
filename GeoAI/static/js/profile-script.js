@@ -1,13 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Bootstrap Tooltipleri etkinleştir
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
-    // --- Global Yardımcı Fonksiyonlar ve Değişkenler ---
-    // window.STATIC_URLS ve window.CURRENT_PROFILE_USERNAME'ın HTML'den doğru şekilde yüklendiğinden emin olun.
-    // userProfileTemplate'ı daha dinamik hale getirmek için _USERNAME_PLACEHOLDER_ kullanıldı.
+
     function getProfileUrl(usernameToUse) {
         if (window.STATIC_URLS && window.STATIC_URLS.userProfileTemplate) {
             return window.STATIC_URLS.userProfileTemplate.replace('_USERNAME_PLACEHOLDER_', usernameToUse);
@@ -16,22 +13,20 @@ document.addEventListener('DOMContentLoaded', function() {
         return `/profile/${usernameToUse}`; // Yedek URL
     }
 
-    // Basit bir toast mesajı gösterimi (gerçek uygulamada Bootstrap Toast kullanılması önerilir)
+
     function showToast(message, type = 'success') {
-        // Bootstrap toast kullanımı için bir yapıya ihtiyacınız olabilir.
-        // Şimdilik basit bir alert kullanıyoruz.
         alert(message);
     }
 
     // HTML'den global değişkenleri al
     const username = window.CURRENT_PROFILE_USERNAME;
     const currentUserId = window.CURRENT_USER_ID; 
-    const isMyProfile = window.IS_MY_PROFILE; // Kendi profilimiz miyiz?
+    const isMyProfile = window.IS_MY_PROFILE; 
 
     if (!username) {
         console.error("HATA: Kullanıcı adı HTML'den alınamadı. Profil sayfası düzgün yüklenmemiş olabilir.");
     }
-    if (currentUserId === null) { // null kontrolü yapıldı
+    if (currentUserId === null) {
         console.warn("UYARI: window.CURRENT_USER_ID null. Misafir kullanıcı veya oturum açmamış.");
     }
 
@@ -50,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         try {
-            const response = await fetch(`/api/search_users?search_term=${encodeURIComponent(searchTerm)}`); // API rotası düzeltildi: search_users
+            const response = await fetch(`/api/search_users?search_term=${encodeURIComponent(searchTerm)}`); 
             if (!response.ok) {
                 const errorText = await response.text();
                 console.error('API Error:', response.status, errorText);
@@ -115,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         navbarUserSearchInput.addEventListener('input', function() {
-            clearTimeout(searchTimeout); // Debounce ekle
+            clearTimeout(searchTimeout);
             const searchTerm = this.value.trim();
             if (searchTerm.length >= 2) {
                 searchTimeout = setTimeout(() => searchUsers(), 300);
@@ -213,7 +208,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const followButton = document.getElementById('followButton');
     const unfollowButton = document.getElementById('unfollowButton');
 
-    // Bu fonksiyon, hem ana sayfa butonları hem de modal içi butonlar için kullanılabilir.
     async function performFollowUnfollow(targetUsername, actionType, listItemElement = null) {
         const url = actionType === 'follow' ? `/api/follow/${targetUsername}` : `/api/unfollow/${targetUsername}`;
         const method = 'POST';
@@ -227,9 +221,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (response.ok) {
                 showToast(result.message);
-                if (!listItemElement) { // Eğer ana profil butonlarıysa sayfayı yenile
+                if (!listItemElement) {
                     location.reload(); 
-                } else { // Modal içindeki butonlar için görsel güncelleme
+                } else {
                     const button = listItemElement.querySelector('.follow-unfollow-btn');
                     if (button) {
                         if (actionType === 'follow') {
@@ -264,9 +258,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- Önerilen Arkadaşlar Takip/Takibi Bırak Butonları ---
     document.querySelectorAll('.recommended-friends-section .follow-btn, .recommended-friends-section .unfollow-btn').forEach(button => {
         button.addEventListener('click', async function() {
-            const targetUsername = this.dataset.username; // Buradan username'i al
+            const targetUsername = this.dataset.username; 
             const actionType = this.classList.contains('unfollow-btn') ? 'unfollow' : 'follow';
-            await performFollowUnfollow(targetUsername, actionType); // listItemElement'ı boş bırak
+            await performFollowUnfollow(targetUsername, actionType); 
         });
     });
 
@@ -294,7 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         let buttonsHtml = '';
 
-                        // Kendi profilimizdeysek ve bu kişi kendimiz değilse "Takipçiyi Çıkar" butonu
+                        
                         if (isMyProfile && currentUserId !== null && f.id !== currentUserId) {
                             buttonsHtml += `
                                 <button class="btn btn-sm btn-danger ms-2 remove-follower-btn" 
@@ -304,8 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </button>
                             `;
                         } 
-                        // Başka birinin profilindeyken veya kendi profilimizdeyken ama farklı bir kullanıcıysa
-                        // ve oturum açmış kullanıcı varsa takip et/takibi bırak butonu
+                        
                         if (currentUserId !== null && f.id !== currentUserId) {
                             const isFollowedByCurrentUser = f.is_followed_by_current_user === true; 
                             buttonsHtml += `
@@ -329,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         followersList.appendChild(li);
                     });
 
-                    // Takipçiyi Çıkar butonlarına event listener ekle
+                    
                     followersList.querySelectorAll('.remove-follower-btn').forEach(button => {
                         button.addEventListener('click', async function() {
                             const targetUsername = this.dataset.username;
@@ -343,9 +336,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                                     if (removeResponse.ok) {
                                         showToast(removeResult.message);
-                                        // Başarılı olursa, elemanı listeden kaldır
+                    
                                         this.closest('li').remove();
-                                        // Ana sayfadaki takipçi sayısını güncellemek için sayfayı yenile
+                                        
                                         location.reload(); 
                                     } else {
                                         showToast(removeResult.detail || 'Takipçiyi çıkarma başarısız oldu.', 'error');
@@ -358,7 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                     });
 
-                    // Modal içindeki takip et/takibi bırak butonlarına event listener ekle
+                    
                     followersList.querySelectorAll('.follow-unfollow-btn').forEach(button => {
                         button.addEventListener('click', function() {
                             const targetUsername = this.dataset.username;
@@ -397,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         const userProfilePicture = f.profile_picture_url || (window.STATIC_URLS ? window.STATIC_URLS.sampleUserImage : '/static/images/sample_user.png');
                         
                         let buttonsHtml = '';
-                        // Kendi kullanıcımız değilse ve oturum açmış bir kullanıcı varsa butonu göster
+                        
                         if (currentUserId !== null && f.id !== currentUserId) { 
                             const isFollowedByCurrentUser = f.is_followed_by_current_user === true;
                             buttonsHtml += `
@@ -421,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         followingList.appendChild(li);
                     });
 
-                    // Modal içindeki takip et/takibi bırak butonlarına event listener ekle
+                    
                     followingList.querySelectorAll('.follow-unfollow-btn').forEach(button => {
                         button.addEventListener('click', function() {
                             const targetUsername = this.dataset.username;

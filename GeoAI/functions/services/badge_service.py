@@ -5,7 +5,7 @@ from typing import List, Dict, Optional, Any
 from pathlib import Path
 
 from functions.config import settings
-from functions.database import queries as db_queries # db_queries'i kullanacağız
+from functions.database import queries as db_queries 
 import os
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -27,7 +27,7 @@ class BadgeService:
             logging.info(f"'{settings.BADGES_JSON_PATH}' adresinden {len(self.badges_data)} rozet tipi yüklendi.")
         except json.JSONDecodeError as e:
             logging.error(f"Badges JSON dosyasını ayrıştırma hatası: {e}")
-            self.badges_data = [] # Hata durumunda boş liste ile devam et
+            self.badges_data = [] 
         except Exception as e:
             logging.error(f"Rozet verileri yüklenirken bilinmeyen bir hata oluştu: {e}")
             self.badges_data = []
@@ -53,45 +53,35 @@ class BadgeService:
         """
         newly_awarded_badge_names: List[str] = []
         
-        # Kullanıcının mevcut tüm rozetlerini çekin
+        
         current_user_badges = db_queries.get_user_badges(user_id)
         current_achieved_badge_ids = set(b["badge_info"]["id"] for b in current_user_badges)
 
-        # Kullanıcının genel quiz istatistiklerini çekin
         overall_stats = db_queries.get_user_overall_quiz_stats(user_id)
         total_quizzes_completed = overall_stats.get("total_quizzes_completed", 0)
         total_correct_answers = overall_stats.get("total_correct_answers", 0)
         highest_score = overall_stats.get("highest_score", 0) # En yüksek skor
         
-        # Kategori bazlı istatistikleri çekin
+
         category_stats = db_queries.get_user_category_stats(user_id)
-        # Category stats'ı dict'e çevirerek daha kolay erişim sağlayalım: {'CategoryName': {'correct_count': X, 'wrong_count': Y}}
         category_stats_map = {item["category_name"]: item for item in category_stats}
 
-        # Takipçi sayısını çekin (users.db'den)
+
         followers = db_queries.get_followers(user_id)
         follower_count = len(followers)
 
-        # Şu an için sosyal paylaşım sayısını takip etmiyoruz, varsayılan 0
-        social_share_count = 0 # Bunu daha sonra bir aktivite/loglama ile takip edebiliriz
 
-        # Giriş serisi için ayrı bir tablo/mekanizma gerekiyor.
-        # Basitlik için şu an sabit bir değer veya varsayılan 0 kullanabiliriz.
-        # Örneğin, her başarılı login'de bir "last_login_date" alanı güncellenebilir
-        # ve bu fonksiyonda günlük giriş serisi hesaplanabilir.
-        daily_login_streak = 0 # Gerçek bir uygulama için bu dinamik hesaplanmalı
+        social_share_count = 0 
+
+
+        daily_login_streak = 0 
 
         for badge_def in self.badges_data:
             badge_type_name = badge_def.get("type_name")
-            badge_threshold = float(badge_def.get("threshold")) # JSON'dan gelen threshold float olmalı
+            badge_threshold = float(badge_def.get("threshold"))
             badge_category = badge_def.get("category")
             
-            # Rozet zaten kazanılmışsa atla
-            # JSON'dan ID'yi almak yerine veritabanından ID'yi almalıyız
-            # Veritabanında (badge_types tablosu) tanımlı rozet id'sine ihtiyacımız var.
-            # get_badge_type_by_name_and_threshold (queries.py'den) kullanmalıyız.
 
-            # db_queries.get_badge_type_by_name_and_threshold kullanarak veritabanındaki rozeti bulalım
             db_badge_info = db_queries.get_badge_type_by_name_and_threshold(
                 badge_type_name, badge_threshold, badge_category if badge_type_name == "category_master" else None
             )
@@ -103,7 +93,7 @@ class BadgeService:
             badge_db_id = db_badge_info["id"]
 
             if badge_db_id in current_achieved_badge_ids:
-                continue # Bu rozet zaten kazanılmış, atla
+                continue 
 
             achieved = False
 
@@ -120,13 +110,9 @@ class BadgeService:
                 if follower_count >= badge_threshold:
                     achieved = True
             elif badge_type_name == "social_share":
-                # Bu metriği takip etmek için uygulamanızda paylaşım aksiyonlarını loglamanız gerek
-                # Şimdilik varsayılan 0 olduğu için bu rozetler kazanılamaz.
                 if social_share_count >= badge_threshold:
                     achieved = True
             elif badge_type_name == "daily_login_streak":
-                # Bu metriği takip etmek için kullanıcıların son giriş tarihlerini kaydetmeniz ve
-                # günlük giriş serisini hesaplamanız gerek.
                 if daily_login_streak >= badge_threshold:
                     achieved = True
             elif badge_type_name == "category_master":
@@ -141,5 +127,5 @@ class BadgeService:
 
         return newly_awarded_badge_names
 
-# BadgeService sınıfının tek bir örneğini oluştur
+
 badge_service = BadgeService()

@@ -11,7 +11,6 @@ def verify_password(hashed_password: str, password: str) -> bool:
     return check_password_hash(hashed_password, password)
 
 def set_auth_cookies(response: RedirectResponse, user_id: int, username: str):
-    # secure=True sadece HTTPS kullanıyorsanız olmalı!
     response.set_cookie(key="user_id", value=str(user_id), httponly=True, samesite="Lax", secure=False)
     response.set_cookie(key="username", value=username, httponly=True, samesite="Lax", secure=False)
     return response

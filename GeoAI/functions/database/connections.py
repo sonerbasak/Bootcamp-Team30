@@ -5,9 +5,7 @@ from contextlib import contextmanager
 from functions.config import settings
 import os
 
-# queries.py'den load_initial_badge_types fonksiyonunu import etmiyoruz artık.
-# Çünkü bu fonksiyonu buraya taşıdık ve adını insert_initial_badge_types olarak değiştirdik.
-# from functions.database.queries import load_initial_badge_types # BU SATIRI KALDIRIN
+
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -21,7 +19,7 @@ def get_db_connection(db_file: str):
         yield conn
     except sqlite3.Error as e:
         logging.error(f"Veritabanı bağlantı hatası ({db_file}): {e}")
-        raise # Hatayı yukarı fırlat
+        raise 
     finally:
         if conn:
             conn.close()
@@ -61,8 +59,6 @@ def insert_initial_badge_types():
 
             for badge in initial_badges:
                 try:
-                    # JSON'daki alanlar veritabanı şemasındaki sütunlarla eşleşiyor varsayımıyla
-                    # INSERT sorgusunu oluşturuyoruz.
                     cursor.execute("""
                         INSERT INTO badge_types (type_name, type, category, level, name, description, image_url, threshold)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
@@ -111,7 +107,7 @@ def init_dbs():
             )
         """)
 
-        # badge_types tablosu (ROZET TİPLERİ) -- BU KISMI GÜNCELLEYİN!
+        # badge_types tablosu (ROZET TİPLERİ)
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS badge_types (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -254,7 +250,7 @@ def init_dbs():
         conn.commit()
         logging.info("posts.db tabloları başlatıldı/güncellendi.")
 
-    # Tüm tablolar oluşturulduktan sonra rozet tiplerini ekle
-    insert_initial_badge_types() # Doğrudan buradaki fonksiyonu çağırıyoruz
+    
+    insert_initial_badge_types()
     logging.info("İlk rozet tipleri yüklendi (eğer yoktularsa).")
     logging.info("Tüm veritabanı başlatma ve tablo oluşturma işlemleri tamamlandı.")

@@ -12,7 +12,7 @@ L.tileLayer("https://{s}.basemaps.cartocdn.com/watercolor/{z}/{x}/{y}{r}.png", {
 }).addTo(map);
 
 // Değişkenler
-let countriesInfo = []; // This will be populated after the fetch
+let countriesInfo = []; 
 let swiperInstance = null;
 const modal = document.getElementById("modal");
 
@@ -22,7 +22,7 @@ Promise.all([
     fetch("/data/world-geo.json").then((res) => res.json()),
 ])
     .then(([countriesData, geoJsonData]) => {
-        countriesInfo = countriesData; // `countriesInfo` now holds your country data
+        countriesInfo = countriesData;
 
         const countriesLayer = L.geoJSON(geoJsonData, {
             style: {
@@ -50,23 +50,20 @@ Promise.all([
                     layer.closeTooltip();
                 });
 
-                // When a country is clicked on the map, open its modal
+                
                 layer.on("click", () => openCountryModal(countryName));
             },
         }).addTo(map);
 
-        // Optional: Fit map to the bounds of all loaded countries
-        // map.fitBounds(countriesLayer.getBounds(), { padding: [20, 20] });
+        
     })
     .catch((err) => console.error("Veri yüklenirken hata:", err));
 
 // Modal açma fonksiyonu
 function openCountryModal(countryName) {
-    // Ensure countryName is a string before trimming
     const safeCountryName = typeof countryName === 'string' ? countryName.trim().toLowerCase() : '';
 
     const country = countriesInfo.find(
-        // c.name'in undefined olmaması için kontrol ekledik
         (c) => c && c.name && c.name.trim().toLowerCase() === safeCountryName
     );
 
@@ -173,7 +170,7 @@ function openCountryModal(countryName) {
     // Önceki swiper varsa yok et
     if (swiperInstance) swiperInstance.destroy(true, true);
 
-    if (country) { // Only initialize swiper if country data exists
+    if (country) { 
         swiperInstance = new Swiper(".mySwiper", {
             effect: "cards",
             grabCursor: true,
@@ -183,9 +180,8 @@ function openCountryModal(countryName) {
                 slideShadows: false,
             },
             loop: false,
-            // Pagination ve Navigation'ı burada iptal ediyoruz
-            pagination: false, // Sayfalama noktalarını kapat
-            navigation: false, // İleri/geri oklarını kapat
+            pagination: false, 
+            navigation: false, 
         });
     }
 }
@@ -199,7 +195,7 @@ function closeModal() {
     }
 }
 
-// Swiper kontrol butonları (artık Swiper'ın kendi navigasyonunu kullanmıyoruz, bu fonksiyonlar gereksiz olabilir ancak tutulabilir)
+// Swiper kontrol butonları 
 function slidePrev() {
     if (swiperInstance) swiperInstance.slidePrev();
 }
@@ -235,7 +231,6 @@ setTimeout(() => {
 }, 2500);
 
 // --- Rastgele Ülke Seçme Fonksiyonu ---
-// Bu fonksiyon, `countriesInfo` dizisi yüklendikten sonra çalışacaktır.
 function selectRandomCountry() {
     if (countriesInfo.length === 0) {
         return;
@@ -251,8 +246,8 @@ function selectRandomCountry() {
 const randomCityLink = document.getElementById('randomCityLink');
 if (randomCityLink) {
     randomCityLink.addEventListener('click', function(event) {
-        event.preventDefault(); // Linkin varsayılan tıklama davranışını engeller (sayfa yenileme)
-        selectRandomCountry(); // Artık ülkeler için olan fonksiyonu çağır
+        event.preventDefault(); 
+        selectRandomCountry(); 
     });
 }
 
@@ -261,4 +256,4 @@ window.closeModal = closeModal;
 window.slidePrev = slidePrev;
 window.slideNext = slideNext;
 window.openCountryModal = openCountryModal;
-window.selectRandomCountry = selectRandomCountry; // Yeni fonksiyonu global yap
+window.selectRandomCountry = selectRandomCountry;

@@ -1,16 +1,15 @@
-# functions/auth/routes.py
 from fastapi import APIRouter, Request, Form, Depends, status, HTTPException, UploadFile, File
 from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from typing import Optional, List, Dict
-from datetime import datetime # Sadece bir kez import edildi
-import logging # Loglama için ekledim, isterseniz kullanabilirsiniz
+from datetime import datetime 
+import logging 
 
-# Dosya yollarını yönetmek için Path, dosya kopyalamak için shutil
+
 from pathlib import Path
-import os # Dosyaları silmek için
-import uuid # Benzersiz dosya adları için
-import shutil # Dosya kopyalamak için
+import os
+import uuid
+import shutil
 
 from functions.database.queries import (
     get_user_by_username, create_user, get_user_by_id, search_users_by_username,
@@ -22,10 +21,10 @@ from functions.database.queries import (
 from functions.auth.services import hash_password, verify_password, set_auth_cookies, clear_auth_cookies
 from functions.auth.dependencies import require_auth, CurrentUser
 
-# --- ML tabanlı öneri fonksiyonunu import ediyoruz ---
+
 from functions.ml.recommendations import get_recommended_friends_kmeans
 
-# --- Pydantic Modelleri ---
+
 from pydantic import BaseModel, EmailStr
 
 class ActivityResponse(BaseModel):
@@ -40,7 +39,7 @@ class UserResponse(BaseModel):
     username: str
     email: EmailStr
     bio: Optional[str] = None
-    profile_picture_url: str = "/static/images/sample_user.png" # YENİ ALAN: Profil resmi URL'si
+    profile_picture_url: str = "/static/images/sample_user.png" 
     total_quizzes_completed: int
     total_correct_answers: int
     total_score: int
@@ -55,7 +54,7 @@ templates = Jinja2Templates(directory="templates")
 
 # --- Statik Dosya Yükleme Dizini ---
 UPLOAD_DIR = Path("static/uploads/profile_pictures")
-UPLOAD_DIR.mkdir(parents=True, exist_ok=True) # Dizin yoksa oluştur
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True) 
 
 @router.get("/login", response_class=HTMLResponse, name="login_page")
 async def login_page(request: Request, current_user: CurrentUser = Depends(require_auth)):
@@ -140,29 +139,24 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
 
     user_id = profile_user["id"] 
     
-    # Kullanıcının quiz istatistiklerini ve özetlerini al
+    
     category_stats = get_user_category_stats(user_id)
     quiz_summaries = get_user_quiz_summaries(user_id)
 
-    # Toplam istatistikleri hesapla
+    
     total_quizzes_completed = len(quiz_summaries) 
     total_correct_answers = sum(s['correct_answers'] for s in quiz_summaries)
     total_score = sum(s['score'] for s in quiz_summaries)
     highest_score = max(s['score'] for s in quiz_summaries) if quiz_summaries else 0
 
-    # Kullanıcının aktivitelerini al (queries.py'deki dönüşüm zaten yapılmış olmalı)
+    
     recent_activities = get_user_activities(profile_user["id"])
 
-    # KULLANICININ ROZETLERİNİ AL VE PROFİL VERİSİNE EKLE
-    achieved_badges = get_user_badges(user_id) # Yeni eklenen kısım
     
-    # Veritabanından çekilen displayed_badge_ids'i almak için kullanıcı objesini güncelleyin
-    # Bunu profile_user dict'inize kaydettiğinizden emin olun.
-    # get_user_by_username veya update_user_profile fonksiyonlarınızın
-    # 'displayed_badge_ids' sütununu çekip dict'e eklediğinden emin olun.
-    # Eğer eklemediyseniz, manuel olarak çekmeniz gerekecek.
-    # Şimdilik, profile_user'da bu alanın olduğunu varsayıyorum:
-    displayed_badge_ids = profile_user.get("displayed_badge_ids", []) # Varsayılan boş liste
+    achieved_badges = get_user_badges(user_id)
+    
+    
+    displayed_badge_ids = profile_user.get("displayed_badge_ids", [])
 
     profile_user_data = {
         "id": profile_user["id"],
@@ -174,19 +168,18 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
         "total_correct_answers": total_correct_answers,
         "total_score": total_score,
         "highest_score": highest_score,
-        "recent_activities": recent_activities, # Artık bu datetime objeleri içeriyor
-        "achieved_badges": achieved_badges, # Kazanılan tüm rozetleri ekle
-        "displayed_badge_ids": displayed_badge_ids # Sergilenen rozet ID'lerini ekle
+        "recent_activities": recent_activities,
+        "achieved_badges": achieved_badges,
+        "displayed_badge_ids": displayed_badge_ids
     }
 
     followers_count = len(get_followers(profile_user["id"]))
     following_count = len(get_following(profile_user["id"]))
 
-    # Sadece kendi profilini görüntülerken arkadaş önerilerini göster
+    
     recommended_friends = []
     if is_my_profile:
-        # get_recommended_friends_kmeans fonksiyonunun düzgün çalıştığından ve
-        # current_user.id'ye erişim sağladığından emin olun.
+        
         recommended_friends = get_recommended_friends_kmeans(
             current_user_id=current_user.id, 
             num_recommendations=5, 
@@ -198,7 +191,7 @@ async def user_profile(request: Request, username: str, current_user: CurrentUse
         {
             "request": request,
             "profile_user": profile_user_data,
-            "user": current_user, # `user` yerine `current_user` kullandığınızdan emin olun
+            "user": current_user,
             "is_my_profile": is_my_profile,
             "is_following_user": is_following_user,
             "followers_count": followers_count,
@@ -315,7 +308,7 @@ async def api_edit_profile(
                 shutil.copyfileobj(profile_picture.file, buffer)
             
             old_picture_url = user_data.get("profile_picture_url")
-            # Varsayılan resim değilse ve eski resim yükleme dizinindeyse sil
+            
             if old_picture_url and old_picture_url != "/static/images/sample_user.png" and old_picture_url.startswith("/static/uploads/profile_pictures/"):
                 old_file_name = old_picture_url.split('/')[-1]
                 old_picture_full_path = UPLOAD_DIR / old_file_name
@@ -336,14 +329,13 @@ async def api_edit_profile(
     ):
         updated_user_data = get_user_by_id(current_user.id)
         
-        # Kullanıcının quiz istatistiklerini ve özetlerini al
-        updated_total_quizzes_completed = updated_user_data.get("total_quizzes_completed", 0) # Eğer doğrudan DB'den geliyorsa
-        updated_total_correct_answers = updated_user_data.get("total_correct_answers", 0) # Eğer doğrudan DB'den geliyorsa
-        updated_total_score = updated_user_data.get("total_score", 0) # Eğer doğrudan DB'den geliyorsa
-        updated_highest_score = updated_user_data.get("highest_score", 0) # Eğer doğrudan DB'den geliyorsa
+        
+        updated_total_quizzes_completed = updated_user_data.get("total_quizzes_completed", 0)
+        updated_total_correct_answers = updated_user_data.get("total_correct_answers", 0)
+        updated_total_score = updated_user_data.get("total_score", 0)
+        updated_highest_score = updated_user_data.get("highest_score", 0)
 
-        # Eğer bu istatistikler `get_user_by_id` içinde gelmiyorsa, onları ayrıca çekmelisiniz.
-        # Örneğin:
+        
         quiz_summaries_after_update = get_user_quiz_summaries(current_user.id)
         updated_total_quizzes_completed = len(quiz_summaries_after_update)
         updated_total_correct_answers = sum(s['correct_answers'] for s in quiz_summaries_after_update)
@@ -361,7 +353,7 @@ async def api_edit_profile(
             total_correct_answers=updated_total_correct_answers,
             total_score=updated_total_score,
             highest_score=updated_highest_score,
-            recent_activities=[] # Aktivite listesi burada gönderilmez, ayrı bir endpoint'ten alınır
+            recent_activities=[] 
         )
     else:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Profil güncellenemedi veya hiçbir değişiklik yapılmadı.")

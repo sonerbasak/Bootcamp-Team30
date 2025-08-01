@@ -2,16 +2,16 @@
 let quizQuestions = [];
 let currentQuestionIndex = 0;
 let timerInterval;
-let quizDuration; // Süre artık dinamik olacak
+let quizDuration; 
 let timeLeft;
 let quizSwiper;
 let userSelections = [];
-let isReviewMode = false; // Yeni bayrak: İnceleme modunda mıyız?
+let isReviewMode = false; 
 
-// Her soru için ayrılacak süre (saniye cinsinden)
-const TIME_PER_QUESTION_SECONDS_QUIZ = 10 * 60; // Ana quiz için 10 dakika
-const TIME_PER_QUESTION_SECONDS_REVIEW = 30; // İnceleme quiz için her soruya 30 saniye
-const MAX_QUESTIONS_TO_REVIEW = 10; // İnceleme modunda maks. gösterilecek soru
+// Her soru için ayrılacak süre 
+const TIME_PER_QUESTION_SECONDS_QUIZ = 10 * 60;
+const TIME_PER_QUESTION_SECONDS_REVIEW = 30;
+const MAX_QUESTIONS_TO_REVIEW = 10; 
 
 // --- Yardımcı Fonksiyon: URL Parametrelerini Alma ---
 function getQueryParam(param) {
@@ -20,8 +20,8 @@ function getQueryParam(param) {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const quizType = getQueryParam("type"); // 'country', 'city' veya 'wrong-questions'
-    const quizName = getQueryParam("name"); // Ülke veya şehir adı (eski 'city' parametresinin yerini aldı)
+    const quizType = getQueryParam("type"); 
+    const quizName = getQueryParam("name"); 
 
     isReviewMode = (quizType === "wrong-questions");
 
@@ -29,10 +29,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (quizTitleEl) {
         if (isReviewMode) {
             quizTitleEl.textContent = "Yanlış Cevapladığınız Sorular - Tekrar Çöz!";
-        } else if (quizName) { // Eğer bir isim (ülke/şehir) varsa başlığı ona göre ayarla
+        } else if (quizName) { 
             quizTitleEl.textContent = `${quizName} Hakkında Quiz!`;
         } else {
-            quizTitleEl.textContent = `Genel Kültür Quiz!`; // Varsayılan başlık
+            quizTitleEl.textContent = `Genel Kültür Quiz!`; 
         }
     } else {
         console.warn("Element with class 'quiz-title' not found.");
@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (loadingSlide) {
         loadingSlide.classList.remove('d-none');
         loadingSlide.style.display = 'flex';
-        // Yükleme mesajını moda göre ayarla
         const loadingMessage = loadingSlide.querySelector('p:first-of-type');
         if (loadingMessage) {
             loadingMessage.textContent = isReviewMode ?
@@ -75,11 +74,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     initializeSwiper();
-    // Yalnızca sorular varsa zamanlayıcıyı başlat
     if (quizQuestions.length > 0) {
         startTimer();
     } else {
-        // Soru yoksa zamanlayıcıyı gizle veya mesaj göster
         const timerDisplay = document.getElementById("timer");
         if (timerDisplay) {
             timerDisplay.textContent = "Süre: --:--";
@@ -92,7 +89,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (backButton) {
         backButton.addEventListener("click", (event) => {
             event.preventDefault();
-            // Moddan bağımsız olarak session storage temizliği
             const currentQuizType = getQueryParam("type");
             const currentQuizName = getQueryParam("name");
             const paramToClear = isReviewMode ? "wrong-questions" : `${currentQuizType || 'general'}-${currentQuizName || 'null'}`;
@@ -125,7 +121,7 @@ function initializeSwiper() {
                 </div>
             `;
             const submitButton = document.querySelector(".submit-button");
-            if (submitButton) submitButton.classList.add("d-none"); // Soru yoksa submit butonunu gizle
+            if (submitButton) submitButton.classList.add("d-none"); 
             const prevButton = document.querySelector(".prev-button");
             if (prevButton) prevButton.classList.add("d-none");
             const nextButton = document.querySelector(".next-button");
@@ -140,7 +136,7 @@ function initializeSwiper() {
     }
 
     if (quizSwiper) {
-        quizSwiper.destroy(true, true); // Mevcut Swiper'ı yok et
+        quizSwiper.destroy(true, true); 
     }
 
     quizSwiper = new Swiper(".mySwiperQuiz", {
@@ -272,7 +268,6 @@ async function loadWrongQuestionsForReview() {
                     </div>
                 `;
             }
-            // Boş durumda Swiper'ı başlatmaya gerek yok, veya destroy et
             if (quizSwiper) {
                 quizSwiper.destroy(true, true);
                 quizSwiper = null;
@@ -281,7 +276,7 @@ async function loadWrongQuestionsForReview() {
             if (quizActions) quizActions.classList.add('d-none');
             const timerDisplay = document.getElementById("timer");
             if (timerDisplay) timerDisplay.classList.add('d-none');
-            return; // Sorular olmadığı için buradan çık
+            return; 
         }
 
         if (wrongQuestions.length > MAX_QUESTIONS_TO_REVIEW) {
@@ -294,14 +289,14 @@ async function loadWrongQuestionsForReview() {
             quizQuestions = wrongQuestions;
         }
 
-        quizDuration = quizQuestions.length * TIME_PER_QUESTION_SECONDS_REVIEW; // İnceleme quiz süresi
+        quizDuration = quizQuestions.length * TIME_PER_QUESTION_SECONDS_REVIEW; 
         timeLeft = quizDuration;
 
         renderQuestions(quizQuestions);
 
     } catch (error) {
         alert("Yanlış sorular yüklenirken bir hata oluştu: " + error.message + "\nLütfen tekrar deneyin.");
-        quizQuestions = []; // Hata durumunda soruları boşalt
+        quizQuestions = []; 
         const questionsContainer = document.getElementById("quiz-questions-container");
         if (questionsContainer) {
             questionsContainer.innerHTML = `
@@ -329,7 +324,7 @@ function renderQuestions(questions) {
         return;
     }
 
-    questionsContainer.innerHTML = ""; // Mevcut içeriği temizle
+    questionsContainer.innerHTML = ""; 
 
     if (questions.length === 0) {
         questionsContainer.innerHTML =
@@ -342,10 +337,7 @@ function renderQuestions(questions) {
         slide.classList.add("swiper-slide", "quiz-slide");
 
         let optionsHtml = "";
-        // Soru metni, seçenekler ve doğru cevap harfi için daha tutarlı erişim
-        // Normal modda API'den 'soru', 'a', 'b', 'c', 'd', 'cevap' gelir.
-        // İnceleme modunda DB'den 'question_text', 'option_a'...'option_d', 'correct_answer_letter' gelir.
-        const questionText = q.question_text || q.soru; // Her iki mod için de uygun olanı al
+        const questionText = q.question_text || q.soru;
         const optionA = q.option_a || q.a;
         const optionB = q.option_b || q.b;
         const optionC = q.option_c || q.c;
@@ -356,11 +348,10 @@ function renderQuestions(questions) {
 
         const category = q.category || q.kategori;
         const correctAnsLetter = q.correct_answer_letter || q.cevap;
-        const questionId = q.id || null; // Yanlış sorular için ID
+        const questionId = q.id || null;
 
         validOptions.forEach((option, optionIndex) => {
             const optionLetter = String.fromCharCode(65 + optionIndex);
-            // userSelections dizisini her iki mod için de kullan
             const isChecked = userSelections[index] === optionLetter ? "checked" : "";
             optionsHtml += `
                 <label>
@@ -385,11 +376,10 @@ function renderQuestions(questions) {
         questionsContainer.appendChild(slide);
     });
 
-    // Sorular DOM'a eklendikten sonra Swiper'ı güncelle
     if (quizSwiper) {
         quizSwiper.update();
         quizSwiper.updateAutoHeight();
-        quizSwiper.slideTo(currentQuestionIndex, 0); // Mevcut soruya git
+        quizSwiper.slideTo(currentQuestionIndex, 0); 
     }
 }
 
@@ -436,26 +426,23 @@ function submitQuiz() {
     clearInterval(timerInterval);
     let score = 0;
     const reviewAnswers = [];
-    const questionsToProcessForDB = []; // Veritabanına kaydedilecek/silinecek sorular
+    const questionsToProcessForDB = []; 
 
     const currentQuizType = getQueryParam("type");
-    const currentQuizName = getQueryParam("name"); // 'name' parametresi, 'city'nin yerini aldı
+    const currentQuizName = getQueryParam("name"); 
 
     quizQuestions.forEach((q, index) => {
         const userAnswerLetter = userSelections[index];
-        // Doğru cevap harfini moda göre al
         const correctAnswerLetter = isReviewMode ? q.correct_answer_letter : q.cevap;
 
         let userAnswerText = null;
         if (userAnswerLetter) {
-            // Seçenek metnini alma: isReviewMode ise 'option_a' gibi, değilse 'a' gibi
             const optionKey = `option_${userAnswerLetter.toLowerCase()}`;
             userAnswerText = isReviewMode ? (q[optionKey]) : q[userAnswerLetter.toLowerCase()];
         }
 
         let correctOptionText = null;
         if (correctAnswerLetter) {
-            // Doğru seçenek metnini alma: isReviewMode ise 'option_a' gibi, değilse 'a' gibi
             const correctOptionKey = `option_${correctAnswerLetter.toLowerCase()}`;
             correctOptionText = isReviewMode ? (q[correctOptionKey]) : q[correctAnswerLetter.toLowerCase()];
         }
@@ -466,21 +453,21 @@ function submitQuiz() {
 
         if (isCorrect) {
             score++;
-            if (isReviewMode && q.id) { // İnceleme modunda doğru cevaplanırsa DB'den silmek için
+            if (isReviewMode && q.id) { 
                 questionsToProcessForDB.push(q.id);
             }
         } else {
-            if (!isReviewMode) { // Ana quiz'de yanlış cevaplanırsa DB'ye kaydetmek için
+            if (!isReviewMode) { 
                 questionsToProcessForDB.push({
-                    quiz_type: currentQuizType || "general", // BURASI DÜZELTİLDİ: 'type' yerine 'quiz_type'
-                    quiz_name: currentQuizName || "unknown", // BURASI DÜZELTİLDİ: 'name' yerine 'quiz_name'
-                    category: q.kategori || "Bilinmeyen", // Normal quiz için 'kategori'
-                    question_text: q.soru, // Normal quiz için 'soru'
+                    quiz_type: currentQuizType || "general",
+                    quiz_name: currentQuizName || "unknown",
+                    category: q.kategori || "Bilinmeyen",
+                    question_text: q.soru,
                     option_a: q.a,
                     option_b: q.b,
                     option_c: q.c,
                     option_d: q.d,
-                    correct_answer_letter: q.cevap, // Normal quiz için 'cevap'
+                    correct_answer_letter: q.cevap,
                     user_answer_letter: userAnswerLetter || "BOŞ",
                 });
             }
@@ -502,15 +489,12 @@ function submitQuiz() {
             removeCorrectlyAnsweredWrongQuestionsFromDatabase(questionsToProcessForDB);
         }
     } else {
-        // API'ye gönderilecek veriyi tek bir çağrıda göndermek için:
-        // FastAPI'nin list of QuizAnswer'ı bekleyen submit-quiz-results endpoint'i var.
         const quizAnswersPayload = quizQuestions.map((q, index) => {
             const userAnswerLetter = userSelections[index];
             const correctAnswerLetter = isReviewMode ? q.correct_answer_letter : q.cevap;
 
-            // `QuizAnswer` modeline uygun veri hazırlığı
             return {
-                id: isReviewMode ? q.id : null, // Sadece yanlış sorularda id var
+                id: isReviewMode ? q.id : null,
                 user_answer: userAnswerLetter || "BOŞ",
                 correct_answer: correctAnswerLetter,
                 question_text: isReviewMode ? q.question_text : q.soru,
@@ -524,7 +508,6 @@ function submitQuiz() {
             };
         });
         
-        // Tek bir API çağrısı ile tüm sonuçları gönder
         submitFullQuizResultsToDatabase(quizAnswersPayload);
     }
 
@@ -545,8 +528,6 @@ async function submitFullQuizResultsToDatabase(answers) {
         } else {
             const successData = await res.json();
             console.log("Quiz sonuçları başarıyla kaydedildi:", successData);
-            // Başarılı kayıttan sonra wrong_questions'a da kaydetmek gerekmez,
-            // çünkü `submit_quiz_results` backend'de zaten yanlışları kaydediyor.
         }
     } catch (error) {
     }
@@ -651,20 +632,19 @@ html += `
 
 // --- Ana Sayfaya Dönme Fonksiyonu ---
 function goHome() {
-    // Session Storage temizliği moddan bağımsız
     const quizType = getQueryParam("type");
-    const quizName = getQueryParam("name"); // 'name' parametresi, 'city'nin yerini aldı
+    const quizName = getQueryParam("name");
     const paramToClear = isReviewMode ? "wrong-questions" : `${quizType || 'general'}-${quizName || 'null'}`;
     sessionStorage.removeItem(`aiQuizData-${paramToClear}`);
     sessionStorage.removeItem(`aiQuizPrompt-${paramToClear}`);
 
-    // Yönlendirme mantığı: Eğer bir şehir veya ülke quiz'i ise ilgili harita sayfasına dön
+
     if (quizType === 'city' && quizName) {
         window.location.href = window.TURKEY_PAGE_URL || window.ROOT_URL;
     } else if (quizType === 'country' && quizName) {
         window.location.href = window.WORLD_PAGE_URL || window.ROOT_URL;
     } else {
-        window.location.href = window.ROOT_URL; // Diğer durumlarda ana sayfaya dön
+        window.location.href = window.ROOT_URL; 
     }
 }
 

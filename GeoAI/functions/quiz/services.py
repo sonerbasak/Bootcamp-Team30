@@ -6,7 +6,7 @@ from functions.config import settings
 genai.configure(api_key=settings.GEMINI_API_KEY)
 model = genai.GenerativeModel("models/gemini-2.5-flash")
 
-# BURADA DEĞİŞİKLİK: Fonksiyonun parametrelerini güncelliyoruz
+
 async def generate_quiz_from_gemini(quiz_type: str, quiz_name: str, count: int) -> List[Dict]:
     """Gemini API'den quiz soruları üretir ve JSON olarak parse eder."""
     categories = [
@@ -22,14 +22,14 @@ async def generate_quiz_from_gemini(quiz_type: str, quiz_name: str, count: int) 
             num_questions += 1
         prompt_parts.append(f"**{category}** kategorisinden {num_questions} adet soru oluştur.")
 
-    # BURADA DEĞİŞİKLİK: Prompt metnini type ve name'e göre ayarlıyoruz
+
     target_entity = ""
     if quiz_type == "country" and quiz_name:
         target_entity = f"{quiz_name} ülkesi"
     elif quiz_type == "city" and quiz_name:
         target_entity = f"{quiz_name} şehri"
     else:
-        target_entity = "genel kültür" # Varsayılan
+        target_entity = "genel kültür" 
 
     base_prompt = f"""
     {target_entity} hakkında aşağıdaki kategorilerden belirtilen sayıda Türkçe çoktan seçmeli soru oluştur.

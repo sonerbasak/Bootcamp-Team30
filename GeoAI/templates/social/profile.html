@@ -12,21 +12,17 @@
 
 <body class="profile-page">
     {# Jinja2 değişkenlerini JavaScript'e aktaran script bloğu #}
-    <script>
-        // Bu değişkenler FastAPI tarafından Jinja2 şablonuna aktarılmalıdır.
-        // Eğer profile_user objesi yoksa veya ilgili alanlar boşsa güvenli varsayılanlar kullanılır.
+    <script>r.
         window.CURRENT_PROFILE_USERNAME = "{{ profile_user.username | default('') }}";
         window.STATIC_URLS = {
             sampleUserImage: "{{ url_for('static', path='images/sample_user.png') }}",
             userProfileTemplate: "{{ url_for('user_profile', username='_USERNAME_PLACEHOLDER_') }}"
         };
-        // Kullanıcının oturum açıp açmadığını ve profilin sahibinin kendisi olup olmadığını kontrol edin
         window.IS_MY_PROFILE = {{ 'true' if user and user.id == profile_user.id else 'false' }};
 
-        window.CURRENT_USER_ID = {{ user.id | tojson | safe if user else 'null' }}; // user objesi varsa id'sini, yoksa null
+        window.CURRENT_USER_ID = {{ user.id | tojson | safe if user else 'null' }}; 
 
-        // Rozet verilerini JSON olarak güvenli bir şekilde aktarın
-        // profile_user.achieved_badges ve profile_user.displayed_badge_ids FastAPI tarafından gönderilmelidir
+
         window.ACHIEVED_BADGES = {{ profile_user.achieved_badges | tojson | safe }};
         window.DISPLAYED_BADGE_IDS = {{ profile_user.displayed_badge_ids | tojson | safe }};
     </script>
@@ -135,7 +131,6 @@
                         şeyler öğrenmeyi ve kendimi geliştirmeyi seviyorum." }}</p>
                 </div>
 
-                {# ROZETLER BURAYA TAŞINDI #}
                 <h4 class="section-header mt-4">Kazanılan Rozetler</h4>
                 <div id="achievedBadgesList" class="d-flex flex-wrap justify-content-start gap-3">
                     {% if profile_user.achieved_badges %}
@@ -145,7 +140,6 @@
                         title="{{ badge.badge_info.name }}: {{ badge.badge_info.description }}">
                         <img src="{{ badge.badge_info.image_url }}" alt="{{ badge.badge_info.name }}"
                             class="img-fluid rounded-circle" style="width: 70px; height: 70px; object-fit: contain;">
-                        {# BURASI DEĞİŞTİ #}
                         <span class="badge-name-text d-block mt-1">{{ badge.badge_info.name }}</span>
                     </div>
                     {% endfor %}
@@ -153,7 +147,7 @@
                     <p>Henüz rozet kazanılmamış.</p>
                     {% endif %}
                 </div>
-                {# ROZETLERİN KONUMU BURADA SONA ERİYOR #}
+                
 
                 <h4 class="section-header mt-4">İstatistikler</h4>
                 <div class="d-flex flex-wrap profile-stats">
@@ -178,9 +172,7 @@
                 <h4 class="section-header mt-4">Son Aktiviteler</h4>
                 <ul class="list-group list-group-flush">
                     {% if profile_user.recent_activities %}
-                    {# Sadece ilk 5 aktiviteyi göstermek için döngüyü limitliyoruz #}
-                    {% for activity in profile_user.recent_activities | reverse %} {# En yeni aktiviteleri en üstte
-                    göstermek isterseniz 'reverse' filtresi ekleyebilirsiniz #}
+                    {% for activity in profile_user.recent_activities | reverse %} 
                     {% if loop.index <= 5 %} {# loop.index 1'den başlar, ilk 5 öğeyi kontrol ederiz #} <li
                         class="list-group-item">{{ activity.activity_description }} - <small class="text-muted">{{
                             activity.timestamp.strftime('%Y-%m-%d %H:%M') }}</small></li>
@@ -192,7 +184,7 @@
                 </ul>
 
 
-                {# Önerilen Arkadaşlar #}
+                
                 {% if user and user.id == profile_user.id and recommended_friends %}
                 <h4 class="section-header mt-4">Önerilen Arkadaşlar</h4>
                 <div class="recommended-friends-section">
@@ -225,7 +217,7 @@
         </div>
     </div>
 
-    {# Edit Profile Modal #}
+    
     <div class="modal fade" id="editProfileModal" tabindex="-1" aria-labelledby="editProfileModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -248,7 +240,7 @@
                             <textarea class="form-control" id="editBio" rows="3">{{ profile_user.bio or "" }}</textarea>
                         </div>
 
-                        {# Rozet seçme bölümü tamamen kaldırıldı #}
+                        
 
                         <div id="editProfileMessage" class="mt-3"></div>
                         <div class="modal-footer">
@@ -261,7 +253,7 @@
         </div>
     </div>
 
-    {# Followers Modal #}
+    
     <div class="modal fade" id="followersModal" tabindex="-1" aria-labelledby="followersModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -271,14 +263,14 @@
                 </div>
                 <div class="modal-body">
                     <ul class="list-group" id="followersList">
-                        {# Followers will be loaded here by JavaScript #}
+                        
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    {# Following Modal #}
+    
     <div class="modal fade" id="followingModal" tabindex="-1" aria-labelledby="followingModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -288,7 +280,7 @@
                 </div>
                 <div class="modal-body">
                     <ul class="list-group" id="followingList">
-                        {# Following will be loaded here by JavaScript #}
+                        
                     </ul>
                 </div>
             </div>
