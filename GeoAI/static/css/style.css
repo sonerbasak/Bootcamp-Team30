@@ -356,9 +356,8 @@ body,
 
 .quiz-header {
     background-color: #ffffff;
-    padding: 15px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    padding: 10px;
 }
 
 .quiz-title {
@@ -370,7 +369,7 @@ body,
 }
 
 .timer-display {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: #dc3545;
     margin-bottom: 20px;
@@ -384,7 +383,7 @@ body,
     justify-content: center; /* Dikeyde ortala */
     align-items: center; /* Yatayda ortala */
     text-align: center; /* Metinleri ortala */
-    padding: 20px;
+    padding: 0px 20px;
     position: relative; /* loading-overlay için */
 }
 
@@ -449,7 +448,7 @@ body,
 }
 
 .quiz-slide .question-text {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 600;
     color: #00796b;
     margin-bottom: 20px;
@@ -460,18 +459,17 @@ body,
     flex-direction: column;
     gap: 12px;
     width: 100%;
-    /* max-height: 200px;
-    overflow-y: auto; */
+
     padding-right: 5px;
 }
 
 .quiz-slide .options label {
     display: flex; /* İçeriği hizalamak için flex kullanıldı */
     align-items: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     background-color: #e0f2f1;
-    padding: 12px 15px;
+    padding: 8px 15px;
     border-radius: 8px;
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
     width: 100%; /* Genişliği ayarla */
