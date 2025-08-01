@@ -763,16 +763,16 @@ def get_posts(limit: int = 10, offset: int = 0, topic: Optional[str] = None) -> 
     query = """
         SELECT
             id, user_id, content, image_url, topic,
-            created_at AS timestamp, -- BURASI ÖNEMLİ: created_at'ı timestamp olarak adlandırıyoruz
+            created_at, -- created_at'ı yeniden adlandırmayın
             likes, comments
         FROM posts
     """
-
+    
     params = []
     if topic and topic != "Tümü":
         query += " WHERE topic = ?"
         params.append(topic)
-
+    
     query += " ORDER BY created_at DESC LIMIT ? OFFSET ?"
     params.extend([limit, offset])
 
@@ -782,44 +782,47 @@ def get_posts(limit: int = 10, offset: int = 0, topic: Optional[str] = None) -> 
             cursor.execute(query, tuple(params))
             posts = cursor.fetchall()
         
-        return [dict(post) for post in posts] # Artık 'timestamp' anahtarı burada olacak
+        # Dönüş değeri olarak `created_at` anahtarı olan sözlükler dönecektir
+        return [dict(post) for post in posts]
     except sqlite3.Error as e:
         print(f"Gönderiler çekilirken hata (posts.db): {e}")
         return []
 
-# Not: format_time_ago yardımcı bir fonksiyondur, db_queries içinde kalabilir.
-def format_time_ago(timestamp_str: str) -> str:
+def format_time_ago(timestamp_str: Optional[str]) -> str:
     """Veritabanından gelen zaman damgasını 'x zaman önce' formatına dönüştürür."""
+    if not timestamp_str:
+        return "Bilinmiyor"
     try:
-        # ISO formatından parse etmeye çalışın, saniye hassasiyeti olmasa da çalışmalı
         post_time = datetime.fromisoformat(timestamp_str)
     except ValueError:
-        try:
-            # Veya belirli bir YYYY-MM-DD HH:MM:SS formatı
-            post_time = datetime.strptime(timestamp_str, '%Y-%m-%d %H:%M:%S')
-        except ValueError:
-            # Hata durumunda doğrudan zaman damgasını döndür
-            return timestamp_str 
-    
+        # Hata durumunda, formatlanmamış stringi veya bir hata mesajını döndür
+        return "Geçersiz tarih"
     now = datetime.now()
     diff = now - post_time
 
     seconds = int(diff.total_seconds())
 
+    # Tekil/çoğul durumları dikkate alarak daha okunabilir ifadeler kullanıyoruz
     if seconds < 60:
-        return "şimdi"
-    elif seconds < 3600: # 60 dakika (1 saat)
-        return f"{seconds // 60} dakika önce"
-    elif seconds < 86400: # 24 saat (1 gün)
-        return f"{seconds // 3600} saat önce"
-    elif seconds < 604800: # 7 gün (1 hafta)
-        return f"{seconds // 86400} gün önce"
-    elif seconds < 2592000: # Yaklaşık 30 gün (1 ay)
-        return f"{seconds // 604800} hafta önce"
-    elif seconds < 31536000: # Yaklaşık 365 gün (1 yıl)
-        return f"{seconds // 2592000} ay önce"
+        return "az önce"
+    elif seconds < 3600:  # 1 saat
+        minutes = seconds // 60
+        return f"{minutes} dakika önce"
+    elif seconds < 86400:  # 1 gün
+        hours = seconds // 3600
+        return f"{hours} saat önce"
+    elif seconds < 604800:  # 7 gün (1 hafta)
+        days = seconds // 86400
+        return f"{days} gün önce"
+    elif seconds < 2592000:  # Yaklaşık 30 gün (1 ay)
+        weeks = seconds // 604800
+        return f"{weeks} hafta önce"
+    elif seconds < 31536000:  # Yaklaşık 365 gün (1 yıl)
+        months = seconds // 2592000
+        return f"{months} ay önce"
     else:
-        return f"{seconds // 31536000} yıl önce"
+        years = seconds // 31536000
+        return f"{years} yıl önce"
 
 
 def search_users(query: str, limit: int = 5) -> List[Dict]:

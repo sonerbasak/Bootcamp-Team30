@@ -73,7 +73,7 @@ class PostResponse(BaseModel):
     username: str # Post sahibinin kullanıcı adı
     profile_picture_url: str # Post sahibinin profil resmi URL'si
     content: str
-    timestamp: datetime  # Post oluşturulma zamanı
+    created_at: str
     image_url: Optional[str] = None
     topic: str
 
@@ -414,6 +414,10 @@ async def get_posts_api(
     formatted_posts = []
     for post in posts:
         user_data = db_queries.get_user_by_id(post['user_id'])
+        
+        # created_at değerini burada bir kere dönüştürüp her iki durumda da kullanıyoruz
+        formatted_time = db_queries.format_time_ago(post['created_at'])
+        
         if user_data:
             formatted_posts.append(PostResponse(
                 id=post['id'],
@@ -421,10 +425,10 @@ async def get_posts_api(
                 username=user_data.get('username', 'Bilinmeyen Kullanıcı'),
                 profile_picture_url=user_data.get('profile_picture_url', "/static/images/sample_user.png"),
                 content=post['content'],
-                timestamp=post['timestamp'], # BURASI: format_time_ago fonksiyonunu kullanın
+                created_at=formatted_time, # Dönüştürülmüş değeri kullan
                 image_url=post.get('image_url'),
                 topic=post.get('topic', 'Genel'),
-                likes=post.get('likes', 0), # Eğer likes/comments sütunları varsa
+                likes=post.get('likes', 0),
                 comments=post.get('comments', 0)
             ))
         else:
@@ -435,7 +439,7 @@ async def get_posts_api(
                 username='Bilinmeyen Kullanıcı',
                 profile_picture_url="/static/images/sample_user.png",
                 content=post['content'],
-                timestamp=db_queries.format_time_ago(post['timestamp']), # BURASI: format_time_ago fonksiyonunu kullanın
+                created_at=formatted_time, # Dönüştürülmüş değeri kullan
                 image_url=post.get('image_url'),
                 topic=post.get('topic', 'Genel'),
                 likes=post.get('likes', 0),
@@ -443,7 +447,6 @@ async def get_posts_api(
             ))
 
     return formatted_posts
-
 
 @router.post("/api/posts", response_model=PostResponse, status_code=status.HTTP_201_CREATED, name="create_post_api")
 async def create_post_api(
