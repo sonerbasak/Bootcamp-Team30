@@ -388,7 +388,7 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
     </ul>
     <p>Scrum toplantılarından ekran görüntüleri:</p>
     <img src="images/sprint3dailyscrum.jpg" alt="Daily Scrum Görseli 1" width="600" style="margin-bottom: 10px;" />
-    <img src="images/sprint3dailyscrum1.jpg" alt="Daily Scrum Görseli 2" width="600" />
+    <img src="images/sprint3dailyscrum1.jpg.png" alt="Daily Scrum Görseli 2" width="600" />
   </details>
 
   <details>
