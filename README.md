@@ -486,9 +486,8 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
 
 ## 🎥 Demo
 
-> **Demo videosu**: [YouTube Linki (varsa)](https://youtube.com/...)
+**Demo videosu**: [YouTube Linki (varsa)](https://youtube.com/...)
 
----
 
 <details>
   <summary><b>Giriş ve Kayıt</b></summary>
