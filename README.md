@@ -490,37 +490,51 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
 
 ---
 
-### Giriş ve Kayıt
-Açıklama metni: Giriş ve kayıt işlemlerinin nasıl yapıldığına dair kısa bir açıklama...
+<details>
+  <summary><b>Giriş ve Kayıt</b></summary>
+  <br>
+  > Bu bölümde, kullanıcıların sisteme nasıl giriş yapıp yeni hesap oluşturabileceği gösterilmektedir.
+  
+  <p align="center">
+    <img src="https://example.com/giris_1.png" alt="Giriş Ekranı" width="400"/>
+    <img src="https://example.com/kayit_1.png" alt="Kayıt Ekranı" width="400"/>
+  </p>
+</details>
 
-<p align="center">
-  <img src="https://example.com/giris_1.png" alt="Giriş Ekranı" width="400"/>
-  <img src="https://example.com/kayit_1.png" alt="Kayıt Ekranı" width="400"/>
-</p>
+<details>
+  <summary><b>Profil ve Mesajlar</b></summary>
+  <br>
+  > Kullanıcıların profillerini yönetebileceği ve diğer kullanıcılarla mesajlaşabileceği arayüzler.
+  
+  <p align="center">
+    <img src="https://example.com/profil_1.png" alt="Profil Ekranı" width="400"/>
+    <img src="https://example.com/mesajlar_1.png" alt="Mesajlar Ekranı" width="400"/>
+  </p>
+</details>
 
-### Profil ve Mesajlar
-Açıklama metni: Kullanıcı profilinin ve mesajlaşma arayüzünün nasıl göründüğüne dair kısa bir açıklama...
+<details>
+  <summary><b>Sosyal Akış ve Türkiye Haritası</b></summary>
+  <br>
+  > Sosyal akış ve Türkiye haritası üzerinde yapılan etkileşimleri ve içerikleri gösteren ekranlar.
+  
+  <p align="center">
+    <img src="https://example.com/sosyal_akis_1.png" alt="Sosyal Akış Ekranı" width="400"/>
+    <img src="https://example.com/turkiye_haritasi_1.png" alt="Türkiye Haritası Ekranı" width="400"/>
+  </p>
+</details>
 
-<p align="center">
-  <img src="https://example.com/profil_1.png" alt="Profil Ekranı" width="400"/>
-  <img src="https://example.com/mesajlar_1.png" alt="Mesajlar Ekranı" width="400"/>
-</p>
+<details>
+  <summary><b>Dünya Haritası ve Genel Kültür</b></summary>
+  <br>
+  > Dünya haritası üzerindeki içerikler ve genel kültür sorularının bulunduğu bölümler.
+  
+  <p align="center">
+    <img src="https://example.com/dunya_haritasi_1.png" alt="Dünya Haritası Ekranı" width="400"/>
+    <img src="https://example.com/genel_kultur_1.png" alt="Genel Kültür Ekranı" width="400"/>
+  </p>
+</details>
 
-### Sosyal Akış ve Türkiye Haritası
-Açıklama metni: Sosyal akış ve Türkiye haritası üzerindeki etkileşimleri anlatan kısa bir açıklama...
-
-<p align="center">
-  <img src="https://example.com/sosyal_akis_1.png" alt="Sosyal Akış Ekranı" width="400"/>
-  <img src="https://example.com/turkiye_haritasi_1.png" alt="Türkiye Haritası Ekranı" width="400"/>
-</p>
-
-### Dünya Haritası ve Genel Kültür
-Açıklama metni: Dünya haritası ve genel kültür sorularının nasıl sunulduğuna dair kısa bir açıklama...
-
-<p align="center">
-  <img src="https://example.com/dunya_haritasi_1.png" alt="Dünya Haritası Ekranı" width="400"/>
-  <img src="https://example.com/genel_kultur_1.png" alt="Genel Kültür Ekranı" width="400"/>
-</p>
+---
 
 <h2>🛠️ Kullanılan Teknolojiler</h2>
 
