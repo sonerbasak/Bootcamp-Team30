@@ -345,7 +345,7 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
 
   <details>
     <summary>🎯 Sprint 3 Notları</summary>
-    Sprint 3, projenin son sprint'i olarak tamamlandı. Bu süreçte uygulamanın temel fonksiyonları sosyal bir platforma dönüştürülerek zenginleştirildi. Quiz modülü, yapay zekâ entegrasyonuyla daha dinamik hale getirildi. Kullanıcı deneyimini merkezine alan giriş paneli ve çoklu kullanıcı desteği eklendi. Ayrıca, kullanıcı etkileşimini artırmak için rozet ve sosyal medya sistemleri hayata geçirildi. Sprint boyunca tespit edilen ufak çaplı hatalar giderilerek projenin son hali stabil ve kullanıma hazır hale getirildi.
+    Sprint 3, projenin son sprint'i olarak tamamlandı. Bu süreçte uygulamanın temel fonksiyonları sosyal bir platforma dönüştürülerek zenginleştirildi. Quiz modülü, yapay zekâ entegrasyonunda kategorik sorular oluşturulması sağlanıp daha dinamik hale getirildi. Kullanıcı deneyimini merkezine alan giriş paneli ve çoklu kullanıcı desteği eklendi. Ayrıca, kullanıcı etkileşimini artırmak için rozet ve sosyal medya sistemleri hayata geçirildi. Sprint boyunca tespit edilen ufak çaplı hatalar giderilerek projenin son hali stabil ve kullanıma hazır hale getirildi.
   </details>
 
   <details>
@@ -364,9 +364,9 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
   <details>
     <summary>🎯 Tahmin Edilen Tamamlanacak Puan</summary>
     <ul>
-      <li>Hedeflenen puan: <strong>110</strong></li>
-      <li>Gerçekleşen puan: <strong>105</strong></li>
-      <li>Tamamlanma oranı: <strong>%95</strong></li>
+      <li>Hedeflenen puan: <strong>100</strong></li>
+      <li>Gerçekleşen puan: <strong>100</strong></li>
+      <li>Tamamlanma oranı: <strong>%100</strong></li>
     </ul>
   </details>
 
@@ -382,7 +382,7 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
     <ul>
       <li>Daily Scrum toplantıları, **Melike Nur Köseoğlu** tarafından organize edilerek sprint süreci takip edilmiştir.</li>
       <li>Ekip içindeki iletişim zayıflığı, özellikle görev takibinde bazı zorluklara neden olmuştur.</li>
-      <li>Quiz mantığının güncellenmesi sürecinde ortaya çıkan beklenmedik teknik zorluklar, **Melike Nur Köseoğlu ve Soner Başak'ın** yoğun çabalarıyla aşılmıştır.</li>
+      <li>DB ve Rozet mantıklarının güncellenmesi sürecinde ortaya çıkan beklenmedik teknik zorluklar, **Melike Nur Köseoğlu ve Soner Başak'ın** yoğun çabalarıyla aşılmıştır.</li>
       <li>Tüm görevler, takvime uyum sağlamak amacıyla dinamik bir şekilde yönetilmiştir.</li>
     </ul>
     <p>Scrum toplantılarından ekran görüntüleri:</p>
@@ -436,19 +436,20 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
 
   <p>👩‍💻 <strong>Melike Nur Köseoğlu – Product Owner</strong></p>
   <ul>
-    <li>Giriş ve çoklu kullanıcı sistemini geliştirmiştir.</li>
     <li>Sosyal medya mantığı ve profil sayfalarını tasarlayıp uygulamıştır.</li>
-    <li>Kullanıcı rozet sistemini oluşturmuştur.</li>
     <li>**Daily Scrum toplantılarını yöneterek ekip içi koordinasyonu sağlamıştır.**</li>
     <li>Arayüzdeki eksiklikleri ve problemleri gidermiştir.</li>
+    <li>Küçük çaplı hataların giderilmesinde aktif rol almıştır.</li>
+    <li>Projenin fonksiyonel testlerini tamamlamıştır.</li>
   </ul>
 
   <p>👨‍💻 <strong>Soner Başak – Backend & AI Developer</strong></p>
   <ul>
+    <li>Giriş ve çoklu kullanıcı sistemini geliştirmiştir.</li>
+    <li>Kullanıcı rozet sistemini oluşturmuştur.</li>
     <li>Yapay zekâ destekli quiz mantığını güncelledi ve testlerini yapmıştır.</li>
     <li>Kullanıcı skor ve istatistiklerinin gösterimi için gerekli backend altyapısını kurmuştur.</li>
     <li>Çoklu kullanıcı desteği için veritabanı entegrasyonlarını gerçekleştirmiştir.</li>
-    <li>Küçük çaplı hataların giderilmesinde aktif rol almıştır.</li>
   </ul>
 
   </details>
