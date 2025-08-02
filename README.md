@@ -387,15 +387,14 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
       <li>Tüm görevler, takvime uyum sağlamak amacıyla dinamik bir şekilde yönetilmiştir.</li>
     </ul>
     <p>Scrum toplantılarından ekran görüntüleri:</p>
-    <img src="images/ss11.jpg" alt="Daily Scrum Görseli 1" width="600" style="margin-bottom: 10px;" />
-    <img src="images/ss12.jpg" alt="Daily Scrum Görseli 2" width="600" />
+    <img src="images/sprint3dailyscrum.jpg" alt="Daily Scrum Görseli 1" width="600" style="margin-bottom: 10px;" />
+    <img src="images/sprint3dailyscrum1.jpg" alt="Daily Scrum Görseli 2" width="600" />
   </details>
 
   <details>
     <summary>🎯 Sprint Board Updates</summary>
     <p>Sprint boyunca görev yönetimi Trello üzerinden takip edildi. İşte örnek ekran görüntüleri:</p>
-    <img src="images/trello03.png" alt="Sprint Board Görüntüsü 1" width="600" style="margin-bottom: 10px;" />
-    <img src="images/trello04.png" alt="Sprint Board Görüntüsü 2" width="600" />
+    <img src="images/sprint3.png" alt="Sprint Board Görüntüsü 1" width="600" style="margin-bottom: 10px;" />
   </details>
 
   <details>
