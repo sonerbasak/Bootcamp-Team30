@@ -71,7 +71,7 @@ Bu platform aynı zamanda, kullanıcıların profil rozetleri kazanarak başarı
 
   <details>
     <summary>🎯 Sprint 1 Notları</summary>
-  Sprint süreci boyunca başlangıçta uyumlu bir görev dağılımı ve verimli bir iletişim hedeflenmiş olsa da, ekip içinde bazı uyumsuzluklar yaşanmıştır. Maalesef ekipten bir arkadaşımızın da geçirdiği kaza sonucu takımdan ayrılması gerekmiştir.Bu zorlu süreçte, Scrum Master'ımız sorumluluğunu yerine getirmemiş olup sprint 1'deki Scrum Master süreçleri ve koordinasyonu Melike Nur tarafından yürütülmüştür.
+  Sprint süreci boyunca başlangıçta uyumlu bir görev dağılımı ve verimli bir iletişim hedeflenmiş olsa da, ekip içinde bazı uyumsuzluklar yaşanmıştır. Maalesef ekipten bir arkadaşımızın da geçirdiği kaza sonucu takımdan ayrılması gerekmiştir.Bu zorlu süreçte, Scrum Master'ımız sorumluluğunu yerine getirmemiş olup sprint 1'deki Scrum Master süreçleri ve koordinasyonu Melike Nur Köseoğlu tarafından yürütülmüştür.
 
 Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya çalışmıştır. Sprint başında belirlenen hedefler ve kullanıcı hikayeleri doğrultusunda arayüz tasarımları, harita entegrasyonu ve seçilebilir şehirler için bilgi kutucuklarının oluşturulması gibi temel adımlar başarıyla tamamlanmıştır.
   </details>
