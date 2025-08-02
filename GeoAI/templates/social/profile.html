@@ -12,7 +12,7 @@
 
 <body class="profile-page">
     {# Jinja2 değişkenlerini JavaScript'e aktaran script bloğu #}
-    <script>r.
+    <script>
         window.CURRENT_PROFILE_USERNAME = "{{ profile_user.username | default('') }}";
         window.STATIC_URLS = {
             sampleUserImage: "{{ url_for('static', path='images/sample_user.png') }}",
