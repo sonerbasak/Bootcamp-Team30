@@ -405,17 +405,17 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
       <img src="images/ss11.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
     </p>
     <p>
-      <img src="images/ss21.jpg" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-      <img src="images/ss22.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-      <img src="images/ss23.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss21.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss22.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss23.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
     </p>
     <p>
-      <img src="images/ss24.jpg" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-      <img src="images/ss25.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss24.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss25.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
     </p>
      <p>
-      <img src="images/ss28.jpg" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-      <img src="images/ss29.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
     </p>
   </details>
 
