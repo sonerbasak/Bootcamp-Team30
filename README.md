@@ -312,20 +312,17 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
   <details>
     <summary>🎯 Sprint Retrospective</summary>
     <p>Takım değerlendirme toplantısında öne çıkan konular:</p>
-
     <strong>🌟 İyi Gidenler</strong>
     <ul>
       <li>Yapay zekâ entegrasyonu zamanında ve sorunsuz gerçekleşti.</li>
       <li>Scrum toplantıları verimli ve çözüm odaklıydı.</li>
     </ul>
-
     <strong>⚠️ Geliştirilmesi Gerekenler</strong>
     <ul>
       <li>Takım içi iletişim motivasyonunda düşüklükler vardı.</li>
       <li>Versiyon kontrolü için daha etkin bir sistem gerekli.</li>
       <li>Arayüz testleri daha erken başlatılmalı.</li>
     </ul>
-
     <strong>🚀 Öneriler</strong>
     <ul>
       <li>Harita üzerinde filtreleme ve arama fonksiyonları eklenmeli.</li>
@@ -457,20 +454,17 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
   <details>
     <summary>🎯 Sprint Retrospective</summary>
     <p>Takım değerlendirme toplantısında öne çıkan konular:</p>
-
     <strong>🌟 İyi Gidenler</strong>
     <ul>
       <li>Quiz sisteminin güncellenmesi ve kullanıcı arayüzü geri bildirimleri çok olumluydu.</li>
       <li>Yeni eklenen sosyal özellikler platforma yeni bir dinamizm kattı.</li>
       <li>Proje hedeflerinin büyük bir kısmı başarıyla tamamlandı.</li>
     </ul>
-
     <strong>⚠️ Geliştirilmesi Gerekenler</strong>
     <ul>
       <li>Ekip içi iletişimin daha güçlü olması gerektiği anlaşılmıştır.</li>
       <li>Scrum Master'ın rolü ve sorumlulukları daha net bir şekilde belirlenmelidir.</li>
     </ul>
-
     <strong>🚀 Öneriler</strong>
     <ul>
       <li>Projenin sürdürülebilirliği için olası yeni özellikler (harita filtreleme, kullanıcı içerik teyidi) için bir yol haritası oluşturulabilir.</li>
