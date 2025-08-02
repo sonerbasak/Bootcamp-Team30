@@ -488,48 +488,80 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
 
 **Demo videosu**: [YouTube Linki (varsa)](https://youtube.com/...)
 
-
 <details>
   <summary><b>Giriş ve Kayıt</b></summary>
   <br>
-  > Bu bölümde, kullanıcıların sisteme nasıl giriş yapıp yeni hesap oluşturabileceği gösterilmektedir.
+  > Bu bölümde, kullanıcıların sisteme nasıl giriş yapıp yeni bir hesap oluşturabileceği gösterilmektedir.
   
   <p align="center">
-    <img src="https://example.com/giris_1.png" alt="Giriş Ekranı" width="400"/>
-    <img src="https://example.com/kayit_1.png" alt="Kayıt Ekranı" width="400"/>
+    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
   </p>
 </details>
 
 <details>
-  <summary><b>Profil ve Mesajlar</b></summary>
+  <summary><b>Türkiye Haritası ve AI Soru Oluşturma</b></summary>
   <br>
-  > Kullanıcıların profillerini yönetebileceği ve diğer kullanıcılarla mesajlaşabileceği arayüzler.
+  > Bu bölümde, Türkiye haritasındaki iller, illere ait bilgiler ve yapay zeka destekli soru paneli gösterilmektedir.
   
   <p align="center">
-    <img src="https://example.com/profil_1.png" alt="Profil Ekranı" width="400"/>
-    <img src="https://example.com/mesajlar_1.png" alt="Mesajlar Ekranı" width="400"/>
+    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
   </p>
 </details>
 
 <details>
-  <summary><b>Sosyal Akış ve Türkiye Haritası</b></summary>
+  <summary><b>Dünya Haritası ve AI Soru Oluşturma</b></summary>
   <br>
-  > Sosyal akış ve Türkiye haritası üzerinde yapılan etkileşimleri ve içerikleri gösteren ekranlar.
+  > Bu bölümde, dünya haritasındaki ülkeler, ülkelere ait bilgiler ve yapay zeka destekli soru paneli gösterilmektedir.
   
   <p align="center">
-    <img src="https://example.com/sosyal_akis_1.png" alt="Sosyal Akış Ekranı" width="400"/>
-    <img src="https://example.com/turkiye_haritasi_1.png" alt="Türkiye Haritası Ekranı" width="400"/>
+    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
   </p>
 </details>
 
 <details>
-  <summary><b>Dünya Haritası ve Genel Kültür</b></summary>
+  <summary><b>Mesajlar</b></summary>
   <br>
-  > Dünya haritası üzerindeki içerikler ve genel kültür sorularının bulunduğu bölümler.
+  > Kullanıcıların diğer kullanıcılarla mesajlaşabileceği arayüzler.
   
   <p align="center">
-    <img src="https://example.com/dunya_haritasi_1.png" alt="Dünya Haritası Ekranı" width="400"/>
-    <img src="https://example.com/genel_kultur_1.png" alt="Genel Kültür Ekranı" width="400"/>
+    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+  </p>
+</details>
+
+<details>
+  <summary><b>Profil Bilgileri ve Rozetler</b></summary>
+  <br>
+  > Kullanıcıların profil bilgileri, kazandıkları rozetler, istatistikleri, son aktiviteleri ve önerilen arkadaşlıkların bulunduğu bölüm.
+  
+  <p align="center">
+    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+  </p>
+</details>
+
+<details>
+  <summary><b>Sosyal Akış</b></summary>
+  <br>
+  > Sosyal akış içeriklerinin gösterildiği ekranlar.
+  
+  <p align="center">
+    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+  </p>
+</details>
+
+<details>
+  <summary><b>Genel Kültür</b></summary>
+  <br>
+  > Genel kültür sorularının bulunduğu bölümler.
+  
+  <p align="center">
+    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
   </p>
 </details>
 
