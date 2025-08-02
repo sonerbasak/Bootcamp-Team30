@@ -399,18 +399,23 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
 
   <details>
     <summary>🎯 Ekran Görüntüleri</summary>
-    <p>Uygulamanın geliştirme sürecine ait 6 ekran görüntüsü:</p>
+    <p>Uygulamanın geliştirme sürecine ait  ekran görüntüleri:</p>
     <p>
-      <img src="images/ss7.jpg" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-      <img src="images/ss8.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss10.jpg" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss11.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
     </p>
     <p>
-      <img src="images/ss9.jpg" alt="Ekran Görüntüsü 3" width="300" style="margin-right: 10px;" />
-      <img src="images/ss10.jpg" alt="Ekran Görüntüsü 4" width="300" />
+      <img src="images/ss21.jpg" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss22.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss23.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
     </p>
     <p>
-      <img src="images/ss11.jpg" alt="Ekran Görüntüsü 5" width="300" style="margin-right: 10px;" />
-      <img src="images/ss12.jpg" alt="Ekran Görüntüsü 6" width="300" />
+      <img src="images/ss24.jpg" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss25.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+    </p>
+     <p>
+      <img src="images/ss28.jpg" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+      <img src="images/ss29.jpg" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
     </p>
   </details>
 
