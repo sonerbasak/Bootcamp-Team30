@@ -356,8 +356,6 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
       <li>🤝 Sosyal medya mantığının oluşturulması (arkadaşlık, profil)</li>
       <li>🏅 Kullanıcılar için rozet sisteminin geliştirilmesi</li>
       <li>🖼️ Kullanıcı profil sayfalarının tasarlanması ve uygulanması</li>
-      <li>📝 Kullanıcıların kendi sorularını oluşturma imkanı</li>
-      <li>🔍 Harita üzerinde filtreleme ve arama fonksiyonlarının eklenmesi</li>
       <li>🐛 Tespit edilen ufak problemlerin ve hataların giderilmesi</li>
       <li>📊 Kullanıcı skorlarının ve istatistiklerinin gösterilmesi</li>
     </ul>
