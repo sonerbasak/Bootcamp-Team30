@@ -5,8 +5,6 @@ from contextlib import contextmanager
 from functions.config import settings
 import os
 
-
-
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 @contextmanager

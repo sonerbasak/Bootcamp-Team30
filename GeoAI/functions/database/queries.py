@@ -499,6 +499,8 @@ def get_badge_type_by_name_and_threshold(badge_type_name: str, threshold: float,
         
         logging.debug(f"Rozet bulunamadı: type_name='{badge_type_name}', threshold={threshold}, category='{category}'")
         return None
+    
+    
 # --- QUIZ İSTATİSTİK SORGULARI (quiz_stats.db ile çalışır) ---
 
 def add_quiz_summary(user_id: int, quiz_type: str, quiz_name: str, total_questions: int, correct_answers: int, score: int) -> None:

@@ -102,7 +102,7 @@ def get_recommended_friends_kmeans(current_user_id: int, num_recommendations: in
         return []
 
     similarities = []
-    other_user_ids = [uid for uid in user_ids if uid != current_user_id] # Kendi kullanıcı ID'sini hariç tut
+    other_user_ids = [uid for uid in user_ids if uid != current_user_id]
 
 
     with get_db_connection(settings.USERS_DATABASE_FILE) as user_conn:

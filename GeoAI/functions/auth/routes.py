@@ -10,21 +10,14 @@ from pathlib import Path
 import os
 import uuid
 import shutil
-
 from functions.database.queries import (
-    get_user_by_username, create_user, get_user_by_id, search_users_by_username,
-    follow_user, unfollow_user, is_following, get_followers, get_following,
-    update_user_profile, get_user_activities, get_user_badges, 
-    get_user_category_stats, 
-    get_user_quiz_summaries 
+    get_user_by_username, create_user, get_user_by_id, search_users_by_username, follow_user, 
+    unfollow_user, is_following, get_followers, get_following, update_user_profile, 
+    get_user_activities, get_user_badges, get_user_category_stats, get_user_quiz_summaries 
 )
 from functions.auth.services import hash_password, verify_password, set_auth_cookies, clear_auth_cookies
 from functions.auth.dependencies import require_auth, CurrentUser
-
-
 from functions.ml.recommendations import get_recommended_friends_kmeans
-
-
 from pydantic import BaseModel, EmailStr
 
 class ActivityResponse(BaseModel):
