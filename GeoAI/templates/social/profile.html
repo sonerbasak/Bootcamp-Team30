@@ -172,7 +172,7 @@
                 <h4 class="section-header mt-4">Son Aktiviteler</h4>
                 <ul class="list-group list-group-flush">
                     {% if profile_user.recent_activities %}
-                    {% for activity in profile_user.recent_activities | reverse %} 
+                    {% for activity in profile_user.recent_activities %} 
                     {% if loop.index <= 5 %} {# loop.index 1'den başlar, ilk 5 öğeyi kontrol ederiz #} <li
                         class="list-group-item">{{ activity.activity_description }} - <small class="text-muted">{{
                             activity.timestamp.strftime('%Y-%m-%d %H:%M') }}</small></li>
