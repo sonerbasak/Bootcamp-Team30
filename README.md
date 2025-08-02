@@ -594,9 +594,8 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
   <ul>
     <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
     <li><strong>Backend:</strong> Python, FastAPI</li>
-    <li><strong>Veri Tabanı:</strong> SQLite / Firebase</li>
+    <li><strong>Veri Tabanı:</strong> SQLite</li>
     <li><strong>Yapay Zeka:</strong> GEMİNİ</li>
-    <li><strong>Tasarım:</strong> Figma, GEMİNİ</li>
   </ul>
 </details>
 
