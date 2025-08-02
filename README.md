@@ -491,11 +491,11 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
 <details>
   <summary><b>Giriş ve Kayıt</b></summary>
   <br>
-  > Bu bölümde, kullanıcıların sisteme nasıl giriş yapıp yeni bir hesap oluşturabileceği gösterilmektedir.
+  Bu bölümde, kullanıcıların sisteme nasıl giriş yapıp yeni bir hesap oluşturabileceği gösterilmektedir.
   
-  <p align="center">
-    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+  <p>
+    <img src="images/ss10.jpg" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss11.jpg" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
   </p>
 </details>
 
