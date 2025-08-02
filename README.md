@@ -601,16 +601,5 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
 
 
 ---
-## 🚀 Projeyi Yerel Ortamda Çalıştırma
-
-Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları takip ediniz.
-
-### 1. Gerekli Kütüphanelerin Kurulumu
-
-Projenin bağımlılıklarını kurmak için terminalinizde aşağıdaki komutu çalıştırın:
-
-```bash
-pip install fastapi uvicorn python-dotenv jinja2 google-generativeai
----
 
 > Bu proje bir bootcamp kapsamında geliştirilmiş olup, eğitim amaçlıdır.
