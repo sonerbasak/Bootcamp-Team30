@@ -502,66 +502,86 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
 <details>
   <summary><b>Türkiye Haritası ve AI Soru Oluşturma</b></summary>
   <br>
-  > Bu bölümde, Türkiye haritasındaki iller, illere ait bilgiler ve yapay zeka destekli soru paneli gösterilmektedir.
+  Bu bölümde, Türkiye haritasındaki iller, illere ait bilgiler ve yapay zeka destekli soru paneli gösterilmektedir.
   
-  <p align="center">
-    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+  <p >
+    <img src="images/ss12.jpg" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss13.jpg" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+  </p>
+  <p >
+    <img src="images/ss14.jpg" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss15.jpg" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+  </p>
+  <p >
+    <img src="images/ss16.jpg" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss17.jpg" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
   </p>
 </details>
 
 <details>
   <summary><b>Dünya Haritası ve AI Soru Oluşturma</b></summary>
   <br>
-  > Bu bölümde, dünya haritasındaki ülkeler, ülkelere ait bilgiler ve yapay zeka destekli soru paneli gösterilmektedir.
+  Bu bölümde, dünya haritasındaki ülkeler, ülkelere ait bilgiler ve yapay zeka destekli soru paneli gösterilmektedir.
   
-  <p align="center">
-    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+  <p >
+    <img src="images/ss19.jpg" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss20.jpg" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+  </p>
+   <p >
+    <img src="images/ss30.png" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss31.png" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+  </p>
+   <p >
+    <img src="images/ss32.png" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss33.png" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
   </p>
 </details>
 
 <details>
   <summary><b>Mesajlar</b></summary>
   <br>
-  > Kullanıcıların diğer kullanıcılarla mesajlaşabileceği arayüzler.
+  Kullanıcıların diğer kullanıcılarla mesajlaşabileceği arayüzler.
   
-  <p align="center">
-    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+   <p >
+    <img src="images/ss24.png" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss25.png" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
   </p>
 </details>
 
 <details>
   <summary><b>Profil Bilgileri ve Rozetler</b></summary>
   <br>
-  > Kullanıcıların profil bilgileri, kazandıkları rozetler, istatistikleri, son aktiviteleri ve önerilen arkadaşlıkların bulunduğu bölüm.
+  Kullanıcıların profil bilgileri, kazandıkları rozetler, istatistikleri, son aktiviteleri ve önerilen arkadaşlıkların bulunduğu bölüm.
   
-  <p align="center">
-    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+   <p >
+    <img src="images/ss21.png" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss22.png" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss23.png" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
   </p>
 </details>
 
 <details>
   <summary><b>Sosyal Akış</b></summary>
   <br>
-  > Sosyal akış içeriklerinin gösterildiği ekranlar.
+  Sosyal akış içeriklerinin gösterildiği ekranlar.
   
-  <p align="center">
-    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+   <p >
+    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
   </p>
 </details>
 
 <details>
-  <summary><b>Genel Kültür</b></summary>
+  <summary><b>Genel Kültür ve Yanlış Cevaplar</b></summary>
   <br>
-  > Genel kültür sorularının bulunduğu bölümler.
+  > Genel kültür sorularınının ve yapılan yanlış soruların bulunduğu bölümler.
   
-  <p align="center">
-    <img src="images/ss28.png" alt="Ekran Görüntüsü 1" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
-    <img src="images/ss29.png" alt="Ekran Görüntüsü 2" width="300" style="margin-right: 10px; margin-bottom: 10px;" />
+  <p >
+    <img src="images/ss26.png" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+    <img src="images/ss27.png" alt="Ekran Görüntüsü 2" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
+  </p>
+  <p >
+    <img src="images/ss18.jpg" alt="Ekran Görüntüsü 1" width="500" style="margin-right: 10px; margin-bottom: 10px;" />
   </p>
 </details>
 
