@@ -38,7 +38,7 @@ Bu platform aynı zamanda, kullanıcıların profil rozetleri kazanarak başarı
   <summary>🌟 Proje Özellikleri</summary>
 
 - Türkiye ve dünya haritasının interaktif gösterimi  
-- İller, ülkeler veya bölgeler hakkında detaylı bilgi kartları  
+- İller ve ülkeler  hakkında detaylı bilgi kartları  
 - Yapay zeka destekli soru oluşturma ve cevaplama paneli  
 - Kullanıcıların verdiği cevapların analizi
 - Entegre sosyal medya altyapısı
