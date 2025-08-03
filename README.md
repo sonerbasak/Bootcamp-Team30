@@ -602,4 +602,36 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
 
 ---
 
+<details>
+  <summary>### ▶️ Projeyi Çalıştırma Adımları</summary>
+
+Projeyi kendi ortamınızda çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
+
+1.  **Depoyu Klonlayın:**
+    ```bash
+    git clone [https://github.com/kullaniciadi/proje-adi.git](https://github.com/kullaniciadi/proje-adi.git)
+    ```
+    (Not: Yukarıdaki komutta **'kullaniciadi/proje-adi'** kısmını kendi GitHub deponuzun adresiyle değiştirmeyi unutmayın.)
+
+2.  **Gerekli Kütüphaneleri Kurun:**
+    Projenin bağımlılıklarını kurmak için **`requirements.txt`** dosyasını kullanın.
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **Projenin Dizinine Gidin:**
+    ```bash
+    cd proje-adi
+    ```
+
+4.  **Uygulamayı Başlatın:**
+    FastAPI tabanlı backend sunucusunu başlatmak için aşağıdaki komutu kullanın. Bu komut, uygulamanın çalışmasını ve erişilebilir hale gelmesini sağlayacaktır.
+    ```bash
+    uvicorn main:app --reload
+    ```
+    Artık projeye tarayıcınız üzerinden erişebilir ve kullanmaya başlayabilirsiniz.
+</details>
+
+---
+
 > Bu proje bir bootcamp kapsamında geliştirilmiş olup, eğitim amaçlıdır.
