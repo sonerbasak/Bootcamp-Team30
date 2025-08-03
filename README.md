@@ -178,7 +178,7 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
     Sprint sonunda ekip bir araya gelerek süreçte nelerin iyi gittiğini, hangi konularda zorlanıldığını ve iyileştirme alanlarını değerlendirmiştir.
   </p>
   <ul>
-    <li><strong>Başarılı Yönler:</strong> Ekip içi iletişim güçlüydü, görev dağılımı sağlıklıydı, planlama başarılıydı ve hedefler neredeyse tamamen yapıldı.</li>
+    <li><strong>Başarılı Yönler:</strong>Planlama başarılıydı ve hedefler neredeyse tamamen yapıldı.</li>
     <li><strong>Geliştirilmesi Gerekenler:</strong> Bazı teknik entegrasyonlarda zamanlama sorunları yaşandı,test süreçleri daha erken başlamalı, ekipte iş takibi ve sorumlululuk bilinci problemleri var.</li>
     <li><strong>İleriye Dönük Adımlar:</strong> Günlük toplantılar daha kısa ve odaklı yapılacak, dokümantasyon düzenli olarak güncellenecek.</li>
   </ul>
