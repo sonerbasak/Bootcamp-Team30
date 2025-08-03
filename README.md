@@ -609,7 +609,7 @@ Projeyi kendi ortamınızda çalıştırmak için aşağıdaki adımları takip 
 
 1.  **Depoyu Klonlayın:**
     ```bash
-    git clone [https://github.com/sonerbasak/Bootcamp-Team30](https://github.com/sonerbasak/Bootcamp-Team30)
+    git clone https://github.com/sonerbasak/Bootcamp-Team30
     ```
 
 2.  **Gerekli Kütüphaneleri Kurun:**
