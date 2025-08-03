@@ -27,7 +27,7 @@
 <details>
   <summary>📄 Proje Açıklaması</summary>
 
-GeIAI, kullanıcıların Türkiye ve dünya haritası üzerinde coğrafi alanlar seçerek yapay zeka destekli sorular oluşturup cevaplamalarını sağlayan etkileşimli bir web uygulamasıdır. Proje, harita tabanlı veri görselleştirme ve yapay zeka entegrasyonuyla bilgi keşfini kolaylaştırmayı amaçlamaktadır.
+GeoAI, kullanıcıların Türkiye ve dünya haritası üzerinde coğrafi alanlar seçerek yapay zeka destekli sorular oluşturup cevaplamalarını sağlayan etkileşimli bir web uygulamasıdır. Proje, harita tabanlı veri görselleştirme ve yapay zeka entegrasyonuyla bilgi keşfini kolaylaştırmayı amaçlamaktadır.
 
 Bu platform aynı zamanda, kullanıcıların profil rozetleri kazanarak başarılarını sergileyebileceği, benzer ilgi alanlarına sahip kişilerle arkadaşlık kurabileceği ve bir araya gelerek deneyim paylaşımı yapabileceği bir sosyal ağa dönüşmektedir. Bu özellikler, öğrenmeyi sosyal ve etkileşimli bir deneyime dönüştürerek GeoAI'ı zenginleştirir.
 </details>
