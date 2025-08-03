@@ -623,12 +623,7 @@ Projeyi kendi ortamınızda çalıştırmak için aşağıdaki adımları takip 
     pip install -r requirements.txt
     ```
     
-4.  **.env dosyasını oluşturun ve Gemini Api Key'inizi Yapıştırın:**
-    ```bash
-    GEMINI_API_KEY="Api keyinizi buraya yapıştırın"
-    ```
-
-5.  **.env dosyasına karmaşık karakterlerden oluşan bir SECRET_KEY oluşturun:**
+4.  **.env dosyasına Gemini Api Key'inizi Yapıştırın:**
     ```bash
     GEMINI_API_KEY="Api keyinizi buraya yapıştırın"
     ```
