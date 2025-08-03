@@ -612,22 +612,27 @@ Projeyi kendi ortamınızda çalıştırmak için aşağıdaki adımları takip 
     git clone https://github.com/sonerbasak/Bootcamp-Team30
     ```
 
-2.  **Gerekli Kütüphaneleri Kurun:**
+2.  **Projenin Dizinine Gidin:**
+    ```bash
+    cd GeoAI
+    ```
+
+3.  **Gerekli Kütüphaneleri Kurun:**
     Projenin bağımlılıklarını kurmak için **`requirements.txt`** dosyasını kullanın.
     ```bash
     pip install -r requirements.txt
     ```
-
-3.  **Projenin Dizinine Gidin:**
-    ```bash
-    cd GeoAI
-    ```
     
-4.  **.env dosyasına Gemini Api Key'inizi Yapıştırın:**
+4.  **.env dosyasını oluşturun ve Gemini Api Key'inizi Yapıştırın:**
     ```bash
     GEMINI_API_KEY="Api keyinizi buraya yapıştırın"
     ```
 
+5.  **.env dosyasına karmaşık karakterlerden oluşan bir SECRET_KEY oluşturun:**
+    ```bash
+    GEMINI_API_KEY="Api keyinizi buraya yapıştırın"
+    ```
+    
 5.  **Uygulamayı Başlatın:**
     FastAPI tabanlı backend sunucusunu başlatmak için aşağıdaki komutu kullanın. Bu komut, uygulamanın çalışmasını ve erişilebilir hale gelmesini sağlayacaktır.
     ```bash
