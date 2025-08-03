@@ -1,5 +1,7 @@
-<h1 align="center">Takım Adı</h1>
-
+<h1 align="center">TEAM VELORA</h1>
+<p style="text-align:center;">
+      <img src="images/teampp.png" alt="Ekran Görüntüsü 1" width="700"  />
+</p>
 ---
 
 # 👥 Takım Üyeleri
