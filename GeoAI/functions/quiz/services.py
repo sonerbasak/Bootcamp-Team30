@@ -31,6 +31,8 @@ async def generate_quiz_from_gemini(quiz_type: str, quiz_name: str, count: int) 
     else:
         target_entity = "genel kültür" 
 
+    prompt_list_text = "\n".join(prompt_parts)
+
     base_prompt = f"""
     {target_entity} hakkında aşağıdaki kategorilerden belirtilen sayıda Türkçe çoktan seçmeli soru oluştur.
     Toplamda **tam olarak {count} adet** soru oluşturduğunu kontrol et. Ne bir eksik ne bir fazla.
@@ -42,7 +44,7 @@ async def generate_quiz_from_gemini(quiz_type: str, quiz_name: str, count: int) 
     Sadece bir JSON dizisi (array) döndür, başka hiçbir metin veya açıklama ekleme.
 
     [
-      {{
+    {{
         "kategori": "[Kategori Adı Buraya Gelecek (örn: Tarih)]",
         "soru": "[Soru Metni Buraya Gelecek]",
         "a": "[Şık A Metni]",
@@ -50,8 +52,8 @@ async def generate_quiz_from_gemini(quiz_type: str, quiz_name: str, count: int) 
         "c": "[Şık C Metni]",
         "d": "[Şık D Metni]",
         "cevap": "[Sadece doğru şıkkın harfi (örn: A)]"
-      }},
-      {{
+    }},
+    {{
         "kategori": "[Diğer Kategori Adı]",
         "soru": "[Diğer Soru Metni]",
         "a": "[Diğer Şık A Metni]",
@@ -59,12 +61,12 @@ async def generate_quiz_from_gemini(quiz_type: str, quiz_name: str, count: int) 
         "c": "[Diğer Şık C Metni]",
         "d": "[Diğer Şık D Metni]",
         "cevap": "[Diğer Cevap Harfi]"
-      }}
-      // ... Diğer sorular
+    }}
+    // ... Diğer sorular
     ]
 
     Oluşturulacak kategoriler ve soru sayıları:
-    {"\n".join(prompt_parts)}
+    {prompt_list_text}
     """
 
     response = await model.generate_content_async(base_prompt)
