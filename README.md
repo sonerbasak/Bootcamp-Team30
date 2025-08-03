@@ -601,17 +601,16 @@ Ekip, bu olumsuzluklara rağmen kalan üyelerle birlikte sürece adapte olmaya �
 
 
 ---
-
+<h2>▶️ Projeyi Çalıştırma Adımları</h2>
 <details>
-  <summary>### ▶️ Projeyi Çalıştırma Adımları</summary>
+  <summary>Adımlar</summary>
 
 Projeyi kendi ortamınızda çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
 
 1.  **Depoyu Klonlayın:**
     ```bash
-    git clone [https://github.com/kullaniciadi/proje-adi.git](https://github.com/kullaniciadi/proje-adi.git)
+    git clone [https://github.com/sonerbasak/Bootcamp-Team30](https://github.com/sonerbasak/Bootcamp-Team30)
     ```
-    (Not: Yukarıdaki komutta **'kullaniciadi/proje-adi'** kısmını kendi GitHub deponuzun adresiyle değiştirmeyi unutmayın.)
 
 2.  **Gerekli Kütüphaneleri Kurun:**
     Projenin bağımlılıklarını kurmak için **`requirements.txt`** dosyasını kullanın.
@@ -621,10 +620,15 @@ Projeyi kendi ortamınızda çalıştırmak için aşağıdaki adımları takip 
 
 3.  **Projenin Dizinine Gidin:**
     ```bash
-    cd proje-adi
+    cd GeoAI
+    ```
+    
+4.  **.env dosyasına Gemini Api Key'inizi Yapıştırın:**
+    ```bash
+    GEMINI_API_KEY="Api keyinizi buraya yapıştırın"
     ```
 
-4.  **Uygulamayı Başlatın:**
+5.  **Uygulamayı Başlatın:**
     FastAPI tabanlı backend sunucusunu başlatmak için aşağıdaki komutu kullanın. Bu komut, uygulamanın çalışmasını ve erişilebilir hale gelmesini sağlayacaktır.
     ```bash
     uvicorn main:app --reload
